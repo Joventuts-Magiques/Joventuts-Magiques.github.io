@@ -20,6 +20,14 @@ layout: default
 
         {% if ca_game and es_game and en_game %}
         <article class="game-card" role="article" aria-label="{{ ca_game.title }}">
+          {% if ca_game.image %}
+          <div class="game-image">
+            <img src="{{ '/assets/images/games/' | append: game_group.name | append: '/' | append: ca_game.image | relative_url }}"
+                 alt="{{ ca_game.title }}"
+                 loading="lazy">
+          </div>
+          {% endif %}
+
           <h3>
             <a href="{{ ca_game.url }}" class="game-title-link lang-ca" aria-label="{{ ca_game.title }} (Català)">{{ ca_game.title }}</a>
             <a href="{{ es_game.url }}" class="game-title-link lang-es" style="display:none;" aria-label="{{ es_game.title }} (Español)">{{ es_game.title }}</a>
