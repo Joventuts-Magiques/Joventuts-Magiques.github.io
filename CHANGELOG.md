@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 #### New Files
+
 - `_layouts/default.html` - Base layout with SEO, accessibility, and responsive design
 - `assets/css/variables.css` - CSS custom properties for theming
 - `assets/css/language-selector.css` - Extracted language selector styles
@@ -18,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - `CHANGELOG.md` - This file
 
 #### Features
+
 - CSS custom properties (variables) for consistent theming
 - Modern ES6+ JavaScript with class-based architecture
 - Enhanced WCAG 2.1 AA accessibility compliance
@@ -33,12 +35,14 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 #### Architecture
+
 - Separated CSS from HTML layouts into dedicated stylesheets
 - Separated JavaScript from HTML into external files
 - Unified language switching logic (removed duplication)
 - Dynamic translation loading from i18n.yml
 
 #### Performance
+
 - Cached DOM queries for better performance
 - Batch DOM updates to reduce reflows
 - Optimized event listeners with delegation
@@ -46,6 +50,7 @@ All notable changes to this project will be documented in this file.
 - Deferred JavaScript loading
 
 #### Code Quality
+
 - Modern ES6+ JavaScript features:
   - Classes instead of IIFEs
   - `const`/`let` instead of `var`
@@ -59,6 +64,7 @@ All notable changes to this project will be documented in this file.
 ### Improved
 
 #### Accessibility
+
 - Added `role` attributes for semantic structure
 - Enhanced `aria-label` attributes for all interactive elements
 - Added `aria-current` for active language indicator
@@ -68,6 +74,7 @@ All notable changes to this project will be documented in this file.
 - Language attribute (`lang`) on all language links
 
 #### SEO
+
 - Complete Open Graph implementation
 - Twitter Card meta tags
 - JSON-LD structured data for games
@@ -77,6 +84,7 @@ All notable changes to this project will be documented in this file.
 - Automatic sitemap and RSS feed integration
 
 #### User Experience
+
 - Consistent visual design with CSS variables
 - Smoother transitions and animations
 - Better mobile responsiveness
@@ -86,6 +94,7 @@ All notable changes to this project will be documented in this file.
 ### Refactored
 
 #### `_layouts/home.html`
+
 - Removed inline `<style>` block (moved to `assets/css/home.css`)
 - Removed inline `<script>` block (moved to `assets/js/language-manager.js`)
 - Added ARIA attributes for accessibility
@@ -93,6 +102,7 @@ All notable changes to this project will be documented in this file.
 - Now uses external CSS and JS files
 
 #### `_layouts/game.html`
+
 - Removed inline `<style>` block (moved to `assets/css/game.css`)
 - Added ARIA attributes for navigation
 - Added Schema.org microdata
@@ -100,6 +110,7 @@ All notable changes to this project will be documented in this file.
 - Now uses external CSS and JS files
 
 #### `_includes/language-selector.html`
+
 - Removed inline `<style>` block (moved to `assets/css/language-selector.css`)
 - Removed inline `<script>` block (functionality now in `assets/js/language-manager.js`)
 - Added `lang` attribute to each language link
@@ -107,6 +118,7 @@ All notable changes to this project will be documented in this file.
 - Improved accessibility
 
 ### Fixed
+
 - Removed hardcoded translations from JavaScript
 - Eliminated code duplication between home and game layouts
 - Consistent color usage across the site via CSS variables
@@ -115,6 +127,7 @@ All notable changes to this project will be documented in this file.
 ### Technical Details
 
 #### CSS Variables
+
 - 60+ CSS custom properties for theming
 - Color palette centralization
 - Spacing scale standardization
@@ -122,6 +135,7 @@ All notable changes to this project will be documented in this file.
 - Transition timing standardization
 
 #### JavaScript Improvements
+
 - Object-oriented design with LanguageManager class
 - Single source of truth for language logic
 - Improved error handling with console warnings
@@ -129,6 +143,7 @@ All notable changes to this project will be documented in this file.
 - Cleaner event handling
 
 #### Browser Support
+
 - Modern browsers (Chrome, Firefox, Safari, Edge)
 - Progressive enhancement for older browsers
 - Graceful degradation strategies
@@ -160,6 +175,7 @@ For developers working with this codebase:
 ## Notes
 
 This release focuses on:
+
 1. Code quality and maintainability
 2. Performance optimization
 3. Accessibility compliance

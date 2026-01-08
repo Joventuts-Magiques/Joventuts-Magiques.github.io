@@ -15,11 +15,13 @@ All improvements have been applied to modernize the codebase, improve maintainab
 **Before:** CSS and JavaScript were embedded inline in layout files, making them difficult to maintain and reuse.
 
 **After:** Created a clean separation:
+
 - `assets/css/` - All stylesheets
 - `assets/js/` - All JavaScript files
 - `_includes/` - Reusable components
 
 **Benefits:**
+
 - Easier to maintain and update styles
 - Better browser caching
 - Reduced code duplication
@@ -57,6 +59,7 @@ _layouts/
 Created `assets/css/variables.css` with centralized theming:
 
 **Benefits:**
+
 - Consistent colors across the site
 - Easy theme customization
 - Support for dark mode (prepared for future)
@@ -64,6 +67,7 @@ Created `assets/css/variables.css` with centralized theming:
 - Reduced motion support for accessibility
 
 **Example variables:**
+
 ```css
 --color-primary: #2c5aa0;
 --color-accent: #007bff;
@@ -75,6 +79,7 @@ Created `assets/css/variables.css` with centralized theming:
 ### Modular CSS Files
 
 Split CSS into focused modules:
+
 - **variables.css** - Theme configuration
 - **language-selector.css** - Language switcher styles
 - **home.css** - Homepage specific styles
@@ -89,6 +94,7 @@ Split CSS into focused modules:
 Created `assets/js/language-manager.js` - A modern ES6+ class-based solution.
 
 **Improvements over previous code:**
+
 1. **No code duplication** - Single source of truth for language logic
 2. **Performance optimizations:**
    - Cached DOM queries
@@ -103,6 +109,7 @@ Created `assets/js/language-manager.js` - A modern ES6+ class-based solution.
 4. **Better error handling** - Console warnings for missing translations
 
 **Key features:**
+
 ```javascript
 class LanguageManager {
   - determineLanguage()      // Smart language detection
@@ -121,6 +128,7 @@ class LanguageManager {
 Created `_includes/translations-script.html` to generate JavaScript translations from `_data/i18n.yml`.
 
 **Before:** Translations hardcoded in JavaScript
+
 ```javascript
 const translations = {
   ca: { title: "Benvinguts...", ... },
@@ -129,11 +137,13 @@ const translations = {
 ```
 
 **After:** Dynamically generated from YAML
+
 ```liquid
 {% include translations-script.html %}
 ```
 
 **Benefits:**
+
 - Single source of truth (i18n.yml)
 - No sync issues between Jekyll and JS
 - Easier to add new translations
@@ -148,6 +158,7 @@ const translations = {
 Added comprehensive ARIA labels and roles:
 
 **Homepage ([home.html](Joventuts-Magiques.github.io/_layouts/home.html)):**
+
 - `role="main"` on main content
 - `aria-label` on sections
 - `aria-labelledby` for section headings
@@ -156,12 +167,14 @@ Added comprehensive ARIA labels and roles:
 - Screen reader labels for icons
 
 **Game Pages ([game.html](Joventuts-Magiques.github.io/_layouts/game.html)):**
+
 - `role="navigation"` on navigation elements
 - `aria-label` on all interactive elements
 - Microdata (Schema.org) for SEO
 - `itemprop` attributes for structured data
 
 **Language Selector ([language-selector.html](Joventuts-Magiques.github.io/_includes/language-selector.html)):**
+
 - `aria-current="page"` for active language
 - `aria-label` for language links
 - `lang` attribute for each link
@@ -170,6 +183,7 @@ Added comprehensive ARIA labels and roles:
 ### Keyboard Navigation
 
 All interactive elements support:
+
 - `:focus-visible` states with clear outlines
 - Skip to main content link
 - Proper tab order
@@ -198,6 +212,7 @@ Created `_layouts/default.html` with comprehensive SEO features:
 ### Structured Data
 
 Enhanced structured data on game pages:
+
 ```html
 <article itemscope itemtype="https://schema.org/Game">
   <h1 itemprop="name">...</h1>
@@ -213,6 +228,7 @@ Enhanced structured data on game pages:
 ### JavaScript Performance
 
 1. **Cached DOM Queries:**
+
    ```javascript
    // Before: Multiple queries
    document.querySelectorAll('.lang-ca').forEach(...)
