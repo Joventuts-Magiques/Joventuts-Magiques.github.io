@@ -46,6 +46,7 @@
 
   /* Hero Gradient */
   --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --hero-text-color: #ffffff;
 
   /* Spacing */
   --spacing-xs: 4px;
@@ -109,17 +110,158 @@
   --breakpoint-wide: 1024px;
 }
 
-/* Dark mode support (optional future enhancement) */
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Uncomment when ready to implement dark mode */
-    /*
+    /* Background Colors */
     --color-bg-primary: #1a1a1a;
     --color-bg-secondary: #2d2d2d;
+    --color-bg-tertiary: #3d3d3d;
+    --color-bg-gradient-start: #2d2d2d;
+    --color-bg-gradient-end: #1a1a1a;
+
+    /* Text Colors */
     --color-text-primary: #e0e0e0;
     --color-text-secondary: #b0b0b0;
-    */
+    --color-text-muted: #9ca3af;
+    --color-text-light: #d1d5db;
+
+    /* Primary Colors (adjusted for dark backgrounds) */
+    --color-primary: #4a9eff;
+    --color-primary-dark: #3b82f6;
+    --color-primary-light: #818cf8;
+    --color-secondary: #a78bfa;
+    --color-accent: #60a5fa;
+    --color-accent-hover: #3b82f6;
+
+    /* Border Colors */
+    --color-border-light: #404040;
+    --color-border-medium: #505050;
+    --color-border-dark: #606060;
+    --color-border-focus: #60a5fa;
+
+    /* Difficulty Colors (adjusted for dark mode) */
+    --color-difficulty-easy-bg: #1e3a2e;
+    --color-difficulty-easy-text: #86efac;
+    --color-difficulty-easy-border: #2d5a3f;
+
+    --color-difficulty-medium-bg: #3a2e1e;
+    --color-difficulty-medium-text: #fcd34d;
+    --color-difficulty-medium-border: #5a4a2d;
+
+    --color-difficulty-hard-bg: #3a1e1e;
+    --color-difficulty-hard-text: #fca5a5;
+    --color-difficulty-hard-border: #5a2d2d;
+
+    /* Hero Gradient (adjusted for dark mode) */
+    --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --hero-text-color: #ffffff;
+
+    /* Shadows (softer for dark mode) */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.5);
   }
+}
+
+/* Manual dark mode override (when user clicks toggle) */
+[data-theme="dark"] {
+  /* Background Colors */
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-bg-tertiary: #3d3d3d;
+  --color-bg-gradient-start: #2d2d2d;
+  --color-bg-gradient-end: #1a1a1a;
+
+  /* Text Colors */
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #9ca3af;
+  --color-text-light: #d1d5db;
+
+  /* Primary Colors (adjusted for dark backgrounds) */
+  --color-primary: #4a9eff;
+  --color-primary-dark: #3b82f6;
+  --color-primary-light: #818cf8;
+  --color-secondary: #a78bfa;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #3b82f6;
+
+  /* Border Colors */
+  --color-border-light: #404040;
+  --color-border-medium: #505050;
+  --color-border-dark: #606060;
+  --color-border-focus: #60a5fa;
+
+  /* Difficulty Colors (adjusted for dark mode) */
+  --color-difficulty-easy-bg: #1e3a2e;
+  --color-difficulty-easy-text: #86efac;
+  --color-difficulty-easy-border: #2d5a3f;
+
+  --color-difficulty-medium-bg: #3a2e1e;
+  --color-difficulty-medium-text: #fcd34d;
+  --color-difficulty-medium-border: #5a4a2d;
+
+  --color-difficulty-hard-bg: #3a1e1e;
+  --color-difficulty-hard-text: #fca5a5;
+  --color-difficulty-hard-border: #5a2d2d;
+
+  /* Hero Gradient (adjusted for dark mode) */
+  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --hero-text-color: #ffffff;
+
+  /* Shadows (softer for dark mode) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Manual light mode override (when user clicks toggle to force light) */
+[data-theme="light"] {
+  /* Force light mode colors even if system prefers dark */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f5f5f5;
+  --color-bg-gradient-start: #f8f9fa;
+  --color-bg-gradient-end: #e9ecef;
+
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-text-muted: #6c757d;
+  --color-text-light: #495057;
+
+  --color-primary: #2c5aa0;
+  --color-primary-dark: #1a365d;
+  --color-primary-light: #667eea;
+  --color-secondary: #764ba2;
+  --color-accent: #007bff;
+  --color-accent-hover: #0056b3;
+
+  --color-border-light: #e1e5e9;
+  --color-border-medium: #dee2e6;
+  --color-border-dark: #ddd;
+  --color-border-focus: #007bff;
+
+  --color-difficulty-easy-bg: #d4edda;
+  --color-difficulty-easy-text: #155724;
+  --color-difficulty-easy-border: #c3e6cb;
+
+  --color-difficulty-medium-bg: #fff3cd;
+  --color-difficulty-medium-text: #856404;
+  --color-difficulty-medium-border: #ffeaa7;
+
+  --color-difficulty-hard-bg: #f8d7da;
+  --color-difficulty-hard-text: #721c24;
+  --color-difficulty-hard-border: #f5c6cb;
+
+  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* High contrast mode support */
