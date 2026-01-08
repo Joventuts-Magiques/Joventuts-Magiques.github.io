@@ -1,0 +1,20 @@
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign t = site.data.i18n[current_lang] %}
+
+<header class="site-header" role="banner">
+  <div class="site-header-content">
+    <div class="site-branding">
+      <a href="/" class="site-title-link" aria-label="Go to homepage">
+        <span class="site-logo" aria-hidden="true">🎲</span>
+        <span class="site-title">{{ t.site_title | default: "Jocs de Taula" }}</span>
+      </a>
+    </div>
+
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="/" class="nav-link" aria-label="Go to homepage">
+        <span class="nav-icon" aria-hidden="true">🏠</span>
+        <span class="nav-text">{{ t.home | default: "Inici" }}</span>
+      </a>
+    </nav>
+  </div>
+</header>
