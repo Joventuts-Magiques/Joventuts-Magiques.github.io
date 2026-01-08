@@ -84,8 +84,53 @@
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-xl);
   padding: var(--spacing-xl);
-  transition: all var(--transition-slow);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow var(--transition-slow),
+              border-color var(--transition-slow);
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Subtle glow effect on hover */
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary));
+  border-radius: var(--radius-xl);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--transition-slow);
+}
+
+/* Shine effect that follows mouse */
+.game-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 50%
+  );
+  border-radius: var(--radius-xl);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.game-card:hover::after {
+  opacity: 1;
 }
 
 .game-image {
@@ -138,14 +183,43 @@
 }
 
 .game-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+              0 8px 20px rgba(0, 0, 0, 0.1),
+              0 0 0 1px rgba(102, 126, 234, 0.1);
   border-color: var(--color-border-focus);
+}
+
+/* Activate glow effect on hover */
+.game-card:hover::before {
+  opacity: 0.15;
+}
+
+/* Staggered animations for card elements */
+.game-card:hover h3 {
+  transform: translateX(4px);
+  transition: transform var(--transition-normal) 0.05s;
+}
+
+.game-card:hover .game-excerpt {
+  transform: translateX(4px);
+  transition: transform var(--transition-normal) 0.1s;
+}
+
+.game-card:hover .game-meta-preview {
+  transform: translateX(4px);
+  transition: transform var(--transition-normal) 0.15s;
+}
+
+.game-card:hover .game-languages {
+  transform: translateX(4px);
+  transition: transform var(--transition-normal) 0.2s;
 }
 
 .game-card h3 {
   margin: 0 0 var(--spacing-md) 0;
   font-size: var(--font-size-3xl);
+  transition: transform var(--transition-normal);
 }
 
 .game-title-link {
@@ -171,6 +245,7 @@
   line-height: var(--line-height-normal);
   margin-bottom: var(--spacing-lg);
   font-size: var(--font-size-lg);
+  transition: transform var(--transition-normal);
 }
 
 /* Game Meta Preview */
@@ -179,6 +254,7 @@
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
+  transition: transform var(--transition-normal);
 }
 
 .meta-badge {
@@ -227,6 +303,7 @@
   display: flex;
   gap: 6px;
   justify-content: flex-end;
+  transition: transform var(--transition-normal);
 }
 
 .lang-indicator {
@@ -289,6 +366,26 @@
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .game-card,
+  .game-card h3,
+  .game-card .game-excerpt,
+  .game-card .game-meta-preview,
+  .game-card .game-languages {
+    transition: none;
+  }
+
+  .game-card:hover,
+  .game-card:hover h3,
+  .game-card:hover .game-excerpt,
+  .game-card:hover .game-meta-preview,
+  .game-card:hover .game-languages {
+    transform: none;
+  }
+
+  .game-card:hover::before {
+    opacity: 0;
   }
 }
 

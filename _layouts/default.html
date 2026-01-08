@@ -92,5 +92,10 @@
 
   {% comment %} Theme Toggle JavaScript {% endcomment %}
   <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+
+  {% comment %} Card Tilt Effect for Homepage {% endcomment %}
+  {% if page.layout == 'home' or layout.name == 'home' %}
+  <script src="{{ '/assets/js/card-tilt.js' | relative_url }}" defer></script>
+  {% endif %}
 </body>
 </html>
