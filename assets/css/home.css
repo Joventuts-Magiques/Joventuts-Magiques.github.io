@@ -55,7 +55,7 @@
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(var(--spacing-lg));
   }
   to {
     opacity: 1;
@@ -73,7 +73,7 @@
 
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr));
   gap: var(--spacing-xl);
   margin-top: var(--spacing-2xl);
 }
@@ -197,22 +197,22 @@
 
 /* Staggered animations for card elements */
 .game-card:hover h3 {
-  transform: translateX(4px);
+  transform: translateX(var(--spacing-xs));
   transition: transform var(--transition-normal) 0.05s;
 }
 
 .game-card:hover .game-excerpt {
-  transform: translateX(4px);
+  transform: translateX(var(--spacing-xs));
   transition: transform var(--transition-normal) 0.1s;
 }
 
 .game-card:hover .game-meta-preview {
-  transform: translateX(4px);
+  transform: translateX(var(--spacing-xs));
   transition: transform var(--transition-normal) 0.15s;
 }
 
 .game-card:hover .game-languages {
-  transform: translateX(4px);
+  transform: translateX(var(--spacing-xs));
   transition: transform var(--transition-normal) 0.2s;
 }
 
@@ -239,8 +239,8 @@
   outline-offset: var(--focus-ring-offset, 2px);
   border-radius: var(--radius-sm);
   background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
-  padding: 2px 4px;
-  margin: -2px -4px;
+  padding: var(--spacing-2) var(--spacing-xs);
+  margin: calc(var(--spacing-2) * -1) calc(var(--spacing-xs) * -1);
 }
 
 .game-excerpt {
@@ -304,14 +304,14 @@
 /* Language Indicators */
 .game-languages {
   display: flex;
-  gap: 6px;
+  gap: var(--spacing-6);
   justify-content: flex-end;
   transition: transform var(--transition-normal);
 }
 
 .lang-indicator {
   font-size: var(--font-size-sm);
-  padding: 2px 6px;
+  padding: var(--spacing-2) var(--spacing-6);
   border-radius: var(--radius-md);
   background: var(--color-border-medium);
   color: var(--color-text-muted);

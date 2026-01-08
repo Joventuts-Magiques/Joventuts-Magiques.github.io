@@ -73,16 +73,16 @@
   }
 
   .breadcrumb-list {
-    gap: 2px;
+    gap: var(--spacing-2);
   }
 
   .breadcrumb-item a,
   .breadcrumb-current {
-    padding: 2px var(--spacing-xs);
+    padding: var(--spacing-2) var(--spacing-xs);
   }
 
   .breadcrumb-item:not(:last-child)::after {
-    margin-left: 2px;
+    margin-left: var(--spacing-2);
     font-size: var(--font-size-base);
   }
 }
@@ -112,7 +112,7 @@
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--spacing-5);
 }
 
 .meta-label {
@@ -135,12 +135,12 @@
 
 .game-content h2 {
   color: var(--color-primary);
-  border-bottom: 1px solid var(--color-border-dark);
-  padding-bottom: 5px;
+  border-bottom: var(--border-width) solid var(--color-border-dark);
+  padding-bottom: var(--spacing-5);
   margin-top: var(--spacing-2xl);
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-semibold);
-  scroll-margin-top: 100px; /* Offset for sticky header and spacing */
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
 .game-content h3 {
@@ -148,7 +148,7 @@
   margin-top: var(--spacing-xl);
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-semibold);
-  scroll-margin-top: 100px; /* Offset for sticky header and spacing */
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
 .game-content h4 {
@@ -156,7 +156,7 @@
   margin-top: var(--spacing-lg);
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
-  scroll-margin-top: 100px; /* Offset for sticky header and spacing */
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
 .game-content ul,
@@ -166,7 +166,7 @@
 }
 
 .game-content li {
-  margin-bottom: 5px;
+  margin-bottom: var(--spacing-5);
   line-height: var(--line-height-relaxed);
 }
 
@@ -186,14 +186,14 @@
 
 .game-content code {
   background: var(--color-bg-tertiary);
-  padding: 2px var(--spacing-xs);
+  padding: var(--spacing-2) var(--spacing-xs);
   border-radius: var(--radius-sm);
   font-family: 'Courier New', monospace;
   font-size: 0.9em;
 }
 
 .game-content blockquote {
-  border-left: 4px solid var(--color-primary);
+  border-left: var(--spacing-xs) solid var(--color-primary);
   padding-left: var(--spacing-lg);
   margin: var(--spacing-lg) 0;
   color: var(--color-text-secondary);
@@ -250,8 +250,8 @@
   color: var(--color-accent);
   text-decoration: none;
   font-size: var(--font-size-base);
-  padding: 2px 6px;
-  border: 1px solid var(--color-border-dark);
+  padding: var(--spacing-2) var(--spacing-6);
+  border: var(--border-width) solid var(--color-border-dark);
   border-radius: var(--radius-sm);
   transition: background-color var(--transition-normal);
   font-weight: var(--font-weight-medium);
@@ -338,6 +338,6 @@
   outline-offset: var(--focus-ring-offset, 2px);
   border-radius: var(--radius-sm);
   background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
-  padding: 2px 4px;
-  margin: -2px -4px;
+  padding: var(--spacing-2) var(--spacing-xs);
+  margin: calc(var(--spacing-2) * -1) calc(var(--spacing-xs) * -1);
 }

@@ -29,7 +29,7 @@ body {
   left: 0;
   background: #000;
   color: #fff;
-  padding: 8px;
+  padding: var(--spacing-sm);
   text-decoration: none;
   z-index: 100;
 }
@@ -40,10 +40,10 @@ body {
 
 /* Footer styles */
 .site-footer {
-  margin-top: 60px;
-  padding: 30px 20px;
+  margin-top: var(--spacing-4xl);
+  padding: var(--spacing-2xl) var(--spacing-lg);
   background: linear-gradient(135deg, var(--color-bg-gradient-start, #f8f9fa) 0%, var(--color-bg-gradient-end, #e9ecef) 100%);
-  border-top: 1px solid var(--color-border-medium, #dee2e6);
+  border-top: var(--border-width) solid var(--color-border-medium, #dee2e6);
   text-align: center;
   font-size: 0.9em;
   color: var(--color-text-secondary, #666);
@@ -55,13 +55,13 @@ body {
 }
 
 .footer-content p {
-  margin: 8px 0;
+  margin: var(--spacing-sm) 0;
 }
 
 .footer-links a {
   color: var(--color-accent, #007bff);
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 var(--spacing-10);
   transition: color var(--transition-normal, 0.2s ease);
 }
 
@@ -71,9 +71,9 @@ body {
 }
 
 .footer-links a:focus-visible {
-  outline: 2px solid var(--color-border-focus, #007bff);
-  outline-offset: 2px;
-  border-radius: 3px;
+  outline: var(--border-width-thick) solid var(--color-border-focus, #007bff);
+  outline-offset: var(--spacing-2);
+  border-radius: var(--radius-sm);
 }
 
 /* Responsive typography */
@@ -83,8 +83,8 @@ body {
   }
 
   .site-footer {
-    padding: 20px 15px;
-    margin-top: 40px;
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-top: var(--spacing-3xl);
   }
 }
 
@@ -144,8 +144,8 @@ button:focus-visible,
 /* Enhanced focus for links */
 a:focus-visible {
   background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
-  padding: 2px 4px;
-  margin: -2px -4px;
+  padding: var(--spacing-2) var(--spacing-xs);
+  margin: calc(var(--spacing-2) * -1) calc(var(--spacing-xs) * -1);
   border-radius: var(--radius-sm, 3px);
 }
 
@@ -180,7 +180,7 @@ nav a:focus-visible,
 .interactive-container:focus-within {
   outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
   outline-offset: var(--focus-ring-offset, 2px);
-  box-shadow: 0 0 0 4px rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
+  box-shadow: 0 0 0 var(--spacing-xs) rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
   transition: box-shadow var(--focus-animation-duration, 0.2s ease),
               outline-color var(--focus-animation-duration, 0.2s ease);
 }
@@ -192,7 +192,7 @@ select:focus-visible {
   outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
   outline-offset: 0;
   border-color: var(--focus-ring-color, #007bff);
-  box-shadow: 0 0 0 4px rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
+  box-shadow: 0 0 0 var(--spacing-xs) rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
   transition: border-color var(--focus-animation-duration, 0.2s ease),
               box-shadow var(--focus-animation-duration, 0.2s ease);
 }
@@ -202,14 +202,14 @@ select:focus-visible {
 .custom-radio:focus-visible {
   outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
   outline-offset: var(--focus-ring-offset, 2px);
-  box-shadow: 0 0 0 4px rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
+  box-shadow: 0 0 0 var(--spacing-xs) rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
 }
 
 /* Skip link enhanced focus */
 .skip-link:focus {
   outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
   outline-offset: var(--focus-ring-offset, 2px);
-  box-shadow: 0 0 0 4px rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
+  box-shadow: 0 0 0 var(--spacing-xs) rgba(0, 123, 255, var(--focus-ring-opacity, 0.5));
 }
 
 /* High contrast mode adjustments */
@@ -220,15 +220,15 @@ select:focus-visible {
   textarea:focus-visible,
   select:focus-visible,
   [tabindex]:focus-visible {
-    outline-width: 4px;
+    outline-width: var(--spacing-xs);
     outline-color: currentColor;
-    outline-offset: 3px;
+    outline-offset: var(--spacing-3);
   }
 
   .game-card:focus-within,
   .card:focus-within {
-    outline: 4px solid currentColor;
-    outline-offset: 3px;
+    outline: var(--spacing-xs) solid currentColor;
+    outline-offset: var(--spacing-3);
   }
 }
 
@@ -260,24 +260,24 @@ select:focus-visible {
 /* Loading spinner */
 .loading-spinner {
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  border: 4px solid var(--color-border-light, #e0e0e0);
+  width: var(--spacing-3xl);
+  height: var(--spacing-3xl);
+  border: var(--spacing-xs) solid var(--color-border-light, #e0e0e0);
   border-top-color: var(--color-accent, #007bff);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
 
 .loading-spinner.small {
-  width: 20px;
-  height: 20px;
-  border-width: 2px;
+  width: var(--spacing-lg);
+  height: var(--spacing-lg);
+  border-width: var(--spacing-2);
 }
 
 .loading-spinner.large {
-  width: 60px;
-  height: 60px;
-  border-width: 6px;
+  width: var(--spacing-4xl);
+  height: var(--spacing-4xl);
+  border-width: var(--spacing-6);
 }
 
 @keyframes spin {
@@ -343,7 +343,7 @@ select:focus-visible {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(var(--spacing-lg));
   }
   to {
     opacity: 1;
@@ -359,7 +359,7 @@ select:focus-visible {
 
 .content-transition.hidden {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(calc(var(--spacing-sm) * -1.25));
 }
 
 .content-transition.visible {
@@ -598,8 +598,8 @@ select:focus-visible {
   position: fixed;
   bottom: var(--spacing-2xl, 30px);
   right: var(--spacing-2xl, 30px);
-  width: 48px;
-  height: 48px;
+  width: var(--spacing-48);
+  height: var(--spacing-48);
   border-radius: 50%;
   background: var(--hero-gradient, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
   color: var(--hero-text-color, #ffffff);
@@ -611,7 +611,7 @@ select:focus-visible {
   box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.12));
   opacity: 0;
   visibility: hidden;
-  transform: translateY(20px);
+  transform: translateY(var(--spacing-lg));
   transition: opacity var(--transition-normal, 0.2s ease),
               visibility var(--transition-normal, 0.2s ease),
               transform var(--transition-normal, 0.2s ease),
@@ -627,7 +627,7 @@ select:focus-visible {
 
 .scroll-to-top:hover {
   box-shadow: var(--shadow-lg, 0 8px 25px rgba(0, 0, 0, 0.15));
-  transform: translateY(-2px);
+  transform: translateY(calc(var(--spacing-2) * -1));
 }
 
 .scroll-to-top:active {
@@ -635,13 +635,13 @@ select:focus-visible {
 }
 
 .scroll-to-top:focus-visible {
-  outline: 2px solid var(--color-border-focus, #007bff);
-  outline-offset: 2px;
+  outline: var(--border-width-thick) solid var(--color-border-focus, #007bff);
+  outline-offset: var(--spacing-2);
 }
 
 .scroll-to-top svg {
-  width: 24px;
-  height: 24px;
+  width: var(--spacing-24);
+  height: var(--spacing-24);
   display: block;
 }
 
@@ -650,13 +650,13 @@ select:focus-visible {
   .scroll-to-top {
     bottom: var(--spacing-lg, 20px);
     right: var(--spacing-lg, 20px);
-    width: 44px;
-    height: 44px;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
   }
 
   .scroll-to-top svg {
-    width: 20px;
-    height: 20px;
+    width: var(--spacing-lg);
+    height: var(--spacing-lg);
   }
 }
 
@@ -679,7 +679,7 @@ select:focus-visible {
   top: 0;
   left: 0;
   width: 0%;
-  height: 3px;
+  height: var(--spacing-3);
   background: var(--hero-gradient, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
   z-index: 9999;
   transition: width var(--transition-fast, 0.15s ease);
