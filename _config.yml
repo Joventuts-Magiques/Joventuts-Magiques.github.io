@@ -2,7 +2,6 @@ title: Jocs Taula Joventuts Magiques
 description: Una guia completa de jocs de taula clàssics
 baseurl: ""
 url: "https://Joventuts-Magiques.github.io"
-theme: minima
 
 # Multilingual settings
 languages: ["ca", "es", "en"]
