@@ -12,7 +12,7 @@ layout: default
     <h2 class="lang-content" id="games-title">Tots els Jocs</h2>
 
     <div class="games-grid">
-      {% assign games_by_title = site.games | group_by: 'title' %}
+      {% assign games_by_title = site.games | group_by: 'title' | sort: 'name' %}
       {% for game_group in games_by_title %}
         {% assign ca_game = game_group.items | where: 'lang', 'ca' | first %}
         {% assign es_game = game_group.items | where: 'lang', 'es' | first %}

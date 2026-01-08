@@ -12,6 +12,8 @@
   border-bottom: 1px solid var(--color-border-medium);
   font-size: var(--font-size-base);
   gap: var(--spacing-sm);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .language-selector .globe-icon {
@@ -35,6 +37,7 @@
 .language-selector .lang-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: var(--color-text-light);
   margin: 0 var(--spacing-xs);
@@ -46,7 +49,6 @@
   letter-spacing: var(--letter-spacing-wide);
   min-width: var(--min-touch-target);
   min-height: var(--min-touch-target);
-  justify-content: center;
 }
 
 /* Enhanced hover state with smooth transitions */
@@ -117,22 +119,25 @@
 @media (max-width: 600px) {
   .language-selector {
     justify-content: center;
-    padding: var(--spacing-sm) var(--spacing-md);
-    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    gap: var(--spacing-2);
   }
 
   .language-selector .globe-icon {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     margin-right: 0;
   }
 
+  /* Ensure touch targets are at least 44x44px but keep compact */
   .language-selector .lang-link {
-    margin: 0 var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-md);
-    /* Ensure touch targets are at least 44x44px */
+    margin: 0 var(--spacing-2);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
     min-width: var(--min-touch-target);
     min-height: var(--min-touch-target);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Remove transform on mobile to prevent layout shifts */
@@ -144,10 +149,17 @@
     transform: none;
   }
 
-  /* Reduce separator visibility on mobile */
+  /* Mobile tap feedback - subtle scale and color change on active */
+  .language-selector .lang-link:active:not(.active) {
+    transform: scale(0.95);
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent);
+  }
+
+  /* Hide separators on mobile for more compact layout */
   .language-selector .separator {
-    margin: 0 var(--spacing-2);
-    font-size: var(--font-size-sm);
+    display: none;
   }
 }
 
@@ -157,8 +169,19 @@
     justify-content: center;
   }
 
+  /* Ensure adequate spacing between interactive elements on tablets */
   .language-selector .lang-link {
     padding: var(--spacing-sm) var(--spacing-md);
+    margin: 0 var(--spacing-sm);
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+  }
+
+  /* Tablet tap feedback */
+  .language-selector .lang-link:active:not(.active) {
+    transform: scale(0.95);
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
   }
 }
 

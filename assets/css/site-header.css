@@ -11,6 +11,8 @@
   border-bottom: 1px solid var(--color-border-medium, #dee2e6);
   padding: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .site-header-content {
@@ -21,6 +23,7 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--spacing-lg);
+  width: 100%;
 }
 
 /* Right side controls container */
@@ -34,13 +37,14 @@
 .site-nav {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .nav-link.home-link {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-6);
-  padding: var(--spacing-sm) calc(var(--spacing-lg) * 0.8);
+  padding: var(--spacing-sm) var(--spacing-md);
   text-decoration: none;
   color: var(--color-text-primary, #333);
   background: var(--color-bg-primary, #fff);
@@ -179,16 +183,33 @@
 /* Responsive Design */
 @media (max-width: 600px) {
   .site-header-content {
-    padding: var(--spacing-sm) var(--spacing-md);
-    gap: var(--spacing-10);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    gap: var(--spacing-xs);
+    flex-wrap: nowrap;
   }
 
   .header-controls {
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    flex-shrink: 0;
   }
 
+  /* Ensure home link meets minimum touch target size (44x44px) */
   .nav-link.home-link {
-    padding: var(--spacing-6) var(--spacing-10);
+    padding: var(--spacing-xs);
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Mobile tap feedback - subtle scale on active */
+  .nav-link.home-link:active {
+    transform: scale(0.95);
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent);
   }
 
   .nav-text {
@@ -196,22 +217,88 @@
   }
 
   .nav-icon {
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
 
   .site-header .language-selector .globe-icon {
     display: none; /* Hide globe icon on mobile */
   }
 
+  /* Ensure language links meet minimum touch target size (44x44px) but more compact */
   .site-header .language-selector .lang-link {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: 0.85em;
+    padding: var(--spacing-2) var(--spacing-xs);
+    font-size: 0.7em;
+    min-width: 36px;
+    min-height: var(--min-touch-target);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile tap feedback for language links */
+  .site-header .language-selector .lang-link:active:not(.active) {
+    transform: scale(0.95);
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+  }
+
+  /* Ensure theme toggle meets minimum touch target size (44x44px) */
+  .theme-toggle {
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+    font-size: 0.95em;
+    flex-shrink: 0;
+  }
+
+  /* Mobile tap feedback for theme toggle */
+  .theme-toggle:active {
+    transform: scale(0.95);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .theme-toggle:active .theme-icon {
+    color: var(--color-bg-primary);
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 601px) and (max-width: 768px) {
+  .site-header-content {
+    gap: var(--spacing-lg);
+  }
+
+  .header-controls {
+    gap: var(--spacing-md);
+  }
+
+  /* Ensure adequate touch targets on tablets */
+  .nav-link.home-link {
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+  }
+
+  .site-header .language-selector .lang-link {
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
   }
 
   .theme-toggle {
-    width: var(--spacing-36);
-    height: var(--spacing-36);
-    font-size: 1.1em;
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+  }
+
+  /* Tablet tap feedback */
+  .nav-link.home-link:active {
+    transform: scale(0.95);
+  }
+
+  .site-header .language-selector .lang-link:active:not(.active) {
+    transform: scale(0.95);
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.95);
   }
 }
 

@@ -6,6 +6,8 @@
   max-width: var(--max-width-container);
   margin: 0 auto;
   padding: var(--spacing-lg);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -36,18 +38,20 @@
 }
 
 .hero-section h1 {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   margin: 0 0 var(--spacing-md) 0;
   font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
   animation: fade-in-up 0.8s ease-out 0.2s both;
 }
 
 .hero-description {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   margin: 0;
   opacity: 0.95;
   max-width: 600px;
   margin: 0 auto;
+  line-height: var(--line-height-snug);
   animation: fade-in-up 0.8s ease-out 0.4s both;
 }
 
@@ -66,7 +70,9 @@
 /* Games Section */
 .games-section h2 {
   color: var(--color-text-primary);
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-2xl);
   text-align: center;
 }
@@ -140,6 +146,21 @@
   aspect-ratio: 16 / 9;
   background: var(--color-bg-secondary);
   position: relative;
+}
+
+/* More compact image on mobile */
+@media (max-width: 768px) {
+  .game-image {
+    margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-sm) calc(-1 * var(--spacing-md));
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-image {
+    margin: calc(-1 * var(--spacing-sm)) calc(-1 * var(--spacing-sm)) var(--spacing-xs) calc(-1 * var(--spacing-sm));
+    aspect-ratio: 3 / 2;
+  }
 }
 
 /* Image loading placeholder */
@@ -218,7 +239,9 @@
 
 .game-card h3 {
   margin: 0 0 var(--spacing-md) 0;
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
   transition: transform var(--transition-normal);
 }
 
@@ -327,8 +350,8 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .games-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
   }
 
   .hero-section {
@@ -336,25 +359,124 @@
   }
 
   .hero-section h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
   }
 
   .hero-description {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
+  }
+
+  .games-section h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* More compact cards on mobile */
+  .game-card {
+    padding: var(--spacing-md);
+  }
+
+  .game-card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .game-excerpt {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  .game-meta-preview {
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .meta-badge {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-2) var(--spacing-xs);
+  }
+
+  /* Reduce hover effects on mobile */
+  .game-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .game-card:hover h3,
+  .game-card:hover .game-excerpt,
+  .game-card:hover .game-meta-preview,
+  .game-card:hover .game-languages {
+    transform: none;
   }
 }
 
 @media (max-width: 480px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .game-card {
+    padding: var(--spacing-sm);
+  }
+
+  .game-card h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .game-excerpt {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+    /* Limit to 4 lines on mobile for better context */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .game-meta-preview {
     flex-direction: column;
+    gap: var(--spacing-2);
   }
 
   .meta-badge {
     justify-content: center;
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-1) var(--spacing-xs);
+  }
+
+  .game-languages {
+    gap: var(--spacing-2);
+  }
+
+  .lang-indicator {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-1) var(--spacing-xs);
   }
 
   .home-content {
     padding: var(--spacing-md);
+  }
+
+  .hero-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .hero-section h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-base);
+  }
+
+  .games-section h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Minimal hover effects on small mobile */
+  .game-card:hover {
+    transform: none;
   }
 }
 

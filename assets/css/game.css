@@ -7,6 +7,9 @@
   margin: 0 auto;
   padding: var(--spacing-lg);
   line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Breadcrumb Navigation */
@@ -69,12 +72,18 @@
 /* Responsive breadcrumb */
 @media (max-width: 600px) {
   .breadcrumb {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
   }
 
   .breadcrumb-list {
-    gap: var(--spacing-2);
+    gap: var(--spacing-xs);
   }
+
+  .breadcrumb-item a,
+  .breadcrumb-current {
+    padding: var(--spacing-xs) var(--spacing-xs);
+  }
+}
 
   .breadcrumb-item a,
   .breadcrumb-current {
@@ -95,10 +104,12 @@
 }
 
 .game-header h1 {
-  margin: 0 0 var(--spacing-md) 0;
+  margin: 0 0 var(--spacing-lg) 0;
   color: var(--color-text-primary);
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 /* Game Metadata */
@@ -136,42 +147,201 @@
 .game-content h2 {
   color: var(--color-primary);
   border-bottom: var(--border-width) solid var(--color-border-dark);
-  padding-bottom: var(--spacing-5);
-  margin-top: var(--spacing-2xl);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-semibold);
+  padding-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-3xl);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
   scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
 .game-content h3 {
   color: #4a7c59;
-  margin-top: var(--spacing-xl);
-  font-size: var(--font-size-3xl);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
   scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
 .game-content h4 {
   color: var(--color-text-primary);
-  margin-top: var(--spacing-lg);
-  font-size: var(--font-size-2xl);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
   scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
+/* List Styling */
 .game-content ul,
 .game-content ol {
-  padding-left: var(--spacing-xl);
-  margin: var(--spacing-md) 0;
-}
-
-.game-content li {
-  margin-bottom: var(--spacing-5);
+  padding-left: var(--spacing-2xl);
+  margin: var(--spacing-lg) 0;
   line-height: var(--line-height-relaxed);
 }
 
+.game-content li {
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+  padding-left: var(--spacing-xs);
+}
+
+/* Custom unordered list markers */
+.game-content ul {
+  list-style: none;
+}
+
+.game-content ul > li {
+  position: relative;
+}
+
+.game-content ul > li::before {
+  content: "▸";
+  position: absolute;
+  left: calc(var(--spacing-2xl) * -1);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.1em;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Nested list styling - second level */
+.game-content ul ul {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-xl);
+}
+
+.game-content ul ul > li::before {
+  content: "◦";
+  font-size: 1.3em;
+  color: var(--color-accent);
+  left: calc(var(--spacing-xl) * -1);
+}
+
+/* Nested list styling - third level */
+.game-content ul ul ul {
+  padding-left: var(--spacing-lg);
+}
+
+.game-content ul ul ul > li::before {
+  content: "▪";
+  font-size: 0.9em;
+  color: var(--color-text-secondary);
+  left: calc(var(--spacing-lg) * -1);
+}
+
+/* Ordered list custom styling */
+.game-content ol {
+  counter-reset: list-counter;
+  list-style: none;
+}
+
+.game-content ol > li {
+  position: relative;
+  counter-increment: list-counter;
+}
+
+.game-content ol > li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: calc(var(--spacing-2xl) * -1);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  min-width: var(--spacing-lg);
+  text-align: right;
+}
+
+/* Nested ordered lists - second level */
+.game-content ol ol {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-xl);
+  counter-reset: nested-counter;
+}
+
+.game-content ol ol > li {
+  counter-increment: nested-counter;
+}
+
+.game-content ol ol > li::before {
+  content: counter(nested-counter, lower-alpha) ".";
+  color: var(--color-accent);
+  left: calc(var(--spacing-xl) * -1);
+  min-width: var(--spacing-md);
+}
+
+/* Nested ordered lists - third level */
+.game-content ol ol ol {
+  padding-left: var(--spacing-lg);
+  counter-reset: deep-counter;
+}
+
+.game-content ol ol ol > li {
+  counter-increment: deep-counter;
+}
+
+.game-content ol ol ol > li::before {
+  content: counter(deep-counter, lower-roman) ".";
+  color: var(--color-text-secondary);
+  left: calc(var(--spacing-lg) * -1);
+  font-size: var(--font-size-sm);
+}
+
+/* Mixed nested lists (ol inside ul or vice versa) */
+.game-content ul ol,
+.game-content ol ul {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Improve spacing for list items with multiple paragraphs */
+.game-content li > p {
+  margin: var(--spacing-sm) 0;
+}
+
+.game-content li > p:first-child {
+  margin-top: 0;
+}
+
+.game-content li > p:last-child {
+  margin-bottom: 0;
+}
+
+/* List items with strong emphasis */
+.game-content li > strong:first-child {
+  color: var(--color-primary);
+  display: inline-block;
+  margin-right: var(--spacing-2);
+}
+
 .game-content p {
-  margin: var(--spacing-md) 0;
+  margin: var(--spacing-lg) 0;
+  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
+}
+
+/* First paragraph after heading - reduce top margin */
+.game-content h2 + p,
+.game-content h3 + p,
+.game-content h4 + p {
+  margin-top: var(--spacing-md);
+}
+
+/* Last paragraph before heading - increase bottom margin */
+.game-content p + h2,
+.game-content p + h3,
+.game-content p + h4 {
+  margin-top: var(--spacing-3xl);
 }
 
 .game-content strong {
@@ -194,10 +364,14 @@
 
 .game-content blockquote {
   border-left: var(--spacing-xs) solid var(--color-primary);
-  padding-left: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
+  padding-left: var(--spacing-xl);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  margin: var(--spacing-2xl) 0;
   color: var(--color-text-secondary);
   font-style: italic;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-loose);
 }
 
 /* Game Navigation */
@@ -272,10 +446,12 @@
 @media (max-width: 600px) {
   .game-page {
     padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
   }
 
   .game-header h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
   }
 
   .game-meta {
@@ -293,11 +469,70 @@
   }
 
   .game-content h2 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-xl);
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-md);
   }
 
   .game-content h3 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-xl);
+  }
+
+  .game-content h4 {
+    font-size: var(--font-size-base);
+    margin-top: var(--spacing-lg);
+  }
+
+  .game-content p {
+    margin: var(--spacing-md) 0;
+  }
+
+  .game-content ul,
+  .game-content ol {
+    padding-left: var(--spacing-xl);
+    margin: var(--spacing-md) 0;
+  }
+
+  .game-content li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .game-content ul > li::before {
+    left: calc(var(--spacing-xl) * -1);
+  }
+
+  .game-content ol > li::before {
+    left: calc(var(--spacing-xl) * -1);
+  }
+
+  .game-content ul ul {
+    padding-left: var(--spacing-lg);
+  }
+
+  .game-content ul ul > li::before {
+    left: calc(var(--spacing-lg) * -1);
+  }
+
+  .game-content ol ol {
+    padding-left: var(--spacing-lg);
+  }
+
+  .game-content ol ol > li::before {
+    left: calc(var(--spacing-lg) * -1);
+  }
+
+  .game-content ul ul ul,
+  .game-content ol ol ol {
+    padding-left: var(--spacing-md);
+  }
+
+  .game-content ul ul ul > li::before {
+    left: calc(var(--spacing-md) * -1);
+  }
+
+  .game-content ol ol ol > li::before {
+    left: calc(var(--spacing-md) * -1);
   }
 }
 
