@@ -63,24 +63,58 @@ code {
 /* Footer styles */
 .site-footer {
   margin-top: var(--spacing-4xl);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  background: linear-gradient(135deg, var(--color-bg-gradient-start, #f8f9fa) 0%, var(--color-bg-gradient-end, #e9ecef) 100%);
-  border-top: var(--border-width) solid var(--color-border-medium, #dee2e6);
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-gradient-start, #f8f9fa) 0%,
+    var(--color-bg-secondary, #f5f5f5) 50%,
+    var(--color-bg-gradient-end, #e9ecef) 100%
+  );
+  border-top: var(--border-width-thick) solid var(--color-border-medium, #dee2e6);
   text-align: center;
-  font-size: 0.9em;
   color: var(--color-text-secondary, #666);
   width: 100%;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle gradient overlay for depth */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border-light, #e1e5e9) 50%,
+    transparent 100%
+  );
+  opacity: 0.5;
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-content p {
-  margin: var(--spacing-sm) 0;
+  margin: var(--spacing-md) 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.footer-content p:first-child {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
 }
 
 .footer-links a {
@@ -108,8 +142,16 @@ code {
   }
 
   .site-footer {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-2xl) var(--spacing-md);
     margin-top: var(--spacing-3xl);
+  }
+
+  .footer-content p {
+    margin: var(--spacing-sm) 0;
+  }
+
+  .footer-content p:first-child {
+    margin-bottom: var(--spacing-md);
   }
 }
 
@@ -1129,11 +1171,18 @@ a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link)
 }
 
 /* Footer links - keep existing behavior but add animation */
+.footer-links {
+  margin-top: var(--spacing-md);
+}
+
 .footer-links a {
   color: var(--color-accent, #007bff);
   text-decoration: none;
-  margin: 0 var(--spacing-10);
+  margin: 0 var(--spacing-md);
   position: relative;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-wide);
   transition: color var(--transition-normal, 0.2s ease);
 }
 

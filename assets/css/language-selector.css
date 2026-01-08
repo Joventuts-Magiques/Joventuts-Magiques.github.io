@@ -16,6 +16,13 @@
   overflow-x: hidden;
 }
 
+/* Prevent focus outline on container - override global focus styles */
+.language-selector:focus,
+.language-selector:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .language-selector .globe-icon {
   display: inline-flex;
   align-items: center;
@@ -49,6 +56,12 @@
   letter-spacing: var(--letter-spacing-wide);
   min-width: var(--min-touch-target);
   min-height: var(--min-touch-target);
+}
+
+.language-selector .lang-link:hover,
+.language-selector .lang-link:focus,
+.language-selector .lang-link:active {
+  text-decoration: none;
 }
 
 /* Enhanced hover state with smooth transitions */

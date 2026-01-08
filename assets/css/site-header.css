@@ -3,6 +3,36 @@
  * Unified navigation bar with Home button and language selector
  */
 
+/* Aggressively remove all focus/active outlines and underlines on mouse click */
+.site-header *:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.site-header a,
+.site-header button {
+  text-decoration: none !important;
+}
+
+.site-header a:focus,
+.site-header a:active,
+.site-header a:hover,
+.site-header button:focus,
+.site-header button:active,
+.site-header button:hover {
+  outline: none !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+/* Specifically target language selector and nav elements */
+.site-header nav:focus,
+.site-header nav:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -45,13 +75,21 @@
   align-items: center;
   gap: var(--spacing-6);
   padding: var(--spacing-sm) var(--spacing-md);
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--color-text-primary, #333);
   background: var(--color-bg-primary, #fff);
   border: var(--border-width) solid var(--color-border-light, #e1e5e9);
   border-radius: var(--radius-lg, 6px);
   font-weight: var(--font-weight-medium, 500);
   transition: all var(--transition-normal, 0.2s ease);
+  outline: none !important;
+}
+
+.nav-link.home-link:hover,
+.nav-link.home-link:focus,
+.nav-link.home-link:active {
+  text-decoration: none !important;
+  outline: none !important;
 }
 
 .nav-link.home-link:hover {
@@ -62,14 +100,16 @@
   box-shadow: 0 var(--spacing-2) var(--spacing-sm) rgba(0, 123, 255, 0.2);
 }
 
+/* Only show focus outline for keyboard navigation */
 .nav-link.home-link:focus-visible {
-  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff) !important;
   outline-offset: var(--focus-ring-offset, 2px);
   animation: focusPulse 1.5s ease-in-out infinite;
 }
 
 .nav-link.home-link:active {
   transform: translateY(0);
+  outline: none !important;
 }
 
 .nav-icon {
@@ -92,13 +132,20 @@
   gap: var(--spacing-sm);
 }
 
+/* Prevent focus outline on container - override global focus styles */
+.site-header .language-selector:focus,
+.site-header .language-selector:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .site-header .language-selector .globe-icon {
   font-size: 1.1em;
   margin-right: 0;
 }
 
 .site-header .language-selector .lang-link {
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--color-text-primary);
   padding: var(--spacing-6) var(--spacing-10);
   border-radius: var(--radius-md);
@@ -107,6 +154,14 @@
   font-size: 0.9em;
   background: var(--color-bg-primary);
   border: var(--border-width) solid var(--color-border-light);
+  outline: none !important;
+}
+
+.site-header .language-selector .lang-link:hover,
+.site-header .language-selector .lang-link:focus,
+.site-header .language-selector .lang-link:active {
+  text-decoration: none !important;
+  outline: none !important;
 }
 
 .site-header .language-selector .lang-link:hover:not(.active) {
@@ -123,8 +178,9 @@
   cursor: default;
 }
 
+/* Only show focus outline for keyboard navigation */
 .site-header .language-selector .lang-link:focus-visible {
-  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff) !important;
   outline-offset: var(--focus-ring-offset, 2px);
   background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
 }
@@ -147,6 +203,13 @@
   cursor: pointer;
   transition: all var(--transition-normal, 0.2s ease);
   font-size: 1.2em;
+  outline: none !important;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus,
+.theme-toggle:active {
+  outline: none !important;
 }
 
 .theme-toggle:hover {
@@ -156,14 +219,16 @@
   box-shadow: 0 var(--spacing-2) var(--spacing-sm) rgba(0, 0, 0, 0.1);
 }
 
+/* Only show focus outline for keyboard navigation */
 .theme-toggle:focus-visible {
-  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff) !important;
   outline-offset: var(--focus-ring-offset, 2px);
   animation: focusPulse 1.5s ease-in-out infinite;
 }
 
 .theme-toggle:active {
   transform: translateY(0);
+  outline: none !important;
 }
 
 .theme-icon {
