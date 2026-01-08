@@ -314,7 +314,7 @@
 .game-card h3 {
   margin: 0 0 var(--spacing-md) 0;
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-snug);
   transition: transform var(--transition-normal);
   color: var(--color-primary);
@@ -323,7 +323,7 @@
 .game-title {
   margin: 0 0 var(--spacing-md) 0;
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-snug);
   color: var(--color-primary);
 }
@@ -392,7 +392,7 @@
   color: var(--color-text-secondary);
   line-height: var(--line-height-normal);
   margin-bottom: var(--spacing-lg);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   transition: transform var(--transition-normal);
 }
 

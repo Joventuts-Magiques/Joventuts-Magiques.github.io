@@ -60,7 +60,7 @@
 .header-controls {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-2xl);
 }
 
 /* Site Navigation (Home button) */
@@ -129,44 +129,28 @@
   margin: 0;
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-}
-
-/* Prevent focus outline on container - override global focus styles */
-.site-header .language-selector:focus,
-.site-header .language-selector:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
+  gap: var(--spacing-1);
 }
 
 .site-header .language-selector .globe-icon {
   font-size: 1.1em;
-  margin-right: 0;
+  margin-right: var(--spacing-xs);
 }
 
 .site-header .language-selector .lang-link {
-  text-decoration: none !important;
+  text-decoration: none;
   color: var(--color-text-primary);
   padding: var(--spacing-6) var(--spacing-10);
   border-radius: var(--radius-md);
   transition: all 0.25s ease-out;
   font-weight: var(--font-weight-medium);
   font-size: 0.9em;
-  background: var(--color-bg-primary);
-  border: var(--border-width) solid var(--color-border-light);
-  outline: none !important;
-}
-
-.site-header .language-selector .lang-link:hover,
-.site-header .language-selector .lang-link:focus,
-.site-header .language-selector .lang-link:active {
-  text-decoration: none !important;
-  outline: none !important;
+  background: transparent;
+  border: none;
 }
 
 .site-header .language-selector .lang-link:hover:not(.active) {
   background-color: var(--color-bg-secondary);
-  border-color: var(--color-accent);
   color: var(--color-accent);
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.15);
@@ -175,17 +159,14 @@
 .site-header .language-selector .lang-link.active {
   background-color: var(--color-accent);
   color: var(--color-bg-primary);
-  border-color: var(--color-accent);
   font-weight: var(--font-weight-semibold);
   cursor: default;
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
-/* Only show focus outline for keyboard navigation */
 .site-header .language-selector .lang-link:focus-visible {
-  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff) !important;
-  outline-offset: var(--focus-ring-offset, 2px);
-  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
 }
 
 .site-header .language-selector .separator {
