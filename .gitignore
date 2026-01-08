@@ -1,2 +1,20 @@
+# IDE and Editor Directories
 .kiro/
 .vscode/
+
+# Claude Code Context (local only)
+.claude/
+
+# Jekyll Build Files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+.env.local

@@ -7,25 +7,25 @@ layout: default
 {% assign current_lang = page.lang | default: site.default_lang %}
 {% assign t = site.data.i18n[current_lang] %}
 
-<article class="game-page" lang="{{ current_lang }}">
+<article class="game-page" lang="{{ current_lang }}" itemscope itemtype="https://schema.org/Game">
   <header class="game-header">
-    <h1>{{ page.title }}</h1>
+    <h1 itemprop="name">{{ page.title }}</h1>
 
-    <div class="game-meta">
-      <div class="meta-item">
+    <div class="game-meta" role="list" aria-label="Game metadata">
+      <div class="meta-item" role="listitem">
         <span class="meta-label">{{ t.players }}:</span>
-        <span class="meta-value">{{ page.players }}</span>
+        <span class="meta-value" itemprop="numberOfPlayers">{{ page.players }}</span>
       </div>
-      <div class="meta-item">
+      <div class="meta-item" role="listitem">
         <span class="meta-label">{{ t.duration }}:</span>
-        <span class="meta-value">{{ page.duration }} {{ t.minutes | default: "min" }}</span>
+        <span class="meta-value" itemprop="playTime" content="PT{{ page.duration }}M">{{ page.duration }} {{ t.minutes | default: "min" }}</span>
       </div>
-      <div class="meta-item">
+      <div class="meta-item" role="listitem">
         <span class="meta-label">{{ t.difficulty }}:</span>
         <span class="meta-value">{{ page.difficulty }}</span>
       </div>
       {% if page.age_range %}
-      <div class="meta-item">
+      <div class="meta-item" role="listitem">
         <span class="meta-label">{{ t.age_range | default: "Edat" }}:</span>
         <span class="meta-value">{{ page.age_range }}</span>
       </div>
@@ -33,12 +33,12 @@ layout: default
     </div>
   </header>
 
-  <div class="game-content">
+  <div class="game-content" itemprop="description">
     {{ content }}
   </div>
 
-  <nav class="game-navigation">
-    <a href="/" class="back-link">← {{ t.back_to_list }}</a>
+  <nav class="game-navigation" role="navigation" aria-label="Game navigation">
+    <a href="/" class="back-link" aria-label="Back to games list">← {{ t.back_to_list }}</a>
 
     {% comment %} Language versions of this game {% endcomment %}
     {% assign game_name = page.title | slugify %}
@@ -49,7 +49,10 @@ layout: default
           {% assign lang_file = "_games/" | append: game_name | append: "/" | append: game_name | append: "." | append: lang | append: ".md" %}
           {% for game in site.games %}
             {% if game.path contains lang_file or game.lang == lang and game.title == page.title %}
-              <a href="{{ game.url }}" class="lang-version-link" hreflang="{{ lang }}">
+              <a href="{{ game.url }}"
+                 class="lang-version-link"
+                 hreflang="{{ lang }}"
+                 aria-label="View {{ page.title }} in {{ site.lang_names[lang] }}">
                 {{ site.lang_names[lang] }}
               </a>
             {% endif %}
@@ -58,6 +61,9 @@ layout: default
       {% endfor %}
     </div>
   </nav>
+
+  {% comment %} Hidden structured data for SEO {% endcomment %}
+  <meta itemprop="inLanguage" content="{{ current_lang }}">
 </article>
 
 {% comment %} Add structured data for SEO {% endcomment %}
@@ -66,7 +72,7 @@ layout: default
   "@context": "https://schema.org",
   "@type": "Game",
   "name": "{{ page.title }}",
-  "description": "{{ page.excerpt }}",
+  "description": {{ page.excerpt | jsonify }},
   "numberOfPlayers": "{{ page.players }}",
   "playTime": "PT{{ page.duration }}M",
   "gameItem": {
@@ -76,137 +82,3 @@ layout: default
   "inLanguage": "{{ current_lang }}"
 }
 </script>
-
-<style>
-.game-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  line-height: 1.6;
-}
-
-.game-header {
-  border-bottom: 2px solid #eee;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
-}
-
-.game-header h1 {
-  margin: 0 0 15px 0;
-  color: #333;
-  font-size: 2.5em;
-}
-
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  font-size: 0.95em;
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.meta-label {
-  font-weight: bold;
-  color: #666;
-}
-
-.meta-value {
-  color: #333;
-  background: #f5f5f5;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
-.game-content {
-  margin-bottom: 40px;
-}
-
-.game-content h2 {
-  color: #2c5aa0;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-  margin-top: 30px;
-}
-
-.game-content h3 {
-  color: #4a7c59;
-  margin-top: 25px;
-}
-
-.game-content ul, .game-content ol {
-  padding-left: 25px;
-}
-
-.game-content li {
-  margin-bottom: 5px;
-}
-
-.game-navigation {
-  border-top: 1px solid #eee;
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.back-link {
-  color: #0066cc;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
-
-.language-versions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.versions-label {
-  font-size: 0.9em;
-  color: #666;
-}
-
-.lang-version-link {
-  color: #0066cc;
-  text-decoration: none;
-  font-size: 0.9em;
-  padding: 2px 6px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  transition: background-color 0.2s;
-}
-
-.lang-version-link:hover {
-  background-color: #f0f0f0;
-  text-decoration: none;
-}
-
-@media (max-width: 600px) {
-  .game-meta {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .game-navigation {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .language-versions {
-    width: 100%;
-  }
-}
-</style>

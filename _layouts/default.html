@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.default_lang | default: 'ca' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ page.title | default: site.title | default: "Col·lecció de Jocs de Taula" }}</title>
+
+  {% if page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}">
+  {% elsif site.description %}
+  <meta name="description" content="{{ site.description }}">
+  {% endif %}
+
+  {% comment %} SEO Plugin {% endcomment %}
+  {% seo %}
+
+  {% comment %} Language alternates for SEO {% endcomment %}
+  {% if page.collection == 'games' %}
+    {% for lang in site.languages %}
+      {% for game in site.games %}
+        {% if game.lang == lang and game.title == page.title %}
+          <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ game.url }}">
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+  {% comment %} Favicon {% endcomment %}
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+
+  {% comment %} CSS - Order matters! Variables first, then base, then components {% endcomment %}
+  <link rel="stylesheet" href="{{ '/assets/css/variables.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/language-selector.css' | relative_url }}">
+
+  {% if page.layout == 'home' or layout.name == 'home' %}
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+  {% endif %}
+
+  {% if page.layout == 'game' or layout.name == 'game' %}
+  <link rel="stylesheet" href="{{ '/assets/css/game.css' | relative_url }}">
+  {% endif %}
+
+  {% comment %} RSS Feed {% endcomment %}
+  {% feed_meta %}
+
+  {% comment %} Open Graph / Social Media {% endcomment %}
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% if page.excerpt %}
+  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}">
+  {% endif %}
+
+  {% comment %} Twitter Card {% endcomment %}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  {% if page.excerpt %}
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}">
+  {% endif %}
+</head>
+<body>
+  {% comment %} Skip to main content for accessibility {% endcomment %}
+  <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+
+  {% comment %} Main content area {% endcomment %}
+  <div id="main-content" role="main">
+    {{ content }}
+  </div>
+
+  {% comment %} Footer {% endcomment %}
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+      <p>&copy; {{ 'now' | date: "%Y" }} Joventuts Magiques. Open source board game rules collection.</p>
+      <p class="footer-links">
+        <a href="https://github.com/Joventuts-Magiques/Joventuts-Magiques.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+  {% comment %} Dynamic translations from i18n.yml {% endcomment %}
+  {% include translations-script.html %}
+
+  {% comment %} Language Manager JavaScript {% endcomment %}
+  <script src="{{ '/assets/js/language-manager.js' | relative_url }}" defer></script>
+</body>
+</html>

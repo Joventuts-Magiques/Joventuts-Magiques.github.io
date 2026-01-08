@@ -44,6 +44,8 @@ defaults:
 # Exclude from processing
 exclude:
   - README.md
+  - IMPROVEMENTS.md
+  - CHANGELOG.md
   - Gemfile
   - Gemfile.lock
   - node_modules
@@ -52,6 +54,7 @@ exclude:
   - .jekyll-cache
   - gemfiles
   - .kiro
+  - .vscode
 
 # Sass configuration
 sass:
