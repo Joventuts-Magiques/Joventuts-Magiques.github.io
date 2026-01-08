@@ -6,7 +6,7 @@ duration: 60-180
 difficulty: Medio
 age_range: 8+
 excerpt: "Juego clásico de compraventa inmobiliaria donde los jugadores intentan hacer quebrar a sus oponentes."
-image: images/main.jpg
+image: https://upload.wikimedia.org/wikipedia/en/3/36/MonopolySet_2014.jpg
 layout: game
 ---
 

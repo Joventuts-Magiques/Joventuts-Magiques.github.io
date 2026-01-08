@@ -6,7 +6,7 @@ duration: 60-180
 difficulty: Medium
 age_range: 8+
 excerpt: "Classic real estate trading game where players try to bankrupt their opponents."
-image: images/main.jpg
+image: https://upload.wikimedia.org/wikipedia/en/3/36/MonopolySet_2014.jpg
 layout: game
 ---
 

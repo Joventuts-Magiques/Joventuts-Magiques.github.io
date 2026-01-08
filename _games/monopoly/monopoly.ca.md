@@ -6,7 +6,7 @@ duration: 60-180
 difficulty: Mitjà
 age_range: 8+
 excerpt: "Joc clàssic de compravenda immobiliària on els jugadors intenten fer fallit els seus oponents."
-image: images/main.jpg
+image: https://upload.wikimedia.org/wikipedia/en/3/36/MonopolySet_2014.jpg
 layout: game
 ---
 
