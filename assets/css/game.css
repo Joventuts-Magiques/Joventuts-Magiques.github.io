@@ -9,6 +9,84 @@
   line-height: var(--line-height-relaxed);
 }
 
+/* Breadcrumb Navigation */
+.breadcrumb {
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: var(--spacing-xs);
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin-left: var(--spacing-xs);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  opacity: 0.6;
+}
+
+.breadcrumb-item a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-normal), text-decoration var(--transition-normal);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+.breadcrumb-item a:focus-visible {
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
+  text-decoration: none;
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+}
+
+.breadcrumb-current {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+/* Responsive breadcrumb */
+@media (max-width: 600px) {
+  .breadcrumb {
+    font-size: var(--font-size-xs);
+  }
+
+  .breadcrumb-list {
+    gap: 2px;
+  }
+
+  .breadcrumb-item a,
+  .breadcrumb-current {
+    padding: 2px var(--spacing-xs);
+  }
+
+  .breadcrumb-item:not(:last-child)::after {
+    margin-left: 2px;
+    font-size: var(--font-size-base);
+  }
+}
+
 /* Game Header */
 .game-header {
   border-bottom: 2px solid var(--color-border-dark);
@@ -62,6 +140,7 @@
   margin-top: var(--spacing-2xl);
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-semibold);
+  scroll-margin-top: 100px; /* Offset for sticky header and spacing */
 }
 
 .game-content h3 {
@@ -69,6 +148,7 @@
   margin-top: var(--spacing-xl);
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-semibold);
+  scroll-margin-top: 100px; /* Offset for sticky header and spacing */
 }
 
 .game-content h4 {
@@ -76,6 +156,7 @@
   margin-top: var(--spacing-lg);
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
+  scroll-margin-top: 100px; /* Offset for sticky header and spacing */
 }
 
 .game-content ul,
@@ -143,9 +224,12 @@
 }
 
 .back-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
   border-radius: var(--radius-sm);
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+  padding: 2px 4px;
+  margin: -2px -4px;
 }
 
 /* Language Versions */
@@ -179,8 +263,9 @@
 }
 
 .lang-version-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
 }
 
 /* Responsive Design */
@@ -222,6 +307,7 @@
     max-width: 100%;
   }
 
+  .breadcrumb,
   .game-navigation {
     display: none;
   }
@@ -248,7 +334,10 @@
 
 /* Accessibility: Focus visible styles */
 .game-content a:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
   border-radius: var(--radius-sm);
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+  padding: 2px 4px;
+  margin: -2px -4px;
 }

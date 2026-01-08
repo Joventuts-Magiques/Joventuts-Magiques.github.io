@@ -235,9 +235,12 @@
 }
 
 .game-title-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
   border-radius: var(--radius-sm);
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+  padding: 2px 4px;
+  margin: -2px -4px;
 }
 
 .game-excerpt {

@@ -1,51 +1,104 @@
 /**
  * Language Selector Styles
+ * Enhanced visual design with improved globe icon, active states, and hover effects
  */
 
 .language-selector {
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   padding: var(--spacing-md) var(--spacing-lg);
   background: linear-gradient(135deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
   border-bottom: 1px solid var(--color-border-medium);
   font-size: var(--font-size-base);
+  gap: var(--spacing-sm);
 }
 
 .language-selector .globe-icon {
-  margin-right: var(--spacing-sm);
-  font-size: var(--font-size-xl);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  margin-right: var(--spacing-xs);
+  opacity: 0.8;
+  transition: all var(--transition-normal);
+  filter: grayscale(0.2);
+}
+
+/* Subtle animation on hover over the entire selector */
+.language-selector:hover .globe-icon {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.05);
 }
 
 .language-selector .lang-link {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   color: var(--color-text-light);
   margin: 0 var(--spacing-xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
   font-weight: var(--font-weight-medium);
+  position: relative;
+  letter-spacing: 0.5px;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
 }
 
+/* Enhanced hover state with smooth transitions */
 .language-selector .lang-link:hover:not(.active) {
-  background-color: rgba(0, 123, 255, 0.1);
+  background-color: var(--focus-bg-highlight);
   color: var(--color-accent);
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
+/* Enhanced active state with glow effect */
 .language-selector .lang-link.active {
-  background-color: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
   color: var(--color-bg-primary);
   font-weight: var(--font-weight-semibold);
   cursor: default;
+  box-shadow: 0 0 0 2px var(--color-accent) inset,
+              0 4px 12px rgba(0, 123, 255, 0.3);
+  position: relative;
 }
 
+/* Subtle pulse animation for active state */
+@keyframes active-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px var(--color-accent) inset,
+                0 4px 12px rgba(0, 123, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 2px var(--color-accent) inset,
+                0 4px 16px rgba(0, 123, 255, 0.4);
+  }
+}
+
+.language-selector .lang-link.active {
+  animation: active-pulse 2s ease-in-out infinite;
+}
+
+/* Enhanced focus state */
 .language-selector .lang-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  background-color: var(--focus-bg-highlight);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .language-selector .separator {
   color: var(--color-text-muted);
-  margin: 0 2px;
+  margin: 0 var(--spacing-xs);
+  opacity: 0.5;
+  font-weight: var(--font-weight-normal);
 }
 
 .sr-only {
@@ -60,16 +113,52 @@
   border: 0;
 }
 
+/* Mobile optimizations */
 @media (max-width: 600px) {
   .language-selector {
-    text-align: center;
+    justify-content: center;
     padding: var(--spacing-sm) var(--spacing-md);
+    gap: var(--spacing-xs);
+  }
+
+  .language-selector .globe-icon {
+    font-size: var(--font-size-xl);
+    margin-right: 0;
   }
 
   .language-selector .lang-link {
-    margin: 0 2px;
-    padding: 3px 6px;
+    margin: 0 var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
     font-size: var(--font-size-md);
+    /* Ensure touch targets are at least 44x44px */
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Remove transform on mobile to prevent layout shifts */
+  .language-selector .lang-link:hover:not(.active) {
+    transform: none;
+  }
+
+  .language-selector .lang-link:focus-visible {
+    transform: none;
+  }
+
+  /* Reduce separator visibility on mobile */
+  .language-selector .separator {
+    margin: 0 2px;
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 601px) and (max-width: 768px) {
+  .language-selector {
+    justify-content: center;
+  }
+
+  .language-selector .lang-link {
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 }
 
@@ -77,15 +166,39 @@
 @media (prefers-contrast: high) {
   .language-selector {
     background: var(--color-bg-primary);
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid currentColor;
   }
 
   .language-selector .lang-link {
-    border: 1px solid var(--color-text-primary);
+    border: 2px solid var(--color-text-primary);
   }
 
   .language-selector .lang-link.active {
-    background-color: #000;
+    background-color: var(--color-text-primary);
     color: var(--color-bg-primary);
+    border-color: var(--color-text-primary);
+  }
+
+  .language-selector .lang-link:hover:not(.active) {
+    border-color: var(--color-accent);
+    background-color: transparent;
+  }
+}
+
+/* Reduced motion support - disable animations */
+@media (prefers-reduced-motion: reduce) {
+  .language-selector .globe-icon,
+  .language-selector .lang-link {
+    transition: none;
+    animation: none;
+  }
+
+  .language-selector .lang-link:hover:not(.active),
+  .language-selector .lang-link:focus-visible {
+    transform: none;
+  }
+
+  .language-selector .lang-link.active {
+    animation: none;
   }
 }

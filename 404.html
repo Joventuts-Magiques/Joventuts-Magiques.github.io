@@ -1,0 +1,51 @@
+---
+layout: default
+title: "404 - Pàgina no trobada"
+permalink: /404.html
+sitemap: false
+---
+
+<div class="error-404">
+  <div class="error-container">
+    <div class="error-icon" aria-hidden="true">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="55" stroke="currentColor" stroke-width="4" opacity="0.2"/>
+        <path d="M40 50 L50 40 M70 40 L80 50 M45 75 Q60 65 75 75" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <h1 class="error-title">
+      <span data-i18n="error_404_title">404</span>
+    </h1>
+
+    <p class="error-message" data-i18n="error_404_message">
+      Ho sentim, la pàgina que cerques no existeix.
+    </p>
+
+    <p class="error-description" data-i18n="error_404_description">
+      Potser l'adreça és incorrecta o la pàgina s'ha mogut.
+    </p>
+
+    <div class="error-actions">
+      <a href="{{ '/' | relative_url }}" class="btn btn-primary" data-i18n="error_404_home">
+        Tornar a l'inici
+      </a>
+    </div>
+
+    <div class="error-suggestions">
+      <h2 data-i18n="error_404_suggestions_title">Pots provar:</h2>
+      <ul>
+        <li>
+          <a href="{{ '/' | relative_url }}" data-i18n="error_404_browse_games">
+            Explorar tots els jocs
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/' | relative_url }}?lang=ca">Català</a> |
+          <a href="{{ '/' | relative_url }}?lang=es">Español</a> |
+          <a href="{{ '/' | relative_url }}?lang=en">English</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
