@@ -79,7 +79,8 @@ class LanguageManager {
     const contentMap = {
       'hero-title': t.welcome,
       'hero-description': t.description,
-      'games-title': t.all_games
+      'games-title': t.all_games,
+      'home-button-text': t.home
     };
 
     Object.entries(contentMap).forEach(([id, text]) => {
