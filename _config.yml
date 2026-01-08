@@ -1,0 +1,64 @@
+title: Jocs Taula Joventuts Magiques
+description: Una guia completa de jocs de taula clàssics
+baseurl: ""
+url: "https://Joventuts-Magiques.github.io"
+theme: minima
+
+# Multilingual settings
+languages: ["ca", "es", "en"]
+default_lang: ca
+lang_names:
+  ca: "Català"
+  es: "Español"
+  en: "English"
+
+# SEO and metadata
+author: Joventuts Magiques
+keywords: "jocs de taula, board games, juegos de mesa, reglas, rules, reglas"
+
+# Collections
+collections:
+  games:
+    output: true
+    permalink: /:collection/:name/
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "games"
+    values:
+      layout: game
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - .kiro
+
+# Sass configuration
+sass:
+  style: compressed
+
+# Markdown configuration
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

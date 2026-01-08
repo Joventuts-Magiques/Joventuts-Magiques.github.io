@@ -1,0 +1,331 @@
+---
+layout: default
+---
+
+{% include language-selector.html %}
+
+<main class="home-content">
+  <header class="hero-section">
+    <h1 class="lang-content" id="hero-title">Benvinguts a la Col·lecció de Jocs de Taula</h1>
+    <p class="hero-description lang-content" id="hero-description">Descobreix les regles i estratègies dels jocs de taula clàssics.</p>
+  </header>
+
+  <section class="games-section">
+    <h2 class="lang-content" id="games-title">Tots els Jocs</h2>
+
+    <div class="games-grid">
+      {% assign games_by_title = site.games | group_by: 'title' %}
+      {% for game_group in games_by_title %}
+        {% assign ca_game = game_group.items | where: 'lang', 'ca' | first %}
+        {% assign es_game = game_group.items | where: 'lang', 'es' | first %}
+        {% assign en_game = game_group.items | where: 'lang', 'en' | first %}
+
+        {% if ca_game and es_game and en_game %}
+        <article class="game-card">
+          <h3>
+            <a href="{{ ca_game.url }}" class="game-title-link lang-ca">{{ ca_game.title }}</a>
+            <a href="{{ es_game.url }}" class="game-title-link lang-es" style="display:none;">{{ es_game.title }}</a>
+            <a href="{{ en_game.url }}" class="game-title-link lang-en" style="display:none;">{{ en_game.title }}</a>
+          </h3>
+
+          <p class="game-excerpt">
+            <span class="lang-ca">{{ ca_game.excerpt }}</span>
+            <span class="lang-es" style="display:none;">{{ es_game.excerpt }}</span>
+            <span class="lang-en" style="display:none;">{{ en_game.excerpt }}</span>
+          </p>
+
+          <div class="game-meta-preview">
+            <span class="meta-badge">
+              <span class="meta-icon">👥</span>
+              <span class="lang-ca">{{ ca_game.players }}</span>
+              <span class="lang-es" style="display:none;">{{ es_game.players }}</span>
+              <span class="lang-en" style="display:none;">{{ en_game.players }}</span>
+            </span>
+            <span class="meta-badge">
+              <span class="meta-icon">⏱️</span>
+              <span class="lang-ca">{{ ca_game.duration }} min</span>
+              <span class="lang-es" style="display:none;">{{ es_game.duration }} min</span>
+              <span class="lang-en" style="display:none;">{{ en_game.duration }} min</span>
+            </span>
+            <span class="meta-badge difficulty-{{ ca_game.difficulty | slugify }}">
+              <span class="meta-icon">📊</span>
+              <span class="lang-ca">{{ ca_game.difficulty }}</span>
+              <span class="lang-es" style="display:none;">{{ es_game.difficulty }}</span>
+              <span class="lang-en" style="display:none;">{{ en_game.difficulty }}</span>
+            </span>
+          </div>
+
+          <div class="game-languages">
+            {% for game in game_group.items %}
+              <span class="lang-indicator" data-lang="{{ game.lang }}"
+                    title="{{ site.lang_names[game.lang] | default: game.lang }}">
+                {{ game.lang | upcase }}
+              </span>
+            {% endfor %}
+          </div>
+        </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+<script>
+// Simple homepage language switching
+(function() {
+  'use strict';
+
+  const translations = {
+    ca: {
+      title: "Benvinguts a la Col·lecció de Jocs de Taula",
+      description: "Descobreix les regles i estratègies dels jocs de taula clàssics.",
+      games: "Tots els Jocs"
+    },
+    es: {
+      title: "Bienvenidos a la Colección de Juegos de Mesa",
+      description: "Descubre las reglas y estrategias de los juegos de mesa clásicos.",
+      games: "Todos los Juegos"
+    },
+    en: {
+      title: "Welcome to Table Games Collection",
+      description: "Discover the rules and strategies for classic table games.",
+      games: "All Games"
+    }
+  };
+
+  function updateLanguage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    const savedLang = localStorage.getItem('preferredLanguage');
+    const supportedLangs = ['ca', 'es', 'en'];
+
+    // Determine current language
+    let currentLang = 'ca'; // default
+    if (urlLang && supportedLangs.includes(urlLang)) {
+      currentLang = urlLang;
+      localStorage.setItem('preferredLanguage', urlLang);
+    } else if (savedLang && supportedLangs.includes(savedLang)) {
+      currentLang = savedLang;
+    }
+
+    // Update main content
+    if (translations[currentLang]) {
+      document.getElementById('hero-title').textContent = translations[currentLang].title;
+      document.getElementById('hero-description').textContent = translations[currentLang].description;
+      document.getElementById('games-title').textContent = translations[currentLang].games;
+    }
+
+    // Show/hide language-specific content
+    supportedLangs.forEach(lang => {
+      const isActive = lang === currentLang;
+
+      // Update game content
+      document.querySelectorAll('.lang-' + lang).forEach(el => {
+        el.style.display = isActive ? 'inline' : 'none';
+      });
+
+      // Update language indicators
+      document.querySelectorAll('.lang-indicator[data-lang="' + lang + '"]').forEach(el => {
+        if (isActive) {
+          el.classList.add('current');
+        } else {
+          el.classList.remove('current');
+        }
+      });
+    });
+
+    // Clean URL if it has lang parameter
+    if (urlLang) {
+      const url = new URL(window.location);
+      url.searchParams.delete('lang');
+      window.history.replaceState({}, '', url.pathname);
+    }
+  }
+
+  // Update on page load
+  updateLanguage();
+
+  // Update when language selector is used (listen for URL changes)
+  window.addEventListener('popstate', updateLanguage);
+
+  // Also listen for clicks on language links
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('.lang-link[hreflang]')) {
+      setTimeout(updateLanguage, 100);
+    }
+  });
+})();
+</script>
+
+<style>
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.hero-section h1 {
+  font-size: 2.5em;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 1.2em;
+  margin: 0;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.games-section h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.game-card {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: #007bff;
+}
+
+.game-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.4em;
+}
+
+.game-title-link {
+  text-decoration: none;
+  color: #2c5aa0;
+  font-weight: 600;
+}
+
+.game-title-link:hover {
+  color: #1a365d;
+  text-decoration: underline;
+}
+
+.game-excerpt {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
+
+.game-meta-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  color: #495057;
+  border: 1px solid #e9ecef;
+}
+
+.meta-icon {
+  font-size: 0.9em;
+}
+
+.difficulty-facil, .difficulty-easy, .difficulty-fàcil {
+  background: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.difficulty-mitja, .difficulty-medio, .difficulty-medium {
+  background: #fff3cd;
+  color: #856404;
+  border-color: #ffeaa7;
+}
+
+.difficulty-dificil, .difficulty-difícil, .difficulty-hard {
+  background: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.game-languages {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.lang-indicator {
+  font-size: 0.75em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #e9ecef;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.lang-indicator.current {
+  background: #007bff;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hero-section {
+    padding: 30px 15px;
+  }
+
+  .hero-section h1 {
+    font-size: 2em;
+  }
+
+  .hero-description {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-meta-preview {
+    flex-direction: column;
+  }
+
+  .meta-badge {
+    justify-content: center;
+  }
+}
+</style>
