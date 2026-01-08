@@ -2,6 +2,18 @@
  * Game Page Styles
  */
 
+/* Keyframe animations for heading entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .game-page {
   max-width: var(--max-width-content);
   margin: 0 auto;
@@ -144,6 +156,13 @@
   margin-bottom: var(--spacing-3xl);
 }
 
+/*
+ * Smooth Scroll Navigation
+ * All headings have scroll-margin-top to account for sticky header
+ * Smooth scroll behavior is enabled in base.css (html element)
+ * This ensures anchor links scroll to the correct position with proper spacing
+ */
+
 .game-content h2 {
   color: var(--color-primary);
   border-bottom: var(--border-width) solid var(--color-border-dark);
@@ -155,6 +174,42 @@
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
   scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
+
+  /* Entrance animation */
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Stagger animation delays for visual hierarchy */
+.game-content h2:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+
+.game-content h2:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+.game-content h2:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+.game-content h2:nth-of-type(4) {
+  animation-delay: 0.25s;
+}
+
+.game-content h2:nth-of-type(5) {
+  animation-delay: 0.3s;
+}
+
+.game-content h2:nth-of-type(n+6) {
+  animation-delay: 0.35s;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .game-content h2 {
+    animation: none;
+  }
 }
 
 .game-content h3 {
@@ -176,6 +231,29 @@
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-normal);
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
+}
+
+.game-content h5 {
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
+}
+
+.game-content h6 {
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
   scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
@@ -363,15 +441,50 @@
 }
 
 .game-content blockquote {
+  position: relative;
   border-left: var(--spacing-xs) solid var(--color-primary);
   padding-left: var(--spacing-xl);
   padding-top: var(--spacing-sm);
   padding-bottom: var(--spacing-sm);
+  padding-right: var(--spacing-md);
   margin: var(--spacing-2xl) 0;
   color: var(--color-text-secondary);
   font-style: italic;
   font-size: var(--font-size-md);
   line-height: var(--line-height-loose);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  transition: border-left-width var(--transition-normal),
+              padding-left var(--transition-normal),
+              background-color var(--transition-normal);
+}
+
+/* Decorative quote icon */
+.game-content blockquote::before {
+  content: '"';
+  position: absolute;
+  left: var(--spacing-sm);
+  top: var(--spacing-sm);
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+  font-style: normal;
+}
+
+/* Subtle hover effect */
+.game-content blockquote:hover {
+  border-left-width: var(--spacing-sm);
+  padding-left: calc(var(--spacing-xl) + var(--spacing-xs));
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .game-content blockquote {
+    transition: none;
+  }
 }
 
 /* Game Navigation */
@@ -575,4 +688,66 @@
   background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
   padding: var(--spacing-2) var(--spacing-xs);
   margin: calc(var(--spacing-2) * -1) calc(var(--spacing-xs) * -1);
+}
+
+/* Enhanced link interactions */
+.game-content a {
+  color: var(--color-accent);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-normal);
+  padding-bottom: var(--spacing-1);
+}
+
+/* Animated underline effect */
+.game-content a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: var(--spacing-1);
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal) ease-out;
+}
+
+.game-content a:hover {
+  color: var(--color-accent-hover);
+}
+
+.game-content a:hover::after {
+  width: 100%;
+}
+
+/* External link indicator */
+.game-content a[href^="http"]::before,
+.game-content a[href^="https://"]::before {
+  content: '↗';
+  display: inline-block;
+  margin-right: var(--spacing-2);
+  font-size: 0.85em;
+  opacity: 0.6;
+  transition: opacity var(--transition-normal);
+}
+
+.game-content a[href^="http"]:hover::before,
+.game-content a[href^="https://"]:hover::before {
+  opacity: 1;
+}
+
+/* Don't add external indicator to same-domain links */
+.game-content a[href*="joventuts-magiques.github.io"]::before {
+  content: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .game-content a::after {
+    transition: none;
+  }
+
+  .game-content a[href^="http"]::before,
+  .game-content a[href^="https://"]::before {
+    transition: none;
+  }
 }

@@ -114,6 +114,14 @@ class ThemeManager {
 
     if (toggleButton) {
       toggleButton.addEventListener('click', () => {
+        // Add rotation animation class
+        toggleButton.classList.add('toggling');
+
+        // Remove class after animation completes
+        setTimeout(() => {
+          toggleButton.classList.remove('toggling');
+        }, 500);
+
         this.toggleTheme();
       });
     }
