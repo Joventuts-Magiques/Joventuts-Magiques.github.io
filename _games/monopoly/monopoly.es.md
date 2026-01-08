@@ -6,6 +6,7 @@ duration: 60-180
 difficulty: Medio
 age_range: 8+
 excerpt: "Juego clásico de compraventa inmobiliaria donde los jugadores intentan hacer quebrar a sus oponentes."
+image: images/main.jpg
 layout: game
 ---
 

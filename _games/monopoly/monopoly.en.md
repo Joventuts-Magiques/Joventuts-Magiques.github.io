@@ -6,6 +6,7 @@ duration: 60-180
 difficulty: Medium
 age_range: 8+
 excerpt: "Classic real estate trading game where players try to bankrupt their opponents."
+image: images/main.jpg
 layout: game
 ---
 

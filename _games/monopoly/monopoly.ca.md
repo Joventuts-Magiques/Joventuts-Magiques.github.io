@@ -6,6 +6,7 @@ duration: 60-180
 difficulty: Mitjà
 age_range: 8+
 excerpt: "Joc clàssic de compravenda immobiliària on els jugadors intenten fer fallit els seus oponents."
+image: images/main.jpg
 layout: game
 ---
 
