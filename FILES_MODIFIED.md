@@ -5,21 +5,26 @@ This document tracks all files that were modified or created during the code imp
 ## New Files Created
 
 ### CSS Files
+
 - ✅ `assets/css/variables.css` - CSS custom properties for theming
 - ✅ `assets/css/language-selector.css` - Language selector component styles
 - ✅ `assets/css/home.css` - Homepage specific styles
 - ✅ `assets/css/game.css` - Game page specific styles
 
 ### JavaScript Files
+
 - ✅ `assets/js/language-manager.js` - Unified language management class
 
 ### Layout Files
+
 - ✅ `_layouts/default.html` - Base layout template (NEW - was missing)
 
 ### Include Files
+
 - ✅ `_includes/translations-script.html` - Dynamic translation generator
 
 ### Documentation Files
+
 - ✅ `IMPROVEMENTS.md` - Detailed improvements documentation
 - ✅ `CHANGELOG.md` - Change history
 - ✅ `FILES_MODIFIED.md` - This file
@@ -29,6 +34,7 @@ This document tracks all files that were modified or created during the code imp
 ## Modified Files
 
 ### Layouts
+
 - ✅ `_layouts/home.html`
   - **Changes:**
     - Removed inline `<style>` block (~170 lines)
@@ -48,6 +54,7 @@ This document tracks all files that were modified or created during the code imp
     - Now references external CSS files
 
 ### Includes
+
 - ✅ `_includes/language-selector.html`
   - **Changes:**
     - Removed inline `<style>` block (~90 lines)
@@ -58,6 +65,7 @@ This document tracks all files that were modified or created during the code imp
     - JavaScript moved to language-manager.js
 
 ### Configuration
+
 - ✅ `_config.yml`
   - **Changes:**
     - Added `IMPROVEMENTS.md` to exclude list
@@ -71,21 +79,26 @@ This document tracks all files that were modified or created during the code imp
 The following files were NOT changed (content remains intact):
 
 ### Data Files
+
 - ❌ `_data/i18n.yml` - Translation data (unchanged, still works with new system)
 
 ### Content Files
+
 - ❌ `_games/**/*.md` - All game content files (no changes needed)
 - ❌ `index.md` - Homepage content (no changes needed)
 
 ### Configuration
+
 - ❌ `.gitignore` - Git configuration (no changes needed)
 - ❌ `.markdownlint.json` - Markdown linting rules (no changes needed)
 - ❌ `.pre-commit-config.yaml` - Pre-commit hooks (no changes needed)
 
 ### Templates
+
 - ❌ `_templates/game-template.ca.md` - Template for new games (no changes needed)
 
 ### Documentation
+
 - ❌ `readme.md` - Project README (existing documentation preserved)
 
 ---
@@ -93,6 +106,7 @@ The following files were NOT changed (content remains intact):
 ## Directory Structure Changes
 
 ### Before
+
 ```
 Joventuts-Magiques.github.io/
 ├── _config.yml
@@ -110,6 +124,7 @@ Joventuts-Magiques.github.io/
 ```
 
 ### After
+
 ```
 Joventuts-Magiques.github.io/
 ├── _config.yml (modified)
@@ -145,6 +160,7 @@ Joventuts-Magiques.github.io/
 ## Summary Statistics
 
 ### Files Created: 12
+
 - CSS files: 4
 - JS files: 1
 - Layout files: 1
@@ -153,17 +169,20 @@ Joventuts-Magiques.github.io/
 - Directories: 3
 
 ### Files Modified: 4
+
 - Layouts: 2
 - Includes: 1
 - Configuration: 1
 
 ### Lines of Code
+
 - **Removed from layouts**: ~535 lines (inline CSS/JS)
 - **Added in external files**: ~650 lines (organized and enhanced)
 - **Net change**: +115 lines (better organized, more features)
 - **Code duplication removed**: ~280 lines
 
 ### Code Quality Improvements
+
 - Separated concerns (HTML/CSS/JS)
 - Modern ES6+ JavaScript
 - CSS custom properties
@@ -178,6 +197,7 @@ Joventuts-Magiques.github.io/
 Use this checklist to verify all changes:
 
 ### File Existence
+
 - [ ] Verify `assets/css/variables.css` exists
 - [ ] Verify `assets/css/language-selector.css` exists
 - [ ] Verify `assets/css/home.css` exists
@@ -187,6 +207,7 @@ Use this checklist to verify all changes:
 - [ ] Verify `_includes/translations-script.html` exists
 
 ### File Modifications
+
 - [ ] Verify `_layouts/home.html` has no inline `<style>`
 - [ ] Verify `_layouts/home.html` has no inline `<script>`
 - [ ] Verify `_layouts/game.html` has no inline `<style>`
@@ -194,6 +215,7 @@ Use this checklist to verify all changes:
 - [ ] Verify `_includes/language-selector.html` has no inline `<script>`
 
 ### Functionality
+
 - [ ] Language switching works on homepage
 - [ ] Language switching works on game pages
 - [ ] Language preference is saved in localStorage
@@ -202,6 +224,7 @@ Use this checklist to verify all changes:
 - [ ] All links work correctly
 
 ### Build & Deploy
+
 - [ ] Jekyll builds without errors
 - [ ] CSS files are loaded
 - [ ] JS files are loaded
@@ -215,6 +238,7 @@ Use this checklist to verify all changes:
 If you need to rollback these changes:
 
 1. **Git Restore** (if committed):
+
    ```bash
    git checkout HEAD~1 _layouts/
    git checkout HEAD~1 _includes/
@@ -237,6 +261,7 @@ If you need to rollback these changes:
 After applying these changes:
 
 1. **Test locally**:
+
    ```bash
    bundle exec jekyll serve
    ```
@@ -263,6 +288,7 @@ After applying these changes:
 ## Contact
 
 If you have questions about these changes, refer to:
+
 - `IMPROVEMENTS.md` - Detailed technical documentation
 - `CHANGELOG.md` - Summary of all changes
 - This file - File-by-file tracking

@@ -24,4 +24,4 @@ repos:
     rev: v0.47.0
     hooks:
       - id: markdownlint
-        args: ["--config", ".markdownlint.json"]
+        args: ["--fix", "--config", ".markdownlint.json"]
