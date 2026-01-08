@@ -99,18 +99,40 @@
   --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
   --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
 
-  /* Typography - Modular Scale (1.25 ratio - Major Third) */
-  /* Base font size: 16px (1rem) */
-  --font-size-xs: 0.64rem;      /* 10.24px - Small labels, captions */
-  --font-size-sm: 0.8rem;       /* 12.8px - Meta info, small text */
-  --font-size-base: 1rem;       /* 16px - Body text */
-  --font-size-md: 1.125rem;     /* 18px - Slightly larger body text */
-  --font-size-lg: 1.25rem;      /* 20px - Lead paragraphs, large body */
-  --font-size-xl: 1.563rem;     /* 25px - h4 headings */
-  --font-size-2xl: 1.953rem;    /* 31.25px - h3 headings */
-  --font-size-3xl: 2.441rem;    /* 39px - h2 headings */
-  --font-size-4xl: 3.052rem;    /* 48.8px - h1 headings */
-  --font-size-5xl: 3.815rem;    /* 61px - Hero/display headings */
+  /* Typography - Fluid Responsive Scale using clamp() */
+  /* Scales smoothly between mobile (320px) and desktop (1200px) viewports */
+  /* Formula: clamp(min, preferred with vw, max) */
+  /* Base font size: minimum 16px (1rem) for accessibility */
+
+  /* Small labels, captions - scales from 10px to 12px */
+  --font-size-xs: clamp(0.625rem, 0.55rem + 0.25vw, 0.75rem);
+
+  /* Meta info, small text - scales from 12px to 14px */
+  --font-size-sm: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+
+  /* Body text - scales from 16px to 18px (minimum 16px for accessibility) */
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+
+  /* Slightly larger body text - scales from 17px to 20px */
+  --font-size-md: clamp(1.063rem, 1rem + 0.3vw, 1.25rem);
+
+  /* Lead paragraphs, large body - scales from 18px to 22px */
+  --font-size-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+
+  /* h4 headings - scales from 20px to 26px */
+  --font-size-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);
+
+  /* h3 headings - scales from 24px to 32px */
+  --font-size-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+
+  /* h2 headings - scales from 28px to 40px */
+  --font-size-3xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+
+  /* h1 headings - scales from 32px to 48px */
+  --font-size-4xl: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+
+  /* Hero/display headings - scales from 36px to 60px */
+  --font-size-5xl: clamp(2.25rem, 1.8rem + 2.25vw, 3.75rem);
 
   /* Font weights */
   --font-weight-normal: 400;

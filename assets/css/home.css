@@ -80,7 +80,7 @@
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr));
-  gap: var(--spacing-xl);
+  gap: var(--spacing-2xl);
   margin-top: var(--spacing-2xl);
 }
 
@@ -89,7 +89,6 @@
   background: var(--color-bg-primary);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-xl);
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow var(--transition-slow),
               border-color var(--transition-slow);
@@ -99,6 +98,26 @@
   transform-style: preserve-3d;
   transform-origin: center center;
   will-change: transform;
+}
+
+/* Clickable card link - covers entire card */
+.game-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--radius-xl);
+}
+
+.game-card-link:focus-visible {
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* Card content wrapper */
+.game-card-content {
+  padding: var(--spacing-xl);
 }
 
 /* Subtle glow effect on hover */
@@ -140,30 +159,37 @@
 }
 
 .game-image {
-  margin: calc(-1 * var(--spacing-xl)) calc(-1 * var(--spacing-xl)) var(--spacing-lg) calc(-1 * var(--spacing-xl));
+  margin: 0 0 var(--spacing-lg) 0;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: var(--color-bg-secondary);
   position: relative;
+  /* Prevent layout shift by reserving space */
+  min-height: 0;
+  contain: layout;
 }
 
 /* More compact image on mobile */
 @media (max-width: 768px) {
   .game-image {
-    margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-sm) calc(-1 * var(--spacing-md));
+    margin: 0 0 var(--spacing-sm) 0;
     aspect-ratio: 4 / 3;
   }
 }
 
 @media (max-width: 480px) {
   .game-image {
-    margin: calc(-1 * var(--spacing-sm)) calc(-1 * var(--spacing-sm)) var(--spacing-xs) calc(-1 * var(--spacing-sm));
+    margin: 0 0 var(--spacing-xs) 0;
     aspect-ratio: 3 / 2;
+  }
+
+  .game-card-content {
+    padding: var(--spacing-sm);
   }
 }
 
-/* Image loading placeholder */
+/* Image loading placeholder with shimmer effect */
 .game-image::before {
   content: '';
   position: absolute;
@@ -181,24 +207,72 @@
   z-index: 1;
 }
 
-.game-image.loaded::before {
+/* Shimmer animation keyframes */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Blur-up loading effect - blurred placeholder */
+.game-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-bg-tertiary) 50%,
+    var(--color-bg-secondary) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-pulse 2s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Gradient pulse animation for placeholder */
+@keyframes gradient-pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Hide placeholder effects when image is loaded */
+.game-image.loaded::before,
+.game-image.loaded::after {
   display: none;
 }
 
+/* Image styles with blur-up effect */
 .game-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow), opacity var(--transition-slow);
+  transition: transform var(--transition-slow),
+              opacity var(--transition-slow),
+              filter var(--transition-slow);
   opacity: 0;
+  filter: blur(10px);
   position: relative;
   z-index: 2;
 }
 
+/* Loaded state - clear and visible */
 .game-image img.loaded {
   opacity: 1;
+  filter: blur(0);
 }
 
+/* Hover effect only on loaded images */
 .game-card:hover .game-image img.loaded {
   transform: scale(1.05);
 }
@@ -217,7 +291,7 @@
 }
 
 /* Staggered animations for card elements */
-.game-card:hover h3 {
+.game-card:hover .game-title {
   transform: translateX(var(--spacing-xs));
   transition: transform var(--transition-normal) 0.05s;
 }
@@ -243,27 +317,75 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-snug);
   transition: transform var(--transition-normal);
-}
-
-.game-title-link {
-  text-decoration: none;
   color: var(--color-primary);
-  font-weight: var(--font-weight-semibold);
-  transition: color var(--transition-normal);
 }
 
-.game-title-link:hover {
-  color: var(--color-primary-dark);
-  text-decoration: underline;
+.game-title {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  color: var(--color-primary);
 }
 
-.game-title-link:focus-visible {
-  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
-  outline-offset: var(--focus-ring-offset, 2px);
+/* Skeleton loading states for card content */
+.game-card.loading .game-title,
+.game-card.loading .game-excerpt,
+.game-card.loading .meta-badge,
+.game-card.loading .lang-indicator {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
   border-radius: var(--radius-sm);
-  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
-  padding: var(--spacing-2) var(--spacing-xs);
-  margin: calc(var(--spacing-2) * -1) calc(var(--spacing-xs) * -1);
+}
+
+/* Skeleton shimmer effect */
+.game-card.loading .game-title::after,
+.game-card.loading .game-excerpt::after,
+.game-card.loading .meta-badge::after,
+.game-card.loading .lang-indicator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+/* Skeleton dimensions for title */
+.game-card.loading .game-title {
+  display: inline-block;
+  width: 70%;
+  height: 1.5em;
+}
+
+/* Skeleton dimensions for excerpt */
+.game-card.loading .game-excerpt {
+  display: block;
+  width: 100%;
+  height: 3em;
+}
+
+/* Skeleton dimensions for badges */
+.game-card.loading .meta-badge {
+  min-width: 80px;
+  height: 1.5em;
+}
+
+/* Skeleton dimensions for language indicators */
+.game-card.loading .lang-indicator {
+  min-width: 40px;
+  height: 1.5em;
 }
 
 .game-excerpt {
@@ -306,14 +428,21 @@
   background: var(--color-difficulty-easy-bg);
   color: var(--color-difficulty-easy-text);
   border-color: var(--color-difficulty-easy-border);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  position: relative;
 }
 
 .difficulty-mitja,
+.difficulty-mitjà,
 .difficulty-medio,
 .difficulty-medium {
   background: var(--color-difficulty-medium-bg);
   color: var(--color-difficulty-medium-text);
   border-color: var(--color-difficulty-medium-border);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  position: relative;
 }
 
 .difficulty-dificil,
@@ -322,6 +451,106 @@
   background: var(--color-difficulty-hard-bg);
   color: var(--color-difficulty-hard-text);
   border-color: var(--color-difficulty-hard-border);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  position: relative;
+  animation: difficulty-pulse 2s ease-in-out infinite;
+}
+
+/* Pulse animation for hard difficulty */
+@keyframes difficulty-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(114, 28, 36, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(114, 28, 36, 0);
+  }
+}
+
+/* Dark mode pulse animation */
+@media (prefers-color-scheme: dark) {
+  @keyframes difficulty-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(252, 165, 165, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 4px rgba(252, 165, 165, 0);
+    }
+  }
+}
+
+[data-theme="dark"] .difficulty-dificil,
+[data-theme="dark"] .difficulty-difícil,
+[data-theme="dark"] .difficulty-hard {
+  animation: difficulty-pulse-dark 2s ease-in-out infinite;
+}
+
+@keyframes difficulty-pulse-dark {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(252, 165, 165, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(252, 165, 165, 0);
+  }
+}
+
+/* Hover effects for all difficulty badges */
+.difficulty-facil:hover,
+.difficulty-easy:hover,
+.difficulty-fàcil:hover {
+  transform: scale(1.05);
+  background: var(--color-difficulty-easy-text);
+  color: var(--color-difficulty-easy-bg);
+  box-shadow: 0 4px 12px rgba(21, 87, 36, 0.3);
+}
+
+.difficulty-mitja:hover,
+.difficulty-mitjà:hover,
+.difficulty-medio:hover,
+.difficulty-medium:hover {
+  transform: scale(1.05);
+  background: var(--color-difficulty-medium-text);
+  color: var(--color-difficulty-medium-bg);
+  box-shadow: 0 4px 12px rgba(133, 100, 4, 0.3);
+}
+
+.difficulty-dificil:hover,
+.difficulty-difícil:hover,
+.difficulty-hard:hover {
+  transform: scale(1.05);
+  background: var(--color-difficulty-hard-text);
+  color: var(--color-difficulty-hard-bg);
+  box-shadow: 0 4px 12px rgba(114, 28, 36, 0.4);
+  animation: none; /* Stop pulse on hover */
+}
+
+/* Enhanced icon styling for difficulty badges */
+.difficulty-facil .meta-icon,
+.difficulty-easy .meta-icon,
+.difficulty-fàcil .meta-icon,
+.difficulty-mitja .meta-icon,
+.difficulty-mitjà .meta-icon,
+.difficulty-medio .meta-icon,
+.difficulty-medium .meta-icon,
+.difficulty-dificil .meta-icon,
+.difficulty-difícil .meta-icon,
+.difficulty-hard .meta-icon {
+  font-size: var(--font-size-lg);
+  transition: transform var(--transition-normal);
+}
+
+/* Icon animation on hover */
+.difficulty-facil:hover .meta-icon,
+.difficulty-easy:hover .meta-icon,
+.difficulty-fàcil:hover .meta-icon,
+.difficulty-mitja:hover .meta-icon,
+.difficulty-mitjà:hover .meta-icon,
+.difficulty-medio:hover .meta-icon,
+.difficulty-medium:hover .meta-icon,
+.difficulty-dificil:hover .meta-icon,
+.difficulty-difícil:hover .meta-icon,
+.difficulty-hard:hover .meta-icon {
+  transform: rotate(10deg) scale(1.1);
 }
 
 /* Language Indicators */
@@ -348,10 +577,33 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop (1200px+) - Default styles above */
+
+/* Desktop (1024px - 1199px) */
+@media (max-width: 1199px) {
+  .games-grid {
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Tablet Landscape (900px - 1023px) */
+@media (max-width: 1023px) {
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .home-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* Tablet Portrait (768px - 899px) */
+@media (max-width: 899px) {
   .games-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
   }
 
   .hero-section {
@@ -369,13 +621,22 @@
   .games-section h2 {
     font-size: var(--font-size-3xl);
   }
+}
 
-  /* More compact cards on mobile */
-  .game-card {
+/* Small Tablet (600px - 767px) */
+@media (max-width: 767px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  /* More compact cards on smaller tablets */
+  .game-card-content {
     padding: var(--spacing-md);
   }
 
-  .game-card h3 {
+  .game-card h3,
+  .game-title {
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-sm);
   }
@@ -396,7 +657,7 @@
     padding: var(--spacing-2) var(--spacing-xs);
   }
 
-  /* Reduce hover effects on mobile */
+  /* Reduce hover effects on touch devices */
   .game-card:hover {
     transform: translateY(-4px);
   }
@@ -407,19 +668,65 @@
   .game-card:hover .game-languages {
     transform: none;
   }
+
+  /* Reduce difficulty badge hover effects on touch devices */
+  .difficulty-facil:hover,
+  .difficulty-easy:hover,
+  .difficulty-fàcil:hover,
+  .difficulty-mitja:hover,
+  .difficulty-mitjà:hover,
+  .difficulty-medio:hover,
+  .difficulty-medium:hover,
+  .difficulty-dificil:hover,
+  .difficulty-difícil:hover,
+  .difficulty-hard:hover {
+    transform: scale(1.02);
+  }
 }
 
+/* Mobile Landscape (481px - 599px) */
+@media (max-width: 599px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .home-content {
+    padding: var(--spacing-md);
+  }
+
+  .hero-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .hero-section h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-base);
+  }
+
+  .games-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+/* Mobile Portrait (320px - 480px) */
 @media (max-width: 480px) {
   .games-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
   }
 
-  .game-card {
+  .game-card-content {
     padding: var(--spacing-sm);
   }
 
-  .game-card h3 {
+  .game-card h3,
+  .game-title {
     font-size: var(--font-size-base);
     margin-bottom: var(--spacing-xs);
   }
@@ -478,6 +785,38 @@
   .game-card:hover {
     transform: none;
   }
+
+  /* Disable difficulty badge hover effects on small mobile */
+  .difficulty-facil:hover,
+  .difficulty-easy:hover,
+  .difficulty-fàcil:hover,
+  .difficulty-mitja:hover,
+  .difficulty-mitjà:hover,
+  .difficulty-medio:hover,
+  .difficulty-medium:hover,
+  .difficulty-dificil:hover,
+  .difficulty-difícil:hover,
+  .difficulty-hard:hover {
+    transform: none;
+    background: var(--color-difficulty-easy-bg);
+    color: var(--color-difficulty-easy-text);
+    box-shadow: none;
+  }
+
+  .difficulty-mitja:hover,
+  .difficulty-mitjà:hover,
+  .difficulty-medio:hover,
+  .difficulty-medium:hover {
+    background: var(--color-difficulty-medium-bg);
+    color: var(--color-difficulty-medium-text);
+  }
+
+  .difficulty-dificil:hover,
+  .difficulty-difícil:hover,
+  .difficulty-hard:hover {
+    background: var(--color-difficulty-hard-bg);
+    color: var(--color-difficulty-hard-text);
+  }
 }
 
 /* Reduced motion support */
@@ -502,7 +841,7 @@
   }
 
   .game-card:hover,
-  .game-card:hover h3,
+  .game-card:hover .game-title,
   .game-card:hover .game-excerpt,
   .game-card:hover .game-meta-preview,
   .game-card:hover .game-languages {
@@ -511,6 +850,43 @@
 
   .game-card:hover::before {
     opacity: 0;
+  }
+
+  /* Disable loading animations */
+  .game-image::before,
+  .game-image::after,
+  .game-card.loading .game-title::after,
+  .game-card.loading .game-excerpt::after,
+  .game-card.loading .meta-badge::after,
+  .game-card.loading .lang-indicator::after {
+    animation: none;
+  }
+
+  /* Instant image loading without blur effect */
+  .game-image img {
+    filter: none;
+    transition: none;
+  }
+
+  /* Disable difficulty badge pulse animation */
+  .difficulty-dificil,
+  .difficulty-difícil,
+  .difficulty-hard {
+    animation: none;
+  }
+
+  /* Disable hover animations for difficulty badges */
+  .difficulty-facil:hover .meta-icon,
+  .difficulty-easy:hover .meta-icon,
+  .difficulty-fàcil:hover .meta-icon,
+  .difficulty-mitja:hover .meta-icon,
+  .difficulty-mitjà:hover .meta-icon,
+  .difficulty-medio:hover .meta-icon,
+  .difficulty-medium:hover .meta-icon,
+  .difficulty-dificil:hover .meta-icon,
+  .difficulty-difícil:hover .meta-icon,
+  .difficulty-hard:hover .meta-icon {
+    transform: none;
   }
 }
 

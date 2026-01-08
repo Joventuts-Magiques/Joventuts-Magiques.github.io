@@ -509,37 +509,382 @@ select:focus-visible {
   margin-bottom: var(--spacing-3xl, 40px);
 }
 
+/* ============================================
+   Button Component System
+   ============================================ */
+
+/* Base Button Styles */
 .btn {
-  display: inline-block;
-  padding: var(--spacing-md, 15px) var(--spacing-2xl, 30px);
-  font-size: var(--font-size-base, 0.9em);
-  font-weight: var(--font-weight-medium, 500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-2xl);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
   text-decoration: none;
-  border-radius: var(--radius-lg, 6px);
-  transition: all var(--transition-normal, 0.2s ease);
-  cursor: pointer;
-  border: none;
   text-align: center;
+  white-space: nowrap;
+  border: var(--border-width-thick) solid transparent;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Remove default button styles */
+.btn::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Button Variants */
+
+/* Primary Button - Main call-to-action */
 .btn-primary {
-  background: var(--hero-gradient, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
-  color: var(--hero-text-color, #ffffff);
-  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.1));
+  background: var(--hero-gradient);
+  color: var(--hero-text-color);
+  border-color: transparent;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.12));
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.05);
 }
 
 .btn-primary:active {
   transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+  filter: brightness(0.95);
 }
 
 .btn-primary:focus-visible {
-  outline: 2px solid var(--color-border-focus, #007bff);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: var(--shadow-md), 0 0 0 var(--spacing-xs) rgba(102, 126, 234, 0.4);
+}
+
+/* Secondary Button - Alternative actions */
+.btn-secondary {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-border-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  background: var(--color-border-light);
+  box-shadow: none;
+}
+
+.btn-secondary:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: 0 0 0 var(--spacing-xs) var(--focus-bg-highlight);
+}
+
+/* Outline Button - Subtle actions */
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: var(--hero-text-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+  box-shadow: none;
+  filter: brightness(0.9);
+}
+
+.btn-outline:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  background: var(--focus-bg-highlight);
+}
+
+/* Ghost Button - Minimal style */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-accent);
+}
+
+.btn-ghost:active {
+  background: var(--color-bg-tertiary);
+}
+
+.btn-ghost:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  background: var(--focus-bg-highlight);
+}
+
+/* Danger Button - Destructive actions */
+.btn-danger {
+  background: var(--color-difficulty-hard-bg);
+  color: var(--color-difficulty-hard-text);
+  border-color: var(--color-difficulty-hard-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-danger:hover {
+  background: var(--color-difficulty-hard-text);
+  color: var(--hero-text-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-danger:active {
+  transform: translateY(0);
+  filter: brightness(0.9);
+}
+
+.btn-danger:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-difficulty-hard-text);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Success Button - Positive actions */
+.btn-success {
+  background: var(--color-difficulty-easy-bg);
+  color: var(--color-difficulty-easy-text);
+  border-color: var(--color-difficulty-easy-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-success:hover {
+  background: var(--color-difficulty-easy-text);
+  color: var(--hero-text-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-success:active {
+  transform: translateY(0);
+  filter: brightness(0.9);
+}
+
+.btn-success:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-difficulty-easy-text);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Button Sizes */
+
+/* Small Button */
+.btn-small,
+.btn-sm {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  gap: var(--spacing-xs);
+  border-radius: var(--radius-md);
+}
+
+/* Medium Button (default) */
+.btn-medium,
+.btn-md {
+  padding: var(--spacing-md) var(--spacing-2xl);
+  font-size: var(--font-size-base);
+  gap: var(--spacing-sm);
+  border-radius: var(--radius-lg);
+}
+
+/* Large Button */
+.btn-large,
+.btn-lg {
+  padding: var(--spacing-lg) var(--spacing-3xl);
+  font-size: var(--font-size-lg);
+  gap: var(--spacing-md);
+  border-radius: var(--radius-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Button States */
+
+/* Disabled State */
+.btn:disabled,
+.btn.disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Loading State */
+.btn.loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin: -0.5em 0 0 -0.5em;
+  border: var(--spacing-2) solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  opacity: 0.8;
+}
+
+/* Active/Pressed State */
+.btn:active:not(:disabled):not(.disabled) {
+  transform: scale(0.98);
+}
+
+/* Button Groups */
+.btn-group {
+  display: inline-flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  margin: 0;
+}
+
+/* Stacked button group */
+.btn-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Full-width button */
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* Icon Buttons */
+.btn-icon {
+  padding: var(--spacing-md);
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.btn-icon.btn-small,
+.btn-icon.btn-sm {
+  padding: var(--spacing-sm);
+}
+
+.btn-icon.btn-large,
+.btn-icon.btn-lg {
+  padding: var(--spacing-lg);
+}
+
+/* Button with icon */
+.btn svg,
+.btn img {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  .btn-large,
+  .btn-lg {
+    padding: var(--spacing-md) var(--spacing-2xl);
+    font-size: var(--font-size-base);
+  }
+
+  /* Make buttons full-width on mobile by default (can be overridden) */
+  .btn-mobile-block {
+    display: flex;
+    width: 100%;
+  }
+}
+
+/* Accessibility Enhancements */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: var(--border-width-thick);
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    border-color: currentColor;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn:hover,
+  .btn:active {
+    transform: none;
+  }
+
+  .btn.loading::after {
+    animation: none;
+    border-top-color: currentColor;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    /* Ensure minimum touch target size */
+    min-height: var(--min-touch-target);
+    min-width: var(--min-touch-target);
+  }
+
+  /* Remove hover effects on touch devices */
+  .btn:hover {
+    transform: none;
+  }
+
+  /* Enhance active state for touch feedback */
+  .btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 .error-suggestions {
@@ -714,5 +1059,220 @@ select:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .scroll-progress {
     display: none;
+  }
+}
+
+/* ============================================
+   Enhanced Link Styles
+   ============================================ */
+
+/* Base link styles with animated underline */
+a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link) {
+  color: var(--color-accent, #007bff);
+  text-decoration: none;
+  position: relative;
+  display: inline;
+  transition: color var(--transition-normal, 0.2s ease);
+}
+
+/* Animated underline using pseudo-element */
+a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent, #007bff);
+  transition: width var(--transition-normal, 0.2s ease),
+              background-color var(--transition-normal, 0.2s ease);
+}
+
+/* Hover state - slide in underline */
+a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):hover {
+  color: var(--color-accent-hover, #0056b3);
+}
+
+a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):hover::after {
+  width: 100%;
+  background: var(--color-accent-hover, #0056b3);
+}
+
+/* Active state */
+a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):active {
+  color: var(--color-accent-active, #004085);
+}
+
+/* External link indicator */
+a[href^="http"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):not([href*="joventuts-magiques.github.io"])::before,
+a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::before {
+  content: '';
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: var(--spacing-2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: baseline;
+  opacity: 0.7;
+  transition: opacity var(--transition-normal, 0.2s ease),
+              transform var(--transition-normal, 0.2s ease);
+}
+
+/* External link hover effect */
+a[href^="http"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):not([href*="joventuts-magiques.github.io"]):hover::before,
+a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):hover::before {
+  opacity: 1;
+  transform: translateX(2px) translateY(-2px);
+}
+
+/* Footer links - keep existing behavior but add animation */
+.footer-links a {
+  color: var(--color-accent, #007bff);
+  text-decoration: none;
+  margin: 0 var(--spacing-10);
+  position: relative;
+  transition: color var(--transition-normal, 0.2s ease);
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent, #007bff);
+  transition: width var(--transition-normal, 0.2s ease),
+              background-color var(--transition-normal, 0.2s ease);
+}
+
+.footer-links a:hover {
+  color: var(--color-accent-hover, #0056b3);
+  text-decoration: none;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+  background: var(--color-accent-hover, #0056b3);
+}
+
+.footer-links a:focus-visible {
+  outline: var(--border-width-thick) solid var(--color-border-focus, #007bff);
+  outline-offset: var(--spacing-2);
+  border-radius: var(--radius-sm);
+}
+
+/* Content area links (game pages, etc.) */
+.game-content a:not(.btn),
+.content a:not(.btn),
+article a:not(.btn),
+main a:not(.btn) {
+  color: var(--color-accent, #007bff);
+  text-decoration: none;
+  position: relative;
+  font-weight: var(--font-weight-medium, 500);
+  transition: color var(--transition-normal, 0.2s ease);
+}
+
+.game-content a:not(.btn)::after,
+.content a:not(.btn)::after,
+article a:not(.btn)::after,
+main a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent, #007bff);
+  transition: width var(--transition-normal, 0.2s ease),
+              background-color var(--transition-normal, 0.2s ease);
+}
+
+.game-content a:not(.btn):hover,
+.content a:not(.btn):hover,
+article a:not(.btn):hover,
+main a:not(.btn):hover {
+  color: var(--color-accent-hover, #0056b3);
+}
+
+.game-content a:not(.btn):hover::after,
+.content a:not(.btn):hover::after,
+article a:not(.btn):hover::after,
+main a:not(.btn):hover::after {
+  width: 100%;
+  background: var(--color-accent-hover, #0056b3);
+}
+
+/* Navigation links - preserve existing styles */
+nav a,
+.nav-link,
+.site-header a {
+  /* These already have their own styles, don't override */
+}
+
+/* Visited link state */
+a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):visited {
+  color: var(--color-accent-visited, #6610f2);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  a[href^="http"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):not([href*="joventuts-magiques.github.io"])::before,
+  a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2380b3ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::after {
+    height: 3px;
+  }
+
+  a[href^="http"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):not([href*="joventuts-magiques.github.io"])::before,
+  a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::before {
+    opacity: 1;
+  }
+}
+
+/* Reduced motion - disable animations */
+@media (prefers-reduced-motion: reduce) {
+  a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::after {
+    transition: none;
+  }
+
+  a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):hover::after {
+    width: 100%;
+  }
+
+  a[href^="http"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):not([href*="joventuts-magiques.github.io"])::before,
+  a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::before {
+    transition: none;
+  }
+
+  a[href^="http"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):not([href*="joventuts-magiques.github.io"]):hover::before,
+  a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):hover::before {
+    transform: none;
+  }
+}
+
+/* Print styles - remove underlines and external indicators */
+@media print {
+  a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::after {
+    display: none;
+  }
+
+  a[href^="http"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link):not([href*="joventuts-magiques.github.io"])::before,
+  a[target="_blank"]:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link)::before {
+    display: none;
+  }
+
+  a:not(.btn):not(.skip-link):not(.game-card):not(.language-link):not(.lang-link) {
+    color: var(--color-text-primary, #333);
+    text-decoration: underline;
   }
 }

@@ -254,13 +254,19 @@ class LanguageManager {
   }
 
   /**
-   * Initialize image loading handlers
+   * Initialize image loading handlers with loading states
    */
   initializeImageLoading() {
     const images = document.querySelectorAll('.game-image img');
 
     images.forEach(img => {
       const container = img.closest('.game-image');
+      const card = img.closest('.game-card');
+
+      // Add loading state to card
+      if (card && !img.complete) {
+        card.classList.add('loading');
+      }
 
       // If image is already loaded (cached)
       if (img.complete && img.naturalHeight !== 0) {
@@ -268,13 +274,22 @@ class LanguageManager {
         if (container) {
           container.classList.add('loaded');
         }
+        if (card) {
+          card.classList.remove('loading');
+        }
       } else {
         // Add load event listener
         img.addEventListener('load', () => {
-          img.classList.add('loaded');
-          if (container) {
-            container.classList.add('loaded');
-          }
+          // Small delay for smooth transition
+          requestAnimationFrame(() => {
+            img.classList.add('loaded');
+            if (container) {
+              container.classList.add('loaded');
+            }
+            if (card) {
+              card.classList.remove('loading');
+            }
+          });
         });
 
         // Handle error case
@@ -282,6 +297,10 @@ class LanguageManager {
           if (container) {
             container.classList.add('loaded');
           }
+          if (card) {
+            card.classList.remove('loading');
+          }
+          console.warn('Failed to load image:', img.src);
         });
       }
     });
