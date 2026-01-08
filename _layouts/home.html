@@ -22,9 +22,15 @@ layout: default
         <article class="game-card" role="article" aria-label="{{ ca_game.title }}">
           {% if ca_game.image %}
           <div class="game-image">
-            <img src="{{ '/assets/images/games/' | append: game_group.name | append: '/' | append: ca_game.image | relative_url }}"
-                 alt="{{ ca_game.title }}"
-                 loading="lazy">
+            {% if ca_game.image contains 'http' %}
+              <img src="{{ ca_game.image }}"
+                   alt="{{ ca_game.title }}"
+                   loading="lazy">
+            {% else %}
+              <img src="{{ '/assets/images/games/' | append: game_group.name | append: '/' | append: ca_game.image | relative_url }}"
+                   alt="{{ ca_game.title }}"
+                   loading="lazy">
+            {% endif %}
           </div>
           {% endif %}
 
