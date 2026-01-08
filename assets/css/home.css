@@ -1,0 +1,214 @@
+/**
+ * Homepage Styles
+ */
+
+.home-content {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: var(--hero-gradient);
+  color: var(--color-bg-primary);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.hero-section h1 {
+  font-size: var(--font-size-5xl);
+  margin: 0 0 var(--spacing-md) 0;
+  font-weight: var(--font-weight-bold);
+}
+
+.hero-description {
+  font-size: var(--font-size-2xl);
+  margin: 0;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Games Section */
+.games-section h2 {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+/* Game Cards */
+.game-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-slow);
+  box-shadow: var(--shadow-sm);
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-border-focus);
+}
+
+.game-card h3 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-3xl);
+}
+
+.game-title-link {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  transition: color var(--transition-normal);
+}
+
+.game-title-link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.game-title-link:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.game-excerpt {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+}
+
+/* Game Meta Preview */
+.game-meta-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: var(--color-bg-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-md);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border-medium);
+}
+
+.meta-icon {
+  font-size: var(--font-size-base);
+}
+
+/* Difficulty Badges */
+.difficulty-facil,
+.difficulty-easy,
+.difficulty-fàcil {
+  background: var(--color-difficulty-easy-bg);
+  color: var(--color-difficulty-easy-text);
+  border-color: var(--color-difficulty-easy-border);
+}
+
+.difficulty-mitja,
+.difficulty-medio,
+.difficulty-medium {
+  background: var(--color-difficulty-medium-bg);
+  color: var(--color-difficulty-medium-text);
+  border-color: var(--color-difficulty-medium-border);
+}
+
+.difficulty-dificil,
+.difficulty-difícil,
+.difficulty-hard {
+  background: var(--color-difficulty-hard-bg);
+  color: var(--color-difficulty-hard-text);
+  border-color: var(--color-difficulty-hard-border);
+}
+
+/* Language Indicators */
+.game-languages {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.lang-indicator {
+  font-size: var(--font-size-sm);
+  padding: 2px 6px;
+  border-radius: var(--radius-md);
+  background: var(--color-border-medium);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+}
+
+.lang-indicator.current {
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .hero-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .hero-section h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-meta-preview {
+    flex-direction: column;
+  }
+
+  .meta-badge {
+    justify-content: center;
+  }
+
+  .home-content {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .game-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .hero-section {
+    background: none;
+    color: #000;
+    border: 2px solid #000;
+  }
+}

@@ -1,0 +1,143 @@
+/**
+ * CSS Custom Properties (Variables)
+ * Centralized theme configuration for consistent styling
+ */
+
+:root {
+  /* Color Palette */
+  --color-primary: #2c5aa0;
+  --color-primary-dark: #1a365d;
+  --color-primary-light: #667eea;
+  --color-secondary: #764ba2;
+  --color-accent: #007bff;
+  --color-accent-hover: #0056b3;
+
+  /* Text Colors */
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-text-muted: #6c757d;
+  --color-text-light: #495057;
+
+  /* Background Colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f5f5f5;
+  --color-bg-gradient-start: #f8f9fa;
+  --color-bg-gradient-end: #e9ecef;
+
+  /* Border Colors */
+  --color-border-light: #e1e5e9;
+  --color-border-medium: #dee2e6;
+  --color-border-dark: #ddd;
+  --color-border-focus: #007bff;
+
+  /* Difficulty Colors */
+  --color-difficulty-easy-bg: #d4edda;
+  --color-difficulty-easy-text: #155724;
+  --color-difficulty-easy-border: #c3e6cb;
+
+  --color-difficulty-medium-bg: #fff3cd;
+  --color-difficulty-medium-text: #856404;
+  --color-difficulty-medium-border: #ffeaa7;
+
+  --color-difficulty-hard-bg: #f8d7da;
+  --color-difficulty-hard-text: #721c24;
+  --color-difficulty-hard-border: #f5c6cb;
+
+  /* Hero Gradient */
+  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 25px;
+  --spacing-2xl: 30px;
+  --spacing-3xl: 40px;
+
+  /* Border Radius */
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  /* Typography */
+  --font-size-sm: 0.75em;
+  --font-size-md: 0.85em;
+  --font-size-base: 0.9em;
+  --font-size-lg: 0.95em;
+  --font-size-xl: 1.1em;
+  --font-size-2xl: 1.2em;
+  --font-size-3xl: 1.4em;
+  --font-size-4xl: 2em;
+  --font-size-5xl: 2.5em;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* Layout */
+  --max-width-content: 800px;
+  --max-width-container: 1200px;
+
+  /* Z-index layers */
+  --z-index-base: 1;
+  --z-index-dropdown: 100;
+  --z-index-modal: 1000;
+
+  /* Breakpoints (for JS usage) */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 600px;
+  --breakpoint-desktop: 768px;
+  --breakpoint-wide: 1024px;
+}
+
+/* Dark mode support (optional future enhancement) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Uncomment when ready to implement dark mode */
+    /*
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #2d2d2d;
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #b0b0b0;
+    */
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border-light: #000;
+    --color-border-medium: #000;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+    --transition-normal: 0s;
+    --transition-slow: 0s;
+  }
+}
