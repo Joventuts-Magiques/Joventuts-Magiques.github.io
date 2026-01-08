@@ -33,6 +33,7 @@
   {% comment %} CSS - Order matters! Variables first, then base, then components {% endcomment %}
   <link rel="stylesheet" href="{{ '/assets/css/variables.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site-header.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/language-selector.css' | relative_url }}">
 
   {% if page.layout == 'home' or layout.name == 'home' %}
@@ -64,6 +65,9 @@
 <body>
   {% comment %} Skip to main content for accessibility {% endcomment %}
   <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+
+  {% comment %} Site Header with Navigation {% endcomment %}
+  {% include site-header.html %}
 
   {% comment %} Main content area {% endcomment %}
   <div id="main-content" role="main">

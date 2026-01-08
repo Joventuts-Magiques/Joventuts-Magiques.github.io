@@ -1,6 +1,7 @@
 # All translations in one file
 ca:
   site_title: "Col·lecció de Jocs de Taula"
+  home: "Inici"
   welcome: "Benvinguts a la Col·lecció de Jocs de Taula"
   description: "Descobreix les regles i estratègies dels jocs de taula clàssics."
   all_games: "Tots els Jocs"
@@ -32,6 +33,7 @@ ca:
 
 es:
   site_title: "Colección de Juegos de Mesa"
+  home: "Inicio"
   welcome: "Bienvenidos a la Colección de Juegos de Mesa"
   description: "Descubre las reglas y estrategias de los juegos de mesa clásicos."
   all_games: "Todos los Juegos"
@@ -63,6 +65,7 @@ es:
 
 en:
   site_title: "Table Games Collection"
+  home: "Home"
   welcome: "Welcome to Table Games Collection"
   description: "Discover the rules and strategies for classic table games."
   all_games: "All Games"
