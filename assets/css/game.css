@@ -2,11 +2,110 @@
  * Game Page Styles
  */
 
+/* Keyframe animations for heading entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .game-page {
   max-width: var(--max-width-content);
   margin: 0 auto;
   padding: var(--spacing-lg);
   line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: var(--spacing-xs);
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin-left: var(--spacing-xs);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  opacity: 0.6;
+}
+
+.breadcrumb-item a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-normal), text-decoration var(--transition-normal);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+.breadcrumb-item a:focus-visible {
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
+  text-decoration: none;
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+}
+
+.breadcrumb-current {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+/* Responsive breadcrumb */
+@media (max-width: 600px) {
+  .breadcrumb {
+    font-size: var(--font-size-sm);
+  }
+
+  .breadcrumb-list {
+    gap: var(--spacing-xs);
+  }
+
+  .breadcrumb-item a,
+  .breadcrumb-current {
+    padding: var(--spacing-xs) var(--spacing-xs);
+  }
+}
+
+  .breadcrumb-item a,
+  .breadcrumb-current {
+    padding: var(--spacing-2) var(--spacing-xs);
+  }
+
+  .breadcrumb-item:not(:last-child)::after {
+    margin-left: var(--spacing-2);
+    font-size: var(--font-size-base);
+  }
 }
 
 /* Game Header */
@@ -17,10 +116,12 @@
 }
 
 .game-header h1 {
-  margin: 0 0 var(--spacing-md) 0;
+  margin: 0 0 var(--spacing-lg) 0;
   color: var(--color-text-primary);
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 /* Game Metadata */
@@ -34,7 +135,7 @@
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--spacing-5);
 }
 
 .meta-label {
@@ -55,42 +156,270 @@
   margin-bottom: var(--spacing-3xl);
 }
 
+/*
+ * Smooth Scroll Navigation
+ * All headings have scroll-margin-top to account for sticky header
+ * Smooth scroll behavior is enabled in base.css (html element)
+ * This ensures anchor links scroll to the correct position with proper spacing
+ */
+
 .game-content h2 {
   color: var(--color-primary);
-  border-bottom: 1px solid var(--color-border-dark);
-  padding-bottom: 5px;
-  margin-top: var(--spacing-2xl);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-semibold);
+  border-bottom: var(--border-width) solid var(--color-border-dark);
+  padding-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-3xl);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
+
+  /* Entrance animation */
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Stagger animation delays for visual hierarchy */
+.game-content h2:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+
+.game-content h2:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+.game-content h2:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+.game-content h2:nth-of-type(4) {
+  animation-delay: 0.25s;
+}
+
+.game-content h2:nth-of-type(5) {
+  animation-delay: 0.3s;
+}
+
+.game-content h2:nth-of-type(n+6) {
+  animation-delay: 0.35s;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .game-content h2 {
+    animation: none;
+  }
 }
 
 .game-content h3 {
   color: #4a7c59;
-  margin-top: var(--spacing-xl);
-  font-size: var(--font-size-3xl);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
 .game-content h4 {
   color: var(--color-text-primary);
-  margin-top: var(--spacing-lg);
-  font-size: var(--font-size-2xl);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
 }
 
+.game-content h5 {
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
+}
+
+.game-content h6 {
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  scroll-margin-top: var(--scroll-offset); /* Offset for sticky header and spacing */
+}
+
+/* List Styling */
 .game-content ul,
 .game-content ol {
-  padding-left: var(--spacing-xl);
-  margin: var(--spacing-md) 0;
-}
-
-.game-content li {
-  margin-bottom: 5px;
+  padding-left: var(--spacing-2xl);
+  margin: var(--spacing-lg) 0;
   line-height: var(--line-height-relaxed);
 }
 
+.game-content li {
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+  padding-left: var(--spacing-xs);
+}
+
+/* Custom unordered list markers */
+.game-content ul {
+  list-style: none;
+}
+
+.game-content ul > li {
+  position: relative;
+}
+
+.game-content ul > li::before {
+  content: "▸";
+  position: absolute;
+  left: calc(var(--spacing-2xl) * -1);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.1em;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Nested list styling - second level */
+.game-content ul ul {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-xl);
+}
+
+.game-content ul ul > li::before {
+  content: "◦";
+  font-size: 1.3em;
+  color: var(--color-accent);
+  left: calc(var(--spacing-xl) * -1);
+}
+
+/* Nested list styling - third level */
+.game-content ul ul ul {
+  padding-left: var(--spacing-lg);
+}
+
+.game-content ul ul ul > li::before {
+  content: "▪";
+  font-size: 0.9em;
+  color: var(--color-text-secondary);
+  left: calc(var(--spacing-lg) * -1);
+}
+
+/* Ordered list custom styling */
+.game-content ol {
+  counter-reset: list-counter;
+  list-style: none;
+}
+
+.game-content ol > li {
+  position: relative;
+  counter-increment: list-counter;
+}
+
+.game-content ol > li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: calc(var(--spacing-2xl) * -1);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  min-width: var(--spacing-lg);
+  text-align: right;
+}
+
+/* Nested ordered lists - second level */
+.game-content ol ol {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-xl);
+  counter-reset: nested-counter;
+}
+
+.game-content ol ol > li {
+  counter-increment: nested-counter;
+}
+
+.game-content ol ol > li::before {
+  content: counter(nested-counter, lower-alpha) ".";
+  color: var(--color-accent);
+  left: calc(var(--spacing-xl) * -1);
+  min-width: var(--spacing-md);
+}
+
+/* Nested ordered lists - third level */
+.game-content ol ol ol {
+  padding-left: var(--spacing-lg);
+  counter-reset: deep-counter;
+}
+
+.game-content ol ol ol > li {
+  counter-increment: deep-counter;
+}
+
+.game-content ol ol ol > li::before {
+  content: counter(deep-counter, lower-roman) ".";
+  color: var(--color-text-secondary);
+  left: calc(var(--spacing-lg) * -1);
+  font-size: var(--font-size-sm);
+}
+
+/* Mixed nested lists (ol inside ul or vice versa) */
+.game-content ul ol,
+.game-content ol ul {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Improve spacing for list items with multiple paragraphs */
+.game-content li > p {
+  margin: var(--spacing-sm) 0;
+}
+
+.game-content li > p:first-child {
+  margin-top: 0;
+}
+
+.game-content li > p:last-child {
+  margin-bottom: 0;
+}
+
+/* List items with strong emphasis */
+.game-content li > strong:first-child {
+  color: var(--color-primary);
+  display: inline-block;
+  margin-right: var(--spacing-2);
+}
+
 .game-content p {
-  margin: var(--spacing-md) 0;
+  margin: var(--spacing-lg) 0;
+  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
+}
+
+/* First paragraph after heading - reduce top margin */
+.game-content h2 + p,
+.game-content h3 + p,
+.game-content h4 + p {
+  margin-top: var(--spacing-md);
+}
+
+/* Last paragraph before heading - increase bottom margin */
+.game-content p + h2,
+.game-content p + h3,
+.game-content p + h4 {
+  margin-top: var(--spacing-3xl);
 }
 
 .game-content strong {
@@ -105,18 +434,57 @@
 
 .game-content code {
   background: var(--color-bg-tertiary);
-  padding: 2px var(--spacing-xs);
+  padding: var(--spacing-2) var(--spacing-xs);
   border-radius: var(--radius-sm);
   font-family: 'Courier New', monospace;
   font-size: 0.9em;
 }
 
 .game-content blockquote {
-  border-left: 4px solid var(--color-primary);
-  padding-left: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
+  position: relative;
+  border-left: var(--spacing-xs) solid var(--color-primary);
+  padding-left: var(--spacing-xl);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  padding-right: var(--spacing-md);
+  margin: var(--spacing-2xl) 0;
   color: var(--color-text-secondary);
   font-style: italic;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-loose);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  transition: border-left-width var(--transition-normal),
+              padding-left var(--transition-normal),
+              background-color var(--transition-normal);
+}
+
+/* Decorative quote icon */
+.game-content blockquote::before {
+  content: '"';
+  position: absolute;
+  left: var(--spacing-sm);
+  top: var(--spacing-sm);
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+  font-style: normal;
+}
+
+/* Subtle hover effect */
+.game-content blockquote:hover {
+  border-left-width: var(--spacing-sm);
+  padding-left: calc(var(--spacing-xl) + var(--spacing-xs));
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .game-content blockquote {
+    transition: none;
+  }
 }
 
 /* Game Navigation */
@@ -143,9 +511,12 @@
 }
 
 .back-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
   border-radius: var(--radius-sm);
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+  padding: 2px 4px;
+  margin: -2px -4px;
 }
 
 /* Language Versions */
@@ -166,8 +537,8 @@
   color: var(--color-accent);
   text-decoration: none;
   font-size: var(--font-size-base);
-  padding: 2px 6px;
-  border: 1px solid var(--color-border-dark);
+  padding: var(--spacing-2) var(--spacing-6);
+  border: var(--border-width) solid var(--color-border-dark);
   border-radius: var(--radius-sm);
   transition: background-color var(--transition-normal);
   font-weight: var(--font-weight-medium);
@@ -179,18 +550,21 @@
 }
 
 .lang-version-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
   .game-page {
     padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
   }
 
   .game-header h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
   }
 
   .game-meta {
@@ -208,11 +582,70 @@
   }
 
   .game-content h2 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-xl);
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-md);
   }
 
   .game-content h3 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-xl);
+  }
+
+  .game-content h4 {
+    font-size: var(--font-size-base);
+    margin-top: var(--spacing-lg);
+  }
+
+  .game-content p {
+    margin: var(--spacing-md) 0;
+  }
+
+  .game-content ul,
+  .game-content ol {
+    padding-left: var(--spacing-xl);
+    margin: var(--spacing-md) 0;
+  }
+
+  .game-content li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .game-content ul > li::before {
+    left: calc(var(--spacing-xl) * -1);
+  }
+
+  .game-content ol > li::before {
+    left: calc(var(--spacing-xl) * -1);
+  }
+
+  .game-content ul ul {
+    padding-left: var(--spacing-lg);
+  }
+
+  .game-content ul ul > li::before {
+    left: calc(var(--spacing-lg) * -1);
+  }
+
+  .game-content ol ol {
+    padding-left: var(--spacing-lg);
+  }
+
+  .game-content ol ol > li::before {
+    left: calc(var(--spacing-lg) * -1);
+  }
+
+  .game-content ul ul ul,
+  .game-content ol ol ol {
+    padding-left: var(--spacing-md);
+  }
+
+  .game-content ul ul ul > li::before {
+    left: calc(var(--spacing-md) * -1);
+  }
+
+  .game-content ol ol ol > li::before {
+    left: calc(var(--spacing-md) * -1);
   }
 }
 
@@ -222,6 +655,7 @@
     max-width: 100%;
   }
 
+  .breadcrumb,
   .game-navigation {
     display: none;
   }
@@ -248,7 +682,72 @@
 
 /* Accessibility: Focus visible styles */
 .game-content a:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
   border-radius: var(--radius-sm);
+  background-color: var(--focus-bg-highlight, rgba(0, 123, 255, 0.1));
+  padding: var(--spacing-2) var(--spacing-xs);
+  margin: calc(var(--spacing-2) * -1) calc(var(--spacing-xs) * -1);
+}
+
+/* Enhanced link interactions */
+.game-content a {
+  color: var(--color-accent);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-normal);
+  padding-bottom: var(--spacing-1);
+}
+
+/* Animated underline effect */
+.game-content a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: var(--spacing-1);
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal) ease-out;
+}
+
+.game-content a:hover {
+  color: var(--color-accent-hover);
+}
+
+.game-content a:hover::after {
+  width: 100%;
+}
+
+/* External link indicator */
+.game-content a[href^="http"]::before,
+.game-content a[href^="https://"]::before {
+  content: '↗';
+  display: inline-block;
+  margin-right: var(--spacing-2);
+  font-size: 0.85em;
+  opacity: 0.6;
+  transition: opacity var(--transition-normal);
+}
+
+.game-content a[href^="http"]:hover::before,
+.game-content a[href^="https://"]:hover::before {
+  opacity: 1;
+}
+
+/* Don't add external indicator to same-domain links */
+.game-content a[href*="joventuts-magiques.github.io"]::before {
+  content: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .game-content a::after {
+    transition: none;
+  }
+
+  .game-content a[href^="http"]::before,
+  .game-content a[href^="https://"]::before {
+    transition: none;
+  }
 }

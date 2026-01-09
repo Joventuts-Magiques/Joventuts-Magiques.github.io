@@ -1,0 +1,331 @@
+---
+layout: default
+title: "404 - Pàgina no trobada"
+permalink: /404.html
+sitemap: false
+---
+
+<div class="error-404">
+  <div class="error-container">
+    <div class="error-icon" aria-hidden="true" id="dice-icon">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="80" height="80" rx="8" stroke="currentColor" stroke-width="4" fill="none"/>
+        <circle cx="40" cy="40" r="6" fill="currentColor"/>
+        <circle cx="60" cy="60" r="6" fill="currentColor"/>
+        <circle cx="80" cy="40" r="6" fill="currentColor"/>
+        <circle cx="80" cy="80" r="6" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <h1 class="error-title">
+      <span data-i18n="error_404_title">404</span>
+    </h1>
+
+    <p class="error-message" data-i18n="error_404_message">
+      Ooops! Has tret un 1 doble! 🎲
+    </p>
+
+    <p class="error-description" data-i18n="error_404_description">
+      Aquesta pàgina ha anat a parar a la pila de descarts. O no existeix, o l'han canviat per ovelles, o algú ha tirat la taula per terra.
+    </p>
+
+    <div class="error-actions">
+      <a href="{{ '/' | relative_url }}" class="btn btn-primary" data-i18n="error_404_home">
+        Torna a tirar (Inici)
+      </a>
+    </div>
+
+    <div class="error-suggestions">
+      <h2 data-i18n="error_404_suggestions_title">El teu proper moviment:</h2>
+      <ul>
+        <li>
+          <a href="{{ '/' | relative_url }}" data-i18n="error_404_browse_games">
+            Explora tots els jocs (Roba una carta)
+          </a>
+        </li>
+        <li>
+          <strong>Tria el teu idioma:</strong><br>
+          <a href="{{ '/' | relative_url }}?lang=ca">Català</a> |
+          <a href="{{ '/' | relative_url }}?lang=es">Español</a> |
+          <a href="{{ '/' | relative_url }}?lang=en">English</a>
+        </li>
+        <li style="margin-top: 1rem; font-size: 0.9em; opacity: 0.7;">
+          <em>Pista: Prova de clicar el dau 7 vegades... 🎲</em>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  .error-404 {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .error-container {
+    max-width: 600px;
+  }
+
+  .error-icon {
+    margin: 0 auto 2rem;
+    color: var(--primary-color, #2c5282);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .error-icon:hover {
+    transform: rotate(15deg) scale(1.1);
+  }
+
+  .error-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color, #2c5282);
+  }
+
+  .error-message {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .error-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary, #666);
+  }
+
+  .error-actions {
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color, #2c5282);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--primary-dark, #1a365d);
+  }
+
+  .error-suggestions ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .error-suggestions li {
+    margin: 0.75rem 0;
+  }
+
+  .error-suggestions a {
+    color: var(--primary-color, #2c5282);
+    text-decoration: none;
+  }
+
+  .error-suggestions a:hover {
+    text-decoration: underline;
+  }
+
+  .easter-egg-active .error-icon svg {
+    animation: spin 1s ease-in-out;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .monopoly-mode {
+    background: linear-gradient(135deg, #1a472a 0%, #2d5016 100%);
+    color: #ffd700 !important;
+  }
+
+  .monopoly-mode .error-title,
+  .monopoly-mode .error-message,
+  .monopoly-mode .btn {
+    animation: rainbow 3s linear infinite;
+  }
+
+  .robber-mode {
+    background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%) !important;
+    transition: background 0.5s ease;
+  }
+
+  .robber-mode .error-container {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  .robber-mode .error-message,
+  .robber-mode .error-description {
+    color: #fff !important;
+  }
+
+  @keyframes rainbow {
+    0% { color: #ff0000; }
+    16% { color: #ff7f00; }
+    33% { color: #ffff00; }
+    50% { color: #00ff00; }
+    66% { color: #0000ff; }
+    83% { color: #8b00ff; }
+    100% { color: #ff0000; }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+  }
+</style>
+
+<script>
+  (function() {
+    let clickCount = 0;
+    let lastClickTime = 0;
+    let rapidClickCount = 0;
+    const diceIcon = document.getElementById('dice-icon');
+    const container = document.querySelector('.error-404');
+
+    if (diceIcon) {
+      diceIcon.addEventListener('click', function() {
+        const currentTime = Date.now();
+        const timeSinceLastClick = currentTime - lastClickTime;
+
+        clickCount++;
+
+        // Detecta clics ràpids (menys de 300ms entre clics)
+        if (timeSinceLastClick < 300 && clickCount > 1) {
+          rapidClickCount++;
+
+          // Si fas clics massa ràpids, activa el "mode robber" (referència al Catan)
+          if (rapidClickCount >= 3) {
+            document.body.classList.add('robber-mode');
+
+            const messageEl = document.querySelector('.error-message');
+            if (messageEl) {
+              messageEl.textContent = "🏴‍☠️ Massa ràpid! El lladre ha arribat! 🏴‍☠️";
+            }
+
+            const descEl = document.querySelector('.error-description');
+            if (descEl) {
+              descEl.textContent = "Has fet trampes! Ara has de jugar amb el mode difícil activat. Espera 3 segons...";
+            }
+
+            // Desactiva els clics temporalment
+            diceIcon.style.pointerEvents = 'none';
+
+            setTimeout(() => {
+              document.body.classList.remove('robber-mode');
+              diceIcon.style.pointerEvents = 'auto';
+              rapidClickCount = 0;
+              clickCount = 0;
+
+              const messageEl = document.querySelector('.error-message');
+              if (messageEl) {
+                messageEl.textContent = "Has tret un 1 doble! 🎲";
+              }
+
+              const descEl = document.querySelector('.error-description');
+              if (descEl) {
+                descEl.textContent = "Aquesta pàgina ha anat a parar a la pila de descarts. O no existeix, o l'han canviat per ovelles, o algú ha tirat la taula per terra.";
+              }
+            }, 3000);
+
+            return;
+          }
+        } else {
+          rapidClickCount = 0;
+        }
+
+        lastClickTime = currentTime;
+
+        container.classList.add('easter-egg-active');
+
+        setTimeout(() => {
+          container.classList.remove('easter-egg-active');
+        }, 1000);
+
+        // Efectes visuals segons el número de clics
+        if (clickCount === 3) {
+          const messageEl = document.querySelector('.error-message');
+          if (messageEl) {
+            messageEl.textContent = "3 clics... Continua! 🎲🎲🎲";
+          }
+        } else if (clickCount === 5) {
+          const messageEl = document.querySelector('.error-message');
+          if (messageEl) {
+            messageEl.textContent = "Gairebé hi ets! Només 2 més! 🎲🎲";
+          }
+        } else if (clickCount === 6) {
+          const messageEl = document.querySelector('.error-message');
+          if (messageEl) {
+            messageEl.textContent = "Un més... 🎲";
+          }
+          document.body.style.transition = 'background-color 0.5s';
+          document.body.style.backgroundColor = '#fff9e6';
+        }
+
+        if (clickCount === 7) {
+          // Easter egg activat!
+          document.body.classList.add('monopoly-mode');
+          document.body.style.backgroundColor = '';
+
+          const messages = [
+            "🎩 Enhorabona! Has desbloquejat el MODE MONOPOLY! 🎩",
+            "💰 Has passat per la Sortida! Cobra 200€! 💰",
+            "🏠 Ara ets el propietari del Passeig de Gràcia I la Rambla! 🏠",
+            "🎲 Daus dobles! Però dels bons! 🎲",
+            "🚂 Has guanyat totes les estacions de tren! 🚂"
+          ];
+
+          const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+          const messageEl = document.querySelector('.error-message');
+          if (messageEl) {
+            messageEl.textContent = randomMessage;
+          }
+
+          const descEl = document.querySelector('.error-description');
+          if (descEl) {
+            descEl.textContent = "Has descobert el secret! Refresca la pàgina per tornar a la normalitat... o queda't i gaudeix de l'arc de Sant Martí! 🌈";
+          }
+
+          // Reinicia el comptador
+          clickCount = 0;
+          rapidClickCount = 0;
+        }
+      });
+
+      // Reinicia el comptador si passes massa temps sense clicar
+      setInterval(() => {
+        const currentTime = Date.now();
+        if (currentTime - lastClickTime > 5000 && clickCount > 0 && clickCount < 7) {
+          clickCount = 0;
+          rapidClickCount = 0;
+
+          const messageEl = document.querySelector('.error-message');
+          if (messageEl && messageEl.textContent !== "Has tret un 1 doble! 🎲") {
+            messageEl.textContent = "Has tret un 1 doble! 🎲";
+          }
+
+          const descEl = document.querySelector('.error-description');
+          if (descEl && !descEl.textContent.includes("pila de descarts")) {
+            descEl.textContent = "Aquesta pàgina ha anat a parar a la pila de descarts. O no existeix, o l'han canviat per ovelles, o algú ha tirat la taula per terra.";
+          }
+
+          document.body.style.backgroundColor = '';
+        }
+      }, 1000);
+    }
+  })();
+</script>

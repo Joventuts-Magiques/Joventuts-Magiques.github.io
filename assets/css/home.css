@@ -6,6 +6,8 @@
   max-width: var(--max-width-container);
   margin: 0 auto;
   padding: var(--spacing-lg);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -13,37 +15,72 @@
   text-align: center;
   padding: var(--spacing-3xl) var(--spacing-lg);
   background: var(--hero-gradient);
-  color: var(--color-bg-primary);
+  background-size: 200% 200%;
+  color: var(--hero-text-color);
   border-radius: var(--radius-xl);
   margin-bottom: var(--spacing-3xl);
+  animation: gradient-shift 8s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient animation keyframes */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-section h1 {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   margin: 0 0 var(--spacing-md) 0;
   font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  animation: fade-in-up 0.8s ease-out 0.2s both;
 }
 
 .hero-description {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   margin: 0;
   opacity: 0.95;
   max-width: 600px;
   margin: 0 auto;
+  line-height: var(--line-height-snug);
+  animation: fade-in-up 0.8s ease-out 0.4s both;
+}
+
+/* Fade-in-up animation keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--spacing-lg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Games Section */
 .games-section h2 {
   color: var(--color-text-primary);
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-2xl);
   text-align: center;
 }
 
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr));
+  gap: var(--spacing-2xl);
   margin-top: var(--spacing-2xl);
 }
 
@@ -52,64 +89,311 @@
   background: var(--color-bg-primary);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-xl);
-  transition: all var(--transition-slow);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow var(--transition-slow),
+              border-color var(--transition-slow);
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Clickable card link - covers entire card */
+.game-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--radius-xl);
+}
+
+.game-card-link:focus-visible {
+  outline: var(--focus-ring-width, 3px) var(--focus-ring-style, solid) var(--focus-ring-color, #007bff);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* Card content wrapper */
+.game-card-content {
+  padding: var(--spacing-xl);
+}
+
+/* Subtle glow effect on hover */
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary));
+  border-radius: var(--radius-xl);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--transition-slow);
+}
+
+/* Shine effect that follows mouse */
+.game-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 50%
+  );
+  border-radius: var(--radius-xl);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.game-card:hover::after {
+  opacity: 1;
 }
 
 .game-image {
-  margin: calc(-1 * var(--spacing-xl)) calc(-1 * var(--spacing-xl)) var(--spacing-lg) calc(-1 * var(--spacing-xl));
+  margin: 0 0 var(--spacing-lg) 0;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: var(--color-bg-secondary);
+  position: relative;
+  /* Prevent layout shift by reserving space */
+  min-height: 0;
+  contain: layout;
 }
 
+/* More compact image on mobile */
+@media (max-width: 768px) {
+  .game-image {
+    margin: 0 0 var(--spacing-sm) 0;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-image {
+    margin: 0 0 var(--spacing-xs) 0;
+    aspect-ratio: 3 / 2;
+  }
+
+  .game-card-content {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* Image loading placeholder with shimmer effect */
+.game-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+  z-index: 1;
+}
+
+/* Shimmer animation keyframes */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Blur-up loading effect - blurred placeholder */
+.game-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-bg-tertiary) 50%,
+    var(--color-bg-secondary) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-pulse 2s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Gradient pulse animation for placeholder */
+@keyframes gradient-pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Hide placeholder effects when image is loaded */
+.game-image.loaded::before,
+.game-image.loaded::after {
+  display: none;
+}
+
+/* Image styles with blur-up effect */
 .game-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  transition: transform var(--transition-slow),
+              opacity var(--transition-slow),
+              filter var(--transition-slow);
+  opacity: 0;
+  filter: blur(10px);
+  position: relative;
+  z-index: 2;
 }
 
-.game-card:hover .game-image img {
+/* Loaded state - clear and visible */
+.game-image img.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Hover effect only on loaded images */
+.game-card:hover .game-image img.loaded {
   transform: scale(1.05);
 }
 
 .game-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+              0 8px 20px rgba(0, 0, 0, 0.1),
+              0 0 0 1px rgba(102, 126, 234, 0.1);
   border-color: var(--color-border-focus);
+}
+
+/* Activate glow effect on hover */
+.game-card:hover::before {
+  opacity: 0.15;
+}
+
+/* Staggered animations for card elements */
+.game-card:hover .game-title {
+  transform: translateX(var(--spacing-xs));
+  transition: transform var(--transition-normal) 0.05s;
+}
+
+.game-card:hover .game-excerpt {
+  transform: translateX(var(--spacing-xs));
+  transition: transform var(--transition-normal) 0.1s;
+}
+
+.game-card:hover .game-meta-preview {
+  transform: translateX(var(--spacing-xs));
+  transition: transform var(--transition-normal) 0.15s;
+}
+
+.game-card:hover .game-languages {
+  transform: translateX(var(--spacing-xs));
+  transition: transform var(--transition-normal) 0.2s;
 }
 
 .game-card h3 {
   margin: 0 0 var(--spacing-md) 0;
-  font-size: var(--font-size-3xl);
-}
-
-.game-title-link {
-  text-decoration: none;
-  color: var(--color-primary);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
-  transition: color var(--transition-normal);
+  line-height: var(--line-height-snug);
+  transition: transform var(--transition-normal);
+  color: var(--color-primary);
 }
 
-.game-title-link:hover {
-  color: var(--color-primary-dark);
-  text-decoration: underline;
+.game-title {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-primary);
 }
 
-.game-title-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+/* Skeleton loading states for card content */
+.game-card.loading .game-title,
+.game-card.loading .game-excerpt,
+.game-card.loading .meta-badge,
+.game-card.loading .lang-indicator {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
   border-radius: var(--radius-sm);
+}
+
+/* Skeleton shimmer effect */
+.game-card.loading .game-title::after,
+.game-card.loading .game-excerpt::after,
+.game-card.loading .meta-badge::after,
+.game-card.loading .lang-indicator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+/* Skeleton dimensions for title */
+.game-card.loading .game-title {
+  display: inline-block;
+  width: 70%;
+  height: 1.5em;
+}
+
+/* Skeleton dimensions for excerpt */
+.game-card.loading .game-excerpt {
+  display: block;
+  width: 100%;
+  height: 3em;
+}
+
+/* Skeleton dimensions for badges */
+.game-card.loading .meta-badge {
+  min-width: 80px;
+  height: 1.5em;
+}
+
+/* Skeleton dimensions for language indicators */
+.game-card.loading .lang-indicator {
+  min-width: 40px;
+  height: 1.5em;
 }
 
 .game-excerpt {
   color: var(--color-text-secondary);
   line-height: var(--line-height-normal);
   margin-bottom: var(--spacing-lg);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
+  transition: transform var(--transition-normal);
 }
 
 /* Game Meta Preview */
@@ -118,6 +402,7 @@
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
+  transition: transform var(--transition-normal);
 }
 
 .meta-badge {
@@ -130,6 +415,18 @@
   font-size: var(--font-size-md);
   color: var(--color-text-light);
   border: 1px solid var(--color-border-medium);
+  transition: transform var(--transition-normal),
+              background-color var(--transition-normal),
+              box-shadow var(--transition-normal),
+              border-color var(--transition-normal);
+  cursor: default;
+}
+
+.meta-badge:hover {
+  transform: scale(1.05);
+  background: var(--color-bg-tertiary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-border-focus);
 }
 
 .meta-icon {
@@ -143,14 +440,23 @@
   background: var(--color-difficulty-easy-bg);
   color: var(--color-difficulty-easy-text);
   border-color: var(--color-difficulty-easy-border);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  position: relative;
+  animation: difficulty-dance 5s ease-in-out infinite;
 }
 
 .difficulty-mitja,
+.difficulty-mitjà,
 .difficulty-medio,
 .difficulty-medium {
   background: var(--color-difficulty-medium-bg);
   color: var(--color-difficulty-medium-text);
   border-color: var(--color-difficulty-medium-border);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  position: relative;
+  /* No animation for medium difficulty - most common */
 }
 
 .difficulty-dificil,
@@ -159,34 +465,492 @@
   background: var(--color-difficulty-hard-bg);
   color: var(--color-difficulty-hard-text);
   border-color: var(--color-difficulty-hard-border);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  position: relative;
+  animation: difficulty-intense 2s ease-in-out infinite;
+}
+
+/* Pulse animation for hard difficulty - no longer used directly */
+@keyframes difficulty-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(114, 28, 36, 0.6),
+                0 0 8px rgba(114, 28, 36, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(114, 28, 36, 0),
+                0 0 16px rgba(114, 28, 36, 0.5);
+  }
+}
+
+/* Intense animation for hard difficulty - pulse + bounce combined */
+@keyframes difficulty-intense {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 0 rgba(114, 28, 36, 0.6),
+                0 0 8px rgba(114, 28, 36, 0.3),
+                0 2px 4px rgba(114, 28, 36, 0.2);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 0 0 6px rgba(114, 28, 36, 0),
+                0 0 20px rgba(114, 28, 36, 0.6),
+                0 6px 16px rgba(114, 28, 36, 0.5);
+  }
+}
+
+/* Breathe animation for medium difficulty - vertical bounce */
+@keyframes difficulty-breathe {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 2px 4px rgba(133, 100, 4, 0.2);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 12px rgba(133, 100, 4, 0.4),
+                0 0 8px rgba(133, 100, 4, 0.3);
+  }
+}
+
+/* Shimmer animation for easy difficulty - dancing with pauses */
+@keyframes difficulty-shimmer {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(21, 87, 36, 0.3);
+    filter: brightness(1);
+  }
+  15% {
+    transform: translateX(-3px) rotate(-3deg);
+    box-shadow: 0 0 12px rgba(21, 87, 36, 0.5);
+    filter: brightness(1.15);
+  }
+  /* Pause on the left */
+  20%, 30% {
+    transform: translateX(-3px) rotate(-3deg);
+    box-shadow: 0 0 14px rgba(21, 87, 36, 0.6),
+                0 2px 10px rgba(21, 87, 36, 0.4);
+    filter: brightness(1.2);
+  }
+  45% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(21, 87, 36, 0.3);
+    filter: brightness(1);
+  }
+  60% {
+    transform: translateX(3px) rotate(3deg);
+    box-shadow: 0 0 12px rgba(21, 87, 36, 0.5);
+    filter: brightness(1.15);
+  }
+  /* Pause on the right */
+  65%, 75% {
+    transform: translateX(3px) rotate(3deg);
+    box-shadow: 0 0 14px rgba(21, 87, 36, 0.6),
+                0 2px 10px rgba(21, 87, 36, 0.4);
+    filter: brightness(1.2);
+  }
+  90%, 100% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(21, 87, 36, 0.3);
+    filter: brightness(1);
+  }
+}
+
+/* Dance animation - alias for shimmer */
+@keyframes difficulty-dance {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(21, 87, 36, 0.3);
+    filter: brightness(1);
+  }
+  15% {
+    transform: translateX(-3px) rotate(-3deg);
+    box-shadow: 0 0 12px rgba(21, 87, 36, 0.5);
+    filter: brightness(1.15);
+  }
+  /* Pause on the left */
+  20%, 30% {
+    transform: translateX(-3px) rotate(-3deg);
+    box-shadow: 0 0 14px rgba(21, 87, 36, 0.6),
+                0 2px 10px rgba(21, 87, 36, 0.4);
+    filter: brightness(1.2);
+  }
+  45% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(21, 87, 36, 0.3);
+    filter: brightness(1);
+  }
+  60% {
+    transform: translateX(3px) rotate(3deg);
+    box-shadow: 0 0 12px rgba(21, 87, 36, 0.5);
+    filter: brightness(1.15);
+  }
+  /* Pause on the right */
+  65%, 75% {
+    transform: translateX(3px) rotate(3deg);
+    box-shadow: 0 0 14px rgba(21, 87, 36, 0.6),
+                0 2px 10px rgba(21, 87, 36, 0.4);
+    filter: brightness(1.2);
+  }
+  90%, 100% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(21, 87, 36, 0.3);
+    filter: brightness(1);
+  }
+}
+
+/* Dark mode animations */
+@media (prefers-color-scheme: dark) {
+  @keyframes difficulty-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(252, 165, 165, 0.6),
+                  0 0 8px rgba(252, 165, 165, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgba(252, 165, 165, 0),
+                  0 0 16px rgba(252, 165, 165, 0.5);
+    }
+  }
+
+  @keyframes difficulty-intense {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 0 0 0 rgba(252, 165, 165, 0.6),
+                  0 0 8px rgba(252, 165, 165, 0.3),
+                  0 2px 4px rgba(252, 165, 165, 0.2);
+    }
+    50% {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 0 0 6px rgba(252, 165, 165, 0),
+                  0 0 20px rgba(252, 165, 165, 0.6),
+                  0 6px 16px rgba(252, 165, 165, 0.5);
+    }
+  }
+
+  @keyframes difficulty-breathe {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 2px 4px rgba(253, 224, 71, 0.2);
+    }
+    50% {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 4px 12px rgba(253, 224, 71, 0.4),
+                  0 0 8px rgba(253, 224, 71, 0.3);
+    }
+  }
+
+  @keyframes difficulty-shimmer {
+    0% {
+      transform: translateX(0) rotate(0deg);
+      box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+      filter: brightness(1);
+    }
+    15% {
+      transform: translateX(-3px) rotate(-3deg);
+      box-shadow: 0 0 12px rgba(134, 239, 172, 0.5);
+      filter: brightness(1.15);
+    }
+    20%, 30% {
+      transform: translateX(-3px) rotate(-3deg);
+      box-shadow: 0 0 14px rgba(134, 239, 172, 0.6),
+                  0 2px 10px rgba(134, 239, 172, 0.4);
+      filter: brightness(1.2);
+    }
+    45% {
+      transform: translateX(0) rotate(0deg);
+      box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+      filter: brightness(1);
+    }
+    60% {
+      transform: translateX(3px) rotate(3deg);
+      box-shadow: 0 0 12px rgba(134, 239, 172, 0.5);
+      filter: brightness(1.15);
+    }
+    65%, 75% {
+      transform: translateX(3px) rotate(3deg);
+      box-shadow: 0 0 14px rgba(134, 239, 172, 0.6),
+                  0 2px 10px rgba(134, 239, 172, 0.4);
+      filter: brightness(1.2);
+    }
+    90%, 100% {
+      transform: translateX(0) rotate(0deg);
+      box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+      filter: brightness(1);
+    }
+  }
+
+  @keyframes difficulty-dance {
+    0% {
+      transform: translateX(0) rotate(0deg);
+      box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+      filter: brightness(1);
+    }
+    15% {
+      transform: translateX(-3px) rotate(-3deg);
+      box-shadow: 0 0 12px rgba(134, 239, 172, 0.5);
+      filter: brightness(1.15);
+    }
+    20%, 30% {
+      transform: translateX(-3px) rotate(-3deg);
+      box-shadow: 0 0 14px rgba(134, 239, 172, 0.6),
+                  0 2px 10px rgba(134, 239, 172, 0.4);
+      filter: brightness(1.2);
+    }
+    45% {
+      transform: translateX(0) rotate(0deg);
+      box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+      filter: brightness(1);
+    }
+    60% {
+      transform: translateX(3px) rotate(3deg);
+      box-shadow: 0 0 12px rgba(134, 239, 172, 0.5);
+      filter: brightness(1.15);
+    }
+    65%, 75% {
+      transform: translateX(3px) rotate(3deg);
+      box-shadow: 0 0 14px rgba(134, 239, 172, 0.6),
+                  0 2px 10px rgba(134, 239, 172, 0.4);
+      filter: brightness(1.2);
+    }
+    90%, 100% {
+      transform: translateX(0) rotate(0deg);
+      box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+      filter: brightness(1);
+    }
+  }
+}
+
+[data-theme="dark"] .difficulty-dificil,
+[data-theme="dark"] .difficulty-difícil,
+[data-theme="dark"] .difficulty-hard {
+  animation: difficulty-intense-dark 2s ease-in-out infinite;
+}
+
+@keyframes difficulty-intense-dark {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 0 rgba(252, 165, 165, 0.6),
+                0 0 8px rgba(252, 165, 165, 0.3),
+                0 2px 4px rgba(252, 165, 165, 0.2);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 0 0 6px rgba(252, 165, 165, 0),
+                0 0 20px rgba(252, 165, 165, 0.6),
+                0 6px 16px rgba(252, 165, 165, 0.5);
+  }
+}
+
+[data-theme="dark"] .difficulty-mitja,
+[data-theme="dark"] .difficulty-mitjà,
+[data-theme="dark"] .difficulty-medio,
+[data-theme="dark"] .difficulty-medium {
+  /* No animation for medium difficulty */
+  animation: none;
+}
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 12px rgba(253, 224, 71, 0.4),
+                0 0 8px rgba(253, 224, 71, 0.3);
+  }
+}
+
+[data-theme="dark"] .difficulty-facil,
+[data-theme="dark"] .difficulty-easy,
+[data-theme="dark"] .difficulty-fàcil {
+  animation: difficulty-dance-dark 5s ease-in-out infinite;
+}
+
+@keyframes difficulty-dance-dark {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+    filter: brightness(1);
+  }
+  15% {
+    transform: translateX(-3px) rotate(-3deg);
+    box-shadow: 0 0 12px rgba(134, 239, 172, 0.5);
+    filter: brightness(1.15);
+  }
+  20%, 30% {
+    transform: translateX(-3px) rotate(-3deg);
+    box-shadow: 0 0 14px rgba(134, 239, 172, 0.6),
+                0 2px 10px rgba(134, 239, 172, 0.4);
+    filter: brightness(1.2);
+  }
+  45% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+    filter: brightness(1);
+  }
+  60% {
+    transform: translateX(3px) rotate(3deg);
+    box-shadow: 0 0 12px rgba(134, 239, 172, 0.5);
+    filter: brightness(1.15);
+  }
+  65%, 75% {
+    transform: translateX(3px) rotate(3deg);
+    box-shadow: 0 0 14px rgba(134, 239, 172, 0.6),
+                0 2px 10px rgba(134, 239, 172, 0.4);
+    filter: brightness(1.2);
+  }
+  90%, 100% {
+    transform: translateX(0) rotate(0deg);
+    box-shadow: 0 0 8px rgba(134, 239, 172, 0.3);
+    filter: brightness(1);
+  }
+}
+
+/* Dark mode pulse animation for language indicators */
+[data-theme="dark"] .lang-indicator.current {
+  animation: lang-pulse-dark 2s ease-in-out infinite;
+}
+
+@keyframes lang-pulse-dark {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(147, 197, 253, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(147, 197, 253, 0);
+  }
+}
+
+/* Hover effects for all difficulty badges */
+.difficulty-facil:hover,
+.difficulty-easy:hover,
+.difficulty-fàcil:hover {
+  transform: scale(1.05);
+  background: var(--color-difficulty-easy-text);
+  color: var(--color-difficulty-easy-bg);
+  box-shadow: 0 4px 12px rgba(21, 87, 36, 0.3),
+              0 0 20px rgba(21, 87, 36, 0.2);
+  animation: none; /* Stop dance on hover */
+  filter: brightness(1);
+}
+
+.difficulty-mitja:hover,
+.difficulty-mitjà:hover,
+.difficulty-medio:hover,
+.difficulty-medium:hover {
+  transform: scale(1.05);
+  background: var(--color-difficulty-medium-text);
+  color: var(--color-difficulty-medium-bg);
+  box-shadow: 0 4px 12px rgba(133, 100, 4, 0.3),
+              0 0 20px rgba(133, 100, 4, 0.2);
+}
+
+.difficulty-dificil:hover,
+.difficulty-difícil:hover,
+.difficulty-hard:hover {
+  transform: scale(1.05);
+  background: var(--color-difficulty-hard-text);
+  color: var(--color-difficulty-hard-bg);
+  box-shadow: 0 4px 12px rgba(114, 28, 36, 0.4),
+              0 0 20px rgba(114, 28, 36, 0.3);
+  animation: none; /* Stop intense animation on hover */
+}
+
+/* Enhanced icon styling for difficulty badges */
+.difficulty-facil .meta-icon,
+.difficulty-easy .meta-icon,
+.difficulty-fàcil .meta-icon,
+.difficulty-mitja .meta-icon,
+.difficulty-mitjà .meta-icon,
+.difficulty-medio .meta-icon,
+.difficulty-medium .meta-icon,
+.difficulty-dificil .meta-icon,
+.difficulty-difícil .meta-icon,
+.difficulty-hard .meta-icon {
+  font-size: var(--font-size-lg);
+  transition: transform var(--transition-normal);
+}
+
+/* Icon animation on hover */
+.difficulty-facil:hover .meta-icon,
+.difficulty-easy:hover .meta-icon,
+.difficulty-fàcil:hover .meta-icon,
+.difficulty-mitja:hover .meta-icon,
+.difficulty-mitjà:hover .meta-icon,
+.difficulty-medio:hover .meta-icon,
+.difficulty-medium:hover .meta-icon,
+.difficulty-dificil:hover .meta-icon,
+.difficulty-difícil:hover .meta-icon,
+.difficulty-hard:hover .meta-icon {
+  transform: rotate(10deg) scale(1.1);
 }
 
 /* Language Indicators */
 .game-languages {
   display: flex;
-  gap: 6px;
+  gap: var(--spacing-6);
   justify-content: flex-end;
+  transition: transform var(--transition-normal);
 }
 
 .lang-indicator {
   font-size: var(--font-size-sm);
-  padding: 2px 6px;
+  padding: var(--spacing-2) var(--spacing-6);
   border-radius: var(--radius-md);
   background: var(--color-border-medium);
   color: var(--color-text-muted);
   font-weight: var(--font-weight-medium);
   transition: all var(--transition-normal);
+  cursor: default;
+}
+
+.lang-indicator:hover {
+  transform: scale(1.05);
+  background: var(--color-bg-tertiary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .lang-indicator.current {
   background: var(--color-accent);
   color: var(--color-bg-primary);
+  animation: lang-pulse 2s ease-in-out infinite;
+}
+
+.lang-indicator.current:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3),
+              0 0 16px rgba(102, 126, 234, 0.2);
+}
+
+/* Pulse animation for current language indicator */
+@keyframes lang-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0);
+  }
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop (1200px+) - Default styles above */
+
+/* Desktop (1024px - 1199px) */
+@media (max-width: 1199px) {
   .games-grid {
-    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Tablet Landscape (900px - 1023px) */
+@media (max-width: 1023px) {
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .home-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* Tablet Portrait (768px - 899px) */
+@media (max-width: 899px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
   }
 
@@ -195,25 +959,301 @@
   }
 
   .hero-section h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
   }
 
   .hero-description {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
+  }
+
+  .games-section h2 {
+    font-size: var(--font-size-3xl);
   }
 }
 
-@media (max-width: 480px) {
+/* Small Tablet (600px - 767px) */
+@media (max-width: 767px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  /* More compact cards on smaller tablets */
+  .game-card-content {
+    padding: var(--spacing-md);
+  }
+
+  .game-card h3,
+  .game-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .game-excerpt {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-normal);
+  }
+
   .game-meta-preview {
-    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
   }
 
   .meta-badge {
-    justify-content: center;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-2) var(--spacing-xs);
+  }
+
+  /* Reduce hover effects on touch devices */
+  .game-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .game-card:hover h3,
+  .game-card:hover .game-excerpt,
+  .game-card:hover .game-meta-preview,
+  .game-card:hover .game-languages {
+    transform: none;
+  }
+
+  /* Reduce difficulty badge hover effects on touch devices */
+  .difficulty-facil:hover,
+  .difficulty-easy:hover,
+  .difficulty-fàcil:hover,
+  .difficulty-mitja:hover,
+  .difficulty-mitjà:hover,
+  .difficulty-medio:hover,
+  .difficulty-medium:hover,
+  .difficulty-dificil:hover,
+  .difficulty-difícil:hover,
+  .difficulty-hard:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Mobile Landscape (481px - 599px) */
+@media (max-width: 599px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
   }
 
   .home-content {
     padding: var(--spacing-md);
+  }
+
+  .hero-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .hero-section h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-base);
+  }
+
+  .games-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+/* Mobile Portrait (320px - 480px) */
+@media (max-width: 480px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .game-card-content {
+    padding: var(--spacing-sm);
+  }
+
+  .game-card h3,
+  .game-title {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .game-excerpt {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+    /* Limit to 4 lines on mobile for better context */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .game-meta-preview {
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+
+  .meta-badge {
+    justify-content: center;
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-1) var(--spacing-xs);
+  }
+
+  .game-languages {
+    gap: var(--spacing-2);
+  }
+
+  .lang-indicator {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-1) var(--spacing-xs);
+  }
+
+  .home-content {
+    padding: var(--spacing-md);
+  }
+
+  .hero-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .hero-section h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-base);
+  }
+
+  .games-section h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Minimal hover effects on small mobile */
+  .game-card:hover {
+    transform: none;
+  }
+
+  /* Disable difficulty badge hover effects on small mobile */
+  .difficulty-facil:hover,
+  .difficulty-easy:hover,
+  .difficulty-fàcil:hover,
+  .difficulty-mitja:hover,
+  .difficulty-mitjà:hover,
+  .difficulty-medio:hover,
+  .difficulty-medium:hover,
+  .difficulty-dificil:hover,
+  .difficulty-difícil:hover,
+  .difficulty-hard:hover {
+    transform: none;
+    background: var(--color-difficulty-easy-bg);
+    color: var(--color-difficulty-easy-text);
+    box-shadow: none;
+  }
+
+  .difficulty-mitja:hover,
+  .difficulty-mitjà:hover,
+  .difficulty-medio:hover,
+  .difficulty-medium:hover {
+    background: var(--color-difficulty-medium-bg);
+    color: var(--color-difficulty-medium-text);
+  }
+
+  .difficulty-dificil:hover,
+  .difficulty-difícil:hover,
+  .difficulty-hard:hover {
+    background: var(--color-difficulty-hard-bg);
+    color: var(--color-difficulty-hard-text);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section {
+    animation: none;
+  }
+
+  .hero-section h1,
+  .hero-description {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .game-card,
+  .game-card h3,
+  .game-card .game-excerpt,
+  .game-card .game-meta-preview,
+  .game-card .game-languages {
+    transition: none;
+  }
+
+  .game-card:hover,
+  .game-card:hover .game-title,
+  .game-card:hover .game-excerpt,
+  .game-card:hover .game-meta-preview,
+  .game-card:hover .game-languages {
+    transform: none;
+  }
+
+  .game-card:hover::before {
+    opacity: 0;
+  }
+
+  /* Disable loading animations */
+  .game-image::before,
+  .game-image::after,
+  .game-card.loading .game-title::after,
+  .game-card.loading .game-excerpt::after,
+  .game-card.loading .meta-badge::after,
+  .game-card.loading .lang-indicator::after {
+    animation: none;
+  }
+
+  /* Instant image loading without blur effect */
+  .game-image img {
+    filter: none;
+    transition: none;
+  }
+
+  /* Disable difficulty badge animations */
+  .difficulty-dificil,
+  .difficulty-difícil,
+  .difficulty-hard {
+    animation: none;
+  }
+
+  .difficulty-mitja,
+  .difficulty-mitjà,
+  .difficulty-medio,
+  .difficulty-medium {
+    animation: none;
+  }
+
+  .difficulty-facil,
+  .difficulty-easy,
+  .difficulty-fàcil {
+    animation: none;
+    filter: none;
+  }
+
+  /* Disable hover animations for difficulty badges */
+  .difficulty-facil:hover .meta-icon,
+  .difficulty-easy:hover .meta-icon,
+  .difficulty-fàcil:hover .meta-icon,
+  .difficulty-mitja:hover .meta-icon,
+  .difficulty-mitjà:hover .meta-icon,
+  .difficulty-medio:hover .meta-icon,
+  .difficulty-medium:hover .meta-icon,
+  .difficulty-dificil:hover .meta-icon,
+  .difficulty-difícil:hover .meta-icon,
+  .difficulty-hard:hover .meta-icon {
+    transform: none;
+  }
+
+  /* Disable language indicator pulse animation */
+  .lang-indicator.current {
+    animation: none;
   }
 }
 

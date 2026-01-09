@@ -12,7 +12,7 @@ layout: default
     <h2 class="lang-content" id="games-title">Tots els Jocs</h2>
 
     <div class="games-grid">
-      {% assign games_by_title = site.games | group_by: 'title' %}
+      {% assign games_by_title = site.games | group_by: 'title' | sort: 'name' %}
       {% for game_group in games_by_title %}
         {% assign ca_game = game_group.items | where: 'lang', 'ca' | first %}
         {% assign es_game = game_group.items | where: 'lang', 'es' | first %}
@@ -20,66 +20,170 @@ layout: default
 
         {% if ca_game and es_game and en_game %}
         <article class="game-card" role="article" aria-label="{{ ca_game.title }}">
-          {% if ca_game.image %}
-          <div class="game-image">
-            {% if ca_game.image contains 'http' %}
-              <img src="{{ ca_game.image }}"
-                   alt="{{ ca_game.title }}"
-                   loading="lazy">
-            {% else %}
-              <img src="{{ '/assets/images/games/' | append: game_group.name | append: '/' | append: ca_game.image | relative_url }}"
-                   alt="{{ ca_game.title }}"
-                   loading="lazy">
+          <a href="{{ ca_game.url }}" class="game-card-link lang-ca" aria-label="View {{ ca_game.title }} rules (Català)">
+            {% if ca_game.image %}
+            <div class="game-image">
+              {% if ca_game.image contains 'http' %}
+                <img src="{{ ca_game.image }}"
+                     alt="{{ ca_game.title }}"
+                     width="640"
+                     height="360"
+                     loading="lazy">
+              {% else %}
+                <img src="{{ '/assets/images/games/' | append: game_group.name | append: '/' | append: ca_game.image | relative_url }}"
+                     alt="{{ ca_game.title }}"
+                     width="640"
+                     height="360"
+                     loading="lazy">
+              {% endif %}
+            </div>
             {% endif %}
-          </div>
-          {% endif %}
 
-          <h3>
-            <a href="{{ ca_game.url }}" class="game-title-link lang-ca" aria-label="{{ ca_game.title }} (Català)">{{ ca_game.title }}</a>
-            <a href="{{ es_game.url }}" class="game-title-link lang-es" style="display:none;" aria-label="{{ es_game.title }} (Español)">{{ es_game.title }}</a>
-            <a href="{{ en_game.url }}" class="game-title-link lang-en" style="display:none;" aria-label="{{ en_game.title }} (English)">{{ en_game.title }}</a>
-          </h3>
+            <div class="game-card-content">
+              <h3 class="game-title">{{ ca_game.title }}</h3>
 
-          <p class="game-excerpt">
-            <span class="lang-ca">{{ ca_game.excerpt }}</span>
-            <span class="lang-es" style="display:none;">{{ es_game.excerpt }}</span>
-            <span class="lang-en" style="display:none;">{{ en_game.excerpt }}</span>
-          </p>
+              <p class="game-excerpt">{{ ca_game.excerpt }}</p>
 
-          <div class="game-meta-preview" role="list" aria-label="Game information">
-            <span class="meta-badge" role="listitem">
-              <span class="meta-icon" aria-hidden="true">👥</span>
-              <span class="sr-only">Players: </span>
-              <span class="lang-ca">{{ ca_game.players }}</span>
-              <span class="lang-es" style="display:none;">{{ es_game.players }}</span>
-              <span class="lang-en" style="display:none;">{{ en_game.players }}</span>
-            </span>
-            <span class="meta-badge" role="listitem">
-              <span class="meta-icon" aria-hidden="true">⏱️</span>
-              <span class="sr-only">Duration: </span>
-              <span class="lang-ca">{{ ca_game.duration }} min</span>
-              <span class="lang-es" style="display:none;">{{ es_game.duration }} min</span>
-              <span class="lang-en" style="display:none;">{{ en_game.duration }} min</span>
-            </span>
-            <span class="meta-badge difficulty-{{ ca_game.difficulty | slugify }}" role="listitem">
-              <span class="meta-icon" aria-hidden="true">📊</span>
-              <span class="sr-only">Difficulty: </span>
-              <span class="lang-ca">{{ ca_game.difficulty }}</span>
-              <span class="lang-es" style="display:none;">{{ es_game.difficulty }}</span>
-              <span class="lang-en" style="display:none;">{{ en_game.difficulty }}</span>
-            </span>
-          </div>
+              <div class="game-meta-preview" role="list" aria-label="Game information">
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">👥</span>
+                  <span class="sr-only">Players: </span>
+                  {{ ca_game.players }}
+                </span>
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">⏱️</span>
+                  <span class="sr-only">Duration: </span>
+                  {{ ca_game.duration }} min
+                </span>
+                <span class="meta-badge difficulty-{{ ca_game.difficulty | slugify }}" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">📊</span>
+                  <span class="sr-only">Difficulty: </span>
+                  {{ ca_game.difficulty }}
+                </span>
+              </div>
 
-          <div class="game-languages" role="list" aria-label="Available languages">
-            {% for game in game_group.items %}
-              <span class="lang-indicator" data-lang="{{ game.lang }}"
-                    role="listitem"
-                    title="{{ site.lang_names[game.lang] | default: game.lang }}"
-                    aria-label="Available in {{ site.lang_names[game.lang] | default: game.lang }}">
-                {{ game.lang | upcase }}
-              </span>
-            {% endfor %}
-          </div>
+              <div class="game-languages" role="list" aria-label="Available languages">
+                {% for game in game_group.items %}
+                  <span class="lang-indicator" data-lang="{{ game.lang }}"
+                        role="listitem"
+                        title="{{ site.lang_names[game.lang] | default: game.lang }}"
+                        aria-label="Available in {{ site.lang_names[game.lang] | default: game.lang }}">
+                    {{ game.lang | upcase }}
+                  </span>
+                {% endfor %}
+              </div>
+            </div>
+          </a>
+
+          <a href="{{ es_game.url }}" class="game-card-link lang-es" style="display:none;" aria-label="Ver reglas de {{ es_game.title }} (Español)">
+            {% if es_game.image %}
+            <div class="game-image">
+              {% if es_game.image contains 'http' %}
+                <img src="{{ es_game.image }}"
+                     alt="{{ es_game.title }}"
+                     width="640"
+                     height="360"
+                     loading="lazy">
+              {% else %}
+                <img src="{{ '/assets/images/games/' | append: game_group.name | append: '/' | append: es_game.image | relative_url }}"
+                     alt="{{ es_game.title }}"
+                     width="640"
+                     height="360"
+                     loading="lazy">
+              {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="game-card-content">
+              <h3 class="game-title">{{ es_game.title }}</h3>
+
+              <p class="game-excerpt">{{ es_game.excerpt }}</p>
+
+              <div class="game-meta-preview" role="list" aria-label="Game information">
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">👥</span>
+                  <span class="sr-only">Players: </span>
+                  {{ es_game.players }}
+                </span>
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">⏱️</span>
+                  <span class="sr-only">Duration: </span>
+                  {{ es_game.duration }} min
+                </span>
+                <span class="meta-badge difficulty-{{ es_game.difficulty | slugify }}" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">📊</span>
+                  <span class="sr-only">Difficulty: </span>
+                  {{ es_game.difficulty }}
+                </span>
+              </div>
+
+              <div class="game-languages" role="list" aria-label="Available languages">
+                {% for game in game_group.items %}
+                  <span class="lang-indicator" data-lang="{{ game.lang }}"
+                        role="listitem"
+                        title="{{ site.lang_names[game.lang] | default: game.lang }}"
+                        aria-label="Available in {{ site.lang_names[game.lang] | default: game.lang }}">
+                    {{ game.lang | upcase }}
+                  </span>
+                {% endfor %}
+              </div>
+            </div>
+          </a>
+
+          <a href="{{ en_game.url }}" class="game-card-link lang-en" style="display:none;" aria-label="View {{ en_game.title }} rules (English)">
+            {% if en_game.image %}
+            <div class="game-image">
+              {% if en_game.image contains 'http' %}
+                <img src="{{ en_game.image }}"
+                     alt="{{ en_game.title }}"
+                     width="640"
+                     height="360"
+                     loading="lazy">
+              {% else %}
+                <img src="{{ '/assets/images/games/' | append: game_group.name | append: '/' | append: en_game.image | relative_url }}"
+                     alt="{{ en_game.title }}"
+                     width="640"
+                     height="360"
+                     loading="lazy">
+              {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="game-card-content">
+              <h3 class="game-title">{{ en_game.title }}</h3>
+
+              <p class="game-excerpt">{{ en_game.excerpt }}</p>
+
+              <div class="game-meta-preview" role="list" aria-label="Game information">
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">👥</span>
+                  <span class="sr-only">Players: </span>
+                  {{ en_game.players }}
+                </span>
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">⏱️</span>
+                  <span class="sr-only">Duration: </span>
+                  {{ en_game.duration }} min
+                </span>
+                <span class="meta-badge difficulty-{{ en_game.difficulty | slugify }}" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">📊</span>
+                  <span class="sr-only">Difficulty: </span>
+                  {{ en_game.difficulty }}
+                </span>
+              </div>
+
+              <div class="game-languages" role="list" aria-label="Available languages">
+                {% for game in game_group.items %}
+                  <span class="lang-indicator" data-lang="{{ game.lang }}"
+                        role="listitem"
+                        title="{{ site.lang_names[game.lang] | default: game.lang }}"
+                        aria-label="Available in {{ site.lang_names[game.lang] | default: game.lang }}">
+                    {{ game.lang | upcase }}
+                  </span>
+                {% endfor %}
+              </div>
+            </div>
+          </a>
         </article>
         {% endif %}
       {% endfor %}

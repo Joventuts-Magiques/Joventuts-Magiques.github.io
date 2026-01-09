@@ -3,7 +3,7 @@ title: Monopoly
 lang: ca
 players: 2-8
 duration: 60-180
-difficulty: Mitjà
+difficulty: Difícil
 age_range: 8+
 excerpt: "Joc clàssic de compravenda immobiliària on els jugadors intenten fer fallit els seus oponents."
 image: https://upload.wikimedia.org/wikipedia/en/3/36/MonopolySet_2014.jpg

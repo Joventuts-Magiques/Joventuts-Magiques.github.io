@@ -6,6 +6,29 @@ layout: default
 {% assign t = site.data.i18n[current_lang] %}
 
 <article class="game-page" lang="{{ current_lang }}" itemscope itemtype="https://schema.org/Game">
+
+  {% comment %} Breadcrumb Navigation {% endcomment %}
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item" aria-label="{{ t.breadcrumb_home }}">
+          <span itemprop="name">{{ t.breadcrumb_home }}</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/#games" itemprop="item" aria-label="{{ t.breadcrumb_games }}">
+          <span itemprop="name">{{ t.breadcrumb_games }}</span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+      <li class="breadcrumb-item breadcrumb-current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+        <span itemprop="name">{{ page.title }}</span>
+        <meta itemprop="position" content="3" />
+      </li>
+    </ol>
+  </nav>
+
   <header class="game-header">
     <h1 itemprop="name">{{ page.title }}</h1>
 

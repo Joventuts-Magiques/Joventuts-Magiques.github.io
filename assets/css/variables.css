@@ -31,6 +31,15 @@
   --color-border-dark: #ddd;
   --color-border-focus: #007bff;
 
+  /* Focus Styles */
+  --focus-ring-color: #007bff;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+  --focus-ring-style: solid;
+  --focus-ring-opacity: 0.5;
+  --focus-bg-highlight: rgba(0, 123, 255, 0.1);
+  --focus-animation-duration: 0.2s;
+
   /* Difficulty Colors */
   --color-difficulty-easy-bg: #d4edda;
   --color-difficulty-easy-text: #155724;
@@ -46,15 +55,32 @@
 
   /* Hero Gradient */
   --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --hero-text-color: #ffffff;
 
   /* Spacing */
+  --spacing-1: 1px;
+  --spacing-2: 2px;
+  --spacing-3: 3px;
   --spacing-xs: 4px;
+  --spacing-5: 5px;
+  --spacing-6: 6px;
   --spacing-sm: 8px;
+  --spacing-10: 10px;
   --spacing-md: 15px;
   --spacing-lg: 20px;
   --spacing-xl: 25px;
   --spacing-2xl: 30px;
+  --spacing-36: 36px;
   --spacing-3xl: 40px;
+  --spacing-44: 44px;
+  --spacing-48: 48px;
+  --spacing-4xl: 60px;
+  --spacing-5xl: 100px;
+
+  /* Layout-specific spacing */
+  --min-touch-target: 44px;
+  --min-card-width: 320px;
+  --scroll-offset: 100px;
 
   /* Border Radius */
   --radius-sm: 3px;
@@ -62,31 +88,70 @@
   --radius-lg: 6px;
   --radius-xl: 12px;
 
+  /* Border Widths */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-width-thicker: 4px;
+
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
   --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
 
-  /* Typography */
-  --font-size-sm: 0.75em;
-  --font-size-md: 0.85em;
-  --font-size-base: 0.9em;
-  --font-size-lg: 0.95em;
-  --font-size-xl: 1.1em;
-  --font-size-2xl: 1.2em;
-  --font-size-3xl: 1.4em;
-  --font-size-4xl: 2em;
-  --font-size-5xl: 2.5em;
+  /* Typography - Fluid Responsive Scale using clamp() */
+  /* Scales smoothly between mobile (320px) and desktop (1200px) viewports */
+  /* Formula: clamp(min, preferred with vw, max) */
+  /* Base font size: minimum 16px (1rem) for accessibility */
 
+  /* Small labels, captions - scales from 10px to 12px */
+  --font-size-xs: clamp(0.625rem, 0.55rem + 0.25vw, 0.75rem);
+
+  /* Meta info, small text - scales from 12px to 14px */
+  --font-size-sm: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+
+  /* Body text - scales from 16px to 18px (minimum 16px for accessibility) */
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+
+  /* Slightly larger body text - scales from 17px to 20px */
+  --font-size-md: clamp(1.063rem, 1rem + 0.3vw, 1.25rem);
+
+  /* Lead paragraphs, large body - scales from 18px to 22px */
+  --font-size-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+
+  /* h4 headings - scales from 20px to 26px */
+  --font-size-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);
+
+  /* h3 headings - scales from 24px to 32px */
+  --font-size-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+
+  /* h2 headings - scales from 28px to 40px */
+  --font-size-3xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+
+  /* h1 headings - scales from 32px to 48px */
+  --font-size-4xl: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+
+  /* Hero/display headings - scales from 36px to 60px */
+  --font-size-5xl: clamp(2.25rem, 1.8rem + 2.25vw, 3.75rem);
+
+  /* Font weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.6;
+  /* Line heights - Optimized for readability */
+  --line-height-tight: 1.25;    /* For large headings */
+  --line-height-snug: 1.375;    /* For medium headings */
+  --line-height-normal: 1.5;    /* For body text */
+  --line-height-relaxed: 1.625; /* For long-form content */
+  --line-height-loose: 1.75;    /* For very spacious reading */
+
+  /* Letter spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
 
   /* Transitions */
   --transition-fast: 0.15s ease;
@@ -109,17 +174,184 @@
   --breakpoint-wide: 1024px;
 }
 
-/* Dark mode support (optional future enhancement) */
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Uncomment when ready to implement dark mode */
-    /*
+    /* Background Colors */
     --color-bg-primary: #1a1a1a;
     --color-bg-secondary: #2d2d2d;
+    --color-bg-tertiary: #3d3d3d;
+    --color-bg-gradient-start: #2d2d2d;
+    --color-bg-gradient-end: #1a1a1a;
+
+    /* Text Colors */
     --color-text-primary: #e0e0e0;
     --color-text-secondary: #b0b0b0;
-    */
+    --color-text-muted: #9ca3af;
+    --color-text-light: #d1d5db;
+
+    /* Primary Colors (adjusted for dark backgrounds) */
+    --color-primary: #4a9eff;
+    --color-primary-dark: #3b82f6;
+    --color-primary-light: #818cf8;
+    --color-secondary: #a78bfa;
+    --color-accent: #60a5fa;
+    --color-accent-hover: #3b82f6;
+
+    /* Border Colors */
+    --color-border-light: #404040;
+    --color-border-medium: #505050;
+    --color-border-dark: #606060;
+    --color-border-focus: #60a5fa;
+
+    /* Focus Styles */
+    --focus-ring-color: #60a5fa;
+    --focus-ring-width: 3px;
+    --focus-ring-offset: 2px;
+    --focus-ring-style: solid;
+    --focus-ring-opacity: 0.6;
+    --focus-bg-highlight: rgba(96, 165, 250, 0.15);
+    --focus-animation-duration: 0.2s;
+
+    /* Difficulty Colors (adjusted for dark mode) */
+    --color-difficulty-easy-bg: #1e3a2e;
+    --color-difficulty-easy-text: #86efac;
+    --color-difficulty-easy-border: #2d5a3f;
+
+    --color-difficulty-medium-bg: #3a2e1e;
+    --color-difficulty-medium-text: #fcd34d;
+    --color-difficulty-medium-border: #5a4a2d;
+
+    --color-difficulty-hard-bg: #3a1e1e;
+    --color-difficulty-hard-text: #fca5a5;
+    --color-difficulty-hard-border: #5a2d2d;
+
+    /* Hero Gradient (adjusted for dark mode) */
+    --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --hero-text-color: #ffffff;
+
+    /* Shadows (softer for dark mode) */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.5);
   }
+}
+
+/* Manual dark mode override (when user clicks toggle) */
+[data-theme="dark"] {
+  /* Background Colors */
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-bg-tertiary: #3d3d3d;
+  --color-bg-gradient-start: #2d2d2d;
+  --color-bg-gradient-end: #1a1a1a;
+
+  /* Text Colors */
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #9ca3af;
+  --color-text-light: #d1d5db;
+
+  /* Primary Colors (adjusted for dark backgrounds) */
+  --color-primary: #4a9eff;
+  --color-primary-dark: #3b82f6;
+  --color-primary-light: #818cf8;
+  --color-secondary: #a78bfa;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #3b82f6;
+
+  /* Border Colors */
+  --color-border-light: #404040;
+  --color-border-medium: #505050;
+  --color-border-dark: #606060;
+  --color-border-focus: #60a5fa;
+
+  /* Focus Styles */
+  --focus-ring-color: #60a5fa;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+  --focus-ring-style: solid;
+  --focus-ring-opacity: 0.6;
+  --focus-bg-highlight: rgba(96, 165, 250, 0.15);
+  --focus-animation-duration: 0.2s;
+
+  /* Difficulty Colors (adjusted for dark mode) */
+  --color-difficulty-easy-bg: #1e3a2e;
+  --color-difficulty-easy-text: #86efac;
+  --color-difficulty-easy-border: #2d5a3f;
+
+  --color-difficulty-medium-bg: #3a2e1e;
+  --color-difficulty-medium-text: #fcd34d;
+  --color-difficulty-medium-border: #5a4a2d;
+
+  --color-difficulty-hard-bg: #3a1e1e;
+  --color-difficulty-hard-text: #fca5a5;
+  --color-difficulty-hard-border: #5a2d2d;
+
+  /* Hero Gradient (adjusted for dark mode) */
+  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --hero-text-color: #ffffff;
+
+  /* Shadows (softer for dark mode) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Manual light mode override (when user clicks toggle to force light) */
+[data-theme="light"] {
+  /* Force light mode colors even if system prefers dark */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f5f5f5;
+  --color-bg-gradient-start: #f8f9fa;
+  --color-bg-gradient-end: #e9ecef;
+
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-text-muted: #6c757d;
+  --color-text-light: #495057;
+
+  --color-primary: #2c5aa0;
+  --color-primary-dark: #1a365d;
+  --color-primary-light: #667eea;
+  --color-secondary: #764ba2;
+  --color-accent: #007bff;
+  --color-accent-hover: #0056b3;
+
+  --color-border-light: #e1e5e9;
+  --color-border-medium: #dee2e6;
+  --color-border-dark: #ddd;
+  --color-border-focus: #007bff;
+
+  --focus-ring-color: #007bff;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+  --focus-ring-style: solid;
+  --focus-ring-opacity: 0.5;
+  --focus-bg-highlight: rgba(0, 123, 255, 0.1);
+  --focus-animation-duration: 0.2s;
+
+  --color-difficulty-easy-bg: #d4edda;
+  --color-difficulty-easy-text: #155724;
+  --color-difficulty-easy-border: #c3e6cb;
+
+  --color-difficulty-medium-bg: #fff3cd;
+  --color-difficulty-medium-text: #856404;
+  --color-difficulty-medium-border: #ffeaa7;
+
+  --color-difficulty-hard-bg: #f8d7da;
+  --color-difficulty-hard-text: #721c24;
+  --color-difficulty-hard-border: #f5c6cb;
+
+  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* High contrast mode support */

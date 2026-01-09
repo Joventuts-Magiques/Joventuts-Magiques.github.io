@@ -18,7 +18,7 @@ class LanguageManager {
   determineLanguage() {
     const urlParams = new URLSearchParams(window.location.search);
     const urlLang = urlParams.get('lang');
-    const savedLang = localStorage.getItem(this.storageKey);
+    const savedLang = this.loadPreference();
 
     // Priority: URL parameter > Saved preference > Default
     if (urlLang && this.supportedLangs.includes(urlLang)) {
@@ -34,13 +34,32 @@ class LanguageManager {
   }
 
   /**
-   * Save language preference to localStorage
+   * Load language preference from localStorage with error handling
+   * @returns {string|null} Saved language code or null
+   */
+  loadPreference() {
+    try {
+      return localStorage.getItem(this.storageKey);
+    } catch (e) {
+      console.warn('Failed to load language preference from localStorage:', e);
+      return null;
+    }
+  }
+
+  /**
+   * Save language preference to localStorage with error handling
    * @param {string} lang Language code
    */
   savePreference(lang) {
     if (this.supportedLangs.includes(lang)) {
-      localStorage.setItem(this.storageKey, lang);
-      this.currentLang = lang;
+      try {
+        localStorage.setItem(this.storageKey, lang);
+        this.currentLang = lang;
+      } catch (e) {
+        console.warn('Failed to save language preference to localStorage:', e);
+        // Fallback: just update current lang without persistence
+        this.currentLang = lang;
+      }
     }
   }
 
@@ -66,8 +85,9 @@ class LanguageManager {
 
   /**
    * Update homepage content with translations
+   * @param {boolean} animate Whether to animate the transition
    */
-  updateHomeContent() {
+  updateHomeContent(animate = false) {
     if (!this.translations[this.currentLang]) {
       console.warn(`No translations found for language: ${this.currentLang}`);
       return;
@@ -83,21 +103,57 @@ class LanguageManager {
       'home-button-text': t.home
     };
 
-    Object.entries(contentMap).forEach(([id, text]) => {
-      const element = document.getElementById(id);
-      if (element && text) {
-        element.textContent = text;
-      }
-    });
+    if (animate) {
+      // Add fade transition to content
+      const homeContent = document.querySelector('.home-content');
+      if (homeContent) {
+        homeContent.classList.add('content-transition', 'hidden');
 
-    // Update language-specific game content
-    this.updateGameCards();
+        // Small delay to ensure transition is visible
+        setTimeout(() => {
+          Object.entries(contentMap).forEach(([id, text]) => {
+            const element = document.getElementById(id);
+            if (element && text) {
+              element.textContent = text;
+            }
+          });
+
+          // Update language-specific game content
+          this.updateGameCards(animate);
+
+          // Fade content back in
+          homeContent.classList.remove('hidden');
+          homeContent.classList.add('visible');
+        }, 150);
+      } else {
+        // Fallback if home-content element doesn't exist
+        Object.entries(contentMap).forEach(([id, text]) => {
+          const element = document.getElementById(id);
+          if (element && text) {
+            element.textContent = text;
+          }
+        });
+
+        this.updateGameCards(animate);
+      }
+    } else {
+      // No animation on initial load
+      Object.entries(contentMap).forEach(([id, text]) => {
+        const element = document.getElementById(id);
+        if (element && text) {
+          element.textContent = text;
+        }
+      });
+
+      this.updateGameCards(animate);
+    }
   }
 
   /**
    * Update game cards to show content in current language
+   * @param {boolean} animate Whether to animate the transition
    */
-  updateGameCards() {
+  updateGameCards(animate = false) {
     // Cache all language-specific elements
     const elementsCache = {
       ca: document.querySelectorAll('.lang-ca'),
@@ -105,22 +161,56 @@ class LanguageManager {
       en: document.querySelectorAll('.lang-en')
     };
 
-    // Update visibility for all languages at once
-    this.supportedLangs.forEach(lang => {
-      const isActive = lang === this.currentLang;
-      const display = isActive ? '' : 'none';
-
-      elementsCache[lang].forEach(el => {
-        el.style.display = display;
+    if (animate) {
+      // Add fade transition to game cards
+      const gameCards = document.querySelectorAll('.game-card');
+      gameCards.forEach(card => {
+        card.classList.add('content-transition', 'hidden');
       });
-    });
 
-    // Update language indicators
-    const indicators = document.querySelectorAll('.lang-indicator[data-lang]');
-    indicators.forEach(indicator => {
-      const indicatorLang = indicator.getAttribute('data-lang');
-      indicator.classList.toggle('current', indicatorLang === this.currentLang);
-    });
+      // Small delay for transition
+      setTimeout(() => {
+        // Update visibility for all languages at once
+        this.supportedLangs.forEach(lang => {
+          const isActive = lang === this.currentLang;
+          const display = isActive ? '' : 'none';
+
+          elementsCache[lang].forEach(el => {
+            el.style.display = display;
+          });
+        });
+
+        // Update language indicators
+        const indicators = document.querySelectorAll('.lang-indicator[data-lang]');
+        indicators.forEach(indicator => {
+          const indicatorLang = indicator.getAttribute('data-lang');
+          indicator.classList.toggle('current', indicatorLang === this.currentLang);
+        });
+
+        // Fade cards back in
+        gameCards.forEach(card => {
+          card.classList.remove('hidden');
+          card.classList.add('visible');
+        });
+      }, 150);
+    } else {
+      // No animation on initial load
+      this.supportedLangs.forEach(lang => {
+        const isActive = lang === this.currentLang;
+        const display = isActive ? '' : 'none';
+
+        elementsCache[lang].forEach(el => {
+          el.style.display = display;
+        });
+      });
+
+      // Update language indicators
+      const indicators = document.querySelectorAll('.lang-indicator[data-lang]');
+      indicators.forEach(indicator => {
+        const indicatorLang = indicator.getAttribute('data-lang');
+        indicator.classList.toggle('current', indicatorLang === this.currentLang);
+      });
+    }
   }
 
   /**
@@ -155,7 +245,7 @@ class LanguageManager {
     // Listen for browser navigation events
     window.addEventListener('popstate', () => {
       this.currentLang = this.determineLanguage();
-      this.initialize();
+      this.initialize(true); // Animate on navigation
     });
 
     window.addEventListener('pageshow', () => {
@@ -164,14 +254,69 @@ class LanguageManager {
   }
 
   /**
-   * Initialize the language manager
+   * Initialize image loading handlers with loading states
    */
-  initialize() {
+  initializeImageLoading() {
+    const images = document.querySelectorAll('.game-image img');
+
+    images.forEach(img => {
+      const container = img.closest('.game-image');
+      const card = img.closest('.game-card');
+
+      // Add loading state to card
+      if (card && !img.complete) {
+        card.classList.add('loading');
+      }
+
+      // If image is already loaded (cached)
+      if (img.complete && img.naturalHeight !== 0) {
+        img.classList.add('loaded');
+        if (container) {
+          container.classList.add('loaded');
+        }
+        if (card) {
+          card.classList.remove('loading');
+        }
+      } else {
+        // Add load event listener
+        img.addEventListener('load', () => {
+          // Small delay for smooth transition
+          requestAnimationFrame(() => {
+            img.classList.add('loaded');
+            if (container) {
+              container.classList.add('loaded');
+            }
+            if (card) {
+              card.classList.remove('loading');
+            }
+          });
+        });
+
+        // Handle error case
+        img.addEventListener('error', () => {
+          if (container) {
+            container.classList.add('loaded');
+          }
+          if (card) {
+            card.classList.remove('loading');
+          }
+          console.warn('Failed to load image:', img.src);
+        });
+      }
+    });
+  }
+
+  /**
+   * Initialize the language manager
+   * @param {boolean} animate Whether to animate transitions
+   */
+  initialize(animate = false) {
     this.updateSelectorState();
 
     // Only update home content if we're on the homepage
     if (document.querySelector('.home-content')) {
-      this.updateHomeContent();
+      this.updateHomeContent(animate);
+      this.initializeImageLoading();
     }
 
     this.cleanUrl();
@@ -183,10 +328,10 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     const langManager = new LanguageManager();
     langManager.attachEventListeners();
-    langManager.initialize();
+    langManager.initialize(false); // No animation on initial load
   });
 } else {
   const langManager = new LanguageManager();
   langManager.attachEventListeners();
-  langManager.initialize();
+  langManager.initialize(false); // No animation on initial load
 }
