@@ -13,7 +13,7 @@
 /* Hero Section */
 .hero-section {
   text-align: center;
-  padding: var(--spacing-3xl) var(--spacing-lg);
+  padding: var(--spacing-4xl) var(--spacing-2xl);
   background: var(--hero-gradient);
   background-size: 200% 200%;
   color: var(--hero-text-color);
@@ -22,6 +22,22 @@
   animation: gradient-shift 8s ease infinite;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Add semi-transparent overlay for better text contrast */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+    rgba(44, 90, 160, 0.15) 0%,
+    rgba(118, 75, 162, 0.15) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Gradient animation keyframes */
@@ -39,20 +55,27 @@
 
 .hero-section h1 {
   font-size: var(--font-size-4xl);
-  margin: 0 0 var(--spacing-md) 0;
-  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-lg) 0;
+  font-weight: 700;
   line-height: var(--line-height-tight);
   animation: fade-in-up 0.8s ease-out 0.2s both;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.02em;
 }
 
 .hero-description {
   font-size: var(--font-size-xl);
-  margin: 0;
-  opacity: 0.95;
-  max-width: 600px;
   margin: 0 auto;
-  line-height: var(--line-height-snug);
+  opacity: 0.98;
+  max-width: 700px;
+  line-height: var(--line-height-relaxed);
   animation: fade-in-up 0.8s ease-out 0.4s both;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-weight: 500;
 }
 
 /* Fade-in-up animation keyframes */
@@ -1270,4 +1293,41 @@
     color: #000;
     border: 2px solid #000;
   }
+}
+
+
+/* Game-themed playful touches */
+.game-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+.category-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+}
+
+/* Playful hover effect on meta badges */
+.meta-badge {
+  font-family: 'Inter', sans-serif;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.meta-badge:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* Add subtle game piece decorations to category cards */
+.category-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.category-card:hover .category-icon {
+  transform: scale(1.15) rotate(-8deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }

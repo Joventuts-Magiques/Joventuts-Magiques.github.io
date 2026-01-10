@@ -115,6 +115,159 @@ El juego termina cuando un jugador tiene **2 o menos vagones** al final de su tu
 
 Algunos mapas incluyen estaciones que permiten usar rutas de otros jugadores.
 
+## Ticket to Ride: Europe - Reglas Específicas
+
+La versión europea añade tres mecánicas nuevas que hacen el juego más estratégico y complejo:
+
+### Estaciones (3 por jugador)
+
+Las estaciones permiten usar una ruta de otro jugador para completar tus destinos.
+
+**Cómo funcionan:**
+
+- Cada jugador comienza con **3 estaciones**
+- Para construir una estación, **descarta cartas de tren**:
+  - Primera estación: 1 carta de cualquier color
+  - Segunda estación: 2 cartas del mismo color
+  - Tercera estación: 3 cartas del mismo color
+- Coloca la estación en **cualquier ciudad** del tablero
+- Puedes usar **una ruta** que conecte con esta ciudad, incluso si es de otro jugador
+- Solo puedes usar **una ruta por estación**
+
+**Puntuación:**
+
+- Cada estación **no utilizada** al final: **4 puntos extra**
+- Estaciones utilizadas: 0 puntos
+
+**Estrategia:**
+
+- Usa estaciones como **plan B** si te bloquean una ruta
+- Intenta **no usarlas** para ganar los 4 puntos extra
+- Construye estaciones **antes de que te bloqueen** la ruta
+
+### Túneles
+
+Los túneles añaden incertidumbre al coste de construcción de rutas.
+
+**Identificación:**
+
+- Rutas marcadas con **símbolos de montaña** en el tablero
+
+**Cómo funcionan:**
+
+1. Juega las cartas necesarias para la longitud del túnel
+2. **Gira las 3 primeras cartas** de la pila de tren
+3. Por cada carta que **coincida con el color** que has jugado (o locomotora):
+   - Debes **jugar 1 carta adicional** del mismo color
+4. Si no puedes o no quieres pagar el coste extra:
+   - **Recuperas todas las cartas** jugadas
+   - **Pierdes el turno**
+
+**Ejemplo:**
+
+- Quieres construir un túnel azul de 3 vagones
+- Juegas 3 cartas azules
+- Giras 3 cartas: 1 azul, 1 roja, 1 locomotora
+- Debes jugar **2 cartas azules más** (1 por la azul, 1 por la locomotora)
+- Si no tienes 2 cartas azules, recuperas las 3 iniciales y pierdes el turno
+
+**Estrategia:**
+
+- Los túneles son **más arriesgados** que las rutas normales
+- Ten **cartas extra** antes de construir un túnel
+- Las **locomotoras** son especialmente útiles para túneles
+- Construye túneles **cuando tengas margen** de cartas
+
+### Ferris
+
+Los ferris requieren locomotoras para ser construidos.
+
+**Identificación:**
+
+- Rutas con **símbolos de barco** en el tablero
+- Algunos espacios de la ruta tienen **símbolos de locomotora**
+
+**Cómo funcionan:**
+
+- Por cada **símbolo de locomotora** en la ruta:
+  - Debes jugar **obligatoriamente una locomotora**
+- El resto de espacios se pueden llenar con cartas del color correspondiente
+
+**Ejemplo:**
+
+- Un ferri gris de 4 vagones con 2 símbolos de locomotora:
+  - Debes jugar **2 locomotoras**
+  - Más **2 cartas del mismo color** (cualquier color por ser gris)
+
+**Estrategia:**
+
+- **Conserva locomotoras** para los ferris
+- Los ferris son **más caros** que las rutas normales
+- Planifica con antelación qué ferris necesitas
+- Compite por **locomotoras boca arriba** cuando las veas
+
+### Cartas de Destino Largas
+
+Europe incluye cartas de destino de **larga distancia** con puntuaciones más altas.
+
+**Preparación inicial:**
+
+- Cada jugador recibe **1 carta de destino larga** (obligatoria)
+- Más **3 cartas de destino normales** (mantén mínimo 2)
+
+**Características:**
+
+- Valen **más puntos** (hasta 21 puntos)
+- Conectan ciudades **muy distantes**
+- Son más **difíciles de completar**
+- Pero ofrecen **gran recompensa**
+
+**Estrategia:**
+
+- La carta larga **marca tu estrategia** inicial
+- Construye primero la **columna vertebral** de la ruta larga
+- Después añade **destinos secundarios** que coincidan
+- No tomes más cartas largas si no tienes ruta clara
+
+### Diferencias en Componentes
+
+**Europe incluye:**
+
+- **Tablero de Europa** con 46 ciudades
+- **15 estaciones** (3 por jugador en 5 colores)
+- **Túneles** marcados en el tablero
+- **Ferris** marcados en el tablero
+- **Cartas de destino largas** separadas
+- **Más cartas de destino** en total (46 vs 30)
+
+### Consejos Específicos para Europe
+
+1. **Gestiona las estaciones**: Son tu seguro contra bloqueos
+2. **Planifica los túneles**: Ten siempre cartas extra
+3. **Acumula locomotoras**: Necesarias para ferris y útiles para túneles
+4. **Rutas alternativas**: Europe tiene más opciones de caminos
+5. **Destinos largos**: Pueden ganar o perder la partida
+6. **Bloqueo estratégico**: Los cuellos de botella son más críticos
+7. **Timing de las estaciones**: Constrúyelas antes de que sea tarde
+
+### Comparación: América vs Europe
+
+**América (Original):**
+
+- Más **simple** y **directo**
+- Mejor para **principiantes**
+- Menos **aleatoriedad**
+- Partidas más **rápidas**
+
+**Europe:**
+
+- Más **estratégico** y **complejo**
+- Mejor para **jugadores experimentados**
+- Más **interacción** y **decisiones**
+- Partidas más **largas** y **tácticas**
+- **Estaciones** reducen la frustración del bloqueo
+- **Túneles y ferris** añaden incertidumbre y planificación
+
 ## Consejos para Principiantes
 
 1. **Comienza con destinos cortos**: Son más fáciles de completar

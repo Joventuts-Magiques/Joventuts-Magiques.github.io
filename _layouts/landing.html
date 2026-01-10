@@ -1,0 +1,253 @@
+---
+layout: default
+---
+
+<main class="landing-content" role="main" aria-label="Joventuts Magiques homepage">
+  <!-- Hero Section -->
+  <header class="hero-section hero-landing">
+    <h1 class="lang-content" id="hero-title">Benvinguts a Joventuts Magiques</h1>
+    <p class="hero-description lang-content" id="hero-description">La teva comunitat per a regles, estratègies i guies de jocs de taula i cartes.</p>
+  </header>
+
+  <!-- Game Categories Navigation -->
+  <nav class="game-categories" aria-label="Game categories">
+    <h2 class="sr-only lang-content" id="categories-title" data-lang-key="categories_title">Categories de Jocs</h2>
+
+    <div class="categories-grid">
+      <!-- Board Games Category -->
+      <article class="category-card" role="article">
+        <a href="/board-games/" class="category-link" aria-label="View board games collection">
+          <div class="category-icon" aria-hidden="true">🎲</div>
+          <h3 class="category-title lang-content" data-lang-key="board_games_title">Jocs de Taula</h3>
+          <p class="category-description lang-content" data-lang-key="board_games_desc">Descobreix les regles dels jocs de taula clàssics</p>
+          <span class="category-count"><span id="board-games-count">{{ site.games | where: 'lang', 'ca' | size }}</span> <span class="lang-content" data-lang-key="games">jocs</span></span>
+        </a>
+      </article>
+
+      <!-- Card Games Category -->
+      <article class="category-card" role="article">
+        <a href="/card-games/" class="category-link" aria-label="View card games collection">
+          <div class="category-icon" aria-hidden="true">🃏</div>
+          <h3 class="category-title lang-content" data-lang-key="card_games_title">Jocs de Cartes</h3>
+          <p class="category-description lang-content" data-lang-key="card_games_desc">Guies i estratègies per a jocs de cartes col·leccionables</p>
+          <span class="category-count"><span id="card-games-count">{{ site.card_games | where: 'lang', 'ca' | size }}</span> <span class="lang-content" data-lang-key="games">jocs</span></span>
+        </a>
+      </article>
+
+      <!-- Community Category -->
+      <article class="category-card" role="article">
+        <a href="#community" class="category-link" aria-label="View community information">
+          <div class="category-icon" aria-hidden="true">👥</div>
+          <h3 class="category-title lang-content" data-lang-key="community_title">Comunitat</h3>
+          <p class="category-description lang-content" data-lang-key="community_desc">Contribueix i forma part de la comunitat</p>
+          <span class="category-count lang-content" data-lang-key="join_us">Uneix-te</span>
+        </a>
+      </article>
+    </div>
+  </nav>
+
+  <!-- Featured Games Section -->
+  <section class="featured-section" aria-labelledby="featured-title">
+    <h2 class="section-title lang-content" id="featured-title" data-lang-key="featured_games">Jocs Destacats</h2>
+
+    <div class="games-grid">
+      {% assign all_games = site.games | concat: site.card_games %}
+      {% assign games_by_title = all_games | group_by: 'title' | sort: 'name' | slice: 0, 6 %}
+      {% for game_group in games_by_title %}
+        {% assign ca_game = game_group.items | where: 'lang', 'ca' | first %}
+        {% assign es_game = game_group.items | where: 'lang', 'es' | first %}
+        {% assign en_game = game_group.items | where: 'lang', 'en' | first %}
+
+        {% if ca_game and es_game and en_game %}
+        <article class="game-card" role="article" aria-label="{{ ca_game.title }}">
+          <a href="{{ ca_game.url }}" class="game-card-link lang-ca" aria-label="View {{ ca_game.title }} (Català)">
+            {% if ca_game.image %}
+            <div class="game-image">
+              <img src="{{ ca_game.image }}"
+                   alt="{{ ca_game.title }}"
+                   width="640"
+                   height="360"
+                   loading="lazy"
+                   decoding="async">
+            </div>
+            {% endif %}
+
+            <div class="game-card-content">
+              <h3 class="game-title">{{ ca_game.title }}</h3>
+              <p class="game-excerpt">{{ ca_game.excerpt }}</p>
+
+              <div class="game-meta-preview" role="list" aria-label="Game information">
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">👥</span>
+                  <span class="sr-only">Players: </span>
+                  {{ ca_game.players }}
+                </span>
+                {% if ca_game.duration %}
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">⏱️</span>
+                  <span class="sr-only">Duration: </span>
+                  {{ ca_game.duration }} min
+                </span>
+                {% endif %}
+                <span class="meta-badge difficulty-{{ ca_game.difficulty | slugify }}" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">📊</span>
+                  <span class="sr-only">Difficulty: </span>
+                  {{ ca_game.difficulty }}
+                </span>
+              </div>
+
+              <div class="game-languages" role="list" aria-label="Available languages">
+                {% for game in game_group.items %}
+                  <span class="lang-indicator" data-lang="{{ game.lang }}"
+                        role="listitem"
+                        title="{{ site.lang_names[game.lang] | default: game.lang }}"
+                        aria-label="Available in {{ site.lang_names[game.lang] | default: game.lang }}">
+                    {{ game.lang | upcase }}
+                  </span>
+                {% endfor %}
+              </div>
+            </div>
+          </a>
+
+          <a href="{{ es_game.url }}" class="game-card-link lang-es" style="display:none;" aria-label="Ver {{ es_game.title }} (Español)">
+            {% if es_game.image %}
+            <div class="game-image">
+              <img src="{{ es_game.image }}"
+                   alt="{{ es_game.title }}"
+                   width="640"
+                   height="360"
+                   loading="lazy"
+                   decoding="async">
+            </div>
+            {% endif %}
+
+            <div class="game-card-content">
+              <h3 class="game-title">{{ es_game.title }}</h3>
+              <p class="game-excerpt">{{ es_game.excerpt }}</p>
+
+              <div class="game-meta-preview" role="list" aria-label="Game information">
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">👥</span>
+                  <span class="sr-only">Players: </span>
+                  {{ es_game.players }}
+                </span>
+                {% if es_game.duration %}
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">⏱️</span>
+                  <span class="sr-only">Duration: </span>
+                  {{ es_game.duration }} min
+                </span>
+                {% endif %}
+                <span class="meta-badge difficulty-{{ es_game.difficulty | slugify }}" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">📊</span>
+                  <span class="sr-only">Difficulty: </span>
+                  {{ es_game.difficulty }}
+                </span>
+              </div>
+
+              <div class="game-languages" role="list" aria-label="Available languages">
+                {% for game in game_group.items %}
+                  <span class="lang-indicator" data-lang="{{ game.lang }}"
+                        role="listitem"
+                        title="{{ site.lang_names[game.lang] | default: game.lang }}"
+                        aria-label="Available in {{ site.lang_names[game.lang] | default: game.lang }}">
+                    {{ game.lang | upcase }}
+                  </span>
+                {% endfor %}
+              </div>
+            </div>
+          </a>
+
+          <a href="{{ en_game.url }}" class="game-card-link lang-en" style="display:none;" aria-label="View {{ en_game.title }} (English)">
+            {% if en_game.image %}
+            <div class="game-image">
+              <img src="{{ en_game.image }}"
+                   alt="{{ en_game.title }}"
+                   width="640"
+                   height="360"
+                   loading="lazy"
+                   decoding="async">
+            </div>
+            {% endif %}
+
+            <div class="game-card-content">
+              <h3 class="game-title">{{ en_game.title }}</h3>
+              <p class="game-excerpt">{{ en_game.excerpt }}</p>
+
+              <div class="game-meta-preview" role="list" aria-label="Game information">
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">👥</span>
+                  <span class="sr-only">Players: </span>
+                  {{ en_game.players }}
+                </span>
+                {% if en_game.duration %}
+                <span class="meta-badge" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">⏱️</span>
+                  <span class="sr-only">Duration: </span>
+                  {{ en_game.duration }} min
+                </span>
+                {% endif %}
+                <span class="meta-badge difficulty-{{ en_game.difficulty | slugify }}" role="listitem">
+                  <span class="meta-icon" aria-hidden="true">📊</span>
+                  <span class="sr-only">Difficulty: </span>
+                  {{ en_game.difficulty }}
+                </span>
+              </div>
+
+              <div class="game-languages" role="list" aria-label="Available languages">
+                {% for game in game_group.items %}
+                  <span class="lang-indicator" data-lang="{{ game.lang }}"
+                        role="listitem"
+                        title="{{ site.lang_names[game.lang] | default: game.lang }}"
+                        aria-label="Available in {{ site.lang_names[game.lang] | default: game.lang }}">
+                    {{ game.lang | upcase }}
+                  </span>
+                {% endfor %}
+              </div>
+            </div>
+          </a>
+        </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="view-all-links">
+      <a href="/board-games/" class="btn btn-primary lang-content" data-lang-key="view-all-board-games">Veure tots els Jocs de Taula</a>
+      <a href="/card-games/" class="btn btn-primary lang-content" data-lang-key="view-all-card-games">Veure tots els Jocs de Cartes</a>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community" class="community-section" aria-labelledby="community-section-title">
+    <h2 class="section-title lang-content" id="community-section-title" data-lang-key="community_title">Comunitat</h2>
+
+    <div class="community-content">
+      <div class="community-card">
+        <div class="community-icon" aria-hidden="true">📝</div>
+        <h3 class="lang-content" data-lang-key="contribute_title">Contribueix</h3>
+        <p class="lang-content" data-lang-key="contribute_desc">Ajuda'ns a millorar les guies o afegeix nous jocs a la col·lecció.</p>
+        <a href="https://github.com/Joventuts-Magiques/Joventuts-Magiques.github.io" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <span class="lang-content" data-lang-key="view_github">Veure a GitHub</span>
+        </a>
+      </div>
+
+      <div class="community-card">
+        <div class="community-icon" aria-hidden="true">💡</div>
+        <h3 class="lang-content" data-lang-key="suggest_title">Suggereix</h3>
+        <p class="lang-content" data-lang-key="suggest_desc">Tens idees per a nous jocs o millores? Comparteix-les amb nosaltres!</p>
+        <a href="https://github.com/Joventuts-Magiques/Joventuts-Magiques.github.io/issues" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          <span class="lang-content" data-lang-key="open_issue">Obrir Issue</span>
+        </a>
+      </div>
+
+      <div class="community-card">
+        <div class="community-icon" aria-hidden="true">🌍</div>
+        <h3 class="lang-content" data-lang-key="translate_title">Tradueix</h3>
+        <p class="lang-content" data-lang-key="translate_desc">Ajuda a fer accessible el contingut en més idiomes.</p>
+        <a href="https://github.com/Joventuts-Magiques/Joventuts-Magiques.github.io/blob/main/readme.md" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          <span class="lang-content" data-lang-key="learn_more">Més informació</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<article class="game-page" role="article" aria-label="{{ page.title }} game guide">
+  <header class="game-header">
+    <h1 class="game-title">{{ page.title }}</h1>
+
+    <div class="game-meta" role="list" aria-label="Game information">
+      <div class="meta-item" role="listitem">
+        <span class="meta-icon" aria-hidden="true">👥</span>
+        <span class="meta-label">Players:</span>
+        <span class="meta-value">{{ page.players }}</span>
+      </div>
+
+      {% if page.format %}
+      <div class="meta-item" role="listitem">
+        <span class="meta-icon" aria-hidden="true">🎯</span>
+        <span class="meta-label">Format:</span>
+        <span class="meta-value">{{ page.format }}</span>
+      </div>
+      {% endif %}
+
+      <div class="meta-item difficulty-{{ page.difficulty | slugify }}" role="listitem">
+        <span class="meta-icon" aria-hidden="true">📊</span>
+        <span class="meta-label">Difficulty:</span>
+        <span class="meta-value">{{ page.difficulty }}</span>
+      </div>
+
+      {% if page.age_range %}
+      <div class="meta-item" role="listitem">
+        <span class="meta-icon" aria-hidden="true">🎂</span>
+        <span class="meta-label">Age:</span>
+        <span class="meta-value">{{ page.age_range }}</span>
+      </div>
+      {% endif %}
+    </div>
+
+    {% comment %} Language selector for this game {% endcomment %}
+    {% include language-selector.html %}
+  </header>
+
+  <div class="game-content">
+    {{ content }}
+  </div>
+
+  <footer class="game-footer">
+    <nav class="game-navigation" aria-label="Game navigation">
+      <a href="/#card-games" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Back to Card Games
+      </a>
+    </nav>
+  </footer>
+</article>

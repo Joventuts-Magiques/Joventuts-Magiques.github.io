@@ -1,9 +1,9 @@
-# Multilingual Board Games Collection
+# Joventuts Magiques - Gaming Community
 
 [![Build Status](https://github.com/andyce/andyce.github.io/workflows/Build/badge.svg)](https://github.com/andyce/andyce.github.io/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-An open collection of rules and guides for classic board games, available in Catalan, Spanish, and English.
+An open collection of rules, strategies and guides for board games and card games, available in Catalan, Spanish, and English.
 
 ## 🌐 Available Languages
 
@@ -13,12 +13,12 @@ An open collection of rules and guides for classic board games, available in Cat
 
 ## 🎯 Purpose
 
-This project aims to create a comprehensive and accessible collection of board game rules, maintaining quality and
-consistency across all supported languages.
+This project aims to create a comprehensive and accessible collection of gaming rules and strategies, maintaining quality and consistency across all supported languages.
 
 ## 🚀 Features
 
 - ✅ **Multilingual**: Full support for 3 languages
+- ✅ **Multiple Game Types**: Board games and card games
 - ✅ **Responsive**: Adaptive design for all devices
 - ✅ **Accessible**: WCAG 2.1 AA compliant
 - ✅ **SEO Optimized**: Metadata and structured data
@@ -28,18 +28,28 @@ consistency across all supported languages.
 ## 📁 Project Structure
 
 ```text
-├── _games/                 # Games collection
+├── _games/                 # Board games collection
 │   └── monopoly/          # Game example
 │       ├── monopoly.ca.md # Catalan version
 │       ├── monopoly.es.md # Spanish version
 │       ├── monopoly.en.md # English version
 │       └── images/        # Game images
+├── _card_games/           # Card games collection
+│   └── magic-the-gathering/
+│       ├── magic-the-gathering.ca.md
+│       ├── magic-the-gathering.es.md
+│       └── magic-the-gathering.en.md
 ├── _data/
 │   └── i18n.yml          # UI translations
 ├── _includes/
 │   └── language-selector.html # Language selector
 ├── _layouts/             # Jekyll templates
-├── scripts/              # Validation scripts
+│   ├── landing.html      # Main landing page
+│   ├── game.html         # Board game layout
+│   └── card-game.html    # Card game layout
+├── _templates/           # Content templates
+│   ├── game-template.ca.md
+│   └── card-game-template.ca.md
 └── .kiro/
     └── steering/         # Project documentation
 ```
@@ -84,7 +94,7 @@ pre-commit run --all-files
 
 ## 📝 How to Contribute
 
-### Adding a New Game
+### Adding a New Board Game
 
 1. **Create game directory**:
 
@@ -97,22 +107,36 @@ pre-commit run --all-files
    - `game-name.es.md` (Spanish - required)
    - `game-name.en.md` (English - required)
 
-3. **Use the template**:
+3. **Use the template** from `_templates/game-template.ca.md`
+
+### Adding a New Card Game
+
+1. **Create game directory**:
+
+   ```bash
+   mkdir -p _card_games/game-name/images
+   ```
+
+2. **Create files for each language**:
+   - `game-name.ca.md` (Catalan - required)
+   - `game-name.es.md` (Spanish - required)
+   - `game-name.en.md` (English - required)
+
+3. **Use the template** from `_templates/card-game-template.ca.md`
+
+4. **Card game specific fields**:
 
    ```yaml
    ---
    title: Game Name
    lang: ca
-   players: 2-4
-   duration: 30-60
+   players: 2+
+   format: "Standard, Modern, Commander"
    difficulty: Medium
-   age_range: 8+
+   age_range: 13+
    excerpt: "Brief game description"
-   layout: game
+   layout: card-game
    ---
-
-   ## Overview
-   [Game content...]
    ```
 
 ### Required Content Schema
@@ -162,10 +186,30 @@ This script checks:
 
 ### Available Games
 
+#### Board Games
+
 - [x] **Monopoly** - Complete in 3 languages
+- [x] **7 Wonders** - Complete in 3 languages
+- [x] **Catan** - Complete in 3 languages
+- [x] **Ticket to Ride** - Complete in 3 languages
+
+#### Card Games
+
+- [x] **Magic: The Gathering** - Complete in 3 languages
+
+### Planned Content
+
+#### Board Games
+
 - [ ] **Chess** - Planned
 - [ ] **Scrabble** - Planned
 - [ ] **Risk** - Planned
+
+#### Card Games
+
+- [ ] **Pokémon TCG** - Planned
+- [ ] **Yu-Gi-Oh!** - Planned
+- [ ] **Hearthstone** - Planned
 
 ### Planned Features
 
