@@ -313,13 +313,69 @@ class LanguageManager {
   initialize(animate = false) {
     this.updateSelectorState();
 
-    // Only update home content if we're on the homepage
+    // Update home content if we're on the homepage
     if (document.querySelector('.home-content')) {
       this.updateHomeContent(animate);
       this.initializeImageLoading();
     }
 
+    // Update landing content if we're on the landing page
+    if (document.querySelector('.landing-content')) {
+      this.updateLandingContent(animate);
+      this.updateGameCards(animate);
+      this.initializeImageLoading();
+    }
+
     this.cleanUrl();
+  }
+
+  /**
+   * Update landing page content with translations
+   * @param {boolean} animate Whether to animate the transition
+   */
+  updateLandingContent(animate = false) {
+    if (!this.translations[this.currentLang]) {
+      console.warn(`No translations found for language: ${this.currentLang}`);
+      return;
+    }
+
+    const t = this.translations[this.currentLang];
+
+    // Update all elements with lang-content class and data-lang-key attribute
+    const langElements = document.querySelectorAll('.lang-content[data-lang-key]');
+
+    langElements.forEach(element => {
+      const key = element.getAttribute('data-lang-key');
+      if (key && t[key]) {
+        element.textContent = t[key];
+      }
+    });
+
+    // Update main hero content
+    const heroTitle = document.getElementById('hero-title');
+    const heroDescription = document.getElementById('hero-description');
+
+    if (heroTitle && t.hero_title) {
+      heroTitle.textContent = t.hero_title;
+    }
+    if (heroDescription && t.hero_description) {
+      heroDescription.textContent = t.hero_description;
+    }
+
+    // Update section titles
+    const boardGamesTitle = document.getElementById('board-games-title');
+    const cardGamesTitle = document.getElementById('card-games-title');
+    const communityTitle = document.getElementById('community-section-title');
+
+    if (boardGamesTitle && t.board_games_title) {
+      boardGamesTitle.textContent = t.board_games_title;
+    }
+    if (cardGamesTitle && t.card_games_title) {
+      cardGamesTitle.textContent = t.card_games_title;
+    }
+    if (communityTitle && t.community_title) {
+      communityTitle.textContent = t.community_title;
+    }
   }
 }
 

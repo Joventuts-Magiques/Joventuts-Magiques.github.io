@@ -1,0 +1,205 @@
+/**
+ * Games List Page Styles
+ * Styles for the dedicated board games and card games pages
+ */
+
+.games-list-content {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  width: 100%;
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: var(--spacing-4xl);
+}
+
+.page-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-3xl) 0;
+  text-align: center;
+  line-height: var(--line-height-tight);
+}
+
+/* Games Controls */
+.games-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-3xl) var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  border: 2px solid var(--color-border-medium);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--focus-bg-highlight);
+}
+
+.search-icon {
+  position: absolute;
+  right: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--font-size-xl);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Filter Controls */
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.filter-select {
+  flex: 1;
+  min-width: 150px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  border: 2px solid var(--color-border-medium);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: border-color var(--transition-normal);
+}
+
+.filter-select:hover {
+  border-color: var(--color-accent);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--focus-bg-highlight);
+}
+
+/* Sort Button */
+#sort-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  white-space: nowrap;
+}
+
+.sort-icon {
+  font-size: var(--font-size-lg);
+  transition: transform var(--transition-normal);
+}
+
+/* Games Count */
+.games-count {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.games-count strong {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: var(--spacing-5xl) var(--spacing-lg);
+}
+
+.no-results p {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Responsive Design */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .filter-controls {
+    flex-direction: column;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  #sort-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile (600px and below) */
+@media (max-width: 600px) {
+  .games-list-content {
+    padding: var(--spacing-md);
+  }
+
+  .page-header {
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .page-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .games-controls {
+    gap: var(--spacing-md);
+  }
+
+  .search-input {
+    padding: var(--spacing-sm) var(--spacing-2xl) var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  .search-icon {
+    right: var(--spacing-md);
+    font-size: var(--font-size-lg);
+  }
+
+  .filter-select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  .games-count {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .search-input,
+  .filter-select,
+  .sort-icon {
+    transition: none;
+  }
+}

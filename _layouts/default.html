@@ -30,6 +30,12 @@
   {% comment %} Favicon {% endcomment %}
   <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 
+  {% comment %} Google Fonts - Playful game-themed typography {% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+
   {% comment %} CSS - Order matters! Variables first, then base, then components {% endcomment %}
   <link rel="stylesheet" href="{{ '/assets/css/variables.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
@@ -40,7 +46,21 @@
   <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
   {% endif %}
 
+  {% if page.layout == 'landing' or layout.name == 'landing' %}
+  <link rel="stylesheet" href="{{ '/assets/css/landing.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+  {% endif %}
+
+  {% if page.layout == 'games-list' or layout.name == 'games-list' %}
+  <link rel="stylesheet" href="{{ '/assets/css/games-list.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+  {% endif %}
+
   {% if page.layout == 'game' or layout.name == 'game' %}
+  <link rel="stylesheet" href="{{ '/assets/css/game.css' | relative_url }}">
+  {% endif %}
+
+  {% if page.layout == 'card-game' or layout.name == 'card-game' %}
   <link rel="stylesheet" href="{{ '/assets/css/game.css' | relative_url }}">
   {% endif %}
 
@@ -100,14 +120,20 @@
   {% comment %} Language Manager JavaScript {% endcomment %}
   <script src="{{ '/assets/js/language-manager.js' | relative_url }}" defer></script>
 
+  {% comment %} Navigation Active State {% endcomment %}
+  <script src="{{ '/assets/js/nav-active.js' | relative_url }}" defer></script>
+
+  {% comment %} Image Loader JavaScript {% endcomment %}
+  <script src="{{ '/assets/js/image-loader.js' | relative_url }}" defer></script>
+
   {% comment %} Theme Toggle JavaScript {% endcomment %}
   <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
 
   {% comment %} Scroll Behavior JavaScript {% endcomment %}
   <script src="{{ '/assets/js/scroll-behavior.js' | relative_url }}" defer></script>
 
-  {% comment %} Card Tilt Effect for Homepage {% endcomment %}
-  {% if page.layout == 'home' or layout.name == 'home' %}
+  {% comment %} Card Tilt Effect for Homepage and Landing Page {% endcomment %}
+  {% if page.layout == 'home' or layout.name == 'home' or page.layout == 'landing' or layout.name == 'landing' %}
   <script src="{{ '/assets/js/card-tilt.js' | relative_url }}" defer></script>
   {% endif %}
 </body>

@@ -115,6 +115,159 @@ El joc acaba quan un jugador té **2 o menys vagons** al final del seu torn. Cad
 
 Alguns mapes inclouen estacions que permeten usar rutes d'altres jugadors.
 
+## Ticket to Ride: Europe - Regles Específiques
+
+La versió europea afegeix tres mecàniques noves que fan el joc més estratègic i complex:
+
+### Estacions (3 per jugador)
+
+Les estacions permeten usar una ruta d'un altre jugador per completar les teves destinacions.
+
+**Com funcionen:**
+
+- Cada jugador comença amb **3 estacions**
+- Per construir una estació, **descarta cartes de tren**:
+  - Primera estació: 1 carta de qualsevol color
+  - Segona estació: 2 cartes del mateix color
+  - Tercera estació: 3 cartes del mateix color
+- Col·loca l'estació en **qualsevol ciutat** del tauler
+- Pots usar **una ruta** que connecti amb aquesta ciutat, fins i tot si és d'un altre jugador
+- Només pots usar **una ruta per estació**
+
+**Puntuació:**
+
+- Cada estació **no utilitzada** al final: **4 punts extra**
+- Estacions utilitzades: 0 punts
+
+**Estratègia:**
+
+- Usa estacions com a **pla B** si et bloquegen una ruta
+- Intenta **no usar-les** per guanyar els 4 punts extra
+- Construeix estacions **abans que et bloquegen** la ruta
+
+### Túnels
+
+Els túnels afegeixen incertesa al cost de construcció de rutes.
+
+**Identificació:**
+
+- Rutes marcades amb **símbols de muntanya** al tauler
+
+**Com funcionen:**
+
+1. Juga les cartes necessàries per la longitud del túnel
+2. **Gira les 3 primeres cartes** de la pila de tren
+3. Per cada carta que **coincideixi amb el color** que has jugat (o locomotora):
+   - Has de **jugar 1 carta addicional** del mateix color
+4. Si no pots o no vols pagar el cost extra:
+   - **Recuperes totes les cartes** jugades
+   - **Perds el torn**
+
+**Exemple:**
+
+- Vols construir un túnel blau de 3 vagons
+- Jugues 3 cartes blaves
+- Gires 3 cartes: 1 blava, 1 vermella, 1 locomotora
+- Has de jugar **2 cartes blaves més** (1 per la blava, 1 per la locomotora)
+- Si no tens 2 cartes blaves, recuperes les 3 inicials i perds el torn
+
+**Estratègia:**
+
+- Els túnels són **més arriscats** que les rutes normals
+- Tingues **cartes extra** abans de construir un túnel
+- Les **locomotores** són especialment útils per túnels
+- Construeix túnels **quan tinguis marge** de cartes
+
+### Ferris
+
+Els ferris requereixen locomotores per ser construïts.
+
+**Identificació:**
+
+- Rutes amb **símbols de vaixell** al tauler
+- Alguns espais de la ruta tenen **símbols de locomotora**
+
+**Com funcionen:**
+
+- Per cada **símbol de locomotora** a la ruta:
+  - Has de jugar **obligatòriament una locomotora**
+- La resta d'espais es poden omplir amb cartes del color corresponent
+
+**Exemple:**
+
+- Un ferri gris de 4 vagons amb 2 símbols de locomotora:
+  - Has de jugar **2 locomotores**
+  - Més **2 cartes del mateix color** (qualsevol color per ser gris)
+
+**Estratègia:**
+
+- **Conserva locomotores** per als ferris
+- Els ferris són **més cars** que les rutes normals
+- Planifica amb antelació quins ferris necessites
+- Competeix per **locomotores bocaterrosa** quan les vegis
+
+### Cartes de Destinació Llargues
+
+Europe inclou cartes de destinació de **llarga distància** amb puntuacions més altes.
+
+**Preparació inicial:**
+
+- Cada jugador rep **1 carta de destinació llarga** (obligatòria)
+- Més **3 cartes de destinació normals** (mantén mínim 2)
+
+**Característiques:**
+
+- Valen **més punts** (fins a 21 punts)
+- Connecten ciutats **molt distants**
+- Són més **difícils de completar**
+- Però ofereixen **gran recompensa**
+
+**Estratègia:**
+
+- La carta llarga **marca la teva estratègia** inicial
+- Construeix primer la **columna vertebral** de la ruta llarga
+- Després afegeix **destinacions secundàries** que coincideixin
+- No agafis més cartes llargues si no tens ruta clara
+
+### Diferències en Components
+
+**Europe inclou:**
+
+- **Tauler d'Europa** amb 46 ciutats
+- **15 estacions** (3 per jugador en 5 colors)
+- **Túnels** marcats al tauler
+- **Ferris** marcats al tauler
+- **Cartes de destinació llargues** separades
+- **Més cartes de destinació** en total (46 vs 30)
+
+### Consells Específics per Europe
+
+1. **Gestiona les estacions**: Són la teva assegurança contra bloquejos
+2. **Planifica els túnels**: Tingues sempre cartes extra
+3. **Acumula locomotores**: Necessàries per ferris i útils per túnels
+4. **Rutes alternatives**: Europe té més opcions de camins
+5. **Destinacions llargues**: Poden guanyar o perdre la partida
+6. **Bloqueig estratègic**: Els colls d'ampolla són més crítics
+7. **Timing de les estacions**: Construeix-les abans que sigui tard
+
+### Comparació: Amèrica vs Europe
+
+**Amèrica (Original):**
+
+- Més **simple** i **directe**
+- Millor per a **principiants**
+- Menys **aleatorietat**
+- Partides més **ràpides**
+
+**Europe:**
+
+- Més **estratègic** i **complex**
+- Millor per a **jugadors experimentats**
+- Més **interacció** i **decisions**
+- Partides més **llargues** i **tàctiques**
+- **Estacions** redueixen la frustració del bloqueig
+- **Túnels i ferris** afegeixen incertesa i planificació
+
 ## Consells per a Principiants
 
 1. **Comença amb destinacions curtes**: Són més fàcils de completar

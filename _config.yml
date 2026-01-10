@@ -1,5 +1,5 @@
-title: Jocs Taula Joventuts Magiques
-description: Una guia completa de jocs de taula clàssics
+title: Joventuts Magiques
+description: La teva comunitat per a regles, estratègies i guies de jocs
 baseurl: ""
 url: "https://Joventuts-Magiques.github.io"
 
@@ -13,11 +13,14 @@ lang_names:
 
 # SEO and metadata
 author: Joventuts Magiques
-keywords: "jocs de taula, board games, juegos de mesa, reglas, rules, reglas"
+keywords: "jocs de taula, board games, juegos de mesa, reglas, rules, reglas, magic the gathering, mtg, jocs de cartes, card games"
 
 # Collections
 collections:
   games:
+    output: true
+    permalink: /:collection/:name/
+  card_games:
     output: true
     permalink: /:collection/:name/
 
@@ -34,6 +37,11 @@ defaults:
       type: "games"
     values:
       layout: game
+  - scope:
+      path: ""
+      type: "card_games"
+    values:
+      layout: card-game
   - scope:
       path: ""
       type: "pages"

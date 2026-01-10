@@ -8,6 +8,16 @@
         <span class="nav-icon" aria-hidden="true">🏠</span>
         <span class="nav-text lang-content" id="home-button-text">{{ t.home | default: "Inici" }}</span>
       </a>
+
+      <a href="/board-games/" class="nav-link" aria-label="Board games">
+        <span class="nav-icon" aria-hidden="true">🎲</span>
+        <span class="nav-text lang-content" data-lang-key="board_games_title">{{ t.board_games_title | default: "Jocs de Taula" }}</span>
+      </a>
+
+      <a href="/card-games/" class="nav-link" aria-label="Card games">
+        <span class="nav-icon" aria-hidden="true">🃏</span>
+        <span class="nav-text lang-content" data-lang-key="card_games_title">{{ t.card_games_title | default: "Jocs de Cartes" }}</span>
+      </a>
     </nav>
 
     <div class="header-controls">
