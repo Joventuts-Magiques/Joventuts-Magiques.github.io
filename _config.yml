@@ -1,4 +1,4 @@
-title: Joventuts Magiques
+title: Joventuts Màgiques
 description: La teva comunitat per a regles, estratègies i guies de jocs
 baseurl: ""
 url: "https://Joventuts-Magiques.github.io"
@@ -7,12 +7,12 @@ url: "https://Joventuts-Magiques.github.io"
 languages: ["ca", "es", "en"]
 default_lang: ca
 lang_names:
-  ca: "Català"
-  es: "Español"
-  en: "English"
+  ca: "CA"
+  es: "ES"
+  en: "EN"
 
 # SEO and metadata
-author: Joventuts Magiques
+author: Joventuts Màgiques
 keywords: "jocs de taula, board games, juegos de mesa, reglas, rules, reglas, magic the gathering, mtg, jocs de cartes, card games"
 
 # Collections

@@ -1,4 +1,4 @@
-# Joventuts Magiques - Gaming Community
+# Joventuts Màgiques - Gaming Community
 
 [![Build Status](https://github.com/andyce/andyce.github.io/workflows/Build/badge.svg)](https://github.com/andyce/andyce.github.io/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -240,7 +240,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 ## 🤝 Acknowledgments
 
-- **Joventuts Magiques** - Maintaining organization
+- **Joventuts Màgiques** - Maintaining organization
 - **Contributors** - Everyone who helped with translations and content
 - **Jekyll Community** - For excellent tools and documentation
 

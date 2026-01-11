@@ -23,6 +23,24 @@
          title="View in {{ site.lang_names[lang] | default: lang }}">
         {{ site.lang_names[lang] | default: lang | upcase }}
       </a>
+    {% elsif page.collection == 'card_games' %}
+      {% assign card_game_name = page.title | slugify %}
+      {% assign target_url = "/" %}
+      {% for card_game in site.card_games %}
+        {% if card_game.lang == lang and card_game.title == page.title %}
+          {% assign target_url = card_game.url %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      <a href="{{ target_url }}"
+         class="lang-link"
+         hreflang="{{ lang }}"
+         data-lang="{{ lang }}"
+         lang="{{ lang }}"
+         aria-label="Switch to {{ site.lang_names[lang] | default: lang }}"
+         title="View in {{ site.lang_names[lang] | default: lang }}">
+        {{ site.lang_names[lang] | default: lang | upcase }}
+      </a>
     {% else %}
       {% comment %} For homepage, always create links including Catalan {% endcomment %}
       {% if lang == site.default_lang %}

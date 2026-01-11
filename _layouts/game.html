@@ -17,7 +17,7 @@ layout: default
         <meta itemprop="position" content="1" />
       </li>
       <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/#games" itemprop="item" aria-label="{{ t.breadcrumb_games }}">
+        <a href="/board-games/" itemprop="item" aria-label="{{ t.breadcrumb_games }}">
           <span itemprop="name">{{ t.breadcrumb_games }}</span>
         </a>
         <meta itemprop="position" content="2" />
@@ -75,7 +75,7 @@ layout: default
   </div>
 
   <nav class="game-navigation" role="navigation" aria-label="Game navigation">
-    <a href="/" class="back-link" aria-label="Back to games list">← {{ t.back_to_list }}</a>
+    <a href="/board-games/" class="back-link" aria-label="Back to games list">← {{ t.back_to_list }}</a>
 
     {% comment %} Language versions of this game {% endcomment %}
     {% assign game_name = page.title | slugify %}

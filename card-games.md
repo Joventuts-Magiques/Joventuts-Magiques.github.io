@@ -1,6 +1,6 @@
 ---
 layout: games-list
-title: Jocs de Cartes
+title: TCG
 lang: ca
 collection: card_games
 permalink: /card-games/
