@@ -35,23 +35,33 @@ layout: default
       </div>
       {% endif %}
     </div>
-
-    {% comment %} Language selector for this game {% endcomment %}
-    {% include language-selector.html %}
   </header>
 
   <div class="game-content">
     {{ content }}
   </div>
 
-  <footer class="game-footer">
-    <nav class="game-navigation" aria-label="Game navigation">
-      <a href="/#card-games" class="btn btn-secondary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-        Back to Card Games
-      </a>
-    </nav>
-  </footer>
+  <nav class="game-navigation" role="navigation" aria-label="Game navigation">
+    <a href="/card-games/" class="back-link" aria-label="Back to TCG list">← {{ t.back_to_list }}</a>
+
+    {% comment %} Language versions of this card game {% endcomment %}
+    {% assign card_game_name = page.title | slugify %}
+    <div class="language-versions">
+      <span class="versions-label">{{ t.other_languages | default: "Altres idiomes" }}:</span>
+      {% for lang in site.languages %}
+        {% unless lang == current_lang %}
+          {% for card_game in site.card_games %}
+            {% if card_game.lang == lang and card_game.title == page.title %}
+              <a href="{{ card_game.url }}"
+                 class="lang-version-link"
+                 hreflang="{{ lang }}"
+                 aria-label="View {{ page.title }} in {{ site.lang_names[lang] }}">
+                {{ site.lang_names[lang] }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </nav>
 </article>
