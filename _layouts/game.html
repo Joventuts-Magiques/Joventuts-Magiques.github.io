@@ -17,9 +17,20 @@ layout: default
         <meta itemprop="position" content="1" />
       </li>
       <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/board-games/" itemprop="item" aria-label="{{ t.breadcrumb_games }}">
-          <span itemprop="name">{{ t.breadcrumb_games }}</span>
-        </a>
+        {% case current_lang %}
+          {% when 'es' %}
+            <a href="/es/juegos-mesa/" itemprop="item" aria-label="{{ t.breadcrumb_games }}">
+              <span itemprop="name">{{ t.breadcrumb_games }}</span>
+            </a>
+          {% when 'en' %}
+            <a href="/en/board-games/" itemprop="item" aria-label="{{ t.breadcrumb_games }}">
+              <span itemprop="name">{{ t.breadcrumb_games }}</span>
+            </a>
+          {% else %}
+            <a href="/ca/jocs-taula/" itemprop="item" aria-label="{{ t.breadcrumb_games }}">
+              <span itemprop="name">{{ t.breadcrumb_games }}</span>
+            </a>
+        {% endcase %}
         <meta itemprop="position" content="2" />
       </li>
       <li class="breadcrumb-item breadcrumb-current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
@@ -75,7 +86,14 @@ layout: default
   </div>
 
   <nav class="game-navigation" role="navigation" aria-label="Game navigation">
-    <a href="/board-games/" class="back-link" aria-label="Back to games list">← {{ t.back_to_list }}</a>
+    {% case current_lang %}
+      {% when 'es' %}
+        <a href="/es/juegos-mesa/" class="back-link" aria-label="Back to games list">← {{ t.back_to_list }}</a>
+      {% when 'en' %}
+        <a href="/en/board-games/" class="back-link" aria-label="Back to games list">← {{ t.back_to_list }}</a>
+      {% else %}
+        <a href="/ca/jocs-taula/" class="back-link" aria-label="Back to games list">← {{ t.back_to_list }}</a>
+    {% endcase %}
 
     {% comment %} Language versions of this game {% endcomment %}
     {% assign game_name = page.title | slugify %}

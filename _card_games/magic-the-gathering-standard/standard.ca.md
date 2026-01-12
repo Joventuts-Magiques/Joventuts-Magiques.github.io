@@ -217,7 +217,3 @@ Estàndard actualment inclou cartes de les següents col·leccions _(actualitzat
 - **Staples**: Prioritza cartes que es juguen en múltiples decks
 - **Espera rotacions**: Els preus cauen després de rotacions
 - **Intercanvis**: Utilitza la comunitat per fer trades
-
----
-
-[Torna a Magic: The Gathering](/card-games/magic-the-gathering/)

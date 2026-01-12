@@ -84,6 +84,65 @@ class LanguageManager {
   }
 
   /**
+   * Update navigation links based on current language
+   */
+  updateNavigationLinks() {
+    const navLinks = {
+      boardGames: document.querySelector('.site-nav a[href*="jocs-taula"], .site-nav a[href*="juegos-mesa"], .site-nav a[href*="board-games"]'),
+      cardGames: document.querySelector('.site-nav a[href*="tcg"]'),
+      about: document.querySelector('.site-nav a[href*="sobre-nosaltres"], .site-nav a[href*="sobre-nosotros"], .site-nav a[href*="about-us"]')
+    };
+
+    // Update URLs based on current language
+    switch (this.currentLang) {
+      case 'es':
+        if (navLinks.boardGames) {
+          navLinks.boardGames.href = '/es/juegos-mesa/';
+          const boardGamesText = navLinks.boardGames.querySelector('.nav-text');
+          if (boardGamesText) boardGamesText.textContent = 'Juegos de Mesa';
+        }
+        if (navLinks.cardGames) {
+          navLinks.cardGames.href = '/es/tcg/';
+        }
+        if (navLinks.about) {
+          navLinks.about.href = '/es/sobre-nosotros/';
+          const aboutText = navLinks.about.querySelector('.nav-text');
+          if (aboutText) aboutText.textContent = 'Sobre Nosotros';
+        }
+        break;
+      case 'en':
+        if (navLinks.boardGames) {
+          navLinks.boardGames.href = '/en/board-games/';
+          const boardGamesText = navLinks.boardGames.querySelector('.nav-text');
+          if (boardGamesText) boardGamesText.textContent = 'Board Games';
+        }
+        if (navLinks.cardGames) {
+          navLinks.cardGames.href = '/en/tcg/';
+        }
+        if (navLinks.about) {
+          navLinks.about.href = '/en/about-us/';
+          const aboutText = navLinks.about.querySelector('.nav-text');
+          if (aboutText) aboutText.textContent = 'About Us';
+        }
+        break;
+      default: // 'ca'
+        if (navLinks.boardGames) {
+          navLinks.boardGames.href = '/ca/jocs-taula/';
+          const boardGamesText = navLinks.boardGames.querySelector('.nav-text');
+          if (boardGamesText) boardGamesText.textContent = 'Jocs de Taula';
+        }
+        if (navLinks.cardGames) {
+          navLinks.cardGames.href = '/ca/tcg/';
+        }
+        if (navLinks.about) {
+          navLinks.about.href = '/ca/sobre-nosaltres/';
+          const aboutText = navLinks.about.querySelector('.nav-text');
+          if (aboutText) aboutText.textContent = 'Sobre Nosaltres';
+        }
+    }
+  }
+
+  /**
    * Update homepage content with translations
    * @param {boolean} animate Whether to animate the transition
    */
@@ -94,6 +153,9 @@ class LanguageManager {
     }
 
     const t = this.translations[this.currentLang];
+
+    // Update navigation links
+    this.updateNavigationLinks();
 
     // Update main text content
     const contentMap = {
@@ -214,23 +276,9 @@ class LanguageManager {
   }
 
   /**
-   * Clean URL parameters after processing
-   */
-  cleanUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.has('lang')) {
-      const url = new URL(window.location);
-      url.searchParams.delete('lang');
-      window.history.replaceState({}, '', url.pathname);
-    }
-  }
-
-  /**
-   * Attach event listeners
+   * Attach event listeners for homepage language switching
    */
   attachEventListeners() {
-    // Save preference when clicking language links
     const langLinks = document.querySelectorAll('.lang-link[hreflang]');
 
     langLinks.forEach(link => {
@@ -240,12 +288,6 @@ class LanguageManager {
           this.savePreference(lang);
         }
       });
-    });
-
-    // Listen for browser navigation events
-    window.addEventListener('popstate', () => {
-      this.currentLang = this.determineLanguage();
-      this.initialize(true); // Animate on navigation
     });
 
     window.addEventListener('pageshow', () => {
@@ -313,20 +355,16 @@ class LanguageManager {
   initialize(animate = false) {
     this.updateSelectorState();
 
-    // Update home content if we're on the homepage
     if (document.querySelector('.home-content')) {
       this.updateHomeContent(animate);
       this.initializeImageLoading();
     }
 
-    // Update landing content if we're on the landing page
     if (document.querySelector('.landing-content')) {
       this.updateLandingContent(animate);
       this.updateGameCards(animate);
       this.initializeImageLoading();
     }
-
-    this.cleanUrl();
   }
 
   /**
@@ -340,6 +378,9 @@ class LanguageManager {
     }
 
     const t = this.translations[this.currentLang];
+
+    // Update navigation links
+    this.updateNavigationLinks();
 
     // Update all elements with lang-content class and data-lang-key attribute
     const langElements = document.querySelectorAll('.lang-content[data-lang-key]');
@@ -379,15 +420,19 @@ class LanguageManager {
   }
 }
 
-// Initialize when DOM is ready
+// Initialize only on homepage (other pages use static URLs)
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    const langManager = new LanguageManager();
-    langManager.attachEventListeners();
-    langManager.initialize(false); // No animation on initial load
+    if (document.querySelector('.home-content') || document.querySelector('.landing-content')) {
+      const langManager = new LanguageManager();
+      langManager.attachEventListeners();
+      langManager.initialize(false);
+    }
   });
 } else {
-  const langManager = new LanguageManager();
-  langManager.attachEventListeners();
-  langManager.initialize(false); // No animation on initial load
+  if (document.querySelector('.home-content') || document.querySelector('.landing-content')) {
+    const langManager = new LanguageManager();
+    langManager.attachEventListeners();
+    langManager.initialize(false);
+  }
 }

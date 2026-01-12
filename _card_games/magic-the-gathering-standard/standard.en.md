@@ -217,7 +217,3 @@ Standard currently includes cards from the following sets _(updated 2025)_:
 - **Staples**: Prioritize cards played in multiple decks
 - **Wait for rotations**: Prices drop after rotations
 - **Trading**: Use the community to make trades
-
----
-
-[Back to Magic: The Gathering](/card-games/magic-the-gathering/)

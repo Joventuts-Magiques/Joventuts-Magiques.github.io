@@ -160,7 +160,3 @@ Commander uses an informal "power level" system (1-10) to help players find bala
 - **9-10**: cEDH (Competitive Commander), the best combos and cards
 
 At Joventuts Màgiques, we generally play in the 5-7 range to keep games fun and competitive.
-
----
-
-[Back to Magic: The Gathering](/card-games/magic-the-gathering/)

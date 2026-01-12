@@ -1,7 +1,4 @@
 ---
-layout: games-list
-title: Jocs de Taula
-lang: ca
-collection: games
+redirect_to: /ca/jocs-taula/
 permalink: /board-games/
 ---

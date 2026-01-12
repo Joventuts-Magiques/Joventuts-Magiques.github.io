@@ -2,6 +2,9 @@
 layout: default
 ---
 
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign t = site.data.i18n[current_lang] %}
+
 <article class="game-page" role="article" aria-label="{{ page.title }} game guide">
   <header class="game-header">
     <h1 class="game-title">{{ page.title }}</h1>
@@ -42,7 +45,14 @@ layout: default
   </div>
 
   <nav class="game-navigation" role="navigation" aria-label="Game navigation">
-    <a href="/card-games/" class="back-link" aria-label="Back to TCG list">← {{ t.back_to_list }}</a>
+    {% case current_lang %}
+      {% when 'es' %}
+        <a href="/es/tcg/" class="back-link" aria-label="{{ t.back_to_list }}">← {{ t.back_to_list }}</a>
+      {% when 'en' %}
+        <a href="/en/tcg/" class="back-link" aria-label="{{ t.back_to_list }}">← {{ t.back_to_list }}</a>
+      {% else %}
+        <a href="/ca/tcg/" class="back-link" aria-label="{{ t.back_to_list }}">← {{ t.back_to_list }}</a>
+    {% endcase %}
 
     {% comment %} Language versions of this card game {% endcomment %}
     {% assign card_game_name = page.title | slugify %}
