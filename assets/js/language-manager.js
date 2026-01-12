@@ -84,6 +84,65 @@ class LanguageManager {
   }
 
   /**
+   * Update navigation links based on current language
+   */
+  updateNavigationLinks() {
+    const navLinks = {
+      boardGames: document.querySelector('.site-nav a[href*="jocs-taula"], .site-nav a[href*="juegos-mesa"], .site-nav a[href*="board-games"]'),
+      cardGames: document.querySelector('.site-nav a[href*="tcg"]'),
+      about: document.querySelector('.site-nav a[href*="sobre-nosaltres"], .site-nav a[href*="sobre-nosotros"], .site-nav a[href*="about-us"]')
+    };
+
+    // Update URLs based on current language
+    switch (this.currentLang) {
+      case 'es':
+        if (navLinks.boardGames) {
+          navLinks.boardGames.href = '/es/juegos-mesa/';
+          const boardGamesText = navLinks.boardGames.querySelector('.nav-text');
+          if (boardGamesText) boardGamesText.textContent = 'Juegos de Mesa';
+        }
+        if (navLinks.cardGames) {
+          navLinks.cardGames.href = '/es/tcg/';
+        }
+        if (navLinks.about) {
+          navLinks.about.href = '/es/sobre-nosotros/';
+          const aboutText = navLinks.about.querySelector('.nav-text');
+          if (aboutText) aboutText.textContent = 'Sobre Nosotros';
+        }
+        break;
+      case 'en':
+        if (navLinks.boardGames) {
+          navLinks.boardGames.href = '/en/board-games/';
+          const boardGamesText = navLinks.boardGames.querySelector('.nav-text');
+          if (boardGamesText) boardGamesText.textContent = 'Board Games';
+        }
+        if (navLinks.cardGames) {
+          navLinks.cardGames.href = '/en/tcg/';
+        }
+        if (navLinks.about) {
+          navLinks.about.href = '/en/about-us/';
+          const aboutText = navLinks.about.querySelector('.nav-text');
+          if (aboutText) aboutText.textContent = 'About Us';
+        }
+        break;
+      default: // 'ca'
+        if (navLinks.boardGames) {
+          navLinks.boardGames.href = '/ca/jocs-taula/';
+          const boardGamesText = navLinks.boardGames.querySelector('.nav-text');
+          if (boardGamesText) boardGamesText.textContent = 'Jocs de Taula';
+        }
+        if (navLinks.cardGames) {
+          navLinks.cardGames.href = '/ca/tcg/';
+        }
+        if (navLinks.about) {
+          navLinks.about.href = '/ca/sobre-nosaltres/';
+          const aboutText = navLinks.about.querySelector('.nav-text');
+          if (aboutText) aboutText.textContent = 'Sobre Nosaltres';
+        }
+    }
+  }
+
+  /**
    * Update homepage content with translations
    * @param {boolean} animate Whether to animate the transition
    */
@@ -94,6 +153,9 @@ class LanguageManager {
     }
 
     const t = this.translations[this.currentLang];
+
+    // Update navigation links
+    this.updateNavigationLinks();
 
     // Update main text content
     const contentMap = {
@@ -316,6 +378,9 @@ class LanguageManager {
     }
 
     const t = this.translations[this.currentLang];
+
+    // Update navigation links
+    this.updateNavigationLinks();
 
     // Update all elements with lang-content class and data-lang-key attribute
     const langElements = document.querySelectorAll('.lang-content[data-lang-key]');
