@@ -24,6 +24,9 @@ class GamesFilter {
   init() {
     if (!this.gamesGrid) return;
 
+    // Detect current page language and show appropriate game card versions
+    this.initializeLanguageDisplay();
+
     // Set initial counts
     this.updateCounts();
 
@@ -50,6 +53,43 @@ class GamesFilter {
 
     // Handle URL parameters for deep linking
     this.handleURLParams();
+  }
+
+  /**
+   * Initialize language display based on current page language
+   */
+  initializeLanguageDisplay() {
+    // Detect current language from HTML lang attribute or URL
+    const htmlLang = document.documentElement.lang || 'ca';
+    const currentLang = htmlLang.toLowerCase();
+
+    // Show only the game cards matching the current language
+    document.querySelectorAll('.game-card').forEach(card => {
+      const caLink = card.querySelector('.game-card-link.lang-ca');
+      const esLink = card.querySelector('.game-card-link.lang-es');
+      const enLink = card.querySelector('.game-card-link.lang-en');
+
+      // Hide all versions first
+      if (caLink) caLink.style.display = 'none';
+      if (esLink) esLink.style.display = 'none';
+      if (enLink) enLink.style.display = 'none';
+
+      // Show only the matching language version
+      switch (currentLang) {
+        case 'ca':
+          if (caLink) caLink.style.display = '';
+          break;
+        case 'es':
+          if (esLink) esLink.style.display = '';
+          break;
+        case 'en':
+          if (enLink) enLink.style.display = '';
+          break;
+        default:
+          // Fallback to Catalan
+          if (caLink) caLink.style.display = '';
+      }
+    });
   }
 
   filterGames() {
