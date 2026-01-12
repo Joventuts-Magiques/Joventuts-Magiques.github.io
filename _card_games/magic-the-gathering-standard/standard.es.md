@@ -217,7 +217,3 @@ Estándar actualmente incluye cartas de las siguientes colecciones _(actualizado
 - **Staples**: Prioriza cartas que se juegan en múltiples mazos
 - **Espera rotaciones**: Los precios caen después de rotaciones
 - **Intercambios**: Utiliza la comunidad para hacer trades
-
----
-
-[Volver a Magic: The Gathering](/card-games/magic-the-gathering/)

@@ -3,68 +3,93 @@
 <nav class="language-selector" role="navigation" aria-label="Language selection">
   <span class="globe-icon" aria-hidden="true">🌐</span>
   <span class="sr-only">Choose language:</span>
+
   {% for lang in site.languages %}
-    {% comment %} Always render as links, JavaScript will handle active state {% endcomment %}
-    {% if page.collection == 'games' %}
-      {% assign game_name = page.title | slugify %}
-      {% assign target_url = "/" %}
+    {% comment %} Determine the target URL for this language {% endcomment %}
+    {% assign target_url = "/" %}
+
+    {% comment %} CHECK URL-BASED PAGES FIRST (static pages with unique URLs) {% endcomment %}
+
+    {% if page.url contains '/jocs-taula/' or page.url contains '/juegos-mesa/' or page.url contains '/board-games/' %}
+      {% comment %} Board games list page - detect by URL {% endcomment %}
+      {% case lang %}
+        {% when 'ca' %}
+          {% assign target_url = "/ca/jocs-taula/" %}
+        {% when 'es' %}
+          {% assign target_url = "/es/juegos-mesa/" %}
+        {% when 'en' %}
+          {% assign target_url = "/en/board-games/" %}
+      {% endcase %}
+
+    {% elsif page.url contains '/tcg/' %}
+      {% comment %} Card games list page - detect by URL {% endcomment %}
+      {% case lang %}
+        {% when 'ca' %}
+          {% assign target_url = "/ca/tcg/" %}
+        {% when 'es' %}
+          {% assign target_url = "/es/tcg/" %}
+        {% when 'en' %}
+          {% assign target_url = "/en/tcg/" %}
+      {% endcase %}
+
+    {% elsif page.url contains '/sobre-nosaltres/' or page.url contains '/sobre-nosotros/' or page.url contains '/about-us/' or page.url == '/about/' %}
+      {% comment %} About page {% endcomment %}
+      {% case lang %}
+        {% when 'ca' %}
+          {% assign target_url = "/ca/sobre-nosaltres/" %}
+        {% when 'es' %}
+          {% assign target_url = "/es/sobre-nosotros/" %}
+        {% when 'en' %}
+          {% assign target_url = "/en/about-us/" %}
+      {% endcase %}
+
+    {% elsif page.url == '/' or page.url == '/index.html' %}
+      {% comment %} Homepage - use lang parameter or root {% endcomment %}
+      {% if lang == site.default_lang %}
+        {% assign target_url = "/" %}
+      {% else %}
+        {% assign target_url = "/?lang=" | append: lang %}
+      {% endif %}
+
+    {% comment %} CHECK COLLECTION-BASED PAGES (individual games) {% endcomment %}
+
+    {% elsif page.collection == 'games' %}
+      {% comment %} Individual board game - find matching game by title {% endcomment %}
       {% for game in site.games %}
         {% if game.lang == lang and game.title == page.title %}
           {% assign target_url = game.url %}
           {% break %}
         {% endif %}
       {% endfor %}
-      <a href="{{ target_url }}"
-         class="lang-link"
-         hreflang="{{ lang }}"
-         data-lang="{{ lang }}"
-         lang="{{ lang }}"
-         aria-label="Switch to {{ site.lang_names[lang] | default: lang }}"
-         title="View in {{ site.lang_names[lang] | default: lang }}">
-        {{ site.lang_names[lang] | default: lang | upcase }}
-      </a>
+
     {% elsif page.collection == 'card_games' %}
-      {% assign card_game_name = page.title | slugify %}
-      {% assign target_url = "/" %}
+      {% comment %} Individual card game - find matching game by title {% endcomment %}
       {% for card_game in site.card_games %}
         {% if card_game.lang == lang and card_game.title == page.title %}
           {% assign target_url = card_game.url %}
           {% break %}
         {% endif %}
       {% endfor %}
-      <a href="{{ target_url }}"
-         class="lang-link"
-         hreflang="{{ lang }}"
-         data-lang="{{ lang }}"
-         lang="{{ lang }}"
-         aria-label="Switch to {{ site.lang_names[lang] | default: lang }}"
-         title="View in {{ site.lang_names[lang] | default: lang }}">
-        {{ site.lang_names[lang] | default: lang | upcase }}
-      </a>
+
     {% else %}
-      {% comment %} For homepage, always create links including Catalan {% endcomment %}
+      {% comment %} Fallback - homepage {% endcomment %}
       {% if lang == site.default_lang %}
-        <a href="/"
-           class="lang-link"
-           hreflang="{{ lang }}"
-           data-lang="{{ lang }}"
-           lang="{{ lang }}"
-           aria-label="Switch to {{ site.lang_names[lang] | default: lang }}"
-           title="View in {{ site.lang_names[lang] | default: lang }}">
-          {{ site.lang_names[lang] | default: lang | upcase }}
-        </a>
+        {% assign target_url = "/" %}
       {% else %}
-        <a href="/?lang={{ lang }}"
-           class="lang-link"
-           hreflang="{{ lang }}"
-           data-lang="{{ lang }}"
-           lang="{{ lang }}"
-           aria-label="Switch to {{ site.lang_names[lang] | default: lang }}"
-           title="View in {{ site.lang_names[lang] | default: lang }}">
-          {{ site.lang_names[lang] | default: lang | upcase }}
-        </a>
+        {% assign target_url = "/?lang=" | append: lang %}
       {% endif %}
     {% endif %}
+
+    <a href="{{ target_url }}"
+       class="lang-link{% if lang == current_lang %} active{% endif %}"
+       hreflang="{{ lang }}"
+       data-lang="{{ lang }}"
+       lang="{{ lang }}"
+       {% if lang == current_lang %}aria-current="page"{% endif %}
+       aria-label="Switch to {{ site.lang_names[lang] | default: lang }}"
+       title="View in {{ site.lang_names[lang] | default: lang }}">
+      {{ site.lang_names[lang] | default: lang | upcase }}
+    </a>
     {% unless forloop.last %}<span class="separator" aria-hidden="true">|</span>{% endunless %}
   {% endfor %}
 </nav>

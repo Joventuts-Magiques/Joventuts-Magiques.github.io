@@ -160,7 +160,3 @@ Commander utiliza un sistema informal de "power level" (1-10) para ayudar a los 
 - **9-10**: cEDH (Competitive Commander), los mejores combos y cartas
 
 En Joventuts Màgiques, generalmente jugamos en el rango 5-7 para mantener partidas divertidas y competitivas.
-
----
-
-[Volver a Magic: The Gathering](/card-games/magic-the-gathering/)

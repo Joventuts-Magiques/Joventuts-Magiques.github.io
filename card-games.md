@@ -1,7 +1,4 @@
 ---
-layout: games-list
-title: TCG
-lang: ca
-collection: card_games
+redirect_to: /ca/tcg/
 permalink: /card-games/
 ---

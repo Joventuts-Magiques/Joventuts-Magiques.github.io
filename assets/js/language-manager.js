@@ -214,23 +214,9 @@ class LanguageManager {
   }
 
   /**
-   * Clean URL parameters after processing
-   */
-  cleanUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.has('lang')) {
-      const url = new URL(window.location);
-      url.searchParams.delete('lang');
-      window.history.replaceState({}, '', url.pathname);
-    }
-  }
-
-  /**
-   * Attach event listeners
+   * Attach event listeners for homepage language switching
    */
   attachEventListeners() {
-    // Save preference when clicking language links
     const langLinks = document.querySelectorAll('.lang-link[hreflang]');
 
     langLinks.forEach(link => {
@@ -240,12 +226,6 @@ class LanguageManager {
           this.savePreference(lang);
         }
       });
-    });
-
-    // Listen for browser navigation events
-    window.addEventListener('popstate', () => {
-      this.currentLang = this.determineLanguage();
-      this.initialize(true); // Animate on navigation
     });
 
     window.addEventListener('pageshow', () => {
@@ -313,20 +293,16 @@ class LanguageManager {
   initialize(animate = false) {
     this.updateSelectorState();
 
-    // Update home content if we're on the homepage
     if (document.querySelector('.home-content')) {
       this.updateHomeContent(animate);
       this.initializeImageLoading();
     }
 
-    // Update landing content if we're on the landing page
     if (document.querySelector('.landing-content')) {
       this.updateLandingContent(animate);
       this.updateGameCards(animate);
       this.initializeImageLoading();
     }
-
-    this.cleanUrl();
   }
 
   /**
@@ -379,15 +355,19 @@ class LanguageManager {
   }
 }
 
-// Initialize when DOM is ready
+// Initialize only on homepage (other pages use static URLs)
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    const langManager = new LanguageManager();
-    langManager.attachEventListeners();
-    langManager.initialize(false); // No animation on initial load
+    if (document.querySelector('.home-content') || document.querySelector('.landing-content')) {
+      const langManager = new LanguageManager();
+      langManager.attachEventListeners();
+      langManager.initialize(false);
+    }
   });
 } else {
-  const langManager = new LanguageManager();
-  langManager.attachEventListeners();
-  langManager.initialize(false); // No animation on initial load
+  if (document.querySelector('.home-content') || document.querySelector('.landing-content')) {
+    const langManager = new LanguageManager();
+    langManager.attachEventListeners();
+    langManager.initialize(false);
+  }
 }

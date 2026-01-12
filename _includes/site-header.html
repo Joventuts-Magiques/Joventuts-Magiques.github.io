@@ -9,15 +9,53 @@
         <span class="nav-text lang-content" id="home-button-text">{{ t.home | default: "Inici" }}</span>
       </a>
 
-      <a href="/board-games/" class="nav-link" aria-label="Board games">
-        <span class="nav-icon" aria-hidden="true">🎲</span>
-        <span class="nav-text lang-content" data-lang-key="board_games_title">{{ t.board_games_title | default: "Jocs de Taula" }}</span>
-      </a>
+      {% case current_lang %}
+        {% when 'es' %}
+          <a href="/es/juegos-mesa/" class="nav-link" aria-label="Juegos de Mesa">
+            <span class="nav-icon" aria-hidden="true">🎲</span>
+            <span class="nav-text">{{ t.board_games_title | default: "Juegos de Mesa" }}</span>
+          </a>
 
-      <a href="/card-games/" class="nav-link" aria-label="Card games">
-        <span class="nav-icon" aria-hidden="true">🃏</span>
-        <span class="nav-text lang-content" data-lang-key="card_games_title">{{ t.card_games_title | default: "TCG" }}</span>
-      </a>
+          <a href="/es/tcg/" class="nav-link" aria-label="TCG">
+            <span class="nav-icon" aria-hidden="true">🃏</span>
+            <span class="nav-text">{{ t.card_games_title | default: "TCG" }}</span>
+          </a>
+
+          <a href="/es/sobre-nosotros/" class="nav-link" aria-label="Sobre Nosotros">
+            <span class="nav-icon" aria-hidden="true">ℹ️</span>
+            <span class="nav-text">{{ t.about_title | default: "Sobre Nosotros" }}</span>
+          </a>
+        {% when 'en' %}
+          <a href="/en/board-games/" class="nav-link" aria-label="Board Games">
+            <span class="nav-icon" aria-hidden="true">🎲</span>
+            <span class="nav-text">{{ t.board_games_title | default: "Board Games" }}</span>
+          </a>
+
+          <a href="/en/tcg/" class="nav-link" aria-label="TCG">
+            <span class="nav-icon" aria-hidden="true">🃏</span>
+            <span class="nav-text">{{ t.card_games_title | default: "TCG" }}</span>
+          </a>
+
+          <a href="/en/about-us/" class="nav-link" aria-label="About Us">
+            <span class="nav-icon" aria-hidden="true">ℹ️</span>
+            <span class="nav-text">{{ t.about_title | default: "About Us" }}</span>
+          </a>
+        {% else %}
+          <a href="/ca/jocs-taula/" class="nav-link" aria-label="Jocs de Taula">
+            <span class="nav-icon" aria-hidden="true">🎲</span>
+            <span class="nav-text">{{ t.board_games_title | default: "Jocs de Taula" }}</span>
+          </a>
+
+          <a href="/ca/tcg/" class="nav-link" aria-label="TCG">
+            <span class="nav-icon" aria-hidden="true">🃏</span>
+            <span class="nav-text">{{ t.card_games_title | default: "TCG" }}</span>
+          </a>
+
+          <a href="/ca/sobre-nosaltres/" class="nav-link" aria-label="Sobre Nosaltres">
+            <span class="nav-icon" aria-hidden="true">ℹ️</span>
+            <span class="nav-text">{{ t.about_title | default: "Sobre Nosaltres" }}</span>
+          </a>
+      {% endcase %}
     </nav>
 
     <div class="header-controls">

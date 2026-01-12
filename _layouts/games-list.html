@@ -2,6 +2,9 @@
 layout: default
 ---
 
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign t = site.data.i18n[current_lang] %}
+
 <main class="games-list-content" role="main" aria-label="{{ page.title }}">
   <header class="page-header">
     <h1 class="page-title">{{ page.title }}</h1>
@@ -11,30 +14,29 @@ layout: default
       <div class="search-box">
         <input type="text"
                id="game-search"
-               class="search-input lang-content"
-               placeholder="Cerca jocs..."
-               data-lang-key="search-placeholder"
+               class="search-input"
+               placeholder="{{ t.search_placeholder | default: 'Cerca jocs...' }}"
                aria-label="Search games">
         <span class="search-icon" aria-hidden="true">🔍</span>
       </div>
 
       <div class="filter-controls">
         <select id="difficulty-filter" class="filter-select" aria-label="Filter by difficulty">
-          <option value="all" class="lang-content" data-lang-key="all-difficulties">Totes les dificultats</option>
-          <option value="facil" class="lang-content" data-lang-key="easy">Fàcil</option>
-          <option value="mitja" class="lang-content" data-lang-key="medium">Mitjà</option>
-          <option value="dificil" class="lang-content" data-lang-key="hard">Difícil</option>
+          <option value="all">{{ t.all_difficulties | default: "Totes les dificultats" }}</option>
+          <option value="facil">{{ t.easy | default: "Fàcil" }}</option>
+          <option value="mitja">{{ t.medium | default: "Mitjà" }}</option>
+          <option value="dificil">{{ t.hard | default: "Difícil" }}</option>
         </select>
 
         <select id="players-filter" class="filter-select" aria-label="Filter by player count">
-          <option value="all" class="lang-content" data-lang-key="all-players">Tots els jugadors</option>
-          <option value="2">2 jugadors</option>
-          <option value="3-4">3-4 jugadors</option>
-          <option value="5+">5+ jugadors</option>
+          <option value="all">{{ t.all_players | default: "Tots els jugadors" }}</option>
+          <option value="2">2 {{ t.players | default: "jugadors" }}</option>
+          <option value="3-4">3-4 {{ t.players | default: "jugadors" }}</option>
+          <option value="5+">5+ {{ t.players | default: "jugadors" }}</option>
         </select>
 
         <button id="sort-toggle" class="btn btn-secondary" aria-label="Sort games">
-          <span class="lang-content" data-lang-key="sort">Ordenar</span>
+          <span>{{ t.sort | default: "Ordenar" }}</span>
           <span class="sort-icon" aria-hidden="true">⬇️</span>
         </button>
       </div>
@@ -43,11 +45,11 @@ layout: default
     <!-- Game Count -->
     <div class="games-count">
       <span id="games-count-text">
-        <span class="lang-content" data-lang-key="showing">Mostrant</span>
+        <span>{{ t.showing | default: "Mostrant" }}</span>
         <strong id="visible-count">0</strong>
-        <span class="lang-content" data-lang-key="of">de</span>
+        <span>{{ t.of | default: "de" }}</span>
         <strong id="total-count">0</strong>
-        <span class="lang-content" data-lang-key="games">jocs</span>
+        <span>{{ t.games | default: "jocs" }}</span>
       </span>
     </div>
   </header>
@@ -254,8 +256,8 @@ layout: default
 
     <!-- No Results Message -->
     <div id="no-results" class="no-results" style="display: none;">
-      <p class="lang-content" data-lang-key="no-results">No s'han trobat jocs amb aquests criteris.</p>
-      <button id="clear-filters" class="btn btn-primary lang-content" data-lang-key="clear-filters">Esborrar filtres</button>
+      <p>{{ t.no_results | default: "No s'han trobat jocs amb aquests criteris." }}</p>
+      <button id="clear-filters" class="btn btn-primary">{{ t.clear_filters | default: "Esborrar filtres" }}</button>
     </div>
   </section>
 </main>
