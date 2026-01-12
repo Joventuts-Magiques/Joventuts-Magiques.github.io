@@ -50,7 +50,7 @@ permalink: /es/sobre-nosotros/
     <div class="section-card">
       <h2>¿Dónde Nos Encuentras?</h2>
       <div class="location-info">
-        <p><strong>📍 Can Jalpíí!</strong> - Carrer Sant Joan, Pineda de Mar</p>
+        <p><strong>📍 Can Jalpí!</strong> - Carrer Sant Joan, Pineda de Mar</p>
         <p><strong>📅 Todos los martes</strong></p>
         <p><strong>🕐 De 19:30 a 23:30h</strong></p>
       </div>
