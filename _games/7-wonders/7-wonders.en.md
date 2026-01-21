@@ -7,6 +7,8 @@ difficulty: Medium
 age_range: 10+
 excerpt: "Card drafting game where players develop ancient civilizations and build wonders."
 layout: game
+video_url: "https://www.youtube.com/watch?v=QVLUu7qkLWI"
+video_credit: "Watch It Played"
 ---
 
 ## Overview

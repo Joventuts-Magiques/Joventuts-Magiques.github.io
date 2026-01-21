@@ -7,6 +7,8 @@ difficulty: Medio
 age_range: 10+
 excerpt: "Juego de drafting de cartas donde los jugadores desarrollan civilizaciones antiguas y construyen maravillas."
 layout: game
+video_url: "https://www.youtube.com/watch?v=onJ4vsu1GtI"
+video_credit: "Unna"
 ---
 
 ## Descripción General

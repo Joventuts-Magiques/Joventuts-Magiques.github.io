@@ -81,6 +81,12 @@ layout: default
     </div>
   </header>
 
+  {% comment %} Video Embed {% endcomment %}
+  {% include video-embed.html %}
+
+  {% comment %} Table of Contents {% endcomment %}
+  {% include table-of-contents.html %}
+
   <div class="game-content" itemprop="description">
     {{ content }}
   </div>

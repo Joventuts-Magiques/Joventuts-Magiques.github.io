@@ -58,10 +58,14 @@
 
   {% if page.layout == 'game' or layout.name == 'game' %}
   <link rel="stylesheet" href="{{ '/assets/css/game.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/table-of-contents.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/video-embed.css' | relative_url }}">
   {% endif %}
 
   {% if page.layout == 'card-game' or layout.name == 'card-game' %}
   <link rel="stylesheet" href="{{ '/assets/css/game.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/table-of-contents.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/video-embed.css' | relative_url }}">
   {% endif %}
 
   {% comment %} RSS Feed {% endcomment %}
@@ -131,6 +135,11 @@
 
   {% comment %} Scroll Behavior JavaScript {% endcomment %}
   <script src="{{ '/assets/js/scroll-behavior.js' | relative_url }}" defer></script>
+
+  {% comment %} Table of Contents for Game Pages {% endcomment %}
+  {% if page.layout == 'game' or layout.name == 'game' or page.layout == 'card-game' or layout.name == 'card-game' %}
+  <script src="{{ '/assets/js/table-of-contents.js' | relative_url }}" defer></script>
+  {% endif %}
 
   {% comment %} Card Tilt Effect for Homepage and Landing Page {% endcomment %}
   {% if page.layout == 'home' or layout.name == 'home' or page.layout == 'landing' or layout.name == 'landing' %}
