@@ -7,6 +7,8 @@ difficulty: Mitjà
 age_range: 10+
 excerpt: "Joc de drafting de cartes on els jugadors desenvolupen civilitzacions antigues i construeixen meravelles."
 layout: game
+video_url: "https://www.youtube.com/watch?v=onJ4vsu1GtI"
+video_credit: "Unna"
 ---
 
 ## Descripció General

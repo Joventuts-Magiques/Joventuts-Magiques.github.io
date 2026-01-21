@@ -1,0 +1,61 @@
+{% if page.video_url %}
+<div class="video-container">
+  <div class="video-wrapper">
+    {% if page.video_url contains 'youtube.com' or page.video_url contains 'youtu.be' %}
+      {% comment %} Extract YouTube video ID {% endcomment %}
+      {% assign video_id = '' %}
+      {% if page.video_url contains 'youtube.com/watch?v=' %}
+        {% assign video_parts = page.video_url | split: 'v=' %}
+        {% assign video_id = video_parts[1] | split: '&' | first %}
+      {% elsif page.video_url contains 'youtu.be/' %}
+        {% assign video_parts = page.video_url | split: 'youtu.be/' %}
+        {% assign video_id = video_parts[1] | split: '?' | first %}
+      {% elsif page.video_url contains 'youtube.com/embed/' %}
+        {% assign video_parts = page.video_url | split: 'embed/' %}
+        {% assign video_id = video_parts[1] | split: '?' | first %}
+      {% endif %}
+
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/{{ video_id }}"
+        title="{% if page.video_title %}{{ page.video_title }}{% else %}{{ page.title }} - Tutorial{% endif %}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    {% elsif page.video_url contains 'vimeo.com' %}
+      {% comment %} Extract Vimeo video ID {% endcomment %}
+      {% assign video_parts = page.video_url | split: 'vimeo.com/' %}
+      {% assign video_id = video_parts[1] | split: '/' | first %}
+
+      <iframe
+        src="https://player.vimeo.com/video/{{ video_id }}"
+        title="{% if page.video_title %}{{ page.video_title }}{% else %}{{ page.title }} - Tutorial{% endif %}"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    {% else %}
+      {% comment %} Fallback for other video URLs {% endcomment %}
+      <iframe
+        src="{{ page.video_url }}"
+        title="{% if page.video_title %}{{ page.video_title }}{% else %}{{ page.title }} - Tutorial{% endif %}"
+        frameborder="0"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    {% endif %}
+  </div>
+  {% if page.video_credit %}
+  <p class="video-credit">
+    {% case page.lang %}
+      {% when 'es' %}Video por
+      {% when 'en' %}Video by
+      {% else %}Vídeo per
+    {% endcase %}
+    {{ page.video_credit }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
