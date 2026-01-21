@@ -8,6 +8,7 @@ difficulty: "Fàcil"
 age_range: "6+"
 excerpt: "El joc de cartes col·leccionables basat en el món Pokémon on entrenes i batalles amb les teves criatures favorites."
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9mon_Trading_Card_Game_logo.svg/320px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png"
+published: false
 ---
 
 ## Descripció General

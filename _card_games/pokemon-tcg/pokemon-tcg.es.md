@@ -8,6 +8,7 @@ difficulty: "Fácil"
 age_range: "6+"
 excerpt: "El juego de cartas coleccionables basado en el mundo Pokémon donde entrenas y batallas con tus criaturas favoritas."
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9mon_Trading_Card_Game_logo.svg/320px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png"
+published: false
 ---
 
 ## Descripción General
