@@ -32,13 +32,6 @@ Standard features only the most recent cards, creating a dynamic metagame that c
 - **Mulligan**: Follow London mulligan rules
 - **Best of 3**: In tournaments, play best of 3 with sideboarding
 
-### Rotation
-
-Standard rotates annually (usually September/October):
-- Older sets leave the format
-- Approximately 5-8 sets remain legal
-- Allows for a fresh meta accessible to new players
-
 ## How to Play
 
 ### Game Setup
@@ -85,13 +78,6 @@ Each turn follows Magic's standard phases:
 - **Priority**: Players have priority to respond to each action
 - **Mana**: Generate mana by tapping lands to pay for card costs
 
-### Win Conditions
-
-You win the game when:
-- Your opponent's life points reach 0 or less
-- Your opponent can't draw a card when required to
-- You achieve an alternative win condition from a card
-
 ### Sideboarding (Best of 3)
 
 Between games in a match:
@@ -99,80 +85,6 @@ Between games in a match:
 2. The deck must maintain the minimum of 60 cards
 3. Adjust your strategy based on your opponent's deck
 4. In the third game, return to the original sideboard if you want
-
-## Format Strategy
-
-### Deck Building
-
-- **Know the meta**: Research which decks are currently popular
-- **Mana curve**: Critical in Standard - optimize your costs
-- **Consistency**: With fewer cards available, consistency is key
-- **Efficient removal**: Include answers for the meta's main threats
-- **Strategic sideboard**: Prepare for the most common matchups
-
-### Common Archetypes
-
-- **Aggro**: Fast decks that aim to end the game early (RDW, White Weenie)
-- **Midrange**: Efficient creatures and removal (Jund, Abzan)
-- **Control**: Counterspells and removal, wins long-term
-- **Combo**: Seeks to execute a card combination to win
-
-### During the Game
-
-- **Resource management**: Every card counts in Standard
-- **Meta reading**: Recognize opponent's archetype quickly
-- **Sideboarding**: Adjust your deck according to the matchup
-- **Tempo**: Understand when to be aggressive and when to defend
-- **Top deck**: The last cards can decide the game
-
-## Joventuts Màgiques Decks
-
-Below you'll find the Standard decks we have available at the organization. These decks are updated with each new set to stay competitive:
-
-### Available Decks
-
-_[This section will be updated soon with the organization's official decks]_
-
-**Coming soon:**
-- Aggro Deck: [Name and description]
-- Midrange Deck: [Name and description]
-- Control Deck: [Name and description]
-- Combo Deck: [Name and description]
-
-### How to Use Our Decks
-
-1. Decks are available for use during Tuesday sessions
-2. Check with the organization for availability
-3. Each deck includes a strategy guide and sideboard
-4. Perfect for learning the current meta or preparing for tournaments
-
-## Tournaments and Events
-
-### Friday Night Magic (FNM)
-
-- Casual-competitive format perfect for beginners
-- Relaxed and educational atmosphere
-- Prizes based on participation
-
-### Store Championships
-
-- More competitive tournaments
-- Special prizes
-- Good experience for improvement
-
-### Pro Tour Qualifiers & Regional Championships
-
-- High competitive level
-- Path to the professional circuit
-- Requires intensive preparation
-
-## Tips for Beginners
-
-1. **Start with a tier deck**: Choose a proven competitive deck
-2. **Practice matchups**: Play against different archetypes
-3. **Learn the meta**: Follow recent tournament results
-4. **Smart sideboarding**: Spend time understanding exchanges
-5. **Play regularly**: Experience is fundamental in Standard
 
 ## Resources
 
@@ -187,33 +99,3 @@ _[This section will be updated soon with the organization's official decks]_
 - **[Moxfield](https://www.moxfield.com/)**: Deck builder with analysis
 - **[Archidekt](https://archidekt.com/)**: Another popular tool
 - **[Scryfall](https://scryfall.com/)**: Advanced card search
-
-### Content and Community
-
-- **YouTube**: Channels like ChannelFireball, MTGGoldfish, CGB
-- **Twitch**: Competitive streamers
-- **Reddit**: r/spikes for competitive discussion
-
-## Rotation Schedule
-
-Standard currently includes cards from the following sets _(updated 2025)_:
-
-**Currently legal:**
-- _[List will be updated according to Wizards' official schedule]_
-
-**Next rotation:**
-- _[Check whatsinstandard.com for updated information]_
-
-## Budget and Collection Building
-
-### Budget Options
-
-- **Mono-colored aggro**: Generally cheaper
-- **Budget replacements**: Many decks have budget versions
-- **Magic Arena**: Play the digital version for free
-
-### Smart Investment
-
-- **Staples**: Prioritize cards played in multiple decks
-- **Wait for rotations**: Prices drop after rotations
-- **Trading**: Use the community to make trades

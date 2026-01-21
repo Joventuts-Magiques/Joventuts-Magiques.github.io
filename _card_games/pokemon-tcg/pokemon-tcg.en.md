@@ -8,6 +8,7 @@ difficulty: "Easy"
 age_range: "6+"
 excerpt: "The collectible card game based on the Pokémon world where you train and battle with your favorite creatures."
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9mon_Trading_Card_Game_logo.svg/320px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png"
+published: false
 ---
 
 ## Overview

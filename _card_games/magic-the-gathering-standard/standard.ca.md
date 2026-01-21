@@ -32,13 +32,6 @@ Standard es caracteritza per utilitzar només les cartes més recents, creant un
 - **Mulligan**: Segueix les regles estàndard de mulligan de Londres
 - **Best of 3**: En tornejos, es juga millor de 3 amb sideboarding
 
-### Rotació
-
-Estàndard rota anualment (generalment al setembre/octubre):
-- Les col·leccions més antigues surten del format
-- Es mantenen aproximadament 5-8 col·leccions legals
-- Permet un meta fresc i accessible per a nous jugadors
-
 ## Com Jugar
 
 ### Preparació de la Partida
@@ -85,13 +78,6 @@ Cada torn segueix les fases estàndard de Magic:
 - **Prioritat**: Els jugadors tenen prioritat per respondre a cada acció
 - **Maná**: Genera maná girant terres per pagar el cost de les cartes
 
-### Condicions de Victòria
-
-Guanyes la partida quan:
-- Els punts de vida del teu oponent arriben a 0 o menys
-- L'oponent no pot robar una carta quan ho ha de fer
-- Aconsegueixes una condició de victòria alternativa d'una carta
-
 ### Sideboarding (Best of 3)
 
 Entre partides d'un match:
@@ -99,80 +85,6 @@ Entre partides d'un match:
 2. El deck ha de mantenir el mínim de 60 cartes
 3. Ajusta l'estratègia segons el deck de l'oponent
 4. A la tercera partida, torna al sideboard original si vols
-
-## Estratègia del Format
-
-### Construcció de Deck
-
-- **Coneix el meta**: Investiga quins decks són populars actualment
-- **Corba de maná**: Crítica en Estàndard - optimitza els teus costs
-- **Consistency**: Amb menys cartes disponibles, la consistència és clau
-- **Remoció eficient**: Inclou respostes per a les amenaces principals del meta
-- **Sideboard estratègic**: Prepara't per als matchups més comuns
-
-### Arquetipos Comuns
-
-- **Aggro**: Decks ràpids que busquen acabar la partida aviat (RDW, White Weenie)
-- **Midrange**: Criatures eficients i remoció (Jund, Abzan)
-- **Control**: Contraecanteris i remoció, guanya a llarg termini
-- **Combo**: Busca executar una combinació de cartes per guanyar
-
-### Durant la Partida
-
-- **Gestió de recursos**: Cada carta compta en Estàndard
-- **Lectura del meta**: Reconeix l'arquetip de l'oponent ràpidament
-- **Sideboarding**: Ajusta el teu deck segons el matchup
-- **Ritme**: Entén quan ser agressiu i quan defensar
-- **Top deck**: Les darreres cartes poden decidir la partida
-
-## Mazos de Joventuts Màgiques
-
-A continuació trobaràs els decks d'Estàndard que tenim disponibles a l'entitat. Aquests mazos s'actualitzen amb cada nova col·lecció per mantenir-se competitius:
-
-### Mazos Disponibles
-
-_[Aquesta secció s'actualitzarà properament amb els mazos oficials de l'entitat]_
-
-**Proximament:**
-- Mazo Aggro: [Nom i descripció]
-- Mazo Midrange: [Nom i descripció]
-- Mazo Control: [Nom i descripció]
-- Mazo Combo: [Nom i descripció]
-
-### Com Utilitzar els Nostres Mazos
-
-1. Els mazos estan disponibles per utilitzar durant les sessions dels dimarts
-2. Consulta amb l'organització per conèixer la disponibilat
-3. Cada mazo inclou una guia d'estratègia i sideboard
-4. Perfectes per aprendre el meta actual o preparar-te per a tornejos
-
-## Tornejos i Esdeveniments
-
-### Friday Night Magic (FNM)
-
-- Format casual-competitiu perfecte per començar
-- Ambient relaxat i educatiu
-- Premis basats en participació
-
-### Store Championships
-
-- Tornejos més competitius
-- Premis especials
-- Bona experiència per millorar
-
-### Pro Tour Qualifiers & Regional Championships
-
-- Nivell competitiu alt
-- Camí cap al circuit professional
-- Requereix preparació intensiva
-
-## Consells per a Principiants
-
-1. **Comença amb un mazo tier**: Tria un deck provadament competitiu
-2. **Practica el matchup**: Juga contra diferents arquetipos
-3. **Aprèn el meta**: Segueix els resultats de tornejos recents
-4. **Sideboard inteligent**: Dedica temps a entendre els intercanvis
-5. **Juga regularment**: L'experiència és fonamental en Estàndard
 
 ## Recursos
 
@@ -187,33 +99,3 @@ _[Aquesta secció s'actualitzarà properament amb els mazos oficials de l'entita
 - **[Moxfield](https://www.moxfield.com/)**: Constructor de decks amb anàlisi
 - **[Archidekt](https://archidekt.com/)**: Altra eina popular
 - **[Scryfall](https://scryfall.com/)**: Cerca avançada de cartes
-
-### Contingut i Comunitat
-
-- **YouTube**: Canals com ChannelFireball, MTGGoldfish, CGB
-- **Twitch**: Streamers competitius
-- **Reddit**: r/spikes per a discussió competitiva
-
-## Calendari de Rotació
-
-Estàndard actualment inclou cartes de les següents col·leccions _(actualitzat 2025)_:
-
-**Llegals actualment:**
-- _[Llista s'actualitzarà segons el calendari oficial de Wizards]_
-
-**Propera rotació:**
-- _[Consulta whatsinstandard.com per a informació actualitzada]_
-
-## Pressupost i Construcció de Col·lecció
-
-### Opcions Econòmiques
-
-- **Mono-colored aggro**: Generalment més barats
-- **Budget replacements**: Molts decks tenen versions econòmiques
-- **Magic Arena**: Juga gratuïtament la versió digital
-
-### Inversió Intel·ligent
-
-- **Staples**: Prioritza cartes que es juguen en múltiples decks
-- **Espera rotacions**: Els preus cauen després de rotacions
-- **Intercanvis**: Utilitza la comunitat per fer trades
