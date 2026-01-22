@@ -7,6 +7,10 @@ difficulty: [Fàcil/Mitjà/Difícil]
 age_range: [EDAT MÍNIMA, ex: 8+]
 excerpt: "[DESCRIPCIÓ BREU DEL JOC EN UNA FRASE]"
 layout: game
+image: "[URL DE LA IMATGE]"
+video_url: "[URL VÍDEO]"
+video_credit: "[AUTOR]"
+published: false # Borra aquest tag per poder publicar la pàgina
 ---
 
 ## Descripció General
@@ -23,7 +27,7 @@ layout: game
 
 ## Objectiu del Joc
 
-[Explica clarament com es guanya el joc. Sigues específic sobre les condicions de victòria.]
+[Explica breument l'objectiu principal del joc: què han d'aconseguir els jugadors per guanyar.]
 
 ## Preparació
 
@@ -47,9 +51,23 @@ layout: game
 
 [Continua amb altres aspectes importants del joc]
 
-## Guanyar
+<!-- OPCIONAL: Per a jocs de cartes, afegeix una secció "Tipus de Cartes" aquí -->
 
-[Explica les condicions exactes de victòria i com acaba el joc]
+## Final del Joc
+
+[Explica quan acaba el joc: condició de final (ronda límit, objectiu aconseguit, etc.)]
+
+### Puntuació
+
+[Detalla com es calcula la puntuació final. Inclou tots els elements que sumen o resten punts.]
+
+- **[Element 1]**: [X punts]
+- **[Element 2]**: [Y punts]
+- **[Penalitzacions]**: [-Z punts]
+
+### Desempat
+
+[En cas d'empat, explica com es determina el guanyador.]
 
 ## Estratègies Recomanades
 
@@ -70,9 +88,9 @@ layout: game
 
 [Descripció de com aquesta variant canvia les regles]
 
-### [Altra Variant]
+### [Altra Variant / Expansió]
 
-[Descripció d'una altra variant popular]
+[Descripció d'una altra variant popular o expansió oficial]
 
 ## Consells per a Principiants
 

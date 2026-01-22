@@ -29,12 +29,14 @@ This project aims to create a comprehensive and accessible collection of gaming 
 
 ```text
 ├── _games/                 # Board games collection
+│   ├── game-template/     # Template (published: false)
 │   └── monopoly/          # Game example
 │       ├── monopoly.ca.md # Catalan version
 │       ├── monopoly.es.md # Spanish version
 │       ├── monopoly.en.md # English version
 │       └── images/        # Game images
 ├── _card_games/           # Card games collection
+│   ├── card-game-template/ # Template (published: false)
 │   └── magic-the-gathering/
 │       ├── magic-the-gathering.ca.md
 │       ├── magic-the-gathering.es.md
@@ -47,9 +49,6 @@ This project aims to create a comprehensive and accessible collection of gaming 
 │   ├── landing.html      # Main landing page
 │   ├── game.html         # Board game layout
 │   └── card-game.html    # Card game layout
-├── _templates/           # Content templates
-│   ├── game-template.ca.md
-│   └── card-game-template.ca.md
 └── .kiro/
     └── steering/         # Project documentation
 ```
@@ -107,7 +106,7 @@ pre-commit run --all-files
    - `game-name.es.md` (Spanish - required)
    - `game-name.en.md` (English - required)
 
-3. **Use the template** from `_templates/game-template.ca.md`
+3. **Use the template** from `_games/game-template/game-template.ca.md`
 
 ### Adding a New Card Game
 
@@ -122,7 +121,7 @@ pre-commit run --all-files
    - `game-name.es.md` (Spanish - required)
    - `game-name.en.md` (English - required)
 
-3. **Use the template** from `_templates/card-game-template.ca.md`
+3. **Use the template** from `_card_games/card-game-template/card-game-template.ca.md`
 
 4. **Card game specific fields**:
 
