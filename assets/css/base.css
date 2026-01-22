@@ -1270,7 +1270,7 @@ select:focus-visible {
 }
 
 /* Responsive adjustments for scroll-to-top button */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .scroll-to-top {
     bottom: 2rem;
     left: 2rem;

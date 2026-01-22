@@ -123,7 +123,7 @@ class TableOfContents {
     if (this.tocToggle) {
       this.tocToggle.addEventListener('click', () => {
         // On mobile/tablet, close the overlay
-        if (window.innerWidth <= 1024) {
+        if (window.innerWidth <= 1366) {
           this.closeMobile();
         } else {
           // On desktop, collapse/expand
@@ -158,7 +158,7 @@ class TableOfContents {
           this.setActiveSection(targetId);
 
           // Close mobile/tablet TOC if open
-          if (window.innerWidth <= 1024) {
+          if (window.innerWidth <= 1366) {
             this.closeMobile();
           }
 
@@ -231,7 +231,7 @@ class TableOfContents {
 
   createOverlay() {
     // Create overlay for mobile and tablet
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth <= 1280) {
       let overlay = document.querySelector('.toc-overlay');
       if (!overlay) {
         overlay = document.createElement('div');

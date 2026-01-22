@@ -142,7 +142,7 @@
 }
 
 /* Mobile and Tablet styles */
-@media (max-width: 1024px) {
+@media (max-width: 1366px) {
   .toc-mobile-trigger {
     display: flex;
     bottom: 2rem;
