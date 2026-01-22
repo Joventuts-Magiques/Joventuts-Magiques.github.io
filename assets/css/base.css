@@ -1220,8 +1220,8 @@ select:focus-visible {
 /* Scroll to Top Button */
 .scroll-to-top {
   position: fixed;
-  bottom: var(--spacing-2xl, 30px);
-  right: var(--spacing-2xl, 30px);
+  bottom: 2rem;
+  left: 2rem;
   width: var(--spacing-48);
   height: var(--spacing-48);
   border-radius: 50%;
@@ -1270,10 +1270,11 @@ select:focus-visible {
 }
 
 /* Responsive adjustments for scroll-to-top button */
-@media (max-width: 600px) {
+@media (max-width: 1280px) {
   .scroll-to-top {
-    bottom: var(--spacing-lg, 20px);
-    right: var(--spacing-lg, 20px);
+    bottom: 2rem;
+    left: 2rem;
+    right: auto;
     width: var(--min-touch-target);
     height: var(--min-touch-target);
   }

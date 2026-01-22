@@ -119,11 +119,11 @@ class TableOfContents {
   }
 
   attachEventListeners() {
-    // Toggle button (collapse/expand on desktop, close on mobile)
+    // Toggle button (collapse/expand on desktop, close on mobile/tablet)
     if (this.tocToggle) {
       this.tocToggle.addEventListener('click', () => {
-        // On mobile, close the overlay
-        if (window.innerWidth <= 768) {
+        // On mobile/tablet, close the overlay
+        if (window.innerWidth <= 1366) {
           this.closeMobile();
         } else {
           // On desktop, collapse/expand
@@ -136,7 +136,7 @@ class TableOfContents {
       });
     }
 
-    // Mobile trigger button
+    // Mobile/Tablet trigger button
     if (this.mobileTrigger) {
       this.mobileTrigger.addEventListener('click', () => {
         this.openMobile();
@@ -157,8 +157,8 @@ class TableOfContents {
           // Immediately set the clicked section as active
           this.setActiveSection(targetId);
 
-          // Close mobile TOC if open
-          if (window.innerWidth <= 768) {
+          // Close mobile/tablet TOC if open
+          if (window.innerWidth <= 1366) {
             this.closeMobile();
           }
 
@@ -230,8 +230,8 @@ class TableOfContents {
   }
 
   createOverlay() {
-    // Create overlay for mobile
-    if (window.innerWidth <= 768) {
+    // Create overlay for mobile and tablet
+    if (window.innerWidth <= 1280) {
       let overlay = document.querySelector('.toc-overlay');
       if (!overlay) {
         overlay = document.createElement('div');

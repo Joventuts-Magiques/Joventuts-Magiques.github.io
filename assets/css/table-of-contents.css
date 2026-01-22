@@ -6,8 +6,11 @@
   position: fixed;
   top: 120px;
   right: 2rem;
-  width: 280px;
-  max-height: calc(100vh - 160px);
+  min-width: 250px;
+  max-width: 400px;
+  width: max-content;
+  height: auto;
+  max-height: 80vh;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border-light);
   border-radius: 12px;
@@ -72,6 +75,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .toc-nav li {
@@ -80,14 +86,15 @@
 
 .toc-nav a {
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
   color: var(--color-text-primary);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: var(--transition-normal);
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  line-height: 1.6;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .toc-nav a:hover {
@@ -98,8 +105,8 @@
 }
 
 .toc-nav a.active {
-  background: var(--hero-gradient);
-  color: var(--hero-text-color);
+  background: var(--color-text-primary);
+  color: var(--color-bg-secondary);
   font-weight: 500;
 }
 
@@ -134,8 +141,15 @@
   margin-right: 0.5rem;
 }
 
-/* Mobile styles */
-@media (max-width: 768px) {
+/* Mobile and Tablet styles */
+@media (max-width: 1366px) {
+  .toc-mobile-trigger {
+    display: flex;
+    bottom: 2rem;
+    right: 2rem;
+    left: auto;
+  }
+
   .table-of-contents {
     position: fixed;
     top: 0;
@@ -143,6 +157,8 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     max-height: 100vh;
     border-radius: 0;
     transform: translateX(100%);
@@ -153,10 +169,6 @@
 
   .table-of-contents.mobile-open {
     transform: translateX(0);
-  }
-
-  .toc-mobile-trigger {
-    display: flex;
   }
 
   .toc-toggle {
@@ -176,20 +188,6 @@
   .toc-nav a {
     padding: 0.75rem 1rem;
     font-size: 1rem;
-  }
-}
-
-/* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1200px) {
-  .table-of-contents {
-    width: 240px;
-    right: 1rem;
-    top: 100px;
-  }
-
-  .toc-nav a {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.6rem;
   }
 }
 
