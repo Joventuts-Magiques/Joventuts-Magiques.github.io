@@ -8,6 +8,7 @@ difficulty: "[Fàcil/Mitjà/Difícil]"
 age_range: "[EDAT RECOMANADA]+"
 excerpt: "[BREU DESCRIPCIÓ DEL JOC EN UNA LÍNIA]"
 image: "[URL DE LA IMATGE]"
+published: false # Borra aquest tag per poder publicar la pàgina
 ---
 
 ## Descripció General
