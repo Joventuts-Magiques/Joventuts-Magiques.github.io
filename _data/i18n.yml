@@ -110,7 +110,7 @@ ca:
   about_location_title: "On Ens Trobem"
   about_location_label: "Ubicació"
   about_location_contact: "Per a més informació sobre les nostres sessions i esdeveniments, contacta amb nosaltres a través de les nostres xarxes socials."
-  about_join_desc: "Si t'interessa els jocs de taula, Magic: The Gathering, o simplement vols conèixer gent nova amb interessos similars, ets benvingut a Joventuts Màgiques! No importa el teu nivell d'experiència - tenim espai per a principiants i veterans per igual."
+  about_join_extended_desc: "Si t'interessa els jocs de taula, Magic: The Gathering, o simplement vols conèixer gent nova amb interessos similars, ets benvingut a Joventuts Màgiques! No importa el teu nivell d'experiència - tenim espai per a principiants i veterans per igual."
   contact_us: "Contacta'ns"
 
 es:
@@ -224,7 +224,7 @@ es:
   about_location_title: "Dónde Nos Encontramos"
   about_location_label: "Ubicación"
   about_location_contact: "Para más información sobre nuestras sesiones y eventos, contáctanos a través de nuestras redes sociales."
-  about_join_desc: "Si te interesan los juegos de mesa, Magic: The Gathering, o simplemente quieres conocer gente nueva con intereses similares, eres bienvenido a Joventuts Màgiques! No importa tu nivel de experiencia - tenemos espacio para principiantes y veteranos por igual."
+  about_join_extended_desc: "Si te interesan los juegos de mesa, Magic: The Gathering, o simplemente quieres conocer gente nueva con intereses similares, eres bienvenido a Joventuts Màgiques! No importa tu nivel de experiencia - tenemos espacio para principiantes y veteranos por igual."
   contact_us: "Contáctanos"
 
 en:
@@ -338,5 +338,5 @@ en:
   about_location_title: "Where to Find Us"
   about_location_label: "Location"
   about_location_contact: "For more information about our sessions and events, contact us through our social networks."
-  about_join_desc: "If you're interested in board games, Magic: The Gathering, or just want to meet new people with similar interests, you're welcome at Joventuts Màgiques! Your experience level doesn't matter - we have space for beginners and veterans alike."
+  about_join_extended_desc: "If you're interested in board games, Magic: The Gathering, or just want to meet new people with similar interests, you're welcome at Joventuts Màgiques! Your experience level doesn't matter - we have space for beginners and veterans alike."
   contact_us: "Contact Us"

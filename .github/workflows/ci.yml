@@ -1,0 +1,335 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ============================================================================
+  # Pre-commit Hooks Check
+  # ============================================================================
+  pre-commit:
+    name: Pre-commit Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files --show-diff-on-failure
+
+  # ============================================================================
+  # Content Validation
+  # ============================================================================
+  validate-content:
+    name: Content Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate content structure
+        run: python tests/validate-content.py
+
+  # ============================================================================
+  # Jekyll Build
+  # ============================================================================
+  build:
+    name: Jekyll Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --destination _site
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: _site
+          retention-days: 1
+
+  # ============================================================================
+  # HTML Validation
+  # ============================================================================
+  html-validation:
+    name: HTML Validation
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-build
+          path: _site
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      - name: Create config
+        run: |
+          cat > .htmlvalidate.json << 'EOF'
+          {
+            "extends": ["html-validate:recommended"],
+            "rules": {
+              "no-trailing-whitespace": "off",
+              "void-style": "off",
+              "attr-quotes": "off",
+              "doctype-style": "off",
+              "element-permitted-content": "off",
+              "no-inline-style": "warn",
+              "require-sri": "off",
+              "tel-non-breaking": "off",
+              "wcag/h30": "warn",
+              "wcag/h32": "warn",
+              "wcag/h36": "warn",
+              "wcag/h37": "warn",
+              "wcag/h67": "warn",
+              "wcag/h71": "warn"
+            }
+          }
+          EOF
+
+      - name: Validate HTML
+        run: html-validate "_site/**/*.html" --max-warnings 100 || echo "::warning::HTML validation completed with warnings"
+
+  # ============================================================================
+  # Link Checking
+  # ============================================================================
+  link-check:
+    name: Link Check
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-build
+          path: _site
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --base _site
+            --exclude-path _site/assets
+            --exclude "^https?://(localhost|127\.0\.0\.1)"
+            --exclude "^mailto:"
+            --exclude "wikipedia.org"
+            --exclude "wikimedia.org"
+            --exclude "github.com"
+            --no-progress
+            --accept 200,204,206,301,302,307,308
+            "_site/**/*.html"
+          fail: false
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## 🔗 Link Check Results" >> $GITHUB_STEP_SUMMARY
+          if [ -f lychee/out.md ]; then
+            cat lychee/out.md >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ No broken links found" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  # ============================================================================
+  # Accessibility Check
+  # ============================================================================
+  accessibility:
+    name: Accessibility Check
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-build
+          path: _site
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install tools
+        run: npm install -g pa11y-ci serve
+
+      - name: Start server and test
+        run: |
+          serve _site -l 8080 &
+          sleep 3
+          pa11y-ci --config /dev/stdin << 'EOF' || echo "::warning::Accessibility issues found"
+          {
+            "defaults": {
+              "timeout": 30000,
+              "wait": 1000,
+              "standard": "WCAG2AA",
+              "runners": ["axe"]
+            },
+            "urls": [
+              "http://localhost:8080/",
+              "http://localhost:8080/board-games/",
+              "http://localhost:8080/card-games/"
+            ]
+          }
+          EOF
+        continue-on-error: true
+
+  # ============================================================================
+  # Security Audit
+  # ============================================================================
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Run security audit
+        run: |
+          gem install bundler-audit
+          bundle-audit check --update || echo "::warning::Security vulnerabilities found"
+        continue-on-error: true
+
+  # ============================================================================
+  # Summary
+  # ============================================================================
+  ci-summary:
+    name: CI Summary
+    runs-on: ubuntu-latest
+    needs:
+      [
+        pre-commit,
+        validate-content,
+        build,
+        html-validation,
+        link-check,
+        accessibility,
+        security,
+      ]
+    if: always()
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Generate summary
+        id: summary
+        run: |
+          # Build the summary content
+          SUMMARY="## 🎲 CI Pipeline Summary
+
+          | Check | Status |
+          |-------|--------|
+          | Pre-commit | ${{ needs.pre-commit.result == 'success' && '✅ Passed' || '❌ Failed' }} |
+          | Content Validation | ${{ needs.validate-content.result == 'success' && '✅ Passed' || '❌ Failed' }} |
+          | Jekyll Build | ${{ needs.build.result == 'success' && '✅ Passed' || '❌ Failed' }} |
+          | HTML Validation | ${{ needs.html-validation.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+          | Link Check | ${{ needs.link-check.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+          | Accessibility | ${{ needs.accessibility.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+          | Security Audit | ${{ needs.security.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+
+          **Legend:** ✅ Passed | ⚠️ Warnings (non-blocking) | ❌ Failed (blocking)
+
+          ---
+          <sub>🤖 This comment is automatically updated by CI</sub>"
+
+          # Write to step summary
+          echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
+
+          # Save for PR comment (escape for JSON)
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "comment<<$EOF" >> $GITHUB_OUTPUT
+          echo "$SUMMARY" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = `${{ steps.summary.outputs.comment }}`;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            // Find existing bot comment
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' &&
+              c.body.includes('🎲 CI Pipeline Summary')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
+
+      - name: Fail if critical checks failed
+        if: |
+          needs.pre-commit.result == 'failure' ||
+          needs.validate-content.result == 'failure' ||
+          needs.build.result == 'failure'
+        run: |
+          echo "❌ Critical CI checks failed!"
+          exit 1

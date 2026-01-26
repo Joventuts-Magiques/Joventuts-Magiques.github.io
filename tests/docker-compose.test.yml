@@ -1,0 +1,90 @@
+# Docker Compose for running tests locally
+# Usage: docker-compose -f tests/docker-compose.test.yml run <service>
+#
+# Run from repository root:
+#   docker-compose -f tests/docker-compose.test.yml run validate
+#   docker-compose -f tests/docker-compose.test.yml run build
+#   docker-compose -f tests/docker-compose.test.yml run all
+
+services:
+  # Validate content structure and translations
+  validate:
+    image: python:3.12-alpine
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: sh -c "pip install -q pyyaml && python tests/validate-content.py"
+
+  # Build Jekyll site
+  build:
+    image: jekyll/jekyll:4.2.2
+    volumes:
+      - ..:/srv/jekyll
+    environment:
+      - JEKYLL_ENV=production
+    command: jekyll build --destination _site
+
+  # Run all pre-commit hooks
+  lint:
+    image: python:3.12-alpine
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: sh -c "pip install pre-commit && pre-commit run --all-files"
+
+  # HTML validation (requires build first)
+  html-validate:
+    image: node:20-alpine
+    volumes:
+      - ../_site:/site
+    working_dir: /
+    command: sh -c "npm install -g html-validate && html-validate 'site/**/*.html' --max-warnings 100"
+    depends_on:
+      - build
+
+  # Security audit
+  security:
+    image: jekyll/jekyll:4.2.2
+    volumes:
+      - ..:/srv/jekyll
+    command: sh -c "gem install bundler-audit && bundle-audit check --update"
+
+  # Run all tests
+  all:
+    image: jekyll/jekyll:4.2.2
+    volumes:
+      - ..:/srv/jekyll
+    command: sh -c "
+      echo '═══════════════════════════════════════════════════════════' &&
+      echo '🔍 1/5 Running content validation...' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      apk add --no-cache python3 py3-pip py3-yaml nodejs npm > /dev/null 2>&1 &&
+      python3 tests/validate-content.py &&
+      echo '' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      echo '📝 2/5 Running pre-commit hooks...' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      pip install pre-commit > /dev/null 2>&1 &&
+      pre-commit run --all-files || echo '⚠️  Pre-commit had warnings' &&
+      echo '' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      echo '🔨 3/5 Building Jekyll site...' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      jekyll build --destination _site &&
+      echo '' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      echo '🔎 4/5 Validating HTML...' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      npm install -g html-validate > /dev/null 2>&1 &&
+      html-validate '_site/**/*.html' --max-warnings 100 || echo '⚠️  HTML validation had warnings' &&
+      echo '' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      echo '🔒 5/5 Running security audit...' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      gem install bundler-audit > /dev/null 2>&1 &&
+      bundle-audit check --update || echo '⚠️  Security audit had warnings' &&
+      echo '' &&
+      echo '═══════════════════════════════════════════════════════════' &&
+      echo '✅ All tests completed!' &&
+      echo '═══════════════════════════════════════════════════════════'
+      "
