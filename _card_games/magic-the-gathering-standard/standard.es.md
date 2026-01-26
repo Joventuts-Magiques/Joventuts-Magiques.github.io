@@ -81,6 +81,7 @@ Cada turno sigue las fases estándar de Magic:
 ### Sideboarding (Best of 3)
 
 Entre partidas de un match:
+
 1. Puedes cambiar hasta 15 cartas de tu mazo con cartas del sideboard
 2. El mazo debe mantener el mínimo de 60 cartas
 3. Ajusta la estrategia según el mazo del oponente
