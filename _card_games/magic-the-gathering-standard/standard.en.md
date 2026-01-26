@@ -81,6 +81,7 @@ Each turn follows Magic's standard phases:
 ### Sideboarding (Best of 3)
 
 Between games in a match:
+
 1. You can swap up to 15 cards from your deck with cards from the sideboard
 2. The deck must maintain the minimum of 60 cards
 3. Adjust your strategy based on your opponent's deck
