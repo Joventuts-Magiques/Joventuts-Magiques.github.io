@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  JEKYLL_IMAGE: jekyll/jekyll:4.2.2
-
 jobs:
   # ============================================================================
   # Pre-commit Hooks Check
@@ -33,7 +30,7 @@ jobs:
         run: pre-commit run --all-files --show-diff-on-failure
 
   # ============================================================================
-  # Content Validation (Docker)
+  # Content Validation
   # ============================================================================
   validate-content:
     name: Content Validation
@@ -43,16 +40,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run content validation
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}:/srv/jekyll \
-            -w /srv/jekyll \
-            python:3.12-alpine \
-            sh -c "pip install pyyaml && python tests/validate-content.py"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate content structure
+        run: python tests/validate-content.py
 
   # ============================================================================
-  # Jekyll Build (Docker)
+  # Jekyll Build
   # ============================================================================
   build:
     name: Jekyll Build
@@ -62,13 +62,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Jekyll site with Docker
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}:/srv/jekyll \
-            -e JEKYLL_ENV=production \
-            ${{ env.JEKYLL_IMAGE }} \
-            jekyll build --destination _site
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --destination _site
+        env:
+          JEKYLL_ENV: production
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -78,7 +81,7 @@ jobs:
           retention-days: 1
 
   # ============================================================================
-  # HTML Validation (Docker)
+  # HTML Validation
   # ============================================================================
   html-validation:
     name: HTML Validation
@@ -92,9 +95,16 @@ jobs:
           name: site-build
           path: _site
 
-      - name: Validate HTML with Docker
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      - name: Create config
         run: |
-          # Create html-validate config
           cat > .htmlvalidate.json << 'EOF'
           {
             "extends": ["html-validate:recommended"],
@@ -117,12 +127,8 @@ jobs:
           }
           EOF
 
-          docker run --rm \
-            -v ${{ github.workspace }}/_site:/site \
-            -v ${{ github.workspace }}/.htmlvalidate.json:/.htmlvalidate.json \
-            -w / \
-            node:20-alpine \
-            sh -c "npm install -g html-validate && html-validate 'site/**/*.html' --max-warnings 100" || echo "::warning::HTML validation completed with warnings"
+      - name: Validate HTML
+        run: html-validate "_site/**/*.html" --max-warnings 100 || echo "::warning::HTML validation completed with warnings"
 
   # ============================================================================
   # Link Checking
@@ -139,7 +145,7 @@ jobs:
           name: site-build
           path: _site
 
-      - name: Check links with lychee
+      - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
@@ -155,7 +161,7 @@ jobs:
             "_site/**/*.html"
           fail: false
 
-      - name: Link check summary
+      - name: Summary
         if: always()
         run: |
           echo "## 🔗 Link Check Results" >> $GITHUB_STEP_SUMMARY
@@ -166,7 +172,7 @@ jobs:
           fi
 
   # ============================================================================
-  # Accessibility Check (Docker)
+  # Accessibility Check
   # ============================================================================
   accessibility:
     name: Accessibility Check
@@ -180,37 +186,37 @@ jobs:
           name: site-build
           path: _site
 
-      - name: Run accessibility tests
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install tools
+        run: npm install -g pa11y-ci serve
+
+      - name: Start server and test
         run: |
-          # Start a simple HTTP server and run pa11y
-          docker run --rm \
-            -v ${{ github.workspace }}/_site:/site \
-            -w /site \
-            node:20-alpine \
-            sh -c "
-              npm install -g pa11y-ci serve &>/dev/null
-              serve . -l 8080 &
-              sleep 3
-              pa11y-ci --config /dev/stdin << 'EOF'
+          serve _site -l 8080 &
+          sleep 3
+          pa11y-ci --config /dev/stdin << 'EOF' || echo "::warning::Accessibility issues found"
           {
-            \"defaults\": {
-              \"timeout\": 30000,
-              \"wait\": 1000,
-              \"standard\": \"WCAG2AA\",
-              \"runners\": [\"axe\"]
+            "defaults": {
+              "timeout": 30000,
+              "wait": 1000,
+              "standard": "WCAG2AA",
+              "runners": ["axe"]
             },
-            \"urls\": [
-              \"http://localhost:8080/\",
-              \"http://localhost:8080/board-games/\",
-              \"http://localhost:8080/card-games/\"
+            "urls": [
+              "http://localhost:8080/",
+              "http://localhost:8080/board-games/",
+              "http://localhost:8080/card-games/"
             ]
           }
           EOF
-            " || echo "::warning::Accessibility check completed with issues"
         continue-on-error: true
 
   # ============================================================================
-  # Security Audit (Docker)
+  # Security Audit
   # ============================================================================
   security:
     name: Security Audit
@@ -220,13 +226,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
       - name: Run security audit
         run: |
-          docker run --rm \
-            -v ${{ github.workspace }}:/srv/jekyll \
-            -w /srv/jekyll \
-            ${{ env.JEKYLL_IMAGE }} \
-            sh -c "gem install bundler-audit && bundle-audit check --update" || echo "::warning::Security audit found vulnerabilities"
+          gem install bundler-audit
+          bundle-audit check --update || echo "::warning::Security vulnerabilities found"
         continue-on-error: true
 
   # ============================================================================
@@ -261,11 +270,6 @@ jobs:
           echo "| Link Check | ${{ needs.link-check.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Accessibility | ${{ needs.accessibility.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Security Audit | ${{ needs.security.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Legend" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ **Passed**: Check completed successfully" >> $GITHUB_STEP_SUMMARY
-          echo "- ⚠️ **Warnings**: Check completed with non-blocking issues" >> $GITHUB_STEP_SUMMARY
-          echo "- ❌ **Failed**: Check failed (blocks merge)" >> $GITHUB_STEP_SUMMARY
 
       - name: Fail if critical checks failed
         if: |
@@ -274,9 +278,4 @@ jobs:
           needs.build.result == 'failure'
         run: |
           echo "❌ Critical CI checks failed!"
-          echo ""
-          echo "The following checks must pass before merging:"
-          echo "- Pre-commit hooks"
-          echo "- Content validation"
-          echo "- Jekyll build"
           exit 1
