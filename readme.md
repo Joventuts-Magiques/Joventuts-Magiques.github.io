@@ -1,254 +1,303 @@
-# Joventuts Màgiques - Gaming Community
+# 🎲 Joventuts Màgiques - Board Games & Card Games Documentation
 
-[![Build Status](https://github.com/andyce/andyce.github.io/workflows/Build/badge.svg)](https://github.com/andyce/andyce.github.io/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?logo=github)](https://Joventuts-Magiques.github.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Jekyll](https://img.shields.io/badge/Jekyll-4.3.4-red?logo=jekyll)](https://jekyllrb.com/)
+[![Multilingual](https://img.shields.io/badge/Languages-CA%20|%20ES%20|%20EN-orange)](https://Joventuts-Magiques.github.io)
 
-An open collection of rules, strategies and guides for board games and card games, available in Catalan, Spanish, and English.
+An open-source collection of comprehensive rules, strategies, and guides for board games and trading card games. Available in **Catalan**, **Spanish**, and **English**.
 
-## 🌐 Available Languages
+🌐 **Live Site**: [https://Joventuts-Magiques.github.io](https://Joventuts-Magiques.github.io)
 
-- **Catalan** (primary language)
-- **Spanish**
-- **English**
+---
 
-## 🎯 Purpose
+## ✨ Features
 
-This project aims to create a comprehensive and accessible collection of gaming rules and strategies, maintaining quality and consistency across all supported languages.
+- 🌍 **Multilingual** - Full support for Catalan (primary), Spanish, and English
+- 🎮 **13 Games Documented** - 10 board games + 3 card games with 100% translation coverage
+- 🌙 **Dark Mode** - System preference detection with manual toggle
+- ♿ **Accessible** - WCAG 2.1 AA compliant with enhanced focus indicators
+- 📱 **Responsive** - Mobile-first design with touch-friendly navigation
+- 🔍 **SEO Optimized** - Structured data, hreflang tags, and proper metadata
+- ⚡ **Fast** - Lazy loading, skeleton screens, and optimized assets
+- 🎨 **Modern UI** - 3D card effects, smooth animations, and visual polish
 
-## 🚀 Features
+---
 
-- ✅ **Multilingual**: Full support for 3 languages
-- ✅ **Multiple Game Types**: Board games and card games
-- ✅ **Responsive**: Adaptive design for all devices
-- ✅ **Accessible**: WCAG 2.1 AA compliant
-- ✅ **SEO Optimized**: Metadata and structured data
-- ✅ **Open Source**: Contributions welcome
-- ✅ **Automated Validation**: Translation quality control
+## 📚 Available Games
 
-## 📁 Project Structure
+### Board Games (10)
 
-```text
-├── _games/                 # Board games collection
-│   ├── game-template/     # Template (published: false)
-│   └── monopoly/          # Game example
-│       ├── monopoly.ca.md # Catalan version
-│       ├── monopoly.es.md # Spanish version
-│       ├── monopoly.en.md # English version
-│       └── images/        # Game images
-├── _card_games/           # Card games collection
-│   ├── card-game-template/ # Template (published: false)
-│   └── magic-the-gathering/
-│       ├── magic-the-gathering.ca.md
-│       ├── magic-the-gathering.es.md
-│       └── magic-the-gathering.en.md
-├── _data/
-│   └── i18n.yml          # UI translations
-├── _includes/
-│   └── language-selector.html # Language selector
-├── _layouts/             # Jekyll templates
-│   ├── landing.html      # Main landing page
-│   ├── game.html         # Board game layout
-│   └── card-game.html    # Card game layout
-└── .kiro/
-    └── steering/         # Project documentation
-```
+| Game               | Description                   | Players | Difficulty |
+| ------------------ | ----------------------------- | ------- | ---------- |
+| **Monopoly**       | Classic real estate trading   | 2-8     | Medium     |
+| **7 Wonders**      | Card drafting civilization    | 2-7     | Medium     |
+| **Catan**          | Resource trading and building | 3-4     | Medium     |
+| **Ticket to Ride** | Train route building          | 2-5     | Easy       |
+| **Codenames**      | Word association party game   | 4-8+    | Easy       |
+| **Secret Hitler**  | Social deduction              | 5-10    | Medium     |
+| **Mantis**         | Card collecting               | 2-6     | Easy       |
+| **Pelusas**        | Quick card game               | 2-5     | Easy       |
+| **Cathood**        | Cat-themed strategy           | 2-4     | Easy       |
+| **Potion Crafter** | Potion brewing                | 2-4     | Medium     |
 
-## 🛠️ Local Development
+### Card Games (3)
+
+| Game                     | Format    | Players | Difficulty |
+| ------------------------ | --------- | ------- | ---------- |
+| **Magic: The Gathering** | Standard  | 2       | Hard       |
+| **Magic: The Gathering** | Commander | 3-6     | Hard       |
+| **Pokémon TCG**          | Standard  | 2       | Medium     |
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Ruby 2.7+
-- Jekyll 4.0+
-- Node.js (optional for optimizations)
+- [Docker](https://www.docker.com/) (recommended) OR
+- Ruby 3.x + Bundler
 
-### Installation
+### Local Development with Docker (Recommended)
 
 ```bash
-# Clone repository
-git clone https://github.com/andyce/andyce.github.io.git
-cd andyce.github.io
+# Clone the repository
+git clone https://github.com/Joventuts-Magiques/Joventuts-Magiques.github.io.git
+cd Joventuts-Magiques.github.io
 
+# Start the development server
+docker-compose up
+
+# Open in browser
+# http://localhost:4000
+```
+
+### Local Development with Ruby
+
+```bash
 # Install dependencies
 bundle install
 
-# Run local server
+# Start the development server
 bundle exec jekyll serve
 
 # Open in browser
 # http://localhost:4000
 ```
 
-### Pre-commit Hooks
+---
+
+## 🔧 Pre-commit Hooks
+
+This project uses pre-commit hooks to maintain code quality. The hooks run automatically before each commit.
+
+### Setup
 
 ```bash
 # Install pre-commit
 pip install pre-commit
 
-# Setup hooks
+# Install the hooks
 pre-commit install
 
-# Run validations
+# Run all hooks manually (optional)
 pre-commit run --all-files
 ```
 
-## 📝 How to Contribute
+### Configured Checks
 
-### Adding a New Board Game
+| Hook                      | Description                         |
+| ------------------------- | ----------------------------------- |
+| `trailing-whitespace`     | Removes trailing whitespace         |
+| `end-of-file-fixer`       | Ensures files end with newline      |
+| `check-yaml`              | Validates YAML syntax               |
+| `check-json`              | Validates JSON syntax               |
+| `markdownlint`            | Lints and auto-fixes Markdown       |
+| `detect-private-key`      | Prevents committing private keys    |
+| `detect-aws-credentials`  | Prevents committing AWS credentials |
+| `check-added-large-files` | Blocks files >1MB                   |
+| `check-merge-conflict`    | Detects merge conflict markers      |
 
-1. **Create game directory**:
+---
+
+## 📁 Project Structure
+
+```
+├── _games/                    # Board games collection
+│   ├── monopoly/
+│   │   ├── monopoly.ca.md    # Catalan version
+│   │   ├── monopoly.es.md    # Spanish version
+│   │   ├── monopoly.en.md    # English version
+│   │   └── images/           # Game images
+│   └── game-template/        # Template for new games
+│
+├── _card_games/               # Card games collection
+│   ├── magic-the-gathering-standard/
+│   ├── pokemon-tcg/
+│   └── card-game-template/   # Template for new card games
+│
+├── _layouts/                  # Jekyll layouts
+│   ├── landing.html          # Main landing page
+│   ├── game.html             # Board game layout
+│   └── card-game.html        # Card game layout
+│
+├── _includes/                 # Reusable components
+│   ├── site-header.html      # Navigation header
+│   ├── language-selector.html
+│   └── table-of-contents.html
+│
+├── assets/
+│   ├── css/                  # Stylesheets
+│   │   ├── variables.css     # CSS custom properties
+│   │   ├── base.css          # Base styles
+│   │   └── ...
+│   └── js/                   # JavaScript
+│       ├── language-manager.js
+│       ├── theme-toggle.js   # Dark mode
+│       └── ...
+│
+├── _data/
+│   └── i18n.yml              # UI translations
+│
+├── _config.yml               # Jekyll configuration
+├── docker-compose.yml        # Docker setup
+├── Gemfile                   # Ruby dependencies
+├── .pre-commit-config.yaml   # Pre-commit hooks
+└── .markdownlint.json        # Markdown linting rules
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how to add a new game:
+
+### Adding a Board Game
+
+1. **Create the game directory**:
 
    ```bash
-   mkdir -p _games/game-name/images
+   mkdir -p _games/your-game/images
    ```
 
-2. **Create files for each language**:
-   - `game-name.ca.md` (Catalan - required)
-   - `game-name.es.md` (Spanish - required)
-   - `game-name.en.md` (English - required)
-
-3. **Use the template** from `_games/game-template/game-template.ca.md`
-
-### Adding a New Card Game
-
-1. **Create game directory**:
+2. **Copy the template**:
 
    ```bash
-   mkdir -p _card_games/game-name/images
+   cp _games/game-template/game-template.ca.md _games/your-game/your-game.ca.md
    ```
 
-2. **Create files for each language**:
-   - `game-name.ca.md` (Catalan - required)
-   - `game-name.es.md` (Spanish - required)
-   - `game-name.en.md` (English - required)
+3. **Create all three language versions**:
+   - `your-game.ca.md` (Catalan - required)
+   - `your-game.es.md` (Spanish - required)
+   - `your-game.en.md` (English - required)
 
-3. **Use the template** from `_card_games/card-game-template/card-game-template.ca.md`
+4. **Follow the content schema** (see below)
 
-4. **Card game specific fields**:
+5. **Test locally** with Docker
 
-   ```yaml
-   ---
-   title: Game Name
-   lang: ca
-   players: 2+
-   format: "Standard, Modern, Commander"
-   difficulty: Medium
-   age_range: 13+
-   excerpt: "Brief game description"
-   layout: card-game
-   ---
+6. **Run pre-commit hooks**:
+
+   ```bash
+   pre-commit run --all-files
    ```
 
-### Required Content Schema
+7. **Submit a Pull Request**
 
-Each game must include:
+### Adding a Card Game
 
-- **Metadata**: players, duration, difficulty, age
-- **Overview**: History and context
-- **Components**: Detailed list with images
-- **Setup**: Initialization steps
-- **Gameplay**: Rules and mechanics
-- **Winning**: Victory conditions
-- **Strategy**: Tips and tactics
-- **Variants**: Popular rule alternatives
+Same process, but use `_card_games/` directory and `card-game-template`.
+
+### Content Schema
+
+Each game file must include:
+
+```yaml
+---
+title: Game Name
+lang: ca  # ca, es, or en
+players: "2-4"
+duration: "30-60 min"
+difficulty: Mitjà  # Fàcil, Mitjà, Difícil
+age_range: "10+"
+excerpt: "Brief description of the game"
+image: "https://example.com/game-image.jpg"
+layout: game  # or card-game
+---
+
+## Descripció General
+Overview and history...
+
+## Components del Joc
+List of components...
+
+## Objectiu del Joc
+How to win...
+
+## Preparació
+Setup instructions...
+
+## Com Jugar
+Gameplay rules...
+
+## Estratègies Recomanades
+Tips and tactics...
+
+## Variants Populars (optional)
+Rule variations...
+```
 
 ### Translation Guidelines
 
 - Maintain consistent terminology across languages
-- Use gender-neutral language when possible
+- Use gender-neutral language where possible
 - Adapt cultural references appropriately
-- Validate with native speakers when possible
-
-### Review Process
-
-1. Fork repository
-2. Create feature branch
-3. Implement changes
-4. Run validations
-5. Create Pull Request
-6. Review by maintainers
-
-## 🔧 Validation Scripts
-
-### Validate Translations
-
-```bash
-python3 scripts/validate-translations.py
-```
-
-This script checks:
-
-- Presence of all languages for each game
-- Required fields in each translation
-- Metadata consistency
-
-## 📊 Project Status
-
-### Available Games
-
-#### Board Games
-
-- [x] **Monopoly** - Complete in 3 languages
-- [x] **7 Wonders** - Complete in 3 languages
-- [x] **Catan** - Complete in 3 languages
-- [x] **Ticket to Ride** - Complete in 3 languages
-
-#### Card Games
-
-- [x] **Magic: The Gathering** - Complete in 3 languages
-
-### Planned Content
-
-#### Board Games
-
-- [ ] **Chess** - Planned
-- [ ] **Scrabble** - Planned
-- [ ] **Risk** - Planned
-
-#### Card Games
-
-- [ ] **Pokémon TCG** - Planned
-- [ ] **Yu-Gi-Oh!** - Planned
-- [ ] **Hearthstone** - Planned
-
-### Planned Features
-
-#### Phase 1 (Immediate)
-
-- [x] Content restructuring
-- [x] Proper multilingual URLs
-- [x] SEO optimizations
-- [x] Accessibility improvements
-
-#### Phase 2 (Medium-term)
-
-- [ ] Search functionality
-- [ ] Rating system
-- [ ] Printable rule sheets
-- [ ] Recommendation engine
-
-#### Phase 3 (Long-term)
-
-- [ ] Interactive tutorials
-- [ ] Video integration
-- [ ] Mobile app companion
-- [ ] Community translations
-
-## 📄 License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-## 🤝 Acknowledgments
-
-- **Joventuts Màgiques** - Maintaining organization
-- **Contributors** - Everyone who helped with translations and content
-- **Jekyll Community** - For excellent tools and documentation
-
-## 📞 Contact
-
-- **Issues**: [GitHub Issues](https://github.com/andyce/andyce.github.io/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/andyce/andyce.github.io/discussions)
-- **Email**: [contacte@joventutsmagiques.org](mailto:contacte@joventutsmagiques.org)
+- All three language versions are **required** before merging
 
 ---
 
-## Made with ❤️ by the board games community
+## 🛠️ Technical Details
+
+### Technology Stack
+
+| Component             | Technology                       |
+| --------------------- | -------------------------------- |
+| Static Site Generator | Jekyll 4.3.4                     |
+| Hosting               | GitHub Pages                     |
+| CSS                   | Custom CSS with CSS Grid/Flexbox |
+| JavaScript            | Vanilla ES6+                     |
+| Development           | Docker                           |
+
+### Key Features Implementation
+
+- **Language Switching**: Client-side with localStorage persistence
+- **Dark Mode**: CSS custom properties with `prefers-color-scheme` detection
+- **Accessibility**: Skip links, ARIA labels, focus indicators, reduced motion support
+- **SEO**: Structured data (JSON-LD), hreflang tags, Open Graph metadata
+- **Performance**: Lazy loading, skeleton screens, aspect ratio preservation
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Andy & Juan** - Project maintainers
+- **Contributors** - Everyone who helped with translations and content
+- **Jekyll Community** - For excellent documentation and tools
+
+---
+
+## 📞 Contact
+
+- **Issues**: [GitHub Issues](https://github.com/Joventuts-Magiques/Joventuts-Magiques.github.io/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Joventuts-Magiques/Joventuts-Magiques.github.io/discussions)
+
+---
+
+<p align="center">
+  Made with ❤️ by the board games community
+</p>
