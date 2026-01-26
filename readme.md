@@ -1,7 +1,7 @@
 # 🎲 Joventuts Màgiques - Board Games & Card Games Documentation
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?logo=github)](https://Joventuts-Magiques.github.io)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3.4-red?logo=jekyll)](https://jekyllrb.com/)
 [![Multilingual](https://img.shields.io/badge/Languages-CA%20|%20ES%20|%20EN-orange)](https://Joventuts-Magiques.github.io)
 
@@ -279,7 +279,19 @@ Rule variations...
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+
+[![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+You are free to:
+
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material for any purpose
+
+Under the following terms:
+
+- **Attribution** — You must give appropriate credit and indicate if changes were made
+- **ShareAlike** — If you remix or build upon the material, you must distribute under the same license
 
 ---
 

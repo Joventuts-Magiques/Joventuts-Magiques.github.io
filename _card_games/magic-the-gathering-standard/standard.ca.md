@@ -81,6 +81,7 @@ Cada torn segueix les fases estàndard de Magic:
 ### Sideboarding (Best of 3)
 
 Entre partides d'un match:
+
 1. Pots canviar fins a 15 cartes del teu deck amb cartes del sideboard
 2. El deck ha de mantenir el mínim de 60 cartes
 3. Ajusta l'estratègia segons el deck de l'oponent
