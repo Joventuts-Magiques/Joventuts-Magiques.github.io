@@ -255,21 +255,75 @@ jobs:
         security,
       ]
     if: always()
+    permissions:
+      pull-requests: write
 
     steps:
       - name: Generate summary
+        id: summary
         run: |
-          echo "## 🎲 CI Pipeline Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
-          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Pre-commit | ${{ needs.pre-commit.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Content Validation | ${{ needs.validate-content.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Jekyll Build | ${{ needs.build.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| HTML Validation | ${{ needs.html-validation.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Link Check | ${{ needs.link-check.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Accessibility | ${{ needs.accessibility.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Security Audit | ${{ needs.security.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |" >> $GITHUB_STEP_SUMMARY
+          # Build the summary content
+          SUMMARY="## 🎲 CI Pipeline Summary
+
+          | Check | Status |
+          |-------|--------|
+          | Pre-commit | ${{ needs.pre-commit.result == 'success' && '✅ Passed' || '❌ Failed' }} |
+          | Content Validation | ${{ needs.validate-content.result == 'success' && '✅ Passed' || '❌ Failed' }} |
+          | Jekyll Build | ${{ needs.build.result == 'success' && '✅ Passed' || '❌ Failed' }} |
+          | HTML Validation | ${{ needs.html-validation.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+          | Link Check | ${{ needs.link-check.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+          | Accessibility | ${{ needs.accessibility.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+          | Security Audit | ${{ needs.security.result == 'success' && '✅ Passed' || '⚠️ Warnings' }} |
+
+          **Legend:** ✅ Passed | ⚠️ Warnings (non-blocking) | ❌ Failed (blocking)
+
+          ---
+          <sub>🤖 This comment is automatically updated by CI</sub>"
+
+          # Write to step summary
+          echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
+
+          # Save for PR comment (escape for JSON)
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "comment<<$EOF" >> $GITHUB_OUTPUT
+          echo "$SUMMARY" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = `${{ steps.summary.outputs.comment }}`;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            // Find existing bot comment
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' &&
+              c.body.includes('🎲 CI Pipeline Summary')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
 
       - name: Fail if critical checks failed
         if: |
