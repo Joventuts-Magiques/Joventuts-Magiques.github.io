@@ -1,303 +1,223 @@
 ---
-title: Ticket to Ride
+title: "Aventureros al Tren Europa"
 lang: en
 players: 2-5
 duration: 30-60
-difficulty: Easy
+difficulty: Medium
 age_range: 8+
-excerpt: "Card collection and railway route building game to connect cities across North America."
+excerpt: "Build railway routes across Europe connecting legendary cities. With tunnels, ferries and stations, the railway adventure awaits you!"
 layout: game
+image: "https://i.imgur.com/RYT7Rfy.jpeg"
+video_url: "https://www.youtube.com/watch?v=difSEK9A6f0"
+video_credit: "Days of Wonder"
 ---
 
-## Overview
+## General Description
 
-Ticket to Ride is a railway route building game created by Alan R. Moon in 2004. Players collect train cards to claim railway routes connecting cities across North America. The goal is to complete destination routes while building the longest continuous railway network.
+Ticket to Ride: Europe is a railway strategy game created by Alan R. Moon. Players compete to build the most extensive train network connecting major European cities from the early 20th century. Collect train cards, claim routes, and complete your destination tickets to win.
 
 ## Game Components
 
-- **Game board** with North America map
-- **240 colored train cars** (48 per player in 5 colors)
-- **110 train cards** (12 of each color + 14 locomotives)
-- **30 destination cards**
+- **1 Board** with the map of Europe
+- **240 plastic train cars** (45 per player in 5 colors)
+- **15 train stations** (3 per player in 5 colors)
+- **110 train cards**:
+  - 12 of each color (8 colors)
+  - 14 locomotives (wildcards)
+- **46 regular destination tickets**
+- **6 long destination tickets** (long distance routes)
 - **5 wooden scoring markers**
-- **1 scoring track**
-- **Rules summary**
+- **1 European Express bonus card**
+- **1 rules summary**
 
 ## Game Objective
 
-Accumulate the maximum number of points by completing destination routes, building railway routes, and obtaining the longest continuous route.
+Score the maximum number of points at the end of the game. Points are earned by:
+
+- **Claiming routes** between cities
+- **Completing destination tickets** (connecting the indicated cities)
+- **Earning the European Express** (longest continuous route)
+- **Not using stations** (4 points for each unused station)
 
 ## Setup
 
 1. **Place the board** in the center of the table
-2. **Each player chooses a color** and takes 45 train cars and corresponding marker
-3. **Place markers** on 0 of the scoring track
-4. **Shuffle train cards** and deal 4 to each player
-5. **Place 5 train cards** face-up beside the board
-6. **Shuffle destination cards** and deal 3 to each player
-7. **Each player keeps at least 2** destination cards (may discard 1)
+2. **Each player chooses a color** and takes:
+   - 45 train cars
+   - 3 train stations
+   - 1 scoring marker (place it on "Start")
+3. **Shuffle the train cards** and deal 4 to each player
+4. **Place 5 train cards** face-up beside the board
+5. **Long destination tickets** (blue background):
+   - Shuffle and deal 1 to each player (mandatory to keep)
+6. **Regular destination tickets**:
+   - Shuffle and deal 3 to each player
+   - Each player must keep at least 2 (may discard 1)
+7. The youngest player goes first
 
 ## How to Play
 
-On your turn, you must do **one** of the following actions:
+On your turn, you must perform **one** of these actions:
 
 ### 1. Draw Train Cards
 
-- **Draw 2 cards** from the 5 face-up or from the deck
-- If you draw a **face-up locomotive**, you can only draw 1 card
-- Immediately refill face-up cards
+- Draw **2 cards** from the 5 face-up cards or from the deck
+- If you draw a **face-up locomotive**, that's the only card you can take (counts as 2)
+- Immediately replace face-up cards
+- If 3 or more locomotives appear face-up, discard all 5 and place 5 new ones
 
 ### 2. Claim a Route
 
-- **Play cards of the same color** equal to the route length
+To claim a route between two cities:
+
+- Play cards matching the **route's color** equal to its length
 - **Locomotives** can substitute any color
-- **Place your train cars** on the route
-- **Score points** according to route length
-- **Gray routes** can be claimed with any single color
+- **Gray routes** accept any color (but all must be the same)
+- Place your train cars on the route and score points immediately
 
-### 3. Draw Destination Cards
+**Scoring by route length:**
 
-- **Draw 3 destination cards** from the deck
-- **Keep at least 1** (may discard up to 2)
+- **1 car** — 1 point
+- **2 cars** — 2 points
+- **3 cars** — 4 points
+- **4 cars** — 7 points
+- **5 cars** — 10 points
+- **6 cars** — 15 points
 
-## Route Scoring
+**Double routes:**
 
-- **1 car**: 1 point
-- **2 cars**: 2 points
-- **3 cars**: 4 points
-- **4 cars**: 7 points
-- **5 cars**: 10 points
-- **6 cars**: 15 points
+- In 2-3 player games, only one of the two routes can be used
+- In 4-5 player games, each player can claim one
 
-## Game End
+### 3. Draw Destination Tickets
 
-The game ends when a player has **2 or fewer train cars** at the end of their turn. Each player gets one more turn.
+- Draw **3 tickets** from the deck
+- You must keep **at least 1** (may discard up to 2)
+- Tickets are kept secret until the end
+
+### 4. Build a Station
+
+Stations allow you to use another player's route to complete your destinations.
+
+**Building cost:**
+
+- **First station** — 1 card of any color
+- **Second station** — 2 cards of the same color
+- **Third station** — 3 cards of the same color
+
+**Station rules:**
+
+- Place the station in any city without your station
+- Allows you to use **one route** from another player connecting to that city
+- You can only use **one route per station**
+- **Unused stations** are worth 4 points at the end
+
+## Tunnels
+
+Tunnels add uncertainty to the construction cost.
+
+**Identification:**
+
+- Routes with **special borders** (mountain symbols) on the board
+
+**How they work:**
+
+1. Announce which tunnel you want to build
+2. Play the cards needed for the tunnel's length
+3. **Flip the top 3 cards** from the train deck
+4. For each card that **matches the color played** (or locomotive):
+   - You must pay **1 additional card** of the same color (or locomotive)
+5. If you can't or don't want to pay:
+   - Take back all cards
+   - Lose your turn (you cannot take another action)
+
+**Example:**
+
+- You want to build a 3-car green tunnel
+- You play 3 green cards
+- Cards revealed: 1 green, 1 blue, 1 locomotive
+- You must pay 2 extra green cards (1 for green + 1 for locomotive)
+- If you don't have them, take back everything and lose your turn
+
+## Ferries
+
+Ferries are maritime routes that require locomotives.
+
+**Identification:**
+
+- Routes with **water waves** on the board
+- Some spaces have **locomotive symbols**
+
+**How they work:**
+
+- For each **locomotive symbol** on the route, you must play **a locomotive** (mandatory)
+- The remaining spaces are paid with cards of the route's color
+
+**Example:**
+
+- A 4-space gray ferry with 2 locomotive symbols:
+  - 2 mandatory locomotives
+  - 2 cards of any color (same color between them)
+
+## End of Game
+
+The game ends when a player has **2 or fewer train cars** at the end of their turn.
+
+- Each player (including the one who triggered the end) plays **one more turn**
+- Then final scoring occurs
 
 ## Final Scoring
 
-1. **Route points**: Already scored during the game
-2. **Destination cards**:
-   - **Completed**: Add the indicated points
-   - **Incomplete**: Subtract the indicated points
-3. **Longest continuous route**: 10 bonus points (in case of tie, all tied players receive points)
+1. **Route points** — already scored during the game
+
+2. **Destination tickets:**
+   - **Completed** — add the indicated points
+   - **Not completed** — subtract the indicated points
+
+3. **Unused stations** — +4 points for each
+
+4. **European Express** — the player with the longest continuous route wins **10 bonus points**
+   - In case of a tie, all tied players receive the 10 points
+   - Stations do NOT count for calculating the longest route
+
+The player with the most points wins!
 
 ## Recommended Strategies
 
 ### Basic Strategies
 
-- **Prioritize destinations**: They're the biggest source of points
-- **Build long routes**: They give more points per car
-- **Block opponents**: Take routes others need
-- **Manage cards**: Don't hoard too many unused cards
+- **Prioritize your long ticket**: It sets your initial strategy
+- **Build critical routes first**: Those with only one option
+- **Accumulate locomotives**: Essential for ferries and useful in tunnels
+- **Don't ignore destination tickets**: They're the biggest point source
 
 ### Advanced Strategies
 
-- **Diversify destinations**: Don't depend on a single critical route
-- **Control bottlenecks**: 1-2 car routes are crucial
-- **Destination timing**: Draw new cards when you have secure routes
-- **Watch opponents**: Deduce their destinations from their moves
+- **Manage stations**: They're your insurance against blocking, but worth 4 points
+- **Have extra cards for tunnels**: The cost can increase
+- **Watch the ferries**: Plan which locomotives you need
+- **Observe rivals**: Deduce their destinations from their moves
 
 ### Risk Management
 
 - **Don't take impossible destinations**: Better to discard than lose points
-- **Build critical routes first**: Those with only one option
-- **Maintain flexibility**: Locomotives are valuable for emergencies
-
-## Game Variants
-
-### Double Routes
-
-- Only in 4-5 player games
-- Each player can claim one of two parallel routes
-- In 2-3 player games, only one double route can be used
-
-### Stations (Optional Variant)
-
-Some maps include stations that allow using other players' routes.
-
-## Ticket to Ride: Europe - Specific Rules
-
-The European version adds three new mechanics that make the game more strategic and complex:
-
-### Stations (3 per player)
-
-Stations allow you to use another player's route to complete your destinations.
-
-**How they work:**
-
-- Each player starts with **3 stations**
-- To build a station, **discard train cards**:
-  - First station: 1 card of any color
-  - Second station: 2 cards of the same color
-  - Third station: 3 cards of the same color
-- Place the station on **any city** on the board
-- You can use **one route** connecting to this city, even if it belongs to another player
-- You can only use **one route per station**
-
-**Scoring:**
-
-- Each **unused station** at the end: **4 bonus points**
-- Used stations: 0 points
-
-**Strategy:**
-
-- Use stations as **plan B** if you get blocked
-- Try **not to use them** to gain the 4 bonus points
-- Build stations **before you get blocked**
-
-### Tunnels
-
-Tunnels add uncertainty to the cost of building routes.
-
-**Identification:**
-
-- Routes marked with **mountain symbols** on the board
-
-**How they work:**
-
-1. Play the cards needed for the tunnel length
-2. **Flip the top 3 cards** from the train deck
-3. For each card that **matches the color** you played (or locomotive):
-   - You must **play 1 additional card** of the same color
-4. If you can't or don't want to pay the extra cost:
-   - **Take back all cards** played
-   - **Lose your turn**
-
-**Example:**
-
-- You want to build a 3-car blue tunnel
-- You play 3 blue cards
-- You flip 3 cards: 1 blue, 1 red, 1 locomotive
-- You must play **2 more blue cards** (1 for blue, 1 for locomotive)
-- If you don't have 2 blue cards, take back the 3 initial cards and lose your turn
-
-**Strategy:**
-
-- Tunnels are **riskier** than normal routes
-- Have **extra cards** before building a tunnel
-- **Locomotives** are especially useful for tunnels
-- Build tunnels **when you have card margin**
-
-### Ferries
-
-Ferries require locomotives to be built.
-
-**Identification:**
-
-- Routes with **ship symbols** on the board
-- Some route spaces have **locomotive symbols**
-
-**How they work:**
-
-- For each **locomotive symbol** on the route:
-  - You must **play a locomotive** (mandatory)
-- The remaining spaces can be filled with cards of the corresponding color
-
-**Example:**
-
-- A 4-car gray ferry with 2 locomotive symbols:
-  - You must play **2 locomotives**
-  - Plus **2 cards of the same color** (any color since it's gray)
-
-**Strategy:**
-
-- **Save locomotives** for ferries
-- Ferries are **more expensive** than normal routes
-- Plan ahead which ferries you need
-- Compete for **face-up locomotives** when you see them
-
-### Long Distance Destination Cards
-
-Europe includes **long distance** destination cards with higher scores.
-
-**Initial setup:**
-
-- Each player receives **1 long destination card** (mandatory)
-- Plus **3 normal destination cards** (keep at least 2)
-
-**Characteristics:**
-
-- Worth **more points** (up to 21 points)
-- Connect **very distant** cities
-- More **difficult to complete**
-- But offer **great reward**
-
-**Strategy:**
-
-- The long card **sets your initial strategy**
-- Build the **backbone** of the long route first
-- Then add **secondary destinations** that align
-- Don't take more long cards if you don't have a clear route
-
-### Component Differences
-
-**Europe includes:**
-
-- **Europe board** with 46 cities
-- **15 stations** (3 per player in 5 colors)
-- **Tunnels** marked on the board
-- **Ferries** marked on the board
-- **Long destination cards** separated
-- **More destination cards** total (46 vs 30)
-
-### Specific Tips for Europe
-
-1. **Manage stations**: They're your insurance against blocking
-2. **Plan tunnels**: Always have extra cards
-3. **Accumulate locomotives**: Needed for ferries and useful for tunnels
-4. **Alternative routes**: Europe has more path options
-5. **Long destinations**: Can win or lose the game
-6. **Strategic blocking**: Bottlenecks are more critical
-7. **Station timing**: Build them before it's too late
-
-### Comparison: America vs Europe
-
-**America (Original):**
-
-- More **simple** and **straightforward**
-- Better for **beginners**
-- Less **randomness**
-- **Faster** games
-
-**Europe:**
-
-- More **strategic** and **complex**
-- Better for **experienced players**
-- More **interaction** and **decisions**
-- **Longer** and more **tactical** games
-- **Stations** reduce blocking frustration
-- **Tunnels and ferries** add uncertainty and planning
+- **Build stations before getting blocked**: Don't wait until the last moment
+- **Control bottlenecks**: 1-2 car routes are critical
 
 ## Tips for Beginners
 
-1. **Start with short destinations**: They're easier to complete
-2. **Don't hoard too many cards**: Build regularly
-3. **Study the board**: Identify the most contested routes
-4. **Use locomotives wisely**: They're very versatile
-5. **Don't forget longest route**: 10 points can decide the game
-
-## Variants and Expansions
-
-### Ticket to Ride: Europe
-
-- Adds tunnels, ferries, and stations
-- More complex and strategic mechanics
-
-### Ticket to Ride: Nordic Countries
-
-- Designed specifically for 2-3 players
-- Nordic countries map
-
-### Ticket to Ride: First Journey
-
-- Simplified version for children and families
+1. **Start with your long ticket**: Build its backbone first
+2. **Balance building and cards**: Don't hoard too many unused cards
+3. **Use stations as plan B**: But try not to use them to earn the 4 points
+4. **Watch remaining cars**: The end comes quickly
+5. **Don't forget the longest route**: 10 points can decide the game
 
 ## History and Fun Facts
 
-- Created by **Alan R. Moon** in 2004
-- Winner of **Spiel des Jahres** in 2004
-- Inspired by the novel **"Around the World in 80 Days"**
-- Over **8 million** copies sold worldwide
-- Available in more than **25 languages**
+- Created by **Alan R. Moon**
+- Published by **Days of Wonder** in 2005
+- Standalone version of the original Ticket to Ride (America, 2004)
+- The original won the **Spiel des Jahres** in 2004
+- Over **8 million** copies sold across the entire franchise
 - Considered one of the best modern **family games**
-- Has spawned over **15 different variants** and expansions
+- Europe adds mechanics that make the game more strategic
