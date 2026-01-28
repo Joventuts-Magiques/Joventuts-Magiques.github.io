@@ -2,190 +2,127 @@
 title: MANTIS
 lang: es
 players: 2-6
-duration: 10-15
+duration: 10
 difficulty: Fácil
 age_range: 7+
-excerpt: "Juego de cartas rápido y divertido donde debes coleccionar mantis religiosas mientras robas cartas de otros jugadores."
+excerpt: "Juego de cartas rápido donde debes decidir si puntuar o hurtar cartas de tus rivales. ¡Acumula 10 cartas en tu pila de puntuación para ganar!"
 layout: game
-image: "https://explodingkittens.com/cdn/shop/files/MANTIS_3D_Box_1024x1024.png"
+image: "https://i.imgur.com/hb4nfpg.jpeg"
+video_url: "https://www.youtube.com/watch?v=EJIE38vi7-s"
+video_credit: "Zacatrus"
 ---
 
 ## Descripción General
 
-MANTIS es un juego de cartas colorido y rápido creado por Exploding Kittens. Los jugadores coleccionan mantis religiosas de diferentes colores mientras intentan robar cartas de los oponentes. ¡El primer jugador en coleccionar 10 cartas de mantis gana!
+MANTIS es un juego de cartas rápido y colorido creado por Ken Gruhl y Jeremy Posner, publicado por Exploding Kittens en 2022. Cada turno debes tomar una decisión crucial: intentar puntuar para ti mismo o arriesgarte a hurtar cartas de tus rivales. El sistema de colores de las cartas te da pistas sobre qué puede salir, ¡pero nunca lo sabrás con certeza hasta que gires la carta!
 
 ## Componentes del Juego
 
-- **40 cartas de Mantis** (10 de cada color: verde, azul, naranja, rosa)
-- **10 cartas de Acción**
-- **Reglas**
+- **105 cartas** (7 colores diferentes, 15 cartas de cada color)
+
+Cada carta tiene dos caras:
+- **Anverso (cara blanca)**: Muestra un personaje de un solo color
+- **Reverso (cara negra)**: Muestra tres colores diferentes
+
+**Importante**: El color del personaje del anverso siempre es uno de los tres colores que aparecen en el reverso de esa misma carta.
 
 ## Objetivo del Juego
 
-Ser el primer jugador en tener **10 cartas de Mantis** en tu territorio (área de juego frente a ti).
+Ser el primer jugador en acumular **10 o más cartas** en tu pila de puntuación. El color de las cartas es irrelevante para ganar.
 
 ## Preparación
 
-1. **Baraja todas las cartas**
-2. **Reparte 5 cartas** a cada jugador
-3. **Coloca el mazo** en el centro boca abajo
-4. **El jugador más joven** comienza
+1. **Baraja todas las cartas** del mazo
+2. **Reparte 4 cartas boca arriba** (cara blanca) a cada jugador. Esta colección de cartas es su **Tanque**
+3. Si tienes varias cartas del mismo color en el Tanque, apílalas ligeramente en abanico para ver cuántas hay
+4. **Coloca el resto del mazo boca abajo** (cara negra) en el centro de la mesa. Esta es la **Pila de Robo**
+5. Deja espacio delante de cada jugador para su **Pila de Puntuación**
+6. Elige un jugador para empezar. El juego continúa en sentido horario
 
 ## Cómo Jugar
 
-En tu turno, haz **una** de las siguientes acciones:
+### Tu Turno
 
-### 1. Jugar una Carta de Mantis
+Cuando llegue tu turno, **NO TOQUES** la carta superior de la pila de robo hasta que hayas decidido qué acción harás:
 
-- **Juega 1 carta de Mantis** de tu color en tu territorio
-- Si ya tienes mantis de ese color, colócala al lado
-- **Roba 1 carta** del mazo
+### Opción 1: Intentar Puntuar
 
-### 2. Robar Mantis (Steal)
+1. Coge la carta superior de la pila de robo
+2. Gírala en **tu Tanque**
+3. **Si el color coincide** con algún personaje que ya tienes en el Tanque:
+   - Mueve **todas** las cartas de ese color (incluida la nueva) a tu **Pila de Puntuación**
+4. **Si no coincide**:
+   - Deja la carta en tu Tanque
+5. Tu turno termina
 
-- **Juega 2 cartas de Mantis del mismo color** de tu mano
-- **Roba todas las mantis de ese color** del territorio de un oponente
-- **Añádelas a tu territorio**
-- **Descarta las 2 cartas** que jugaste
-- **Roba 2 cartas** del mazo
+**Nota**: ¡Intentar puntuar es la **única manera** de mover cartas a tu pila de puntuación!
 
-### 3. Jugar una Carta de Acción
+### Opción 2: Intentar Hurtar
 
-- **Juega 1 carta de Acción** y sigue las instrucciones
-- **Roba 1 carta** del mazo
+1. Coge la carta superior de la pila de robo
+2. Gírala en el **Tanque de otro jugador**
+3. **Si el color coincide** con algún personaje de su Tanque:
+   - Mueve **todas** las cartas de ese color (incluida la nueva) a **tu Tanque**
+4. **Si no coincide**:
+   - Deja la carta en el Tanque de ese jugador
+5. Tu turno termina
 
-## Cartas de Acción
+**Importante**: ¡Las cartas hurtadas van a tu **Tanque**, NO a tu pila de puntuación!
 
-### Hatch (Eclosionar)
+### Consejo Estratégico
 
-- **Roba 3 cartas** del mazo
+Como sabes que el color del anverso será uno de los tres colores del reverso, puedes mirar la cara negra de la carta superior antes de decidir si quieres puntuar o hurtar (y a quién).
 
-### Swarm (Enjambre)
+## Final del Juego
 
-- **Todos los jugadores** pasan todas sus cartas de mano al jugador de su izquierda
+### Condición de Victoria
 
-### Mantis Trap (Trampa de Mantis)
+El primer jugador en acumular **10 o más cartas** en su pila de puntuación **gana inmediatamente**.
 
-- **Elige un color**
-- **Todos los jugadores** deben darte todas las cartas de ese color de sus manos
+### Si Se Acaban las Cartas
 
-### Spy (Espiar)
+- Si no tienes cartas en el Tanque, simplemente sigue jugando e intenta conseguir algunas en tu próximo turno
+- Si la pila de robo se agota, gana el jugador con más cartas en su pila de puntuación
+- En caso de empate, gana quien tenga más cartas en su Tanque
 
-- **Mira la mano** de un jugador
-- **Roba 1 carta** de su mano
+### Pila de Puntuación
 
-### Ambush (Emboscada)
+- Las cartas de la pila de puntuación deben estar **boca abajo** (cara negra)
+- Debes decir el **número de cartas** (pero no los colores) si algún jugador te lo pregunta
 
-- **Roba inmediatamente** cuando otro jugador intente robarte mantis
-- **Cancela el robo**
-- **Tú robas sus mantis** en su lugar
+## Variantes Populares
 
-## Estrategias
+### Partidas de 2 Jugadores
+
+- El objetivo cambia a acumular **15 cartas** en lugar de 10
+- Si hurtas con éxito, **juegas otro turno**
+- Puedes encadenar turnos mientras sigas hurtando con éxito
+
+## Estrategias Recomendadas
 
 ### Estrategias Básicas
 
-1. **Diversifica los colores**: No te concentres en un solo color
-2. **Guarda parejas**: Para poder robar cuando sea necesario
-3. **Observa a los oponentes**: Recuerda qué colores tienen
-4. **Usa las acciones sabiamente**: En el momento adecuado
-5. **Protege tus mantis**: No hagas colecciones grandes demasiado pronto
+- **Observa los Tanques rivales**: Mira qué colores tienen acumulados para decidir si vale la pena hurtar
+- **Calcula las probabilidades**: El reverso muestra 3 colores posibles, tienes un 33% de probabilidades por cada uno
+- **Equilibra riesgo y recompensa**: Hurtar puede darte muchas cartas, pero si fallas se las regalas al rival
 
 ### Estrategias Avanzadas
 
-1. **Bluff**: Haz creer que tienes cartas que no tienes
-2. **Timing de robo**: Roba cuando los oponentes tengan muchas mantis
-3. **Gestión de mano**: Mantén opciones abiertas
-4. **Defensa con Ambush**: Guárdala para momentos críticos
-5. **Controla el ritmo**: Acelera o ralentiza según te convenga
+- **Puntúa cuando tengas pocos colores**: Menos colores en tu Tanque = más probabilidad de coincidir
+- **Hurta cuando los rivales tengan muchas cartas de un color**: La recompensa potencial es mayor
+- **Vigila las pilas de puntuación**: Sabe quién está cerca de ganar para decidir si arriesgar
 
 ## Consejos para Principiantes
 
-1. **Comienza simple**: Juega mantis y roba cartas
-2. **No acumules demasiado**: Puedes ser objetivo de robos
-3. **Usa las acciones**: No las guardes demasiado tiempo
-4. **Observa el mazo**: Cuántas cartas quedan
-5. **Diviértete**: Es un juego rápido y caótico
+1. **Entiende la diferencia entre Tanque y Pila de Puntuación**: Solo las cartas de la pila de puntuación cuentan para ganar
+2. **No olvides que hurtar no puntúa directamente**: Las cartas hurtadas van a tu Tanque, luego tendrás que puntuarlas
+3. **Mira siempre el reverso antes de decidir**: Te da información valiosa sobre los colores posibles
+4. **Empieza intentando puntuar**: Es más seguro mientras aprendes el juego
 
-## Variantes
+## Historia y Curiosidades
 
-### Variante Rápida
-
-- Primero en conseguir **7 cartas de Mantis** gana
-- Partidas de 5-10 minutos
-
-### Variante Equipos
-
-- Juega en parejas
-- Los equipos comparten territorio
-- Primer equipo en **15 mantis** gana
-
-### Variante Caos
-
-- Juega con **2 mazos mezclados**
-- Más cartas, más caos
-- Primero en **20 mantis** gana
-
-## Reglas Especiales
-
-### Robo Simultáneo
-
-- Si dos jugadores intentan robar el mismo color simultáneamente
-- El jugador más cercano al turno actual tiene prioridad
-
-### Ambush Timing
-
-- Puedes jugar Ambush **solo** cuando alguien intente robarte
-- Debes jugarla **antes** de que tomen tus cartas
-- Si tienes múltiples Ambush, solo puedes jugar una
-
-### Final del Juego
-
-- El juego termina **inmediatamente** cuando alguien llega a 10 mantis
-- No importa de qué jugadores las robó
-
-## Historia
-
-- **Creado por Exploding Kittens** (creadores de Exploding Kittens)
-- **Lanzado en 2019**
-- **Diseñado para ser rápido** y accesible
-- **Ilustraciones coloridas** y divertidas
-- **Muy popular** en convenciones y eventos
-
-## Por Qué Es Divertido
-
-- **Partidas rápidas**: 10-15 minutos
-- **Fácil de aprender**: Reglas simples
-- **Muy interactivo**: Constantemente robas a otros
-- **Portátil**: Pequeño y fácil de llevar
-- **Rejugabilidad alta**: Cada partida es diferente
-- **Buen juego familiar**: Todas las edades pueden jugar
-
-## Comparación con Otros Juegos
-
-**vs Exploding Kittens:**
-
-- Más simple y rápido
-- Menos eliminación de jugadores
-- Más colección que supervivencia
-
-**vs Sushi Go:**
-
-- Más interacción directa
-- Menos estrategia de draft
-- Más caótico e impredecible
-
-## Curiosidades
-
-- El nombre viene de la **mantis religiosa**, un insecto conocido por su agresividad
-- Las ilustraciones son **deliberadamente coloridas** para atraer jugadores jóvenes
-- Es uno de los juegos más **vendidos** de Exploding Kittens después de su juego principal
-- Disponible en **múltiples idiomas**
-- Tiene una **comunidad activa** en línea
-
-## Consejos Finales
-
-1. **No te tomes el juego demasiado en serio**: Es caótico por diseño
-2. **Celebra los robos**: Forma parte de la diversión
-3. **Juega múltiples rondas**: Las partidas son cortas
-4. **Experimenta con variantes**: Añade tus propias reglas
-5. **Perfecto para calentar**: Antes de juegos más largos
+- **Diseñado por Ken Gruhl y Jeremy Posner**
+- **Publicado por Exploding Kittens** en 2022
+- El nombre hace referencia a la **mantis religiosa**, un insecto conocido por su agresividad y por "robar" a sus presas
+- Las ilustraciones coloridas y el diseño sencillo lo hacen perfecto para todas las edades
+- Parte de la línea de juegos rápidos y accesibles de Exploding Kittens

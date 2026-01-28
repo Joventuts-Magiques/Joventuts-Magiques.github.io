@@ -2,172 +2,115 @@
 title: Pelusas
 lang: en
 players: 2-6
-duration: 15-20
+duration: 20
 difficulty: Easy
-age_range: 6+
-excerpt: "Fast and fun card game where you collect adorable plushies while avoiding dust bunnies!"
+age_range: 8+
+excerpt: "Push-your-luck card game where you collect dust bunnies without repeating numbers. But watch out, other players can steal your cards!"
 layout: game
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Stuffed_animals.jpg/320px-Stuffed_animals.jpg"
+image: "https://i.imgur.com/b1xVfqF.jpeg"
 ---
 
-## Overview
+## General Description
 
-Pelusas is a family-friendly and fun card game where players collect plushies of different colors while trying to avoid accumulating too many dust bunnies. It's fast, simple, and perfect for all ages!
+Pelusas is a quick and simple push-your-luck card game. Players collect cards from a central pile representing dust bunnies, trying to accumulate the most points without repeating numbers. The twist is that your cards stay visible and other players can steal them!
 
-## Components
+## Game Components
 
-- **60 Plushie cards** (6 different colors)
-- **15 Dust Bunny cards**
-- **5 Special Action cards**
-- **Rules**
+- **110 cards** numbered from 1 to 10:
+  - Numbers 1-5: **13 cards** each
+  - Numbers 6-10: **9 cards** each
 
-## Objective
+## Game Objective
 
-Be the player with the most plushies at the end of the game, avoiding dust bunnies that subtract points.
+Accumulate the most victory points by the time the central pile runs out.
 
 ## Setup
 
-1. **Shuffle all cards**
-2. **Deal 5 cards** to each player
-3. **Place the deck** in the center face-down
-4. **Create a discard pile** next to it
+1. **Shuffle all cards** and place them face-down in a messy pile in the center of the table - these are the "dust bunnies"
+2. The player with the most dust bunnies under their bed goes first (or the youngest)
 
 ## How to Play
 
-On your turn:
+### Your Turn
 
-1. **Draw 1 card** from the deck or discard pile
-2. **Play 1 or more cards**:
-   - **Plushies of the same color**: Place them in front of you
-   - **Action Card**: Apply the effect
-3. **Discard 1 card** if you want
+**Step 1: Collect saved cards**
+- If you have cards saved from the previous turn (face-down), flip them and add them to your **scoring pile** - they're now safe points!
 
-## Card Types
+**Step 2: Draw cards**
+- Draw cards **one at a time** from the central pile
+- Place each card **face-up** in front of you, organized by number
+- The **first two cards** are always safe
 
-### Plushies (10 of each color)
+**Step 3: Decide - Continue or Stop?**
 
-- **Blue**: Cat plushie
-- **Pink**: Bear plushie
-- **Yellow**: Chick plushie
-- **Green**: Frog plushie
-- **Orange**: Fox plushie
-- **Purple**: Rabbit plushie
+After each card (starting from the third), decide:
 
-### Dust Bunnies
+**If you continue drawing:**
+- If the card **DOESN'T repeat** any number you already have → add it to your visible cards
+- If the card **DOES repeat** a number → you **LOSE ALL** cards from this turn! (they go to discard)
 
-- **Value**: -2 points each
-- **Effect**: Accumulate in your territory
-- **How to avoid**: Use action cards
+**If you stop:**
+- Flip your cards in front of you **face-down**
+- These cards stay saved until your next turn
+- At the start of your next turn, you'll add them to your scoring pile
 
-### Action Cards
+### Stealing Cards from Rivals
 
-**Vacuum** 🧹
+This is where the game gets interesting!
 
-- Remove all your dust bunnies
-- Discard them from the game
+When you reveal a card, look at other players' **visible** cards:
+- If your number **matches** visible cards from a rival, you **steal ALL** their cards of that number
+- Stolen cards are added to your visible cards (of the same number)
+- Watch out! Now you have more visible cards that can be stolen from you!
 
-**Swap** 🔄
+**Example**: You reveal a 4. Maria has two visible 4s. You steal both 4s and now have three 4s in front of you.
 
-- Exchange 2 cards with another player
-- You can give dust bunnies!
+## End of Game
 
-**Protection** 🛡️
+The game ends when the central pile runs out of cards.
 
-- Block the next dust bunny
-- Save it until you need it
+### Scoring
 
-**Duplication** ✨
+- Each card in your **scoring pile** is worth **1 point** (the number doesn't matter, only the quantity)
+- The player with the most points wins!
 
-- Duplicate a plushie you have
-- Add one more of the same color
+### Tiebreaker
 
-**General Cleaning** 💨
+In case of a tie, the player with the highest numbered card in their scoring pile wins.
 
-- All players discard their dust bunnies
-
-## Scoring
-
-### Plushies
-
-- **3 of the same color**: 5 points
-- **4 of the same color**: 10 points
-- **5 of the same color**: 15 points
-- **6+ of the same color**: 20 points
-- **Single plushies**: 1 point each
-
-### Dust Bunnies
-
-- **Each dust bunny**: -2 points
-
-### Bonuses
-
-- **Most plushies of one color**: +5 extra points
-- **All colors**: +10 extra points
-- **No dust bunnies**: +5 extra points
-
-## Strategies
+## Recommended Strategies
 
 ### Basic Strategies
 
-1. **Collect colors**: Try to make large collections
-2. **Avoid dust bunnies**: Use the vacuum when needed
-3. **Save actions**: For critical moments
-4. **Watch opponents**: What they're collecting
+- **Stop before having too many different numbers**: The more numbers you have, the higher the chance of repeating
+- **High numbers are safer**: There are fewer cards of 6-10 (only 9 of each)
+- **Take advantage of stealing**: If you see a rival with many cards of one number, try to draw it!
 
 ### Advanced Strategies
 
-1. **Give dust bunnies**: Use swap strategically
-2. **Diversify**: Don't focus on just one color
-3. **Protection timing**: Use it when it matters most
-4. **Control discard pile**: Take useful cards
-
-## Game End
-
-The game ends when:
-
-- **The deck runs out** completely
-- **A player reaches 50 points**
-
-Count points and the player with the most points wins!
-
-## Variants
-
-### Quick Variant
-
-- Play until the deck runs out once
-- 10-minute games
-
-### Team Variant
-
-- Play in pairs
-- Teams share points
-- First team to 75 points wins
-
-### Chaos Variant
-
-- Add more dust bunnies to the deck
-- More difficult and unpredictable
+- **Count the cards**: If you remember which numbers have come out, you can better calculate the risk
+- **Provoke rivals**: Accumulate few visible cards to avoid being an attractive target
+- **Timing your stops**: Sometimes it's worth stopping with 3-4 cards to secure points
+- **End game**: When few cards remain, take more risks!
 
 ## Tips for Beginners
 
-1. **Don't hoard too many cards**: Play regularly
-2. **The vacuum is valuable**: Don't waste it
-3. **Watch the discard pile**: You can take useful cards
-4. **Have fun**: It's a light and cheerful game
-5. **Play fast**: Games are short
+1. **The first two are free**: You can always draw two cards without danger
+2. **Don't be too greedy**: 4-5 cards is often a good amount to save
+3. **Watch the others**: Rivals' visible cards give you information about what's left
+4. **Stealing changes everything**: A stolen card can be the difference between winning and losing
 
 ## Why It's Fun
 
-- **Super fast**: 15-20 minutes
-- **Easy to learn**: Simple rules
-- **Adorable theme**: Plushies and cleaning
-- **Interactive**: You can give dust bunnies to others
-- **Family-friendly**: Perfect for kids and adults
-- **Portable**: Small and easy to carry
+- **Fast**: 20-minute games
+- **Easy to learn**: Very simple rules
+- **Constant tension**: Every card could be good or bad
+- **Interactive**: Stealing creates very fun moments
+- **For everyone**: Perfect for families and diverse groups
 
-## Fun Facts
+## History and Fun Facts
 
-- Plushies are designed to be **adorable** and attract young players
-- The game teaches **resource management** in a fun way
-- Perfect as a **warm-up game** before more complex games
-- Dust bunnies add an element of **risk and reward**
+- The name "Pelusas" refers to dust bunnies that accumulate under furniture
+- It's an excellent example of a "push-your-luck" game - you always want one more card!
+- Games are short and addictive, perfect for playing several in a row
+- The stealing system adds a strategic layer that differentiates it from similar games

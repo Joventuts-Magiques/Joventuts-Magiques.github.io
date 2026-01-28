@@ -2,172 +2,117 @@
 title: Pelusas
 lang: es
 players: 2-6
-duration: 15-20
+duration: 20
 difficulty: Fácil
-age_range: 6+
-excerpt: "Juego de cartas rápido y divertido donde debes coleccionar peluches adorables mientras evitas las bolas de polvo!"
+age_range: 8+
+excerpt: "Juego de cartas push-your-luck donde debes recoger pelusas sin repetir números. ¡Pero cuidado, los demás jugadores pueden robarte las cartas!"
 layout: game
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Stuffed_animals.jpg/320px-Stuffed_animals.jpg"
+image: "https://i.imgur.com/b1xVfqF.jpeg"
+video_url: "https://www.youtube.com/watch?v=-dkeGwyNfoE"
+video_credit: "Unna"
 ---
 
 ## Descripción General
 
-Pelusas es un juego de cartas familiar y divertido donde los jugadores coleccionan peluches de diferentes colores mientras intentan evitar acumular demasiadas bolas de polvo. Es rápido, sencillo y perfecto para todas las edades!
+Pelusas es un juego de cartas rápido y sencillo de la mecánica "push-your-luck" (arriésgate o para). Los jugadores recogen cartas de una pila central que representan pelusas, intentando acumular el máximo de puntos sin repetir números. ¡La gracia es que las cartas quedan visibles y los demás jugadores pueden robártelas!
 
-## Componentes
+## Componentes del Juego
 
-- **60 cartas de Peluches** (6 colores diferentes)
-- **15 cartas de Bola de Polvo**
-- **5 cartas de Acción Especial**
-- **Reglas**
+- **110 cartas** numeradas del 1 al 10:
+  - Números 1-5: **13 cartas** de cada
+  - Números 6-10: **9 cartas** de cada
 
-## Objetivo
+## Objetivo del Juego
 
-Ser el jugador con más peluches al final de la partida, evitando las bolas de polvo que restan puntos.
+Acumular el máximo de puntos de victoria cuando se acaben las cartas del centro.
 
 ## Preparación
 
-1. **Baraja todas las cartas**
-2. **Reparte 5 cartas** a cada jugador
-3. **Coloca el mazo** en el centro boca abajo
-4. **Crea una pila de descarte** al lado
+1. **Baraja todas las cartas** y colócalas boca abajo en una pila desordenada en el centro de la mesa - estas son las "pelusas"
+2. El jugador que tenga más pelusas bajo la cama empieza (o el más joven)
 
 ## Cómo Jugar
 
-En tu turno:
+### Tu Turno
 
-1. **Roba 1 carta** del mazo o de la pila de descarte
-2. **Juega 1 o más cartas**:
-   - **Peluches del mismo color**: Colócalos frente a ti
-   - **Carta de Acción**: Aplica el efecto
-3. **Descarta 1 carta** si quieres
+**Paso 1: Recoge las cartas guardadas**
+- Si tienes cartas guardadas del turno anterior (boca abajo), gíralas y añádelas a tu **pila de puntuación** - ¡ahora son puntos seguros!
 
-## Tipos de Cartas
+**Paso 2: Roba cartas**
+- Roba cartas **una a una** de la pila central
+- Coloca cada carta **boca arriba** delante de ti, organizadas por número
+- Las **dos primeras cartas** son siempre seguras
 
-### Peluches (10 de cada color)
+**Paso 3: Decide - ¿Continuar o Parar?**
 
-- **Azul**: Peluche de gato
-- **Rosa**: Peluche de oso
-- **Amarillo**: Peluche de pollito
-- **Verde**: Peluche de rana
-- **Naranja**: Peluche de zorro
-- **Morado**: Peluche de conejo
+Después de cada carta (a partir de la tercera), decide:
 
-### Bolas de Polvo
+**Si continúas robando:**
+- Si la carta **NO repite** ningún número que ya tienes → añádela a tus cartas visibles
+- Si la carta **SÍ repite** un número → ¡**PIERDES TODAS** las cartas de este turno! (van al descarte)
 
-- **Valor**: -2 puntos cada una
-- **Efecto**: Se acumulan en tu territorio
-- **Cómo evitarlas**: Usa cartas de acción
+**Si paras:**
+- Gira las cartas que tienes delante **boca abajo**
+- Estas cartas quedan guardadas hasta tu próximo turno
+- Al empezar el próximo turno, las sumarás a tu pila de puntuación
 
-### Cartas de Acción
+### Robar Cartas de los Rivales
 
-**Aspiradora** 🧹
+¡Aquí es donde el juego se pone interesante!
 
-- Elimina todas tus bolas de polvo
-- Descártalas de la partida
+Cuando revelas una carta, mira las cartas **visibles** de los demás jugadores:
+- Si tu número **coincide** con cartas visibles de un rival, le **robas TODAS** las cartas de ese número
+- Las cartas robadas se añaden a tus cartas visibles (del mismo número)
+- ¡Cuidado! Ahora tú tienes más cartas visibles que te pueden robar
 
-**Intercambio** 🔄
-
-- Intercambia 2 cartas con otro jugador
-- ¡Puedes dar bolas de polvo!
-
-**Protección** 🛡️
-
-- Bloquea la próxima bola de polvo
-- Guárdala hasta que la necesites
-
-**Duplicación** ✨
-
-- Duplica un peluche que tengas
-- Añade uno más del mismo color
-
-**Limpieza General** 💨
-
-- Todos los jugadores descartan sus bolas de polvo
-
-## Puntuación
-
-### Peluches
-
-- **3 del mismo color**: 5 puntos
-- **4 del mismo color**: 10 puntos
-- **5 del mismo color**: 15 puntos
-- **6+ del mismo color**: 20 puntos
-- **Peluches sueltos**: 1 punto cada uno
-
-### Bolas de Polvo
-
-- **Cada bola de polvo**: -2 puntos
-
-### Bonificaciones
-
-- **Más peluches de un color**: +5 puntos extra
-- **Todos los colores**: +10 puntos extra
-- **Ninguna bola de polvo**: +5 puntos extra
-
-## Estrategias
-
-### Estrategias Básicas
-
-1. **Colecciona colores**: Intenta hacer colecciones grandes
-2. **Evita bolas de polvo**: Usa la aspiradora cuando sea necesario
-3. **Guarda acciones**: Para momentos críticos
-4. **Observa a los oponentes**: Qué están coleccionando
-
-### Estrategias Avanzadas
-
-1. **Da bolas de polvo**: Usa el intercambio estratégicamente
-2. **Diversifica**: No te concentres en un solo color
-3. **Timing de protección**: Úsala cuando más importe
-4. **Controla la pila de descarte**: Toma cartas útiles
+**Ejemplo**: Revelas un 4. María tiene dos 4 visibles. Le robas los dos 4 y ahora tienes tres 4 delante de ti.
 
 ## Final del Juego
 
-El juego termina cuando:
+El juego termina cuando se agota la pila central de cartas.
 
-- **El mazo se agota** completamente
-- **Un jugador llega a 50 puntos**
+### Puntuación
 
-¡Contad los puntos y el jugador con más puntos gana!
+- Cada carta en tu **pila de puntuación** vale **1 punto** (el número no importa, solo la cantidad)
+- ¡El jugador con más puntos gana!
 
-## Variantes
+### Desempate
 
-### Variante Rápida
+En caso de empate, gana quien tenga la carta con el número más alto en su pila de puntuación.
 
-- Juega hasta que el mazo se agote una vez
-- Partidas de 10 minutos
+## Estrategias Recomendadas
 
-### Variante Equipos
+### Estrategias Básicas
 
-- Juega en parejas
-- Los equipos comparten puntos
-- Primer equipo en 75 puntos gana
+- **Para antes de tener demasiados números diferentes**: Cuantos más números tengas, más probabilidad de repetir
+- **Los números altos son más seguros**: Hay menos cartas de 6-10 (solo 9 de cada)
+- **Aprovecha para robar**: Si ves un rival con muchas cartas de un número, ¡intenta sacarlo!
 
-### Variante Caos
+### Estrategias Avanzadas
 
-- Añade más bolas de polvo al mazo
-- Más difícil e impredecible
+- **Cuenta las cartas**: Si recuerdas qué números han salido, puedes calcular mejor el riesgo
+- **Provoca a los rivales**: Acumula pocas cartas visibles para no ser un objetivo atractivo
+- **Timing de parar**: A veces vale la pena parar con 3-4 cartas para asegurar puntos
+- **Final de partida**: Cuando quedan pocas cartas, ¡arriesga más!
 
 ## Consejos para Principiantes
 
-1. **No acumules demasiadas cartas**: Juega regularmente
-2. **La aspiradora es valiosa**: No la malgastes
-3. **Mira la pila de descarte**: Puedes tomar cartas útiles
-4. **Diviértete**: Es un juego ligero y alegre
-5. **Juega rápido**: Las partidas son cortas
+1. **Las dos primeras son gratis**: Siempre puedes robar dos cartas sin peligro
+2. **No seas demasiado codicioso**: 4-5 cartas es a menudo una buena cantidad para guardar
+3. **Vigila a los demás**: Las cartas visibles de los rivales te dan información sobre qué queda
+4. **El robo lo cambia todo**: Una carta robada puede ser la diferencia entre ganar y perder
 
 ## Por Qué Es Divertido
 
-- **Súper rápido**: 15-20 minutos
-- **Fácil de aprender**: Reglas simples
-- **Temática adorable**: Peluches y limpieza
-- **Interactivo**: Puedes dar bolas de polvo a otros
-- **Familiar**: Perfecto para niños y adultos
-- **Portátil**: Pequeño y fácil de llevar
+- **Rápido**: Partidas de 20 minutos
+- **Fácil de aprender**: Reglas muy simples
+- **Tensión constante**: Cada carta puede ser la buena o la mala
+- **Interactivo**: Los robos crean momentos muy divertidos
+- **Para todos**: Perfecto para familias y grupos diversos
 
-## Curiosidades
+## Historia y Curiosidades
 
-- Los peluches están diseñados para ser **adorables** y atraer jugadores jóvenes
-- El juego enseña **gestión de recursos** de manera divertida
-- Perfecto como **juego de calentamiento** antes de juegos más complejos
-- Las bolas de polvo añaden un elemento de **riesgo y recompensa**
+- El nombre "Pelusas" hace referencia a las bolas de polvo que se acumulan bajo los muebles
+- Es un excelente ejemplo de juego "push-your-luck" - ¡siempre quieres una carta más!
+- Las partidas son cortas y adictivas, perfectas para encadenar varias
+- El sistema de robo añade una capa estratégica que lo diferencia de otros juegos similares
