@@ -35,23 +35,23 @@ Acumular el máximo de puntos de victoria cuando se acaben las cartas del centro
 
 ### Tu Turno
 
-**Paso 1: Recoge las cartas guardadas**
+#### Paso 1: Recoge las cartas guardadas
 - Si tienes cartas guardadas del turno anterior (boca abajo), gíralas y añádelas a tu **pila de puntuación** - ¡ahora son puntos seguros!
 
-**Paso 2: Roba cartas**
+#### Paso 2: Roba cartas
 - Roba cartas **una a una** de la pila central
 - Coloca cada carta **boca arriba** delante de ti, organizadas por número
 - Las **dos primeras cartas** son siempre seguras
 
-**Paso 3: Decide - ¿Continuar o Parar?**
+#### Paso 3: Decide - ¿Continuar o Parar?
 
 Después de cada carta (a partir de la tercera), decide:
 
-**Si continúas robando:**
+#### Si continúas robando:
 - Si la carta **NO repite** ningún número que ya tienes → añádela a tus cartas visibles
 - Si la carta **SÍ repite** un número → ¡**PIERDES TODAS** las cartas de este turno! (van al descarte)
 
-**Si paras:**
+#### Si paras:
 - Gira las cartas que tienes delante **boca abajo**
 - Estas cartas quedan guardadas hasta tu próximo turno
 - Al empezar el próximo turno, las sumarás a tu pila de puntuación
