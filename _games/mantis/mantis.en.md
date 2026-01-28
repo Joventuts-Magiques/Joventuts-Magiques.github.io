@@ -21,6 +21,7 @@ MANTIS is a quick and colorful card game created by Ken Gruhl and Jeremy Posner,
 - **105 cards** (7 different colors, 15 cards of each color)
 
 Each card has two sides:
+
 - **Front (white face)**: Shows a single-color character
 - **Back (black face)**: Shows three different colors
 

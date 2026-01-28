@@ -125,6 +125,7 @@ The game ends when the last skill token is taken. The round is completed so ever
 ### Scoring
 
 Add up:
+
 - **Points from completed potions**
 - **+4 points** for each skill token
 - **-2 points** for each Little Help token

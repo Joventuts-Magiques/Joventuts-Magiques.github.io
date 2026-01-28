@@ -21,10 +21,11 @@ MANTIS es un juego de cartas rápido y colorido creado por Ken Gruhl y Jeremy Po
 - **105 cartas** (7 colores diferentes, 15 cartas de cada color)
 
 Cada carta tiene dos caras:
+
 - **Anverso (cara blanca)**: Muestra un personaje de un solo color
 - **Reverso (cara negra)**: Muestra tres colores diferentes
 
-**Importante**: El color del personaje del anverso siempre es uno de los tres colores que aparecen en el reverso de esa misma carta.
+ **Importante**: El color del personaje del anverso siempre es uno de los tres colores que aparecen en el reverso de esa misma carta.
 
 ## Objetivo del Juego
 

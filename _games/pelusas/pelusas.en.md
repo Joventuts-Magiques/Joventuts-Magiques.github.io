@@ -34,9 +34,11 @@ Accumulate the most victory points by the time the central pile runs out.
 ### Your Turn
 
 #### Step 1: Collect saved cards
+
 - If you have cards saved from the previous turn (face-down), flip them and add them to your **scoring pile** - they're now safe points!
 
 #### Step 2: Draw cards
+
 - Draw cards **one at a time** from the central pile
 - Place each card **face-up** in front of you, organized by number
 - The **first two cards** are always safe
@@ -45,11 +47,13 @@ Accumulate the most victory points by the time the central pile runs out.
 
 After each card (starting from the third), decide:
 
-#### If you continue drawing:
+#### If you continue drawing
+
 - If the card **DOESN'T repeat** any number you already have → add it to your visible cards
 - If the card **DOES repeat** a number → you **LOSE ALL** cards from this turn! (they go to discard)
 
-#### If you stop:
+#### If you stop
+
 - Flip your cards in front of you **face-down**
 - These cards stay saved until your next turn
 - At the start of your next turn, you'll add them to your scoring pile
@@ -59,6 +63,7 @@ After each card (starting from the third), decide:
 This is where the game gets interesting!
 
 When you reveal a card, look at other players' **visible** cards:
+
 - If your number **matches** visible cards from a rival, you **steal ALL** their cards of that number
 - Stolen cards are added to your visible cards (of the same number)
 - Watch out! Now you have more visible cards that can be stolen from you!

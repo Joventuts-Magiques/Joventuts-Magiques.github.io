@@ -123,6 +123,7 @@ El joc acaba quan s'agafa l'última fitxa de mestratge. Es completa la ronda per
 ### Puntuació
 
 Suma:
+
 - **Punts de les pocions completades**
 - **+4 punts** per cada fitxa de mestratge
 - **-2 punts** per cada fitxa de Petita Ajuda

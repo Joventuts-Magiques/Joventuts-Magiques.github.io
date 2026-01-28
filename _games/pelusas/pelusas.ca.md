@@ -36,9 +36,11 @@ Acumular el màxim de punts de victòria quan s'acabin les cartes del centre.
 ### El Teu Torn
 
 #### Pas 1: Recull les cartes guardades
+
 - Si tens cartes guardades del torn anterior (cap per baix), gira-les i afegeix-les a la teva **pila de puntuació** - ara són punts segurs!
 
 #### Pas 2: Roba cartes
+
 - Roba cartes **una a una** de la pila central
 - Col·loca cada carta **cap per amunt** davant teu, organitzades per número
 - Les **dues primeres cartes** són sempre segures
@@ -47,11 +49,13 @@ Acumular el màxim de punts de victòria quan s'acabin les cartes del centre.
 
 Després de cada carta (a partir de la tercera), decideix:
 
-#### Si continues robant:
+#### Si continues robant
+
 - Si la carta **NO repeteix** cap número que ja tens → afegeix-la a les teves cartes visibles
 - Si la carta **SÍ repeteix** un número → **PERDS TOTES** les cartes d'aquest torn! (van al descart)
 
-#### Si pares:
+#### Si pares
+
 - Gira les cartes que tens davant teu **cap per baix**
 - Aquestes cartes queden guardades fins al teu pròxim torn
 - Al començar el pròxim torn, les sumaràs a la teva pila de puntuació
@@ -61,6 +65,7 @@ Després de cada carta (a partir de la tercera), decideix:
 Aquí és on el joc es posa interessant!
 
 Quan reveles una carta, mira les cartes **visibles** dels altres jugadors:
+
 - Si el teu número **coincideix** amb cartes visibles d'un rival, li **robes TOTES** les cartes d'aquell número
 - Les cartes robades s'afegeixen a les teves cartes visibles (del mateix número)
 - Compte! Ara tu tens més cartes visibles que et poden robar!

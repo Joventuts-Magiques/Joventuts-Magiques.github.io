@@ -21,6 +21,7 @@ MANTIS és un joc de cartes ràpid i colorit creat per Ken Gruhl i Jeremy Posner
 - **105 cartes** (7 colors diferents, 15 cartes de cada color)
 
 Cada carta té dues cares:
+
 - **Anvers (cara blanca)**: Mostra un personatge d'un sol color
 - **Revers (cara negra)**: Mostra tres colors diferents
 

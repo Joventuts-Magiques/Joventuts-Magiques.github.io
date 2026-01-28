@@ -125,6 +125,7 @@ El juego termina cuando se coge la última ficha de maestría. Se completa la ro
 ### Puntuación
 
 Suma:
+
 - **Puntos de las pociones completadas**
 - **+4 puntos** por cada ficha de maestría
 - **-2 puntos** por cada ficha de Pequeña Ayuda
