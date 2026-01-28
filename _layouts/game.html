@@ -43,22 +43,6 @@ layout: default
   <header class="game-header">
     <h1 itemprop="name">{{ page.title }}</h1>
 
-    {% if page.image %}
-    <div class="game-header-image">
-      {% if page.image contains 'http' %}
-        <img src="{{ page.image }}"
-             alt="{{ page.title }}"
-             class="game-main-image"
-             itemprop="image">
-      {% else %}
-        <img src="{{ '/assets/images/games/' | append: page.title | slugify | append: '/' | append: page.image | relative_url }}"
-             alt="{{ page.title }}"
-             class="game-main-image"
-             itemprop="image">
-      {% endif %}
-    </div>
-    {% endif %}
-
     <div class="game-meta" role="list" aria-label="Game metadata">
       <div class="meta-item" role="listitem">
         <span class="meta-label">{{ t.players }}:</span>

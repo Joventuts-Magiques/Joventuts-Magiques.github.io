@@ -2,190 +2,128 @@
 title: MANTIS
 lang: ca
 players: 2-6
-duration: 10-15
+duration: 10
 difficulty: Fàcil
 age_range: 7+
-excerpt: "Joc de cartes ràpid i divertit on has de col·leccionar mantis religioses mentre robes cartes dels altres jugadors."
+excerpt: "Joc de cartes ràpid on has de decidir si puntuar o hurtar cartes dels rivals. Acumula 10 cartes a la teva pila de puntuació per guanyar!"
 layout: game
-image: "https://explodingkittens.com/cdn/shop/files/MANTIS_3D_Box_1024x1024.png"
+image: "https://i.imgur.com/hb4nfpg.jpeg"
+video_url: "https://www.youtube.com/watch?v=EJIE38vi7-s"
+video_credit: "Zacatrus"
 ---
 
 ## Descripció General
 
-MANTIS és un joc de cartes colorit i ràpid creat per Exploding Kittens. Els jugadors col·leccionen mantis religioses de diferents colors mentre intenten robar cartes dels oponents. El primer jugador en col·leccionar 10 cartes de mantis guanya!
+MANTIS és un joc de cartes ràpid i colorit creat per Ken Gruhl i Jeremy Posner, publicat per Exploding Kittens el 2022. Cada torn has de prendre una decisió crucial: intentar puntuar per tu mateix o arriscar-te a hurtar cartes dels teus rivals. El sistema de colors de les cartes et dona pistes sobre què pot sortir, però mai ho sabràs del cert fins que giris la carta!
 
 ## Components del Joc
 
-- **40 cartes de Mantis** (10 de cada color: verd, blau, taronja, rosa)
-- **10 cartes d'Acció**
-- **Regles**
+- **105 cartes** (7 colors diferents, 15 cartes de cada color)
+
+Cada carta té dues cares:
+
+- **Anvers (cara blanca)**: Mostra un personatge d'un sol color
+- **Revers (cara negra)**: Mostra tres colors diferents
+
+**Important**: El color del personatge de l'anvers sempre és un dels tres colors que apareixen al revers d'aquella mateixa carta.
 
 ## Objectiu del Joc
 
-Ser el primer jugador en tenir **10 cartes de Mantis** al teu territori (àrea de joc davant teu).
+Ser el primer jugador en acumular **10 o més cartes** a la teva pila de puntuació. El color de les cartes és irrellevant per guanyar.
 
 ## Preparació
 
-1. **Barreja totes les cartes**
-2. **Reparteix 5 cartes** a cada jugador
-3. **Col·loca el deck** al centre bocaterrosa
-4. **El jugador més jove** comença
+1. **Barreja totes les cartes** del maç
+2. **Reparteix 4 cartes cap per amunt** (cara blanca) a cada jugador. Aquesta col·lecció de cartes és el seu **Tanc**
+3. Si tens diverses cartes del mateix color al Tanc, apila-les lleugerament en ventall per veure quantes n'hi ha
+4. **Col·loca la resta del maç cap per baix** (cara negra) al centre de la taula. Aquesta és la **Pila de Robatori**
+5. Deixa espai davant de cada jugador per la seva **Pila de Puntuació**
+6. Tria un jugador per començar. El joc continua en sentit horari
 
 ## Com Jugar
 
-En el teu torn, fes **una** de les següents accions:
+### El Teu Torn
 
-### 1. Jugar una Carta de Mantis
+Quan arribi el teu torn, **NO TOQUIS** la carta superior de la pila de robatori fins que hagis decidit quina acció faràs:
 
-- **Juga 1 carta de Mantis** del teu color al teu territori
-- Si ja tens mantis d'aquest color, col·loca-la al costat
-- **Roba 1 carta** del deck
+### Opció 1: Intentar Puntuar
 
-### 2. Robar Mantis (Steal)
+1. Agafa la carta superior de la pila de robatori
+2. Gira-la al **teu Tanc**
+3. **Si el color coincideix** amb algun personatge que ja tens al Tanc:
+   - Mou **totes** les cartes d'aquest color (inclosa la nova) a la teva **Pila de Puntuació**
+4. **Si no coincideix**:
+   - Deixa la carta al teu Tanc
+5. El teu torn acaba
 
-- **Juga 2 cartes de Mantis del mateix color** de la teva mà
-- **Roba totes les mantis d'aquest color** del territori d'un oponent
-- **Afegeix-les al teu territori**
-- **Descarta les 2 cartes** que vas jugar
-- **Roba 2 cartes** del deck
+**Nota**: Intentar puntuar és l'**única manera** de moure cartes a la teva pila de puntuació!
 
-### 3. Jugar una Carta d'Acció
+### Opció 2: Intentar Hurtar
 
-- **Juga 1 carta d'Acció** i segueix les instruccions
-- **Roba 1 carta** del deck
+1. Agafa la carta superior de la pila de robatori
+2. Gira-la al **Tanc d'un altre jugador**
+3. **Si el color coincideix** amb algun personatge del seu Tanc:
+   - Mou **totes** les cartes d'aquest color (inclosa la nova) al **teu Tanc**
+4. **Si no coincideix**:
+   - Deixa la carta al Tanc d'aquell jugador
+5. El teu torn acaba
 
-## Cartes d'Acció
+**Important**: Les cartes hurtades van al teu **Tanc**, NO a la teva pila de puntuació!
 
-### Hatch (Eclosionar)
+### Consell Estratègic
 
-- **Roba 3 cartes** del deck
+Com que saps que el color de l'anvers serà un dels tres colors del revers, pots mirar la cara negra de la carta superior abans de decidir si vols puntuar o hurtar (i a qui).
 
-### Swarm (Eixam)
+## Final del Joc
 
-- **Tots els jugadors** passen totes les seves cartes de mà al jugador de la seva esquerra
+### Condició de Victòria
 
-### Mantis Trap (Trampa de Mantis)
+El primer jugador en acumular **10 o més cartes** a la seva pila de puntuació **guanya immediatament**.
 
-- **Tria un color**
-- **Tots els jugadors** han de donar-te totes les cartes d'aquest color de les seves mans
+### Si S'Acaben les Cartes
 
-### Spy (Espiar)
+- Si no tens cartes al Tanc, simplement continua jugant i intenta aconseguir-ne al proper torn
+- Si la pila de robatori s'esgota, guanya el jugador amb més cartes a la seva pila de puntuació
+- En cas d'empat, guanya qui tingui més cartes al seu Tanc
 
-- **Mira la mà** d'un jugador
-- **Roba 1 carta** de la seva mà
+### Pila de Puntuació
 
-### Ambush (Emboscada)
+- Les cartes de la pila de puntuació han d'estar **cap per baix** (cara negra)
+- Has de dir el **nombre de cartes** (però no els colors) si algun jugador t'ho pregunta
 
-- **Roba immediatament** quan un altre jugador intenta robar-te mantis
-- **Cancel·la el robatori**
-- **Tu robes les seves mantis** en lloc seu
+## Variants Populars
 
-## Estratègies
+### Partides de 2 Jugadors
+
+- L'objectiu canvia a acumular **15 cartes** en lloc de 10
+- Si hurtes amb èxit, **jugues un altre torn**
+- Pots encadenar torns mentre continuïs hurtant amb èxit
+
+## Estratègies Recomanades
 
 ### Estratègies Bàsiques
 
-1. **Diversifica els colors**: No et concentris en un sol color
-2. **Guarda parelles**: Per poder robar quan calgui
-3. **Observa els oponents**: Recorda quins colors tenen
-4. **Usa les accions saviament**: En el moment adequat
-5. **Protegeix les teves mantis**: No facis col·leccions grans massa aviat
+- **Observa els Tancs rivals**: Mira quins colors tenen acumulats per decidir si val la pena hurtar
+- **Calcula les probabilitats**: El revers mostra 3 colors possibles, tens un 33% de probabilitats per cada un
+- **Equilibra risc i recompensa**: Hurtar pot donar-te moltes cartes, però si falles les regales al rival
 
 ### Estratègies Avançades
 
-1. **Bluff**: Fes veure que tens cartes que no tens
-2. **Timing de robatori**: Roba quan els oponents tinguin moltes mantis
-3. **Gestió de mà**: Mantén opcions obertes
-4. **Defensa amb Ambush**: Guarda-la per a moments crítics
-5. **Controla el ritme**: Accelera o alenteix segons et convingui
+- **Puntua quan tinguis pocs colors**: Menys colors al teu Tanc = més probabilitat de coincidir
+- **Hurta quan els rivals tinguin moltes cartes d'un color**: La recompensa potencial és major
+- **Vigila les piles de puntuació**: Sap qui està a prop de guanyar per decidir si arriscar
 
 ## Consells per a Principiants
 
-1. **Comença simple**: Juga mantis i roba cartes
-2. **No acumulis massa**: Pots ser objectiu de robatoris
-3. **Usa les accions**: No les guardis massa temps
-4. **Observa el deck**: Quantes cartes queden
-5. **Diverteix-te**: És un joc ràpid i caòtic
+1. **Entén la diferència entre Tanc i Pila de Puntuació**: Només les cartes de la pila de puntuació compten per guanyar
+2. **No oblidis que hurtar no puntua directament**: Les cartes hurtades van al teu Tanc, després les hauràs de puntuar
+3. **Mira sempre el revers abans de decidir**: Et dona informació valuosa sobre els colors possibles
+4. **Comença intentant puntuar**: És més segur mentre aprens el joc
 
-## Variants
+## Història i Curiositats
 
-### Variant Ràpida
-
-- Primer en aconseguir **7 cartes de Mantis** guanya
-- Partides de 5-10 minuts
-
-### Variant Equips
-
-- Juga en parelles
-- Els equips comparteixen territori
-- Primer equip en **15 mantis** guanya
-
-### Variant Caos
-
-- Juga amb **2 decks barrejats**
-- Més cartes, més caos
-- Primer en **20 mantis** guanya
-
-## Regles Especials
-
-### Robatori Simultani
-
-- Si dos jugadors intenten robar el mateix color simultàniament
-- El jugador més proper al torn actual té prioritat
-
-### Ambush Timing
-
-- Pots jugar Ambush **només** quan algú intenta robar-te
-- Has de jugar-la **abans** que agafin les teves cartes
-- Si tens múltiples Ambush, només pots jugar-ne una
-
-### Final del Joc
-
-- El joc acaba **immediatament** quan algú arriba a 10 mantis
-- No importa de quins jugadors les va robar
-
-## Història
-
-- **Creat per Exploding Kittens** (creadors d'Exploding Kittens)
-- **Llançat el 2019**
-- **Dissenyat per ser ràpid** i accessible
-- **Il·lustracions colorides** i divertides
-- **Molt popular** en convencions i esdeveniments
-
-## Per Què És Divertit
-
-- **Partides ràpides**: 10-15 minuts
-- **Fàcil d'aprendre**: Regles simples
-- **Molt interactiu**: Constantment robes als altres
-- **Portàtil**: Petit i fàcil de portar
-- **Rejoguabilitat alta**: Cada partida és diferent
-- **Bon joc familiar**: Totes les edats poden jugar
-
-## Comparació amb Altres Jocs
-
-**vs Exploding Kittens:**
-
-- Més simple i ràpid
-- Menys eliminació de jugadors
-- Més col·lecció que supervivència
-
-**vs Sushi Go:**
-
-- Més interacció directa
-- Menys estratègia de draft
-- Més caòtic i impredictible
-
-## Curiositats
-
-- El nom ve de la **mantis religiosa**, un insecte conegut per la seva agressivitat
-- Les il·lustracions són **deliberadament colorides** per atraure jugadors joves
-- És un dels jocs més **venuts** d'Exploding Kittens després del seu joc principal
-- Disponible en **múltiples idiomes**
-- Té una **comunitat activa** en línia
-
-## Consells Finals
-
-1. **No et prenguis el joc massa seriosament**: És caòtic per disseny
-2. **Celebra els robatoris**: Forma part de la diversió
-3. **Juga múltiples rondes**: Les partides són curtes
-4. **Experimenta amb variants**: Afegeix les teves regles
-5. **Perfecte per escalfar**: Abans de jocs més llargs
+- **Dissenyat per Ken Gruhl i Jeremy Posner**
+- **Publicat per Exploding Kittens** el 2022
+- El nom fa referència a la **mantis religiosa**, un insecte conegut per la seva agressivitat i per "robar" les seves preses
+- Les il·lustracions colorides i el disseny senzill el fan perfecte per a totes les edats
+- Part de la línia de jocs ràpids i accessibles d'Exploding Kittens

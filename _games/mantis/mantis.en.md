@@ -2,190 +2,128 @@
 title: MANTIS
 lang: en
 players: 2-6
-duration: 10-15
+duration: 10
 difficulty: Easy
 age_range: 7+
-excerpt: "Fast and fun card game where you collect praying mantises while stealing cards from other players."
+excerpt: "A quick card game where you must decide whether to score or steal cards from your rivals. Collect 10 cards in your scoring pile to win!"
 layout: game
-image: "https://explodingkittens.com/cdn/shop/files/MANTIS_3D_Box_1024x1024.png"
+image: "https://i.imgur.com/hb4nfpg.jpeg"
+video_url: "https://www.youtube.com/watch?v=jSfY3jeY278"
+video_credit: "Exploding Kittens"
 ---
 
-## Overview
+## General Description
 
-MANTIS is a colorful and fast-paced card game created by Exploding Kittens. Players collect praying mantises of different colors while trying to steal cards from opponents. The first player to collect 10 mantis cards wins!
+MANTIS is a quick and colorful card game created by Ken Gruhl and Jeremy Posner, published by Exploding Kittens in 2022. Each turn you must make a crucial decision: try to score for yourself or risk stealing cards from your rivals. The card color system gives you hints about what might come up, but you'll never know for sure until you flip the card!
 
 ## Game Components
 
-- **40 Mantis cards** (10 of each color: green, blue, orange, pink)
-- **10 Action cards**
-- **Rules**
+- **105 cards** (7 different colors, 15 cards of each color)
+
+Each card has two sides:
+
+- **Front (white face)**: Shows a single-color character
+- **Back (black face)**: Shows three different colors
+
+**Important**: The color of the character on the front is always one of the three colors shown on the back of that same card.
 
 ## Game Objective
 
-Be the first player to have **10 Mantis cards** in your territory (play area in front of you).
+Be the first player to accumulate **10 or more cards** in your scoring pile. The color of the cards is irrelevant for winning.
 
 ## Setup
 
-1. **Shuffle all cards**
-2. **Deal 5 cards** to each player
-3. **Place the deck** in the center face-down
-4. **Youngest player** goes first
+1. **Shuffle all the cards** in the deck
+2. **Deal 4 cards face up** (white face) to each player. This collection of cards is their **Tank**
+3. If you have multiple cards of the same color in your Tank, stack them slightly fanned out so you can see how many there are
+4. **Place the rest of the deck face down** (black face) in the center of the table. This is the **Draw Pile**
+5. Leave space in front of each player for their **Scoring Pile**
+6. Choose a player to start. Play continues clockwise
 
 ## How to Play
 
-On your turn, do **one** of the following actions:
+### Your Turn
 
-### 1. Play a Mantis Card
+When it's your turn, **DON'T TOUCH** the top card of the draw pile until you've decided what action you'll take:
 
-- **Play 1 Mantis card** of your color to your territory
-- If you already have mantises of that color, place it next to them
-- **Draw 1 card** from the deck
+### Option 1: Try to Score
 
-### 2. Steal Mantises
+1. Take the top card from the draw pile
+2. Flip it into **your Tank**
+3. **If the color matches** any character already in your Tank:
+   - Move **all** cards of that color (including the new one) to your **Scoring Pile**
+4. **If it doesn't match**:
+   - Leave the card in your Tank
+5. Your turn ends
 
-- **Play 2 Mantis cards of the same color** from your hand
-- **Steal all mantises of that color** from an opponent's territory
-- **Add them to your territory**
-- **Discard the 2 cards** you played
-- **Draw 2 cards** from the deck
+**Note**: Trying to score is the **only way** to move cards to your scoring pile!
 
-### 3. Play an Action Card
+### Option 2: Try to Steal
 
-- **Play 1 Action card** and follow the instructions
-- **Draw 1 card** from the deck
+1. Take the top card from the draw pile
+2. Flip it into **another player's Tank**
+3. **If the color matches** any character in their Tank:
+   - Move **all** cards of that color (including the new one) to **your Tank**
+4. **If it doesn't match**:
+   - Leave the card in that player's Tank
+5. Your turn ends
 
-## Action Cards
+**Important**: Stolen cards go to your **Tank**, NOT to your scoring pile!
 
-### Hatch
+### Strategic Tip
 
-- **Draw 3 cards** from the deck
+Since you know the front color will be one of the three colors on the back, you can look at the black face of the top card before deciding whether to score or steal (and from whom).
 
-### Swarm
+## End of Game
 
-- **All players** pass all their hand cards to the player on their left
+### Victory Condition
 
-### Mantis Trap
+The first player to accumulate **10 or more cards** in their scoring pile **wins immediately**.
 
-- **Choose a color**
-- **All players** must give you all cards of that color from their hands
+### If Cards Run Out
 
-### Spy
+- If you have no cards in your Tank, simply keep playing and try to get some on your next turn
+- If the draw pile runs out, the player with the most cards in their scoring pile wins
+- In case of a tie, the player with the most cards in their Tank wins
 
-- **Look at a player's hand**
-- **Steal 1 card** from their hand
+### Scoring Pile
 
-### Ambush
+- Cards in the scoring pile must be **face down** (black face)
+- You must tell the **number of cards** (but not the colors) if any player asks
 
-- **Play immediately** when another player tries to steal your mantises
-- **Cancel the steal**
-- **You steal their mantises** instead
+## Popular Variants
 
-## Strategies
+### 2-Player Games
+
+- The goal changes to accumulating **15 cards** instead of 10
+- If you steal successfully, **you play another turn**
+- You can chain turns as long as you keep stealing successfully
+
+## Recommended Strategies
 
 ### Basic Strategies
 
-1. **Diversify colors**: Don't focus on just one color
-2. **Save pairs**: To steal when needed
-3. **Watch opponents**: Remember which colors they have
-4. **Use actions wisely**: At the right moment
-5. **Protect your mantises**: Don't make large collections too early
+- **Watch rival Tanks**: See what colors they have accumulated to decide if stealing is worth it
+- **Calculate the odds**: The back shows 3 possible colors, you have a 33% chance for each
+- **Balance risk and reward**: Stealing can give you many cards, but if you fail you gift them to your rival
 
 ### Advanced Strategies
 
-1. **Bluff**: Pretend you have cards you don't
-2. **Steal timing**: Steal when opponents have many mantises
-3. **Hand management**: Keep options open
-4. **Ambush defense**: Save it for critical moments
-5. **Control the pace**: Speed up or slow down as needed
+- **Score when you have few colors**: Fewer colors in your Tank = higher chance of matching
+- **Steal when rivals have many cards of one color**: The potential reward is greater
+- **Watch the scoring piles**: Know who's close to winning to decide whether to take risks
 
 ## Tips for Beginners
 
-1. **Start simple**: Play mantises and draw cards
-2. **Don't hoard too much**: You can become a target
-3. **Use actions**: Don't save them too long
-4. **Watch the deck**: How many cards remain
-5. **Have fun**: It's a quick and chaotic game
+1. **Understand the difference between Tank and Scoring Pile**: Only cards in the scoring pile count toward winning
+2. **Don't forget that stealing doesn't score directly**: Stolen cards go to your Tank, then you'll need to score them
+3. **Always look at the back before deciding**: It gives you valuable information about possible colors
+4. **Start by trying to score**: It's safer while you learn the game
 
-## Variants
+## History and Fun Facts
 
-### Quick Variant
-
-- First to get **7 Mantis cards** wins
-- 5-10 minute games
-
-### Team Variant
-
-- Play in pairs
-- Teams share territory
-- First team to **15 mantises** wins
-
-### Chaos Variant
-
-- Play with **2 shuffled decks**
-- More cards, more chaos
-- First to **20 mantises** wins
-
-## Special Rules
-
-### Simultaneous Stealing
-
-- If two players try to steal the same color simultaneously
-- Player closest to current turn has priority
-
-### Ambush Timing
-
-- You can play Ambush **only** when someone tries to steal from you
-- Must play it **before** they take your cards
-- If you have multiple Ambush cards, can only play one
-
-### Game End
-
-- Game ends **immediately** when someone reaches 10 mantises
-- Doesn't matter which players they stole from
-
-## History
-
-- **Created by Exploding Kittens** (creators of Exploding Kittens)
-- **Released in 2019**
-- **Designed to be fast** and accessible
-- **Colorful illustrations** and fun
-- **Very popular** at conventions and events
-
-## Why It's Fun
-
-- **Quick games**: 10-15 minutes
-- **Easy to learn**: Simple rules
-- **Very interactive**: Constantly stealing from others
-- **Portable**: Small and easy to carry
-- **High replayability**: Each game is different
-- **Good family game**: All ages can play
-
-## Comparison with Other Games
-
-**vs Exploding Kittens:**
-
-- Simpler and faster
-- Less player elimination
-- More collection than survival
-
-**vs Sushi Go:**
-
-- More direct interaction
-- Less drafting strategy
-- More chaotic and unpredictable
-
-## Fun Facts
-
-- Name comes from the **praying mantis**, an insect known for its aggressiveness
-- Illustrations are **deliberately colorful** to attract young players
-- One of the **best-selling** games from Exploding Kittens after their main game
-- Available in **multiple languages**
-- Has an **active community** online
-
-## Final Tips
-
-1. **Don't take the game too seriously**: It's chaotic by design
-2. **Celebrate the steals**: Part of the fun
-3. **Play multiple rounds**: Games are short
-4. **Experiment with variants**: Add your own rules
-5. **Perfect warm-up**: Before longer games
+- **Designed by Ken Gruhl and Jeremy Posner**
+- **Published by Exploding Kittens** in 2022
+- The name refers to the **praying mantis**, an insect known for its aggressiveness and for "stealing" its prey
+- The colorful illustrations and simple design make it perfect for all ages
+- Part of Exploding Kittens' line of quick and accessible games
