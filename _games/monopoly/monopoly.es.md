@@ -1,7 +1,7 @@
 ---
 title: Monopoly
 lang: es
-players: 2-6
+players: 2-4
 duration: 60-180
 difficulty: Medio
 age_range: 8+
