@@ -3,7 +3,7 @@ title: Monopoly
 lang: en
 players: 2-6
 duration: 60-180
-difficulty: Hard
+difficulty: Medium
 age_range: 8+
 excerpt: "Classic real estate trading game where players try to bankrupt their opponents."
 image: https://i.imgur.com/FZCyPn6.jpeg

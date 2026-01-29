@@ -3,7 +3,7 @@ title: Monopoly
 lang: es
 players: 2-6
 duration: 60-180
-difficulty: Difícil
+difficulty: Medio
 age_range: 8+
 excerpt: "Juego clásico de compraventa inmobiliaria donde los jugadores intentan hacer quebrar a sus oponentes."
 image: https://i.imgur.com/FZCyPn6.jpeg
