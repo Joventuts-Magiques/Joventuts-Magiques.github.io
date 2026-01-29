@@ -6,8 +6,8 @@ duration: 60-180
 difficulty: Medium
 age_range: 8+
 excerpt: "Classic real estate trading game where players try to bankrupt their opponents."
-image: https://i.imgur.com/FZCyPn6.jpeg
-layout: game 
+layout: game
+image: https://i.imgur.com/FZCyPn6.jpeg 
 video_url: "https://www.youtube.com/watch?v=4nz-_hvFw44"
 video_credit: "Watch It Played"
 ---

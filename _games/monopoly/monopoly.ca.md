@@ -6,8 +6,8 @@ duration: 60-180
 difficulty: Mitjà
 age_range: 8+
 excerpt: "Joc clàssic de compravenda immobiliària on els jugadors intenten fer fallit els seus oponents."
-image: https://i.imgur.com/FZCyPn6.jpeg
 layout: game
+image: https://i.imgur.com/FZCyPn6.jpeg
 video_url: "https://www.youtube.com/watch?v=OpQID1oHNqA"
 video_credit: "Unna"
 ---

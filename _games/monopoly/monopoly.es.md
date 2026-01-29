@@ -6,8 +6,8 @@ duration: 60-180
 difficulty: Medio
 age_range: 8+
 excerpt: "Juego clásico de compraventa inmobiliaria donde los jugadores intentan hacer quebrar a sus oponentes."
-image: https://i.imgur.com/FZCyPn6.jpeg
 layout: game
+image: https://i.imgur.com/FZCyPn6.jpeg
 video_url: "https://www.youtube.com/watch?v=OpQID1oHNqA"
 video_credit: "Unna"
 ---
