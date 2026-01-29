@@ -3,7 +3,7 @@ title: 7 Wonders
 lang: ca
 players: 3-7
 duration: 30-45
-difficulty: Medio
+difficulty: Mitjà
 age_range: 10+
 excerpt: "Lidera una de les set grans ciutats de l'antiguitat i construeix la teva meravella mentre competeix en ciència, conquestes militars, comerç i monuments prestigiosos per guiar la teva civilització a la glòria."
 layout: game
