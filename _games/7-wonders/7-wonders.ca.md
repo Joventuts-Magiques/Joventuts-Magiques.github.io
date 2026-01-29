@@ -1,174 +1,322 @@
 ---
 title: 7 Wonders
 lang: ca
-players: 2-7
+players: 3-7
 duration: 30-45
 difficulty: Mitjà
 age_range: 10+
-excerpt: "Joc de drafting de cartes on els jugadors desenvolupen civilitzacions antigues i construeixen meravelles."
+excerpt: "Lidera una de les set grans ciutats de l'antiguitat i construeix la teva meravella mentre competeix en ciència, conquestes militars, comerç i monuments prestigiosos per guiar la teva civilització a la glòria."
 layout: game
+image: "https://i.imgur.com/Zeun4Jd.jpeg"
 video_url: "https://www.youtube.com/watch?v=onJ4vsu1GtI"
 video_credit: "Unna"
 ---
 
 ## Descripció General
 
-7 Wonders és un joc de desenvolupament de civilitzacions creat per Antoine Bauza el 2010. Els jugadors dirigeixen una de les set grans ciutats del món antic, desenvolupant la seva civilització a través de tres eres històriques. El joc utilitza un innovador sistema de drafting de cartes que permet jugar simultàniament.
+7 Wonders és un joc de cartes de draft i construcció de civilitzacions creat per Antoine Bauza el 2010. Els jugadors lideren una de les set grans ciutats de l'antiguitat, desenvolupant la seva ciutat a través de tres eres històriques. Has de promocionar els descobriments científics, les conquestes militars, els acords comercials i les construccions més prestigioses per guiar la teva civilització a la glòria. Al final de les tres eres, el jugador amb més punts de victòria guanya la partida.
 
 ## Components del Joc
 
-- **7 taulers de meravelles** (Alexandria, Babilònia, Efes, Gizeh, Halikarnassos, Olimpia, Rodes)
-- **149 cartes** dividides en tres eres (I, II, III)
-- **Fitxes de monedes** de diferents valors
-- **Tokens de conflicte** (victòria i derrota)
-- **Marcador de puntuació**
-- **Cartes de referència** per a cada jugador
+- **7 taulers de Meravella** (amb cara de Dia i cara de Nit)
+- **148 cartes d'Era**:
+  - 49 cartes d'Era I
+  - 49 cartes d'Era II
+  - 50 cartes d'Era III
+- **78 monedes**: 54 monedes de valor 1 i 24 monedes de valor 3
+- **48 marcadors de Conflicte**:
+  - 24 marcadors de Derrota (-1)
+  - 24 marcadors de Victòria (+1, +3, +5 segons l'Era)
+- **1 quadern de puntuació**
+- **3 fulls de Descripció d'efectes**
+- **1 full amb llistat de cartes i cadenes**
+
+### Tipus d'Estructures (Cartes)
+
+Les cartes representen set tipus d'estructures diferents:
+
+- **Marrons** (Estructures de Producció): Proporcionen recursos comuns (Argila, Pedra, Metall, Fusta)
+- **Grises** (Productes Manufacturats): Proporcionen recursos rars (Cristall, Tela, Papir)
+- **Blaves** (Estructures Civils): Proporcionen punts de victòria
+- **Grogues** (Estructures Comercials): Proporcionen avantatges comercials
+- **Vermelles** (Estructures Militars): Augmenten la teva força militar
+- **Verdes** (Estructures Científiques): Proporcionen avenços científics en tres camps diferents
+- **Morades** (Gremis): Proporcionen punts de victòria segons criteris específics (només a l'Era III)
 
 ## Objectiu del Joc
 
-Acumular el màxim nombre de punts de victòria desenvolupant la teva civilització a través de la construcció d'estructures, avenços científics, força militar i construcció de la teva meravella.
+Ser el jugador amb **més punts de victòria** al final de la tercera Era.
+
+### Com Obtenir Punts
+
+Els punts es compten al final de l'Era III i provenen de:
+
+- **Tauler de Meravella** — Punts de les etapes construïdes
+- **Tresoreria** — 1 punt per cada 3 monedes
+- **Conflictes Militars** — Suma de marcadors de Victòria i Derrota
+- **Cartes Blaves** — Punts indicats a les Estructures Civils
+- **Cartes Grogues** — Punts segons efectes de Estructures Comercials
+- **Cartes Verdes** — Punts per símbols científics (segons fórmules específiques)
+- **Cartes Morades** — Punts segons efectes dels Gremis
 
 ## Preparació
 
-1. **Cada jugador tria una meravella** aleatòriament i pren el seu tauler
-2. **Distribueix 3 monedes** a cada jugador
-3. **Barreja les cartes per eres** separadament
-4. **Reparteix 7 cartes de l'Era I** a cada jugador
-5. **Col·loca els tokens de conflicte** al centre de la taula
+### Preparació de les Cartes d'Era
+
+1. **Separa les cartes** en tres maços: Era I, Era II i Era III
+2. **Per cada Era**, ordena les cartes segons el número mínim de jugadors i conserva només les que tinguin un número **menor o igual** al número de jugadors de la partida
+   - Exemple: En una partida de 5 jugadors, conserva totes les cartes amb 3+, 4+ i 5+
+3. **Per al maç de l'Era III**: Reuneix totes les cartes Morades, roba'n a l'atzar tantes com **número de jugadors + 2**, i afegeix-les al maç de l'Era III. Retorna les restants a la caixa
+   - Exemple: En una partida de 5 jugadors, robaràs 7 cartes Morades (5+2)
+4. **Barreja cada maç** per separat i deixa'ls al centre de la taula
+
+### Preparació dels Jugadors
+
+1. Cada jugador **agafa a l'atzar un tauler de Meravella** i el deixa davant seu mostrant la cara que prefereixi (Dia o Nit)
+   - **Recomanació**: Per a les primeres partides, utilitza la cara de Dia
+2. Cada jugador rep **3 monedes** (valor 1) com a Tresoreria inicial
+3. Deixa les **monedes restants** al centre formant la reserva
+4. Deixa tots els **marcadors de Conflicte** al centre formant la reserva
 
 ## Com Jugar
 
-### Estructura del Joc
+Una partida es juga en **3 rondes** (Eres I, II i III). Cada Era es juga de la mateixa manera.
 
-El joc es desenvolupa en **3 eres**, cadascuna amb **6 rondes** de drafting de cartes.
+### Definicions Importants
 
-### Ronda de Joc
+- **Veïns**: Els jugadors asseguts directament a la teva esquerra i dreta
+- **Ciutat**: La teva Meravella i les Estructures que has construït
 
-1. **Tria una carta** de la teva mà
-2. **Decideix l'acció**: Construir estructura, construir meravella, o vendre per monedes
-3. **Executa l'acció** simultàniament amb tots els jugadors
-4. **Passa la mà** al jugador adjacent (esquerra en eres I i III, dreta en era II)
-5. **Repeteix** fins que només quedi una carta (que es descarta)
+### Resum d'una Era
 
-### Tipus de Cartes
+1. Al començament de cada Era, reparteix **7 cartes a l'atzar** a cada jugador
+2. Cada Era té **6 torns** on tots els jugadors juguen simultàniament
+3. Cada torn té 3 passos:
+   - **Tria una carta**
+   - **Juga una carta**
+   - **Passa la teva mà de cartes**
 
-#### Estructures Marrons (Matèries Primeres)
+### Desenvolupament d'un Torn
 
-- Produeixen recursos bàsics: fusta, argila, pedra, mineral
+#### 1. Tria una Carta
 
-#### Estructures Grises (Productes Manufacturats)
+- Mira les cartes de la teva mà sense que els altres jugadors vegin el contingut
+- Tria **1 carta** i deixa-la bocaterrosa davant teu
+- Deixa les cartes restants bocaterrosa
 
-- Produeixen béns elaborats: tèxtil, papir, vidre
+#### 2. Juga una Carta
 
-#### Estructures Blaves (Edificis Cívics)
+Quan tots els jugadors hagin triat, juguen **simultàniament**. Pots fer **una** de les següents accions:
 
-- Proporcionen punts de victòria directes
+##### A. Construir l'Estructura de la carta
 
-#### Estructures Vermelles (Estructures Militars)
+- Paga el cost de la carta i posa-la bocaenlaire sobre el teu tauler de Meravella
+- L'Estructura roman a la teva ciutat fins al final de la partida
+- **Important**: No pots construir dues Estructures iguals (mateix nom)
 
-- Augmenten la força militar per als conflictes
+##### B. Desenvolupar una Etapa de la teva Meravella
 
-#### Estructures Verdes (Edificis Científics)
+- Paga el cost que apareix al teu tauler per a aquesta Etapa concreta
+- Posa la carta bocaterrosa sota el tauler, deixant que només sobresurti la meitat per l'Etapa que construeixes
+- Ara tens disponible l'efecte d'aquesta Etapa durant la resta de la partida
+- Les Etapes s'han de construir **d'esquerra a dreta** (Etapa 1 abans de l'Etapa 2, etc.)
+- **Atenció**: Pots usar qualsevol carta per construir una Etapa
+- No és obligatori construir les Etapes de la Meravella
 
-- Proporcionen símbols científics per a punts de victòria
+##### C. Vendre la carta
 
-#### Estructures Grogues (Edificis Comercials)
+- Descarta la carta bocaterrosa al centre de la taula
+- Agafa **3 monedes** de la reserva
 
-- Generen monedes i faciliten el comerç
+#### 3. Passa la teva Mà de Cartes
 
-#### Estructures Porpres (Gremis - només Era III)
+- **Eres I i III**: Passa les cartes restants al veí de l'**esquerra**
+- **Era II**: Passa les cartes restants al veí de la **dreta**
+- Reps una nova mà del teu veí
 
-- Proporcionen punts basats en les estructures dels veïns
+##### Sisè i Últim torn
 
-### Construcció
+- Rebràs una mà de 2 cartes
+- Tria'n 1 i descarta l'altra bocaterrosa (sense rebre monedes)
+- Juga la sisena carta
+- Continua amb la Resolució de Conflictes Militars
 
-#### Construir Estructura
+## Construcció en 7 Wonders
 
-- Paga els recursos necessaris (propis o comprats als veïns)
-- Algunes cartes es poden construir gratuïtament si tens prerequisits
+### Tipus de Costos
 
-#### Construir Meravella
+**A. Sense cost** — Pots construir gratis
 
-- Descarta una carta i paga els recursos de l'etapa de la meravella
-- Cada meravella té efectes únics i punts de victòria
+**B. Cost en monedes** — Retorna 1 moneda a la reserva
 
-#### Vendre per Monedes
+**C. Cost en recursos** — Necessites recursos específics
 
-- Descarta la carta i rep 3 monedes
+**D. Cost gratuït a través de cadenes** — Si tens el símbol de cadena corresponent d'una Era anterior
 
-### Comerç
+### Ús de Recursos
 
-- Pots comprar recursos als teus **veïns directes** (esquerra i dreta)
-- Cost base: **2 monedes** per recurs
-- Algunes cartes redueixen aquest cost
+**Recursos produïts per la teva ciutat:**
 
-### Conflictes Militars
+- Produeixes 1 recurs per cada símbol que tinguis:
+  - Recurs inicial del tauler de Meravella
+  - Cartes Grises i Marrons
+  - Cartes Grogues (algunes)
+  - Etapes de Meravella (algunes)
+- Cada símbol només es pot utilitzar **una vegada per torn**
+- Els recursos **no es gasten** i poden utilitzar-se cada torn
 
-Al final de cada era:
+**Important**: No pots construir dues Estructures iguals (mateix nom).
 
-- Compara la teva força militar amb cada veí
-- **Victòria**: Rep token de victòria (1, 3, o 5 punts segons l'era)
-- **Derrota**: Rep token de derrota (-1 punt)
+### Compra de Recursos als Veïns
 
-## Puntuació Final
+Si no tens els recursos necessaris, pots **comprar-los als veïns**:
 
-- **Tokens de conflicte**: Victòries sumen, derrotes resten
-- **Monedes**: 1 punt per cada 3 monedes
-- **Meravelles**: Punts indicats a cada etapa
-- **Estructures blaves**: Punts indicats
-- **Estructures verdes**: Punts per conjunts de símbols científics
-- **Estructures porpres**: Punts basats en condicions específiques
+- Paga **2 monedes per recurs** al propietari
+- El veí conserva la carta i pot utilitzar el recurs
+- Cada símbol només es pot comprar **una vegada per torn**
+- Els recursos comprats s'utilitzen **el mateix torn**
 
-### Ciència (Estructures Verdes)
+**Recursos que pots comprar:**
 
-Tres tipus de símbols: Tauleta, Compàs, Engranatge
+- Recurs inicial del tauler de Meravella
+- Recursos de cartes Marrons
+- Recursos de cartes Grises
 
-- **Conjunts idèntics**: Cada símbol al quadrat
-- **Conjunts de 3 diferents**: 7 punts per conjunt
+**No pots comprar:**
+
+- Recursos de cartes Grogues
+- Recursos d'Etapes de Meravella
+
+**Notes sobre la compra:**
+
+- No pots utilitzar per comprar les monedes rebudes dels altres jugadors en el mateix torn
+- No pots comprar recursos d'Estructures construïdes pels veïns en el mateix torn
+- No pots negar als veïns la compra dels teus recursos
+- Els dos veïns poden comprar el mateix recurs en el mateix torn
+
+### Cadenes de Construcció Gratuïta
+
+A partir de l'Era II, algunes cartes tenen un símbol de cadena que permet **construcció gratuïta**:
+
+- Si tens una carta amb el mateix símbol a la part superior dreta, pots construir la nova carta **gratis**
+- Pots pagar el cost si no tens el símbol de cadena
+
+## Disposició de les Cartes
+
+- **Solapa les cartes del mateix color** de manera que els efectes quedin visibles
+- **Solapa els recursos** amb el recurs inicial del tauler
+
+## Resolució de Conflictes Militars
+
+Al final de cada Era, compara la teva **força militar** amb la de cada veí:
+
+### Càlcul de la Força Militar
+
+Compta tots els símbols militars de:
+
+- Les teves Estructures construïdes
+- Les Etapes de Meravella (si n'hi ha)
+
+### Comparació amb Cada Veí
+
+**Per a cada veí:**
+
+- **Força igual** — No reps marcadors
+- **Força inferior** — Reps 1 marcador de **Derrota** (-1 punt)
+- **Força superior** — Reps 1 marcador de **Victòria** de l'Era actual:
+  - Era I: +1 punt
+  - Era II: +3 punts
+  - Era III: +5 punts
+
+Després de la Resolució de l'Era III, passa al Final de la Partida.
+
+## Final de la Partida
+
+La partida acaba després de la Resolució de Conflictes Militars de l'Era III.
+
+### Recompte de Punts de Victòria
+
+Utilitza el quadern de puntuació per anotar els punts:
+
+#### 1. Tauler de Meravella
+
+- Suma els punts de les Etapes construïdes
+
+#### 2. Tresoreria
+
+- 1 punt per cada **3 monedes**
+
+#### 3. Conflictes Militars
+
+- Suma els valors de tots els marcadors de Derrota i Victòria (pot ser negatiu)
+
+#### 4. Cartes Blaves
+
+- Suma els punts de les Estructures Civils
+
+#### 5. Cartes Grogues
+
+- Suma els punts segons els efectes de les Estructures Comercials
+
+#### 6. Cartes Verdes
+
+- Compta tots els símbols científics (ciutat + Meravella)
+- Els símbols donen punts de **dues maneres diferents** que se sumen:
+
+##### Símbols idèntics
+
+- **1 símbol idèntic** → 1 punt
+- **2 símbols idèntics** → 4 punts
+- **3 símbols idèntics** → 9 punts
+- **4 símbols idèntics** → 16 punts
+- **5 símbols idèntics** → 25 punts
+- **6 símbols idèntics** → 36 punts
+
+##### Grups de 3 símbols diferents
+
+- Per cada grup complet de 3 símbols científics diferents: **7 punts**
+
+#### 7. Cartes Morades
+
+- Suma els punts segons els efectes dels Gremis
+
+### Determinació del Guanyador
+
+El jugador amb **més punts** guanya la partida.
+
+**En cas d'empat**: El jugador amb més monedes a la Tresoreria guanya. Si segueixen empatats, comparteixen la victòria.
 
 ## Estratègies Recomanades
 
 ### Estratègies Bàsiques
 
-- **Diversifica les fonts de punts**: No et centris només en una estratègia
-- **Observa els veïns**: Les seves cartes afecten les teves opcions
-- **Gestiona els recursos**: Construeix una base econòmica sòlida
-- **No oblidis la ciència**: Pot proporcionar molts punts
+- **Diversifica la producció de recursos**: Intenta tenir accés a diferents tipus de recursos per no dependre dels veïns
+- **Vigila els veïns**: Presta atenció a la seva força militar i recursos per ajustar la teva estratègia
+- **Planifica les cadenes**: Construir cartes que donin cadenes gratuïtes a Eres posteriors és molt valuós
+- **No descuidis la Meravella**: Les Etapes solen donar bonificacions potents
 
 ### Estratègies Avançades
 
-- **Drafting defensiu**: Pren cartes que els altres necessiten
-- **Especialització**: Centra't en ciència o militar segons les oportunitats
-- **Timing de la meravella**: Construeix etapes en el moment adequat
-- **Lectura de la taula**: Anticipa què cartes arribaran a tu
+- **Especialització científica**: Els símbols científics donen punts exponencialment (1, 4, 9, 16...)
+- **Control militar**: Mantenir superioritat militar impedeix perdre punts i n'atorga de positius
+- **Comerç eficient**: Les Estructures Comercials redueixen el cost de compra de recursos (de 2 a 1 moneda)
+- **Timing dels Gremis**: A l'Era III, els Gremis poden donar molts punts segons la teva ciutat i les dels veïns
 
-## Variants i Expansions
+### Consells per a Principiants
 
-### 7 Wonders: Leaders
-
-Afegeix cartes de líders que es juguen abans de cada era.
-
-### 7 Wonders: Cities
-
-Introdueix diplomàcia, deute i noves mecàniques.
-
-### 7 Wonders: Babel
-
-Afegeix projectes cooperatius i la Torre de Babel.
-
-## Consells per a Principiants
-
-1. **Aprèn les cartes**: Familiaritza't amb els tipus i costos
-2. **Planifica la cadena**: Moltes cartes tenen prerequisits
-3. **No infravalors les monedes**: Són flexibilitat pura
-4. **Observa la ciència**: Pot ser molt rendible si ningú més la fa
-5. **Equilibra militar**: No vulguis perdre tots els conflictes
+1. **No ignoris el militar**: Perdre tots els conflictes pot costar-te 6 punts (-1, -1, -1, -1, -1, -1)
+2. **Gestiona bé les monedes**: No et quedis sense tresoreria, la necessitaràs per comprar recursos
+3. **Llegeix bé les cartes**: Algunes Estructures Grogues i Morades donen punts segons condicions específiques
+4. **Prioritza segons l'Era**: Era I (recursos), Era II (militar i ciència), Era III (punts directes)
+5. **Utilitza la cara de Dia**: Per a les primeres partides, les Meravelles amb la cara de Dia són més senzilles
 
 ## Història i Curiositats
 
 - Creat per **Antoine Bauza** el 2010
-- Guanyador del **Spiel des Jahres** el 2011
-- Basat en les **Set Meravelles del Món Antic**
-- Més de **1 milió** de còpies venudes
-- Traduït a més de **30 idiomes**
-- Considerat un dels millors jocs de **drafting** mai creats
+- Publicat per **Repos Production**
+- Guanyador del **Kennerspiel des Jahres** (Joc Expert de l'Any) el 2011
+- Ha venut més de **2 milions** de còpies mundialment
+- Té nombroses **expansions**: Leaders, Cities, Babel, Armada, Edifice
+- Inspirat en les **Set Meravelles del Món Antic**: Els Jardins Penjants de Babilònia, El Colós de Rodes, El Far d'Alexandria, El Temple d'Àrtemis a Èfes, El Mausoleu d'Halicarnàs, La Piràmide de Giza i L'Estàtua de Zeus a Olímpia
+- El 2020 es va llançar **7 Wonders: Arquitects**, una versió simplificada del joc original
+- També existeix **7 Wonders Duel**, una versió per a 2 jugadors considerada un dels millors jocs per a parelles
