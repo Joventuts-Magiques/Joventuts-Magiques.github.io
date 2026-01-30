@@ -8,189 +8,233 @@ difficulty: Medium
 age_range: 13+
 excerpt: "Social deduction and deception game where liberals and fascists fight for control of the government in 1930s Germany."
 layout: game
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Secret_Hitler_board_game_logo.png/320px-Secret_Hitler_board_game_logo.png"
+image: "https://i.imgur.com/JK06egu.png"
+video_url: "https://www.youtube.com/watch?v=xRt9JdzKrvg"
+video_credit: "Settlers Cafe"
 ---
 
 ## Overview
 
-Secret Hitler is a social deduction and political deception game created by Mike Boxleiter, Tommy Maranges, and Max Temkin in 2016. Set in 1930s Germany, players are divided into liberals and fascists, with one player taking on the secret role of Hitler. Liberals try to pass liberal policies and assassinate Hitler, while fascists try to pass fascist policies and bring Hitler to power.
+The year is 1932. The place is pre-WWII Germany. In Secret Hitler, players are German politicians attempting to hold a fragile Liberal government together and target the rising tide of Fascism. Watch out though - there are secret Fascists among you, and one player is Secret Hitler.
 
 ## Game Components
 
-- **Role Cards** (secret identities)
-- **Party Membership Cards** (affiliation)
-- **Policy Cards** (11 fascist, 6 liberal)
-- **Government Board** (policy tracking)
-- **Ballot Cards** (Ja/Nein per player)
-- **President and Chancellor Placards**
-- **Election Tracker**
+- **17 Policy tiles** (6 Liberal, 11 Fascist)
+- **10 Secret Role cards**
+- **10 Party Membership cards**
+- **10 card envelopes**
+- **10 Ja! ballot cards**
+- **10 Nein ballot cards**
+- **1 Election Tracker marker**
+- **1 Draw pile card**
+- **1 Discard pile card**
+- **3 Liberal/Fascist boards**
+- **1 President placard**
+- **1 Chancellor placard**
 
 ## Game Objective
 
+Each player has a secret identity as a member of either the Liberal team or the Fascist team.
+
 ### Liberals Win If
 
-- They pass **5 liberal policies**
-- They **assassinate Hitler** after 3 fascist policies are enacted
+- **5 Liberal Policies** are enacted
+- Or **Hitler is assassinated**
 
 ### Fascists Win If
 
-- They pass **6 fascist policies**
-- **Hitler is elected Chancellor** after 3 fascist policies are enacted
+- **6 Fascist Policies** are enacted
+- Or **Hitler is elected Chancellor** at any time after 3 Fascist Policies have been enacted
 
 ## Setup
 
-### Role Distribution (by player count)
+### Role Distribution
 
-**5 players**: 3 Liberals, 1 Fascist, 1 Hitler
-**6 players**: 4 Liberals, 1 Fascist, 1 Hitler
-**7 players**: 4 Liberals, 2 Fascists, 1 Hitler
-**8 players**: 5 Liberals, 2 Fascists, 1 Hitler
-**9 players**: 5 Liberals, 3 Fascists, 1 Hitler
-**10 players**: 6 Liberals, 3 Fascists, 1 Hitler
+- **5 players:** 3 Liberals, 1 Fascist + Hitler
+- **6 players:** 4 Liberals, 1 Fascist + Hitler
+- **7 players:** 4 Liberals, 2 Fascists + Hitler
+- **8 players:** 5 Liberals, 2 Fascists + Hitler
+- **9 players:** 5 Liberals, 3 Fascists + Hitler
+- **10 players:** 6 Liberals, 3 Fascists + Hitler
 
 ### Initial Setup
 
-1. **Deal Role cards** according to player count
-2. **Everyone closes their eyes**
-3. **Fascists and Hitler open their eyes** to recognize each other
-   - In 5-6 player games: Hitler doesn't know who the fascists are
-   - In 7-10 player games: Hitler knows who the fascists are
-4. **Shuffle Policy cards** and place them face-down
-5. **Choose an initial President** randomly
+1. Select the Fascist board corresponding to the number of players and place it next to any Liberal board
+2. Shuffle the 11 Fascist Policy tiles and the 6 Liberal Policy tiles into a single deck and place it face down
+3. Each player receives an envelope containing: Secret Role card, Party Membership card, Ja! card and Nein card
+4. Randomly select the first Presidential Candidate
+
+### Night Phase
+
+**For 5-6 player games:**
+
+- Everyone closes their eyes
+- Fascists and Hitler open their eyes and acknowledge each other
+- Everyone closes their eyes
+- Everyone can open their eyes
+
+**For 7-10 player games:**
+
+- Everyone closes their eyes and extends their fist in front of them
+- All Fascists who are NOT Hitler open their eyes and acknowledge each other
+- Hitler keeps their eyes closed but gives a thumbs up
+- Fascists take note of who has their thumb extended - that player is Hitler
+- Everyone closes their eyes and lowers their hands
+- Everyone can open their eyes
 
 ## How to Play
 
+Secret Hitler is played in rounds. Each round has an **Election** to form a government, a **Legislative Session** to enact a new Policy, and an **Executive Action** to exercise governmental power.
+
 ### Phase 1: Election
 
-1. **President nominates a Chancellor**
-   - Cannot be the previous President or Chancellor (except in 5-player games)
-2. **Everyone votes** simultaneously (Ja or Nein)
-3. **If majority votes Ja**:
-   - Government is elected
-   - Proceed to Legislative Phase
-4. **If majority votes Nein**:
-   - Government is rejected
-   - Election Tracker advances
-   - Presidency passes to next player
-   - **If 3 consecutive governments fail**: Top policy is enacted automatically (Chaos)
+#### 1. Pass the Presidential Candidacy
 
-### Phase 2: Legislative
+At the beginning of a new round, the President placard passes clockwise to the next player, who is the new Presidential Candidate.
 
-1. **President draws 3 Policy cards**
-2. **President discards 1 card** secretly
-3. **President passes 2 cards** to Chancellor
-4. **Chancellor discards 1 card** secretly
-5. **Chancellor enacts 1 policy**
-6. **Policy is added to the board**
+#### 2. Nominate a Chancellor
 
-### Phase 3: Executive Power
+The Presidential Candidate chooses a Chancellor Candidate by passing the Chancellor placard to any other eligible player. The Presidential Candidate may discuss Chancellor options with the table.
 
-After enacting certain fascist policies, the President gains special powers:
+**Eligibility (Term Limits):**
 
-**After 1-2 fascist policies** (depending on player count):
+- The last elected President and Chancellor are "term-limited" and cannot be nominated as Chancellor Candidate
+- Term limits only affect Chancellor nominations; anyone can be President
+- If only 5 players remain, only the last elected Chancellor is ineligible; the last President can be nominated
 
-- **Investigate Loyalty**: Look at a player's Party Membership card
+#### 3. Vote on the Government
 
-**After 3 fascist policies**:
+All players, including the Candidates, vote on the proposed government. When everyone is ready, reveal voting cards simultaneously.
 
-- **Special Election**: Choose the next President (skip normal order)
+**If the majority votes Nein (or tie):**
 
-**After 4-5 fascist policies**:
+- The vote fails
+- The Election Tracker advances one position
+- The President placard passes to the next player
+- **If 3 governments are rejected in a row (Chaos):** Immediately reveal the top Policy tile from the deck and enact it. Presidential powers are ignored, the Election Tracker resets, and term limits are forgotten
 
-- **Execution**: Remove a player from the game
-- **Veto Power**: President and Chancellor can veto the agenda (both must agree)
+**If the majority votes Ja!:**
 
-## Strategies
+- The Candidates become the new President and Chancellor
+- **If 3+ Fascist Policies have already been enacted:** Ask if the new Chancellor is Hitler. If so, the game ends and the Fascists win!
+- Proceed to the Legislative Session
 
-### For Liberals
+### Phase 2: Legislative Session
 
-1. **Trust but verify**: Watch for behavioral patterns
-2. **Communicate openly**: Share information
-3. **Identify Hitler**: Key to winning
-4. **Use executive powers**: Investigate suspicious players
-5. **Vote strategically**: Don't let Hitler become Chancellor late game
-6. **Build alliances**: Work with trusted players
+1. **The President draws 3 Policy tiles** from the deck
+2. **The President discards 1 tile** face down secretly
+3. **The President passes the remaining 2 tiles** to the Chancellor
+4. **The Chancellor discards 1 tile** face down secretly
+5. **The Chancellor enacts 1 Policy** by placing it face up on the corresponding board
 
-### For Fascists
+**Important rules:**
 
-1. **Protect Hitler**: Don't make him suspicious
-2. **Create confusion**: Accuse liberals of being fascists
-3. **Control the narrative**: Justify your actions
-4. **Sacrifice yourself if needed**: To protect Hitler
-5. **Time Hitler's Chancellorship**: Wait for the right moment
-6. **Appear liberal**: Pass liberal policies when necessary
+- Verbal and non-verbal communication between President and Chancellor is **prohibited** during this phase
+- Policies cannot be chosen randomly or shuffled
+- Discarded tiles are **never** revealed to the group
+- Players may **lie** about what they saw
 
-### For Hitler
+### Phase 3: Executive Action (Presidential Powers)
 
-1. **Act like a liberal**: Until it's safe to reveal yourself
-2. **Let fascists do the dirty work**
-3. **Build trust**: Get elected Chancellor when it matters
-4. **Don't rush**: Wait until 3 fascist policies are enacted
-5. **Always deny**: Even if investigated
+If the enacted Fascist Policy grants a Presidential Power, the President must use it before the next round begins. Presidential Powers are used only once.
 
-## Tips for Beginners
+#### Investigate Loyalty
 
-1. **Start with 7-8 players**: Ideal balance
-2. **Liberals: talk a lot**: Information is power
-3. **Fascists: be subtle**: Don't coordinate openly
-4. **Watch the votes**: They reveal a lot about loyalty
-5. **Don't trust blindly**: Even liberals can seem suspicious
-6. **Learn from mistakes**: Each game teaches new tactics
+The President chooses a player to investigate. The investigated player hands their **Party Membership card** (not their Secret Role card!) to the President, who looks at it secretly and returns it. The President may share (or lie about!) the results. No player can be investigated twice in the same game.
 
-## Variants
+#### Call Special Election
 
-### Quick Variant
+The President chooses any other player to be the next Presidential Candidate. After a Special Election, the President placard returns to the left of the President who called the Special Election.
 
-- Only 4 liberal and 5 fascist policies to win
-- Shorter, more intense games
+#### Policy Peek
 
-### No Powers Variant
+The President secretly looks at the top 3 tiles of the Policy deck and returns them to the top of the deck without changing the order.
 
-- Remove executive powers
-- Simpler for beginners
+#### Execution
 
-### Chaos Variant
-
-- More fascist cards in the deck
-- Harder for liberals
-
-## Important Rules
-
-### Term Limits
-
-- Cannot nominate previous President or Chancellor
-- Except in 5-player games
-- Resets after a failed election
+The President executes a player by saying "I formally execute [player name]." If that player is Hitler, the game ends in Liberal victory. If they are not Hitler, the table **should not** know whether a Fascist or a Liberal has been killed; players must deduce this for themselves. Executed players cannot speak, vote, or run for office.
 
 ### Veto Power
 
-- Only available after 5 fascist policies
-- President and Chancellor must both agree
-- If used, counts as failed government
+The Veto Power comes into effect after **5 Fascist Policies** have been enacted. The Chancellor may say "I wish to veto this agenda." If the President consents by saying "I accept the veto," both Policies are discarded and the President placard passes to the left. If the President does not consent, the Chancellor must enact a Policy normally.
 
-### Executions
+Each use of the Veto Power represents an inactive government and advances the Election Tracker by one.
 
-- Executed player reveals their Party Membership card
-- Cannot speak or vote for rest of game
-- If Hitler is executed, liberals win immediately
+## Game End
 
-## History and Context
+The game ends immediately when:
 
-- **Created in 2016** by Mike Boxleiter, Tommy Maranges, and Max Temkin
-- **Kickstarter funded**: Raised over $1.5 million
-- **Inspired by**: Mafia, Werewolf, and The Resistance
-- **Controversial theme**: But educational about political manipulation
-- **Available for free**: Can print from official website
-- **Over 1 million** copies sold
+- 5 Liberal Policies are enacted (Liberal victory)
+- Hitler is assassinated (Liberal victory)
+- 6 Fascist Policies are enacted (Fascist victory)
+- Hitler is elected Chancellor after 3+ Fascist Policies (Fascist victory)
+
+## Recommended Strategies
+
+### Official Strategy Notes
+
+- **Everyone should claim to be Liberal.** Since the Liberal team has a voting majority, they can easily exclude any player who claims to be Fascist
+- **Liberals should generally tell the truth.** Lying can put your team at a significant disadvantage
+- **If it's your first time playing as Hitler:** Be as Liberal as possible. Enact Liberal Policies. Vote for Liberal governments. Trust your fellow Fascists to create opportunities
+- **Liberals benefit from slowing down the game** and discussing the available information
+- **Fascists benefit from speeding up votes** and creating confusion
+- **Fascists win more often by electing Hitler**, not by enacting 6 Policies!
+- **Ask other players why they took an action.** Especially important with Presidential Powers
+- **If a Fascist Policy comes out, there are only three possible culprits:** The President, the Chancellor, or the Policy Deck
+
+### For Liberals
+
+- Watch for behavioral patterns
+- Communicate openly and share information
+- Identify Hitler - it's the key to winning
+- Use executive powers to investigate suspects
+- Don't let Hitler become Chancellor late in the game
+
+### For Fascists
+
+- Protect Hitler - don't make him suspicious
+- Create confusion by accusing liberals of being fascists
+- Sacrifice yourself if necessary to protect Hitler
+- Appear liberal - enact liberal policies when needed
+
+### For Hitler
+
+- Act like a liberal until it's safe
+- Let the other fascists do the dirty work
+- Build trust to be elected Chancellor when it matters
+- Avoid lying or getting into fights with other players
+
+## Tips for Beginners
+
+1. **Start with 7-8 players** for ideal balance
+2. **Liberals: talk a lot** - information is power
+3. **Fascists: be subtle** - don't coordinate openly
+4. **Watch the votes** - they reveal a lot about loyalty
+5. **Don't trust blindly** - even liberals can seem suspicious
+6. **Learn from mistakes** - each game teaches new tactics
+
+## About Lying
+
+You can always lie about hidden knowledge in Secret Hitler. The only time players MUST tell the truth is in game-end scenarios involving Hitler: a player who is Hitler must reveal it if they are assassinated or if they are elected Chancellor after 3 Fascist Policies have been enacted.
+
+## History and Fun Facts
+
+- **Created in 2016** by Mike Boxleiter, Tommy Maranges, and Mac Schubert
+- **Kickstarter funded** with 34,565 backers who raised over $1.5 million
+- **Inspired by:** Mafia, Werewolf, and The Resistance
+- **Creative Commons license** (BY-NC-SA 4.0) - you can download and print it for free from secrethitler.com
+- Available in more than **30 languages**
+- Very popular on **streaming** platforms and **YouTube**
+- Considered one of the best modern social deduction games
 
 ## Considerations
 
 ### Sensitive Theme
 
-- Game deals with serious historical topics
-- Recommended for mature players
-- Uses theme as educational tool
-- Doesn't glorify Nazism, shows political manipulation
+- The game deals with serious historical topics
+- Recommended for mature players (13+)
+- Uses the theme as an educational tool about political manipulation
+- Doesn't glorify Nazism, but shows how manipulation works
 
 ### Social Dynamics
 
@@ -198,18 +242,3 @@ After enacting certain fascist policies, the President gains special powers:
 - Requires emotional maturity
 - Better with groups who know each other
 - Set boundaries before playing
-
-## Resources
-
-- **SecretHitler.com**: Official site with rules and downloads
-- **Free online version**: Play over the internet
-- **Strategy guides**: Active community with tips
-- **Variants and mods**: Created by the community
-
-## Fun Facts
-
-- The game is **completely free** to print
-- Available in over **30 languages**
-- Has sparked debate about using historical themes in games
-- Very popular on **streaming** platforms and **YouTube**
-- Considered one of the best modern social deduction games
