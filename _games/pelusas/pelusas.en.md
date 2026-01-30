@@ -1,5 +1,6 @@
 ---
 title: Pelusas
+game_id: pelusas_id
 lang: en
 players: 2-6
 duration: 20

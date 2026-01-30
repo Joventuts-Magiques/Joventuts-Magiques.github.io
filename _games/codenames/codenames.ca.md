@@ -1,5 +1,6 @@
 ---
-title: Código Secreto
+title: Codi Secret
+game_id: codenames_id
 lang: ca
 players: 2-8+
 duration: 15-30

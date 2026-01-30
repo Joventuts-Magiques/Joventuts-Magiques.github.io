@@ -1,6 +1,7 @@
 ---
 layout: card-game
 title: Standard (MTG)
+game_id: [magic-the-gathering-standard_id]
 lang: ca
 players: "2"
 format: "Standard"

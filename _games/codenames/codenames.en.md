@@ -1,5 +1,6 @@
 ---
-title: Código Secreto
+title: Codename
+game_id: codenames_id
 lang: en
 players: 2-8+
 duration: 15-30

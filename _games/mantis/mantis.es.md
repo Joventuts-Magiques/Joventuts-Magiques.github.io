@@ -1,5 +1,6 @@
 ---
 title: MANTIS
+game_id: mantis_id
 lang: es
 players: 2-6
 duration: 10

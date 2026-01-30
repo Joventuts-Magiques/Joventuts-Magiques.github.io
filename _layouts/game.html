@@ -86,14 +86,12 @@ layout: default
     {% endcase %}
 
     {% comment %} Language versions of this game {% endcomment %}
-    {% assign game_name = page.title | slugify %}
     <div class="language-versions">
       <span class="versions-label">{{ t.other_languages | default: "Altres idiomes" }}:</span>
       {% for lang in site.languages %}
         {% unless lang == current_lang %}
-          {% assign lang_file = "_games/" | append: game_name | append: "/" | append: game_name | append: "." | append: lang | append: ".md" %}
           {% for game in site.games %}
-            {% if game.path contains lang_file or game.lang == lang and game.title == page.title %}
+            {% if game.game_id == page.game_id and game.lang == lang %}
               <a href="{{ game.url }}"
                  class="lang-version-link"
                  hreflang="{{ lang }}"

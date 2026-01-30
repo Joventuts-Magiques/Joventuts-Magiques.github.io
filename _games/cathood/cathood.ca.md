@@ -1,5 +1,6 @@
 ---
 title: Cathood
+game_id: cathood_id
 lang: ca
 players: 2-4
 duration: 45

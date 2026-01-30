@@ -1,5 +1,6 @@
 ---
-title: "Aventureros al Tren Europa"
+title: "Aventurers al Tren! Europa"
+game_id: ticket-to-ride-europe_id
 lang: ca
 players: 2-5
 duration: 30-60

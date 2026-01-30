@@ -1,6 +1,7 @@
 ---
 layout: card-game
 title: Pokémon TCG
+game_id: [pokemon-tcg_id]
 lang: en
 players: "2"
 format: "Standard, Expanded, Unlimited"

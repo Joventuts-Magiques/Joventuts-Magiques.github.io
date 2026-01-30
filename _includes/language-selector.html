@@ -54,18 +54,18 @@
     {% comment %} CHECK COLLECTION-BASED PAGES (individual games) {% endcomment %}
 
     {% elsif page.collection == 'games' %}
-      {% comment %} Individual board game - find matching game by title {% endcomment %}
+      {% comment %} Individual board game - find matching game by game_id {% endcomment %}
       {% for game in site.games %}
-        {% if game.lang == lang and game.title == page.title %}
+        {% if game.lang == lang and game.game_id == page.game_id %}
           {% assign target_url = game.url %}
           {% break %}
         {% endif %}
       {% endfor %}
 
     {% elsif page.collection == 'card_games' %}
-      {% comment %} Individual card game - find matching game by title {% endcomment %}
+      {% comment %} Individual card game - find matching game by game_id {% endcomment %}
       {% for card_game in site.card_games %}
-        {% if card_game.lang == lang and card_game.title == page.title %}
+        {% if card_game.lang == lang and card_game.game_id == page.game_id %}
           {% assign target_url = card_game.url %}
           {% break %}
         {% endif %}
