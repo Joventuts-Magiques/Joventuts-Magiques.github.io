@@ -1,5 +1,6 @@
 ---
 title: [NOM DEL JOC]
+game_id: [NOM_CARPETA_id]
 lang: ca
 players: [NOMBRE DE JUGADORS, ex: 2-4]
 duration: [DURADA EN MINUTS, ex: 30-60]

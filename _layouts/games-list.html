@@ -65,8 +65,8 @@ layout: default
         {% assign collection = site.card_games %}
       {% endif %}
 
-      {% assign games_by_title = collection | group_by: 'title' | sort: 'name' %}
-      {% for game_group in games_by_title %}
+      {% assign games_by_id = collection | group_by: 'game_id' | sort: 'name' %}
+      {% for game_group in games_by_id %}
         {% include game-card.html game_group=game_group %}
       {% endfor %}
     </div>

@@ -1,5 +1,6 @@
 ---
 title: Potion Explosion
+game_id: potion-explosion_id
 lang: es
 players: 2-4
 duration: 30-45

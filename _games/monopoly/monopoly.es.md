@@ -1,5 +1,6 @@
 ---
 title: Monopoly
+game_id: monopoly_id
 lang: es
 players: 2-4
 duration: 60-180

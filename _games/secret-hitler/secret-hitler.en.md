@@ -1,5 +1,6 @@
 ---
 title: Secret Hitler
+game_id: secret-hitler_id
 lang: en
 players: 5-10
 duration: 45

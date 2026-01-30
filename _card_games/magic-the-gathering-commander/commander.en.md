@@ -1,6 +1,7 @@
 ---
 layout: card-game
 title: Commander (MTG)
+game_id: [magic-the-gathering-commander_id]
 lang: en
 players: "3-4 (recommended)"
 format: "Commander"

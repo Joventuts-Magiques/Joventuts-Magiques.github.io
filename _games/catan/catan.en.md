@@ -1,5 +1,6 @@
 ---
 title: Catan
+game_id: catan_id
 lang: en
 players: 3-4
 duration: 60-90

@@ -1,5 +1,6 @@
 ---
 title: 7 Wonders
+game_id: 7-wonders_id
 lang: en
 players: 3-7
 duration: 30-45

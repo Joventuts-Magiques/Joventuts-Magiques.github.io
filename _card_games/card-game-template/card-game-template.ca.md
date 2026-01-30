@@ -1,6 +1,7 @@
 ---
 layout: card-game
 title: [NOM DEL JOC]
+game_id: [NOM_CARPETA_id]
 lang: ca
 players: "[NOMBRE DE JUGADORS]"
 format: "[FORMATS DISPONIBLES]"
