@@ -65,18 +65,21 @@
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  min-height: 320px;
 }
 
 .category-link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   text-align: center;
   padding: var(--spacing-3xl) var(--spacing-2xl);
   text-decoration: none;
   color: inherit;
-  height: 100%;
+  min-height: 300px;
   transition: background-color var(--transition-normal);
+  box-sizing: border-box;
 }
 
 .category-link:focus-visible {
@@ -88,14 +91,6 @@
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-primary-light);
-}
-
-.category-card:hover .category-link {
-  background: linear-gradient(
-    135deg,
-    var(--color-bg-primary) 0%,
-    var(--color-bg-secondary) 100%
-  );
 }
 
 /* Category Icon */
@@ -126,16 +121,27 @@
   line-height: var(--line-height-normal);
 }
 
+.category-link {
+  padding-bottom: var(--spacing-3xl);
+}
+
 /* Category Count Badge */
 .category-count {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
   padding: var(--spacing-xs) var(--spacing-lg);
   background: var(--hero-gradient);
   color: var(--hero-text-color);
   border-radius: var(--radius-lg);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  margin-top: auto;
+  margin-left: var(--spacing-xs);
+}
+
+.category-card:nth-child(3) .category-count {
+  margin-top: var(--spacing-2xl);
+}
 }
 
 /* Section Titles */
