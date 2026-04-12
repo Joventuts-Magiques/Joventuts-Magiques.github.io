@@ -458,6 +458,8 @@
 
 /* Difficulty Badges */
 .difficulty-facil,
+.difficulty-fácil,
+.difficulty-fcil,
 .difficulty-easy,
 .difficulty-fàcil {
   background: var(--color-difficulty-easy-bg);
@@ -472,6 +474,10 @@
 .difficulty-mitja,
 .difficulty-mitjà,
 .difficulty-medio,
+.difficulty-media,
+.difficulty-médio,
+.difficulty-mdio,
+.difficulty-mitjana,
 .difficulty-medium {
   background: var(--color-difficulty-medium-bg);
   color: var(--color-difficulty-medium-text);
@@ -483,6 +489,7 @@
 }
 
 .difficulty-dificil,
+.difficulty-difcil,
 .difficulty-difícil,
 .difficulty-hard {
   background: var(--color-difficulty-hard-bg);
@@ -743,6 +750,7 @@
 }
 
 [data-theme="dark"] .difficulty-dificil,
+[data-theme="dark"] .difficulty-difcil,
 [data-theme="dark"] .difficulty-difícil,
 [data-theme="dark"] .difficulty-hard {
   animation: difficulty-intense-dark 2s ease-in-out infinite;
@@ -766,8 +774,11 @@
 [data-theme="dark"] .difficulty-mitja,
 [data-theme="dark"] .difficulty-mitjà,
 [data-theme="dark"] .difficulty-medio,
+[data-theme="dark"] .difficulty-media,
+[data-theme="dark"] .difficulty-médio,
+[data-theme="dark"] .difficulty-mdio,
+[data-theme="dark"] .difficulty-mitjana,
 [data-theme="dark"] .difficulty-medium {
-  /* No animation for medium difficulty */
   animation: none;
 }
     transform: translateY(-2px) scale(1.03);
@@ -777,6 +788,8 @@
 }
 
 [data-theme="dark"] .difficulty-facil,
+[data-theme="dark"] .difficulty-fácil,
+[data-theme="dark"] .difficulty-fcil,
 [data-theme="dark"] .difficulty-easy,
 [data-theme="dark"] .difficulty-fàcil {
   animation: difficulty-dance-dark 5s ease-in-out infinite;
