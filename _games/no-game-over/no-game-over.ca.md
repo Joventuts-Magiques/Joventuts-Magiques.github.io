@@ -54,6 +54,7 @@ Hi ha **2 formes de guanyar** No Game Over:
 El Player actiu col·loca a la seva zona de joc (visible per a tots) l'equipament que vulgui usar. Les cartes **no equipades es queden a la mà**.
 
 **Límit de mà: màxim 5 cartes.** Per reduir la mà pots:
+
 - Llançar Malediccions als altres Players
 - Usar Objectes d'un sol ús sobre tu mateix (i descartar-los)
 - Descartar 3 cartes qualssevol a canvi d'1 vida
@@ -78,7 +79,7 @@ El Player actiu pot fer les accions que vulgui amb les seves cartes. Torna a ten
 
 ### La Teva Força (FUERZA)
 
-**FUERZA = vides actuals + força de tot l'equipament equipat**
+#### FUERZA = vides actuals + força de tot l'equipament equipat
 
 Exemple: 5 vides + equipament (2+6+2+1+2) = **18 de força total**
 
@@ -98,11 +99,13 @@ Pots dur equipament en les zones del cos:
 ### Interferència dels Altres Players
 
 Quan un Player té força superior al seu Enemic, els **altres Players** poden intentar perjudicar-lo llançant:
+
 - **Objectes d'un sol ús**: tants com vulguin, en qualsevol moment del combat
 - **Malediccions**: tantes com vulguin, en qualsevol moment del combat
 - **1 Enemic secundari**: la seva força se suma a la de l'Enemic contrincant
 
 **En total pot haver-hi com a màxim 3 Enemies en un combat:**
+
 - 1 Enemic contrincant (el de la carta de Level)
 - 1 Enemic secundari (llançat per un altre Player)
 - 1 Enemic aliat (llançat pel Player actiu per ajudar-se)
@@ -116,6 +119,7 @@ El Player actiu pot usar al seu favor: Objectes d'un sol ús (els que vulgui) + 
 ### Guanyar el Combat
 
 Si el Player derrota l'Enemic:
+
 - Guanya **+1 vida**
 - Guanya les **recompenses** de tots els Enemies derrotats (mai de l'Enemic aliat)
 - Les recompenses són cartes de Level i/o Item, a elecció del Player. No pot veure les cartes fins que no hagi agafat totes les que li corresponen
@@ -125,6 +129,7 @@ Si el Player derrota l'Enemic:
 Si el Player no pot vèncer, pot intentar **fugir** tirant el dau. La habilitat de fugida per defecte és de **2 punts** → s'escapa traient **1 o 2** amb el dau.
 
 L'equipament i les Malediccions poden modificar aquesta habilitat:
+
 - Equipament **+1 a huida** → s'escapa traient 1, 2 o 3
 - Maledicció **-2 a huida** → no pot fugir amb el dau (cal carta de fugida)
 - Ambdós alhora → s'escapa traient 1
@@ -147,6 +152,7 @@ Augmenta la teva força i habilitats. Per equipar-te, **deixa la carta visible a
 Pots substituir equipament que ja tens posat per un altre i guardar el substituït a la mà.
 
 La carta mostra:
+
 1. **FORÇA** que t'aporta
 2. **Habilitat especial de Huida** (si en té)
 3. **Zona del cos** on va l'equipament (icona)
@@ -156,6 +162,7 @@ La carta mostra:
 Pots usar-los en el teu propi benefici (al teu torn o en combat) o per perjudicar els altres Players (en qualsevol moment del seu combat). Un cop usades, es descarten.
 
 Tres subtipus:
+
 - **Guanyar vida** → dóna corazones al Player
 - **Ajuda momentània** → efecte especial temporal
 - **Cop extra** → força addicional en combat
@@ -163,6 +170,7 @@ Tres subtipus:
 ### Mazo de Level — Enemic
 
 Quan es roba una carta d'Enemic, s'inicia un combat immediatament. La carta mostra:
+
 1. **FORÇA** de l'Enemic
 2. Si **no permet fugida** amb el dau
 3. **Recompensa** per derrotar-lo en combat
@@ -172,6 +180,7 @@ Quan es roba una carta d'Enemic, s'inicia un combat immediatament. La carta most
 Si el Player la roba al iniciar Level en el seu torn, **l'afecta directament**. Si la recull com a recompensa d'un Enemic (boca avall), pot llançar-la a qualsevol Player **en qualsevol moment de la partida, sigui o no el seu torn**.
 
 Dos tipus:
+
 - **Immediates**: fan efecte a l'instant (ex: -1 vida)
 - **No immediates**: depenen de condicions (ex: "No pots usar el teu equipament en el teu proper combat"). Deixa la Maledicció al costat de l'equip i descarta-la quan faci efecte
 
@@ -182,6 +191,7 @@ Un Player **només pot enfrontar-se al Final Boss en el seu torn**, abans d'inic
 Per passar de 5 a 6 vides: **has de guanyar un combat** (les cartes de "Guanyar vida" no serveixen per arribar a 6).
 
 En el combat contra el Final Boss:
+
 - S'apliquen les regles normals de combat
 - **Els altres Players (i Fantasmes) no poden intervenir en absolut**: ni Enemic secundari, ni Malediccions, res
 - Si no pot vèncer, pot intentar fugir; si no fuig, perd 1 vida
@@ -254,5 +264,5 @@ Si algun dels mazos es queda sense cartes, **agafa el mazo de descarte, barreja'
 
 - **Juego indie espanyol** creat per fans dels videojocs
 - Les cartes fan referència a personatges icònics: Sephiroth, Zelda, Mario, Pikachu, Street Fighter, Metal Gear...
-- La web oficial té aclariments de regles addicionals: **www.nogameover.es**
+- La web oficial té aclariments de regles addicionals:**<www.nogameover.es>**
 - El nom del joc fa referència a la pantalla de "Game Over" dels videojocs clàssics... que aquí mai és definitiva!
